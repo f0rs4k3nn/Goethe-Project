@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.ProBuilder.MeshOperations;
 
 public class PlayerController : MonoBehaviour
 {
@@ -25,11 +26,16 @@ public class PlayerController : MonoBehaviour
     public float gravityIntensity;
     private bool jumpKeyReleased = true;
     public float airControl = 0.5f;
+    public bool normalG = true;
 
     private bool canMove = false;
-    
+
+    bool coroutineOver = true;
 
     Transform camera;
+
+    public GameObject groundCheckObj;
+    public GameObject cameraLookAt;
 
 
     // Start is called before the first frame update
@@ -43,22 +49,51 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.G) && !isGrounded && coroutineOver)
+        {
+            StartCoroutine(YeahNigga());
+        }
+        
+        if (normalG)
+        {
+            velocity.y -= gravityIntensity * Time.deltaTime;
+            groundCheckObj.transform.position = new Vector3(0, transform.position.y - 0.6f, 0);
+        }
+        else if (!normalG)
+        {
+            velocity.y += gravityIntensity * Time.deltaTime;
+            groundCheckObj.transform.position = new Vector3(0, transform.position.y + 0.6f, 0);
+        }
 
         if (!canMove)
             return;
 
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
-        if (isGrounded && velocity.y < 0)
-        {
-            velocity.y = -2f;
-        }
+      // if (isGrounded && velocity.y < 0 && normalG)
+      // {
+      //     velocity.y = -2f;
+      // }
+      // else if(isGrounded && velocity.y < 0 && !normalG)
+      // {
+      //     velocity.y = 4f;
+      // }
 
-        if (Input.GetAxis("Jump") > 0 && isGrounded && jumpKeyReleased)
+        if (Input.GetAxis("Jump") > 0 && isGrounded && jumpKeyReleased && normalG)
         {
             velocity.y = jumpForce;
             jumpKeyReleased = false;
         } else if(Input.GetAxis("Jump") == 0)
+        {
+            jumpKeyReleased = true;
+        }
+
+        if (Input.GetAxis("Jump") > 0 && isGrounded && jumpKeyReleased && !normalG)
+        {
+            velocity.y = -jumpForce;
+            jumpKeyReleased = false;
+        }
+        else if (Input.GetAxis("Jump") == 0)
         {
             jumpKeyReleased = true;
         }
@@ -69,15 +104,17 @@ public class PlayerController : MonoBehaviour
         float targetSpeed = (running ? runSpeed : walkSpeed) * input.magnitude;
         currentSpeed = Mathf.SmoothDamp(currentSpeed, targetSpeed, ref speedSmoothVelocity, speedSmoothTime);
 
-        if (input != Vector2.zero)
+        float targetRotation = Mathf.Atan2(input.x, input.y) * Mathf.Rad2Deg + camera.eulerAngles.y;
+
+        if (input != Vector2.zero && normalG)
         {
-            float targetRotation = Mathf.Atan2(input.x, input.y) * Mathf.Rad2Deg + camera.eulerAngles.y;
-            transform.eulerAngles = Vector3.up * Mathf.SmoothDampAngle(transform.eulerAngles.y, targetRotation, ref turnSmoothVelocity, turnsmoothTime);
+                transform.eulerAngles = Vector3.up * Mathf.SmoothDampAngle(transform.eulerAngles.y, targetRotation, ref turnSmoothVelocity, turnsmoothTime);
+        } else if(input != Vector2.zero && !normalG)
+        {
+                transform.eulerAngles = - Vector3.down * Mathf.SmoothDampAngle(transform.eulerAngles.y, targetRotation, ref turnSmoothVelocity, turnsmoothTime);
         }
 
         player.Move(transform.forward * currentSpeed * Time.deltaTime) ;
-
-        velocity.y -= gravityIntensity * Time.deltaTime;
 
         player.Move(velocity * Time.deltaTime);
 
@@ -87,5 +124,13 @@ public class PlayerController : MonoBehaviour
     public void SetActive(bool isActive)
     {
         canMove = isActive;
+    }
+
+    IEnumerator YeahNigga()
+    {
+        coroutineOver = false;
+        normalG = !normalG;
+        yield return new WaitForSeconds(1);
+        coroutineOver = true;
     }
 }
