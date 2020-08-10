@@ -49,24 +49,24 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!canMove)
+            return;
+
         if (Input.GetKeyDown(KeyCode.G) && !isGrounded && coroutineOver)
         {
-            StartCoroutine(YeahNigga());
+            StartCoroutine(GChangeCooldown());
         }
         
         if (normalG)
         {
             velocity.y -= gravityIntensity * Time.deltaTime;
-            groundCheckObj.transform.position = new Vector3(0, transform.position.y - 0.6f, 0);
+            groundCheckObj.transform.position = new Vector3(transform.position.x, transform.position.y - 0.6f, transform.position.z);
         }
         else if (!normalG)
         {
             velocity.y += gravityIntensity * Time.deltaTime;
-            groundCheckObj.transform.position = new Vector3(0, transform.position.y + 0.6f, 0);
+            groundCheckObj.transform.position = new Vector3(transform.position.x, transform.position.y + 0.6f, transform.position.z);
         }
-
-        if (!canMove)
-            return;
 
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
@@ -126,7 +126,7 @@ public class PlayerController : MonoBehaviour
         canMove = isActive;
     }
 
-    IEnumerator YeahNigga()
+    IEnumerator GChangeCooldown()
     {
         coroutineOver = false;
         normalG = !normalG;
