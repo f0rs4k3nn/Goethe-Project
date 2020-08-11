@@ -6,15 +6,22 @@ using TMPro;
 public class Dialog : MonoBehaviour
 {
     public TextMeshProUGUI textDisplay;
+    TextMeshProUGUI continueTextDisplay;
+
+    GameObject player;
+
     GameObject dialogBox;
     public string[] sentencesNpc;
     public int index = 0;
     bool startConversation = false;
+    bool freezeMovement;
     public float typingSpeed;
 
     void Start()
     {
+        textDisplay.text = "";
         dialogBox = GameObject.Find("DialogBox");
+        player = GameObject.Find("Player");
         dialogBox.SetActive(false);
     }
 
@@ -36,6 +43,11 @@ public class Dialog : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        FreezeMovement();
+    }
+
     private void OnTriggerExit(Collider other)
     {
         startConversation = false;
@@ -43,18 +55,17 @@ public class Dialog : MonoBehaviour
         ResetConversation();
     }
 
-    private void Update()
-    {
-        
-    }
-
     IEnumerator Type()
     {
+        freezeMovement = true;
+
         foreach (char letter in sentencesNpc[index].ToCharArray())
         {
             textDisplay.text += letter;
             yield return new WaitForSeconds(typingSpeed);
         }
+
+        freezeMovement = false;
     }
 
     public void NextSentence()
@@ -75,5 +86,19 @@ public class Dialog : MonoBehaviour
     {
         textDisplay.text = "";
         index = 2;
+    }
+
+    public void FreezeMovement()
+    {
+        if (freezeMovement)
+        {
+            player.GetComponent<CharacterController>().enabled = false;
+            player.GetComponent<PlayerController>().enabled = false;
+        }
+        else
+        {
+            player.GetComponent<PlayerController>().enabled = true;
+            player.GetComponent<CharacterController>().enabled = true;
+        }
     }
 }
