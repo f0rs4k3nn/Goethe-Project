@@ -26,16 +26,17 @@ public class PlayerController : MonoBehaviour
     public float gravityIntensity;
     private bool jumpKeyReleased = true;
     public float airControl = 0.5f;
-    public bool normalG = true;
+    public bool gravityIsReversed = false;
 
     private bool canMove = false;
 
-    bool coroutineOver = true;
+    bool canChangeGravity = true;
 
     Transform camera;
 
     public GameObject groundCheckObj;
     public GameObject cameraLookAt;
+    public Transform playerModel;
 
 
     // Start is called before the first frame update
@@ -46,51 +47,37 @@ public class PlayerController : MonoBehaviour
         canMove = true;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (!canMove)
             return;
 
-        if (Input.GetKeyDown(KeyCode.G) && !isGrounded && coroutineOver)
-        {
-            StartCoroutine(GChangeCooldown());
-        }
-        
-        if (normalG)
-        {
-            velocity.y -= gravityIntensity * Time.deltaTime;
-            groundCheckObj.transform.position = new Vector3(transform.position.x, transform.position.y - 0.6f, transform.position.z);
-        }
-        else if (!normalG)
-        {
-            velocity.y += gravityIntensity * Time.deltaTime;
-            groundCheckObj.transform.position = new Vector3(transform.position.x, transform.position.y + 0.6f, transform.position.z);
-        }
-
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
-      // if (isGrounded && velocity.y < 0 && normalG)
-      // {
-      //     velocity.y = -2f;
-      // }
-      // else if(isGrounded && velocity.y < 0 && !normalG)
-      // {
-      //     velocity.y = 4f;
-      // }
-
-        if (Input.GetAxis("Jump") > 0 && isGrounded && jumpKeyReleased && normalG)
+        if (Input.GetKeyDown(KeyCode.G) && !isGrounded && canChangeGravity)
         {
-            velocity.y = jumpForce;
-            jumpKeyReleased = false;
-        } else if(Input.GetAxis("Jump") == 0)
-        {
-            jumpKeyReleased = true;
+            playerModel.rotation = Quaternion.Euler(0, 0, 180f + playerModel.rotation.eulerAngles.z);
+            StartCoroutine(GChangeCooldown());
         }
 
-        if (Input.GetAxis("Jump") > 0 && isGrounded && jumpKeyReleased && !normalG)
+        if (isGrounded)
         {
-            velocity.y = -jumpForce;
+            if (!gravityIsReversed)
+            {
+                if (velocity.y > 0)
+                {
+                    velocity.y = 2f;
+                }
+            }
+            else if (velocity.y < 0)
+            {
+                velocity.y = -2f;
+            }
+        }
+
+        if (Input.GetAxis("Jump") > 0 && isGrounded && jumpKeyReleased)
+        {
+            velocity.y = jumpForce * (gravityIsReversed ? 1 : -1);
             jumpKeyReleased = false;
         }
         else if (Input.GetAxis("Jump") == 0)
@@ -104,23 +91,80 @@ public class PlayerController : MonoBehaviour
         float targetSpeed = (running ? runSpeed : walkSpeed) * input.magnitude;
         currentSpeed = Mathf.SmoothDamp(currentSpeed, targetSpeed, ref speedSmoothVelocity, speedSmoothTime);
 
-        float targetRotation = Mathf.Atan2(input.x, input.y) * Mathf.Rad2Deg + camera.eulerAngles.y;
-
-        if (input != Vector2.zero && normalG)
+        if (input != Vector2.zero)
         {
-                transform.eulerAngles = Vector3.up * Mathf.SmoothDampAngle(transform.eulerAngles.y, targetRotation, ref turnSmoothVelocity, turnsmoothTime);
-        } else if(input != Vector2.zero && !normalG)
-        {
-                transform.eulerAngles = - Vector3.down * Mathf.SmoothDampAngle(transform.eulerAngles.y, targetRotation, ref turnSmoothVelocity, turnsmoothTime);
+            float targetRotation = Mathf.Atan2(input.x, input.y) * Mathf.Rad2Deg + camera.eulerAngles.y;
+            transform.eulerAngles = Vector3.up * Mathf.SmoothDampAngle(transform.eulerAngles.y, targetRotation, ref turnSmoothVelocity, turnsmoothTime);
         }
 
-        player.Move(transform.forward * currentSpeed * Time.deltaTime) ;
+        player.Move(transform.forward * currentSpeed * Time.deltaTime);
+
+        velocity.y -= gravityIntensity * Time.deltaTime * (gravityIsReversed ? 1 : -1);
 
         player.Move(velocity * Time.deltaTime);
 
         //transform.Translate(transform.forward * currentSpeed * Time.deltaTime, Space.World); 
     }
 
+    /**
+    void Update()
+    {
+        if (!canMove)
+            return;
+
+       if (Input.GetKeyDown(KeyCode.G) && !isGrounded && canChangeGravity)
+        {
+            playerModel.rotation = Quaternion.Euler(0, 0, 180f + playerModel.rotation.eulerAngles.z);
+            StartCoroutine(GChangeCooldown());
+        }
+
+        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+
+        if (isGrounded)
+        {
+            if(gravityIsReversed)
+            {
+                if(velocity.y > 0)
+                {
+                    velocity.y = 2f;
+                } 
+            } else if (velocity.y < 0)
+            {
+                velocity.y = -2f;
+            }
+        }
+
+        if (Input.GetAxis("Jump") > 0 && isGrounded && jumpKeyReleased)
+        {
+            velocity.y = jumpForce * (gravityIsReversed ? -1 : 1);
+            jumpKeyReleased = false;
+
+        } else if (Input.GetAxis("Jump") == 0)
+        {
+            jumpKeyReleased = true;
+        }
+
+        Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+
+        bool running = Input.GetKey(KeyCode.LeftShift);
+        float targetSpeed = (running ? runSpeed : walkSpeed) * input.magnitude;
+        currentSpeed = Mathf.SmoothDamp(currentSpeed, targetSpeed, ref speedSmoothVelocity, speedSmoothTime);
+
+        if (input != Vector2.zero)
+        {
+            float targetRotation = Mathf.Atan2(input.x, input.y) * Mathf.Rad2Deg + camera.eulerAngles.y;
+            transform.eulerAngles = Vector3.up * Mathf.SmoothDampAngle(transform.eulerAngles.y, targetRotation, ref turnSmoothVelocity, turnsmoothTime);
+        }
+
+        player.Move(transform.forward * currentSpeed * Time.deltaTime);
+
+        velocity.y -= gravityIntensity * Time.deltaTime;
+
+        player.Move(velocity * Time.deltaTime);
+
+        //transform.Translate(transform.forward * currentSpeed * Time.deltaTime, Space.World); 
+    }
+    **/
     public void SetActive(bool isActive)
     {
         canMove = isActive;
@@ -128,9 +172,9 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator GChangeCooldown()
     {
-        coroutineOver = false;
-        normalG = !normalG;
+        canChangeGravity = false;
+        gravityIsReversed = !gravityIsReversed;
         yield return new WaitForSeconds(1);
-        coroutineOver = true;
+        canChangeGravity = true;
     }
 }

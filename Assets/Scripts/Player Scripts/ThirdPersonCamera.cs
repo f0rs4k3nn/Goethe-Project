@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class ThirdPersonCamera : MonoBehaviour
 {
-    public GameObject player;
 
     public float mouseSensitivity = 10;
     public Transform target;
@@ -27,18 +26,7 @@ public class ThirdPersonCamera : MonoBehaviour
         canMove = true;
     }
 
-    void Update()
-    {
-        if (player.GetComponent<PlayerController>().normalG)
-        {
-            target.transform.position = new Vector3(player.transform.position.x, player.transform.position.y + 2, player.transform.position.z);
-        }
-        else
-        {
-            target.transform.position = new Vector3(player.transform.position.x, player.transform.position.y - 2, player.transform.position.z);
-        }
-    }
-
+    // Update is called once per frame
     void LateUpdate()
     {
         if (canMove)
