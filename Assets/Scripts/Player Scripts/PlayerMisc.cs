@@ -15,14 +15,14 @@ public class PlayerMisc : MonoBehaviour
     {
         player = GetComponent<PlayerController>();
         camera = Camera.main.GetComponent<ThirdPersonCamera>();
-       // scoreText = GameObject.Find("TrashScore").GetComponent<Text>();
-      //  scoreText.text = pointsCollected.ToString();
+        scoreText = GameObject.Find("TrashScore").GetComponent<Text>();
+        scoreText.text = pointsCollected.ToString();
     }
 
     public void IncrementPoints(int points)
     {
         pointsCollected += points;
-       // scoreText.text = pointsCollected.ToString();
+        scoreText.text = pointsCollected.ToString();
     }
 
     public void ActivateMovement(bool isActive)
