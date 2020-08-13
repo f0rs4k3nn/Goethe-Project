@@ -31,6 +31,8 @@ public class TimeTravelMechanic : MonoBehaviour
     public float futureLightIntensity;
     public float futureFogEndDist;
 
+    public Material skyBox;
+
 
 
 
@@ -126,6 +128,8 @@ public class TimeTravelMechanic : MonoBehaviour
         RenderSettings.fogEndDistance = isInFuture ? futureFogEndDist : pastFogEndDist;
 
         RenderSettings.ambientSkyColor = isInFuture ? futureSkyBoxColour : pastSkyBoxColour;
+
+        skyBox.color = isInFuture ? futureSkyBoxColour : pastSkyBoxColour;
 
 
         SetCollisions();
