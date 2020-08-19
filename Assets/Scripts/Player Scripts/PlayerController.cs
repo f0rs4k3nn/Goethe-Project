@@ -102,10 +102,11 @@ public class PlayerController : MonoBehaviour
 
         velocity.y -= gravityIntensity * Time.deltaTime * (gravityIsReversed ? -1 : 1);
 
-        if (Mathf.Abs(velocity.y) > maxVerticalVelocity)
+
+       /* if (Mathf.Abs(velocity.y) > maxVerticalVelocity)
         {
             velocity.y = maxVerticalVelocity * (gravityIsReversed ? -1 : 1);
-        }
+        }*/
 
         player.Move(velocity * Time.deltaTime);
 
