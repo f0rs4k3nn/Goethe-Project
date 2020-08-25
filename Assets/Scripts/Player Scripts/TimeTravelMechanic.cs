@@ -11,6 +11,7 @@ public class TimeTravelMechanic : MonoBehaviour
     private bool isInFuture;
     private GameObject[] pastObjects;
     private GameObject[] futureObjects;
+    private Animator[] animatedObjects;
     private Image fadeScreen;
     private bool canTimeTravel = false;
     private bool keyWasReleased = true;
@@ -45,6 +46,7 @@ public class TimeTravelMechanic : MonoBehaviour
         mainLight = GameObject.Find("Directional Light").GetComponent<Light>();
         pastObjects = GameObject.FindGameObjectsWithTag("Past Object");
         futureObjects = GameObject.FindGameObjectsWithTag("Future Object");
+        animatedObjects = GameObject.FindObjectsOfType<Animator>();
 
         ChangeSceneEnvironment(true);
         canTimeTravel = true;
@@ -71,6 +73,12 @@ public class TimeTravelMechanic : MonoBehaviour
     {
         if(canTimeTravel)
         {
+            //pause every animation
+            foreach(Animator anim in animatedObjects)
+            {
+                anim.speed = 0;
+            }
+
             player.ActivateMovement(false);
             canTimeTravel = false;
             isInFuture = !isInFuture;
@@ -110,7 +118,15 @@ public class TimeTravelMechanic : MonoBehaviour
         } else
         {
             canTimeTravel = true;
+
+            //pause every animation
+            foreach (Animator anim in animatedObjects)
+            {
+                anim.speed = 1;
+            }
+
             player.ActivateMovement(true);
+
         }
     }
 
