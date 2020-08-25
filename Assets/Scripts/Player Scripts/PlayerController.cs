@@ -65,14 +65,14 @@ public class PlayerController : MonoBehaviour
         {
             if (gravityIsReversed)
             {
-                if (velocity.y > 0)
+                if (velocity.y < 0)
                 {
-                    velocity.y = 2f;
+                    velocity.y = -2f;
                 }
             }
-            else if (velocity.y < 0)
+            else if (velocity.y > 0)
             {
-                velocity.y = -2f;
+                velocity.y = 2f;
             }
         }
 
