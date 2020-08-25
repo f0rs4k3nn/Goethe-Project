@@ -42,6 +42,7 @@ public class CollectibleScript : MonoBehaviour
         {
             taken = true;
             other.GetComponent<PlayerMisc>().IncrementPoints(pointsWorth);
+            ScoringSystem.theScore += 50;
             Destroy(gameObject);
         } 
     }
