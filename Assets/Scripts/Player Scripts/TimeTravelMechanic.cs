@@ -145,7 +145,7 @@ public class TimeTravelMechanic : MonoBehaviour
 
         RenderSettings.ambientSkyColor = isInFuture ? futureSkyBoxColour : pastSkyBoxColour;
 
-        skyBox.color = isInFuture ? futureSkyBoxColour : pastSkyBoxColour;
+        skyBox.SetColor("_Color", isInFuture ? futureSkyBoxColour : pastSkyBoxColour);
 
 
         SetCollisions();

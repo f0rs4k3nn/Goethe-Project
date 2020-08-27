@@ -10607,6 +10607,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1728993955}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1363537594 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5939357689838682466, guid: 330d482c6461f2c459d14bda071c2522,
+    type: 3}
+  m_PrefabInstance: {fileID: 5939357689905526194}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1375066975
 GameObject:
   m_ObjectHideFlags: 0
@@ -14519,6 +14525,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1573555661}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &1780170457 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5939357689088495737, guid: 330d482c6461f2c459d14bda071c2522,
+    type: 3}
+  m_PrefabInstance: {fileID: 5939357689905526194}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1817436661 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4000011066351628, guid: 36b4cee33c5a95b4fa7f0ae6bdb49564,
@@ -15708,7 +15720,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1cb6e1fbbfc7044a9a2517c9d507c36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeDuration: 0.6
+  fadeDuration: 0.4
   pastSkyBoxColour: {r: 0.7877358, g: 0.89079165, b: 1, a: 0}
   pastLightColour: {r: 1, g: 0.81408894, b: 0.5707547, a: 0}
   pastFogColour: {r: 0.47058824, g: 0.65992963, b: 0.67058825, a: 0}
@@ -15719,6 +15731,7 @@ MonoBehaviour:
   futureFogColour: {r: 0.3962264, g: 0.17724481, b: 0.16260235, a: 0}
   futureLightIntensity: 1.4
   futureFogEndDist: 100
+  skyBox: {fileID: 2100000, guid: d31c39a02635df440a5fc4a31d963725, type: 2}
 --- !u!114 &1997867639
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16902,6 +16915,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 36b4cee33c5a95b4fa7f0ae6bdb49564, type: 3}
+--- !u!1 &2114198522 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5939357688642665296, guid: 330d482c6461f2c459d14bda071c2522,
+    type: 3}
+  m_PrefabInstance: {fileID: 5939357689905526194}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2119945861
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23114,6 +23133,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5939357688642665297, guid: 330d482c6461f2c459d14bda071c2522,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.776
+      objectReference: {fileID: 0}
     - target: {fileID: 5939357689767091210, guid: 330d482c6461f2c459d14bda071c2522,
         type: 3}
       propertyPath: m_Name
@@ -23127,7 +23151,7 @@ PrefabInstance:
     - target: {fileID: 5939357689767091211, guid: 330d482c6461f2c459d14bda071c2522,
         type: 3}
       propertyPath: gravityIsReversed
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5939357689767091211, guid: 330d482c6461f2c459d14bda071c2522,
         type: 3}
@@ -23148,6 +23172,31 @@ PrefabInstance:
         type: 3}
       propertyPath: groundDistance
       value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5939357689767091211, guid: 330d482c6461f2c459d14bda071c2522,
+        type: 3}
+      propertyPath: groundCheckObj
+      value: 
+      objectReference: {fileID: 2114198522}
+    - target: {fileID: 5939357689767091211, guid: 330d482c6461f2c459d14bda071c2522,
+        type: 3}
+      propertyPath: cameraLookAt
+      value: 
+      objectReference: {fileID: 1363537594}
+    - target: {fileID: 5939357689767091211, guid: 330d482c6461f2c459d14bda071c2522,
+        type: 3}
+      propertyPath: playerModel
+      value: 
+      objectReference: {fileID: 1780170457}
+    - target: {fileID: 5939357689767091211, guid: 330d482c6461f2c459d14bda071c2522,
+        type: 3}
+      propertyPath: walkSpeed
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 5939357689767091211, guid: 330d482c6461f2c459d14bda071c2522,
+        type: 3}
+      propertyPath: speedSmoothTime
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 5939357689767091215, guid: 330d482c6461f2c459d14bda071c2522,
         type: 3}

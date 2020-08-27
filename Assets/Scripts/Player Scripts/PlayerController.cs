@@ -36,7 +36,7 @@ public class PlayerController : MonoBehaviour
     Transform camera;
 
     public GameObject groundCheckObj;
-    public GameObject cameraLookAt;
+    //public GameObject cameraLookAt;
     public Transform playerModel;
 
 
@@ -90,6 +90,7 @@ public class PlayerController : MonoBehaviour
 
         bool running = Input.GetKey(KeyCode.LeftShift);
         float targetSpeed = (running ? runSpeed : walkSpeed) * input.magnitude;
+
         currentSpeed = Mathf.SmoothDamp(currentSpeed, targetSpeed, ref speedSmoothVelocity, speedSmoothTime);
 
         if (input != Vector2.zero)
