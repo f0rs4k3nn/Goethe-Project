@@ -9,15 +9,22 @@ public class PlayerController : MonoBehaviour
     public float runSpeed = 6;
     public int maxSpeed = 1;
 
-    public float turnsmoothTime = 0.2f;
+    public float turnSmoothTime = 0.2f;
+    public float turnSmoothTimeAir = 0.5f;
+
     float turnSmoothVelocity;
     CharacterController player;
 
     public float speedSmoothTime = 0.1f;
-    float speedSmoothVelocity;
-    float currentSpeed;
-    Vector3 velocity;
+    public float speedSmoothTimeAir = 0.2f;
+    Vector3 speedSmoothVelocity;
 
+    Vector3 currentSpeed;
+    Vector3 velocity;
+    Vector3 movementDir = Vector3.zero;
+
+
+    private GameObject temporaryParent;
     public Transform groundCheck;
     public float groundDistance;
     public LayerMask groundMask;
@@ -25,8 +32,12 @@ public class PlayerController : MonoBehaviour
     public float jumpForce;
     public float gravityIntensity;
     private bool jumpKeyReleased = true;
-    public float airControl = 0.5f;
     public bool gravityIsReversed = false;
+
+    //variables used for the progressive jump when the jump button is held
+    private float accumulatedJumpPower; //force added since last jump
+    public float accumulativeJumpLimit; //how much force can be added
+    public float progressiveJumpPower;
 
     public int maxVerticalVelocity;
     private bool canMove = false;
@@ -63,6 +74,30 @@ public class PlayerController : MonoBehaviour
 
         if (isGrounded)
         {
+            if(transform.parent == null)
+            {
+                if(temporaryParent != null)
+                {
+                    Destroy(temporaryParent);
+                }
+
+                RaycastHit hit;
+                if (Physics.Raycast(transform.position, Vector3.down, out hit, groundMask))
+                {
+                    Transform newParent = hit.collider.gameObject.transform;
+                    Transform auxChild = (new GameObject()).transform;
+                    auxChild.SetParent(newParent);
+                    temporaryParent = auxChild.gameObject;
+                    auxChild.localRotation = Quaternion.Euler(Vector3.zero);
+
+                    Vector3 parentScale = newParent.localScale;
+                    auxChild.localScale = new Vector3(1.0f / parentScale.x , 1.0f / parentScale.y, 1.0f / parentScale.z);
+
+                    transform.parent = auxChild;
+                }
+            }
+            
+
             if (gravityIsReversed)
             {
                 if (velocity.y < 0)
@@ -74,12 +109,31 @@ public class PlayerController : MonoBehaviour
             {
                 velocity.y = 2f;
             }
+        } else
+        {
+            transform.parent = null;
+            Destroy(temporaryParent);
+            temporaryParent = null;
         }
 
-        if (Input.GetAxis("Jump") > 0 && isGrounded && jumpKeyReleased)
+        if (Input.GetAxis("Jump") > 0)
         {
-            velocity.y = jumpForce * (gravityIsReversed ? -1 : 1);
-            jumpKeyReleased = false;
+            if(isGrounded && jumpKeyReleased)
+            {
+                velocity.y = jumpForce * (gravityIsReversed ? -1 : 1);
+                jumpKeyReleased = false;
+                accumulatedJumpPower = 0;
+            }
+            else
+            {
+                if(!jumpKeyReleased && accumulatedJumpPower < accumulativeJumpLimit)
+                {
+                    float jumpStep = progressiveJumpPower * Time.deltaTime;
+                    velocity.y += jumpStep;
+                    accumulatedJumpPower += jumpStep;
+                }
+            }
+
         }
         else if (Input.GetAxis("Jump") == 0)
         {
@@ -89,90 +143,48 @@ public class PlayerController : MonoBehaviour
         Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
 
         bool running = Input.GetKey(KeyCode.LeftShift);
-        float targetSpeed = (running ? runSpeed : walkSpeed) * input.magnitude;
+        float targetSpeed = (running ? runSpeed : walkSpeed) * input.normalized.magnitude;
+        float targetspeedSmooth = (isGrounded ? speedSmoothTime : speedSmoothTimeAir);
+        float targetTurnSpeedSmooth = (isGrounded ? turnSmoothTime : turnSmoothTimeAir);
 
-        currentSpeed = Mathf.SmoothDamp(currentSpeed, targetSpeed, ref speedSmoothVelocity, speedSmoothTime);
+       // currentSpeed = Mathf.SmoothDamp(currentSpeed, targetSpeed, ref speedSmoothVelocity, targetspeedSmooth);
 
         if (input != Vector2.zero)
         {
             float targetRotation = Mathf.Atan2(input.x, input.y) * Mathf.Rad2Deg + camera.eulerAngles.y;
-            transform.eulerAngles = Vector3.up * Mathf.SmoothDampAngle(transform.eulerAngles.y, targetRotation, ref turnSmoothVelocity, turnsmoothTime);
-        }
+            transform.eulerAngles = Vector3.up * Mathf.SmoothDampAngle(transform.eulerAngles.y, targetRotation, ref turnSmoothVelocity, targetTurnSpeedSmooth);
 
-        player.Move(transform.forward * currentSpeed * Time.deltaTime);
-
-        velocity.y -= gravityIntensity * Time.deltaTime * (gravityIsReversed ? -1 : 1);
-
-
-       /* if (Mathf.Abs(velocity.y) > maxVerticalVelocity)
+            movementDir = DegreeToVector3(targetRotation);
+        } else
         {
-            velocity.y = maxVerticalVelocity * (gravityIsReversed ? -1 : 1);
-        }*/
-
-        player.Move(velocity * Time.deltaTime);
-
-        //transform.Translate(transform.forward * currentSpeed * Time.deltaTime, Space.World); 
-    }
-
-    /**
-    void Update()
-    {
-        if (!canMove)
-            return;
-
-       if (Input.GetKeyDown(KeyCode.G) && !isGrounded && canChangeGravity)
-        {
-            playerModel.rotation = Quaternion.Euler(0, 0, 180f + playerModel.rotation.eulerAngles.z);
-            StartCoroutine(GChangeCooldown());
-        }
-
-        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
-
-        if (isGrounded)
-        {
-            if(gravityIsReversed)
+            if(isGrounded)
             {
-                if(velocity.y > 0)
-                {
-                    velocity.y = 2f;
-                } 
-            } else if (velocity.y < 0)
-            {
-                velocity.y = -2f;
+                targetspeedSmooth /= 3.0f;
             }
+            
         }
 
-        if (Input.GetAxis("Jump") > 0 && isGrounded && jumpKeyReleased)
-        {
-            velocity.y = jumpForce * (gravityIsReversed ? -1 : 1);
-            jumpKeyReleased = false;
+        currentSpeed = Vector3.SmoothDamp(currentSpeed, movementDir * targetSpeed, ref speedSmoothVelocity, targetspeedSmooth);
 
-        } else if (Input.GetAxis("Jump") == 0)
-        {
-            jumpKeyReleased = true;
-        }
+        player.Move(currentSpeed * 0.01f);
 
-        Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-
-        bool running = Input.GetKey(KeyCode.LeftShift);
-        float targetSpeed = (running ? runSpeed : walkSpeed) * input.magnitude;
-        currentSpeed = Mathf.SmoothDamp(currentSpeed, targetSpeed, ref speedSmoothVelocity, speedSmoothTime);
-
-        if (input != Vector2.zero)
-        {
-            float targetRotation = Mathf.Atan2(input.x, input.y) * Mathf.Rad2Deg + camera.eulerAngles.y;
-            transform.eulerAngles = Vector3.up * Mathf.SmoothDampAngle(transform.eulerAngles.y, targetRotation, ref turnSmoothVelocity, turnsmoothTime);
-        }
-
-        player.Move(transform.forward * currentSpeed * Time.deltaTime);
-
-        velocity.y -= gravityIntensity * Time.deltaTime;
-
+        velocity.y -= gravityIntensity * Time.deltaTime * (gravityIsReversed ? -1 : 1) * (isGrounded ? 0 : 1);
         player.Move(velocity * Time.deltaTime);
-
-        //transform.Translate(transform.forward * currentSpeed * Time.deltaTime, Space.World); 
+        
+        Debug.Log(velocity.y);
     }
-    **/
+
+    public static Vector3 RadianToVector3(float radian)
+    {
+        return new Vector3(Mathf.Sin(radian), 0,Mathf.Cos(radian));
+    }
+
+    public static Vector3 DegreeToVector3(float degree)
+    {
+        return RadianToVector3(degree * Mathf.Deg2Rad);
+    }
+
+
     public void SetActive(bool isActive)
     {
         canMove = isActive;
