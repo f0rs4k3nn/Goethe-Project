@@ -23,16 +23,19 @@ public class PlayerController : MonoBehaviour
     Vector3 velocity;
     Vector3 movementDir = Vector3.zero;
 
+   // private GameObject temporaryParent;
+    private Transform parentTransform;
+    private Vector3 parentOffset;
 
-    private GameObject temporaryParent;
     public Transform groundCheck;
+    public Transform ceilingCheck;
     public float groundDistance;
     public LayerMask groundMask;
-    public bool isGrounded;
+    private bool isGrounded;
     public float jumpForce;
     public float gravityIntensity;
     private bool jumpKeyReleased = true;
-    public bool gravityIsReversed = false;
+   // public bool gravityIsReversed = false;
 
     //variables used for the progressive jump when the jump button is held
     private float accumulatedJumpPower; //force added since last jump
@@ -42,13 +45,12 @@ public class PlayerController : MonoBehaviour
     public int maxVerticalVelocity;
     private bool canMove = false;
 
-    bool canChangeGravity = true;
+  //  bool canChangeGravity = true;
 
-    Transform camera;
+    private Transform camera;
 
-    public GameObject groundCheckObj;
     //public GameObject cameraLookAt;
-    public Transform playerModel;
+    //public Transform playerModel;
 
 
     // Start is called before the first frame update
@@ -66,61 +68,46 @@ public class PlayerController : MonoBehaviour
 
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
-        if (Input.GetKeyDown(KeyCode.G) && !isGrounded && canChangeGravity)
+       /* if (Input.GetKeyDown(KeyCode.G) && !isGrounded && canChangeGravity)
         {
             playerModel.rotation = Quaternion.Euler(0, 0, 180f + playerModel.rotation.eulerAngles.z);
             StartCoroutine(GChangeCooldown());
-        }
+        }*/
 
         if (isGrounded)
         {
-            if(transform.parent == null)
+            if(parentTransform == null)
             {
-                if(temporaryParent != null)
-                {
-                    Destroy(temporaryParent);
-                }
-
                 RaycastHit hit;
                 if (Physics.Raycast(transform.position, Vector3.down, out hit, groundMask))
                 {
-                    Transform newParent = hit.collider.gameObject.transform;
-                    Transform auxChild = (new GameObject()).transform;
-                    auxChild.SetParent(newParent);
-                    temporaryParent = auxChild.gameObject;
-                    auxChild.localRotation = Quaternion.Euler(Vector3.zero);
-
-                    Vector3 parentScale = newParent.localScale;
-                    auxChild.localScale = new Vector3(1.0f / parentScale.x , 1.0f / parentScale.y, 1.0f / parentScale.z);
-
-                    transform.parent = auxChild;
+                    parentTransform = hit.collider.gameObject.transform;
+                    parentOffset = transform.position - parentTransform.position;
                 }
+            }
+                   
+            if (velocity.y < 0)
+            {
+               velocity.y = -2f;
             }
             
-
-            if (gravityIsReversed)
-            {
-                if (velocity.y < 0)
-                {
-                    velocity.y = -2f;
-                }
-            }
-            else if (velocity.y > 0)
-            {
-                velocity.y = 2f;
-            }
-        } else
+        } else //!isGrounded
         {
-            transform.parent = null;
-            Destroy(temporaryParent);
-            temporaryParent = null;
+            velocity.y -= gravityIntensity * Time.deltaTime;
+            parentTransform = null;
+            
+            //if it hits something when jumping, stop him from adding up force
+            if(Physics.CheckSphere(ceilingCheck.position, groundDistance, groundMask)) {
+                accumulatedJumpPower = accumulativeJumpLimit;
+                velocity.y = -5f;
+            }
         }
 
         if (Input.GetAxis("Jump") > 0)
         {
             if(isGrounded && jumpKeyReleased)
             {
-                velocity.y = jumpForce * (gravityIsReversed ? -1 : 1);
+                velocity.y = jumpForce;
                 jumpKeyReleased = false;
                 accumulatedJumpPower = 0;
             }
@@ -147,8 +134,6 @@ public class PlayerController : MonoBehaviour
         float targetspeedSmooth = (isGrounded ? speedSmoothTime : speedSmoothTimeAir);
         float targetTurnSpeedSmooth = (isGrounded ? turnSmoothTime : turnSmoothTimeAir);
 
-       // currentSpeed = Mathf.SmoothDamp(currentSpeed, targetSpeed, ref speedSmoothVelocity, targetspeedSmooth);
-
         if (input != Vector2.zero)
         {
             float targetRotation = Mathf.Atan2(input.x, input.y) * Mathf.Rad2Deg + camera.eulerAngles.y;
@@ -159,19 +144,26 @@ public class PlayerController : MonoBehaviour
         {
             if(isGrounded)
             {
-                targetspeedSmooth /= 3.0f;
+                targetspeedSmooth /= 3.5f;
             }
             
         }
 
+        Vector3 initialPosition = transform.position;
         currentSpeed = Vector3.SmoothDamp(currentSpeed, movementDir * targetSpeed, ref speedSmoothVelocity, targetspeedSmooth);
+        player.Move((currentSpeed * 0.01f) + velocity * Time.deltaTime);
 
-        player.Move(currentSpeed * 0.01f);
+        parentOffset += transform.position - initialPosition;
+    }
 
-        velocity.y -= gravityIntensity * Time.deltaTime * (gravityIsReversed ? -1 : 1) * (isGrounded ? 0 : 1);
-        player.Move(velocity * Time.deltaTime);
-        
-        Debug.Log(velocity.y);
+    public void LateUpdate()
+    {
+       if(parentTransform == null)
+        {
+            return;
+        }
+
+        transform.position = parentOffset + parentTransform.position;
     }
 
     public static Vector3 RadianToVector3(float radian)
@@ -190,11 +182,4 @@ public class PlayerController : MonoBehaviour
         canMove = isActive;
     }
 
-    IEnumerator GChangeCooldown()
-    {
-        canChangeGravity = false;
-        gravityIsReversed = !gravityIsReversed;
-        yield return new WaitForSeconds(1);
-        canChangeGravity = true;
-    }
 }
