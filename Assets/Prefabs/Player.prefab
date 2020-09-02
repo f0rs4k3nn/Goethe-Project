@@ -29,7 +29,6 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 5939357688642665297}
   - {fileID: 5939357689088495737}
   m_Father: {fileID: 5939357689767091215}
   m_RootOrder: 1
@@ -108,8 +107,8 @@ Transform:
   m_LocalPosition: {x: 0, y: -0.97, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 2906677857132616995}
-  m_RootOrder: 0
+  m_Father: {fileID: 5939357689767091215}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5939357689088495736
 GameObject:
@@ -141,7 +140,7 @@ Transform:
   m_LocalScale: {x: 0.3, y: 0.3, z: 1}
   m_Children: []
   m_Father: {fileID: 2906677857132616995}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &5939357689088495740
 MeshFilter:
@@ -205,6 +204,7 @@ GameObject:
   - component: {fileID: 5939357689767091212}
   - component: {fileID: 5939357689767091211}
   - component: {fileID: 5939357689767091213}
+  - component: {fileID: 8654192253264091253}
   m_Layer: 11
   m_Name: Player
   m_TagString: Untagged
@@ -225,6 +225,7 @@ Transform:
   m_Children:
   - {fileID: 5939357689838682467}
   - {fileID: 2906677857132616995}
+  - {fileID: 5939357688642665297}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -316,13 +317,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 5939357689767091210}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 33b8b6b968f5bee4db2397241894548c, type: 3}
+  m_Script: {fileID: 11500000, guid: d536626cb7ebfcd40a3700b5307c578c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   walkSpeed: 12
-  runSpeed: 6
-  maxSpeed: 5
-  turnsmoothTime: 0.1
+  runSpeed: 18
+  maxSpeed: 1
+  turnsmoothTime: 0.2
   speedSmoothTime: 0.1
   groundCheck: {fileID: 5939357688642665297}
   groundDistance: 1
@@ -330,10 +331,10 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   isGrounded: 0
-  jumpForce: 15
+  jumpForce: 20
   gravityIntensity: 40
   airControl: 0.5
-  normalG: 1
+  gravityIsReversed: 1
   groundCheckObj: {fileID: 5939357688642665296}
   cameraLookAt: {fileID: 5939357689838682466}
   playerModel: {fileID: 2906677857132616995}
@@ -349,6 +350,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3a605f38b4f1324e9b66dd8bc0fd61d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8654192253264091253
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5939357689767091210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1be5f642e7363774eabf490f15975392, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  checkPoint: {fileID: 0}
 --- !u!1 &5939357689838682466
 GameObject:
   m_ObjectHideFlags: 0
