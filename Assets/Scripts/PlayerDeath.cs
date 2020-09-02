@@ -24,9 +24,18 @@ public class PlayerDeath : MonoBehaviour
         if (other.tag=="Death")
         {
             //oh no i dieded
+            GetComponent<PlayerController>().parentTransform = null;
             this.transform.position = checkPoint.transform.position;
         }
+
     }
+
+    public void CheckPoint()
+    {
+        GetComponent<PlayerController>().parentTransform = null;
+        transform.position = checkPoint.transform.position;
+    }
+
     // Update is called once per frame
     void Update()
     {

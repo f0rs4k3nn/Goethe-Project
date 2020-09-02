@@ -38,11 +38,12 @@ public class CollectibleScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(!taken)
+        
+        if(!taken && other.tag =="Player")
         {
             taken = true;
             other.GetComponent<PlayerMisc>().IncrementPoints(pointsWorth);
-            ScoringSystem.theScore += 50;
+            ScoringSystem.theScore += 1;
             Destroy(gameObject);
         } 
     }

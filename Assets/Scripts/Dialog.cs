@@ -10,7 +10,6 @@ public class Dialog : MonoBehaviour
 
     GameObject player;
 
-    GameObject dialogBox;
     public string[] sentencesNpc;
     public int index = 0;
     bool startConversation = false;
@@ -19,10 +18,12 @@ public class Dialog : MonoBehaviour
 
     void Start()
     {
+      
         textDisplay.text = "";
-        dialogBox = GameObject.Find("DialogBox");
-        player = GameObject.Find("Player");
-        dialogBox.SetActive(false);
+        
+        player = PlayerManager.instance.player;
+        PlayerManager.instance.DialogBox.SetActive(false);
+           
     }
 
     private void OnTriggerStay(Collider other)
@@ -32,7 +33,7 @@ public class Dialog : MonoBehaviour
             if(!startConversation)
             {
                 startConversation = true;
-                dialogBox.SetActive(true);
+                PlayerManager.instance.DialogBox.SetActive(true);
                 StartCoroutine(Type());
             }
         }
@@ -51,7 +52,7 @@ public class Dialog : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         startConversation = false;
-        dialogBox.SetActive(false);
+        PlayerManager.instance.DialogBox.SetActive(false);
         ResetConversation();
     }
 

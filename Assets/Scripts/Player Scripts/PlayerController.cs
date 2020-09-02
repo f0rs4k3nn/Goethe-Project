@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
     Vector3 movementDir = Vector3.zero;
 
    // private GameObject temporaryParent;
-    private Transform parentTransform;
+    public Transform parentTransform;
     private Vector3 parentOffset;
 
     public Transform groundCheck;
@@ -41,6 +41,8 @@ public class PlayerController : MonoBehaviour
     private float accumulatedJumpPower; //force added since last jump
     public float accumulativeJumpLimit; //how much force can be added
     public float progressiveJumpPower;
+    public bool doubleJumpUnlocked; // boolean to see if the player can double jump yet
+    public bool canDoubleJump;
 
     public int maxVerticalVelocity;
     private bool canMove = false;
@@ -78,6 +80,8 @@ public class PlayerController : MonoBehaviour
         {
             if(parentTransform == null)
             {
+                canDoubleJump = true;
+
                 RaycastHit hit;
                 if (Physics.Raycast(transform.position, Vector3.down, out hit, groundMask))
                 {
@@ -120,6 +124,13 @@ public class PlayerController : MonoBehaviour
                     accumulatedJumpPower += jumpStep;
                 }
             }
+
+            if (!isGrounded && jumpKeyReleased && doubleJumpUnlocked && canDoubleJump)
+            {
+                canDoubleJump = false;
+                velocity.y = 2*jumpForce;
+            }
+
 
         }
         else if (Input.GetAxis("Jump") == 0)

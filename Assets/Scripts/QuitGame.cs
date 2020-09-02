@@ -14,8 +14,14 @@ public class QuitGame : MonoBehaviour
 
     private void Start()
     {
-        tutorial.SetActive(true);
-        Time.timeScale = 0;
+        if (tutorial != null)
+        {
+            tutorial.SetActive(true);
+            Time.timeScale = 0;
+        }
+
+        if (tutorial == null)
+            tutorialDone = true;
     }
 
     public void HideCursor()
