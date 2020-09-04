@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
     public float walkSpeed = 2;
     public float runSpeed = 6;
     public int maxSpeed = 1;
-
+    public Animator charAnim;
     public float turnsmoothTime = 0.2f;
     float turnSmoothVelocity;
     CharacterController player;
@@ -28,6 +28,8 @@ public class PlayerController : MonoBehaviour
     public float airControl = 0.5f;
     public bool gravityIsReversed = false;
     private bool doubleJump;
+    private bool runAnim = false;
+    private bool sprinting = false;
 
     private bool canMove = false;
 
@@ -77,26 +79,33 @@ public class PlayerController : MonoBehaviour
             {
                 velocity.y = -2f;
             }
+            charAnim.SetTrigger("StopJump");
+        }
+        else
+        {
+            charAnim.ResetTrigger("StopJump");
         }
 
         if (Input.GetAxis("Jump") > 0 /*&& jumpKeyReleased*/)
         {
 
             if (isGrounded)
-            {
+            {                
+                charAnim.Play("Jump", -1, 0);
                 velocity.y = jumpForce * (gravityIsReversed ? 1 : -1);
                 // jumpKeyReleased = false;
             }
         }
         else if (Input.GetAxis("Jump") == 0)
-        {
-          //  jumpKeyReleased = true;
+        {            
+            //  jumpKeyReleased = true;
         }
 
         if (Input.GetKeyDown(KeyCode.Space) && doubleJump && !isGrounded)
         {
 
             //Debug.Log("did i do a double jump");
+            charAnim.Play("Jump", -1, 0);
             doubleJump = false;
             velocity.y = jumpForce * (gravityIsReversed ? 1 : -1);
         }
@@ -109,8 +118,38 @@ public class PlayerController : MonoBehaviour
 
         if (input != Vector2.zero)
         {
+            charAnim.ResetTrigger("TrigerStoprun");
+
+            if (isGrounded)
+            {
+                if (running)
+                {
+                    if (!sprinting)
+                    {
+                        charAnim.Play("Sprint", -1, 0);
+                        sprinting = true;
+                        runAnim = false;
+                    }
+                }
+                else
+                {
+                    sprinting = false;
+                    if (!runAnim)
+                    {
+                        charAnim.Play("Run", -1, 0);
+                        runAnim = true;
+                    }
+                }
+            }
+
             float targetRotation = Mathf.Atan2(input.x, input.y) * Mathf.Rad2Deg + camera.eulerAngles.y;
             transform.eulerAngles = Vector3.up * Mathf.SmoothDampAngle(transform.eulerAngles.y, targetRotation, ref turnSmoothVelocity, turnsmoothTime);
+        }
+        else
+        {
+            sprinting = false;
+            runAnim = false;
+            charAnim.SetTrigger("TrigerStoprun");
         }
 
         player.Move(transform.forward * currentSpeed * Time.deltaTime);
