@@ -104,9 +104,32 @@ MonoBehaviour:
     m_Value: {fileID: 2800000, guid: cdfca5ba4bbc9e44aae67df74ac7cf82, type: 3}
   contribution:
     m_OverrideState: 1
-    m_Value: 0.792
+    m_Value: 0.329
     min: 0
     max: 1
+--- !u!114 &-544314667390218094
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5485954d14dfb9a4c8ead8edb0ded5b1, type: 3}
+  m_Name: LiftGammaGain
+  m_EditorClassIdentifier: 
+  active: 1
+  m_AdvancedMode: 0
+  lift:
+    m_OverrideState: 1
+    m_Value: {x: 0.93882746, y: 0.9913024, z: 1, w: 0.0136425635}
+  gamma:
+    m_OverrideState: 1
+    m_Value: {x: 1, y: 0.9422782, z: 0.88481903, w: 0.040927697}
+  gain:
+    m_OverrideState: 1
+    m_Value: {x: 0.99152476, y: 0.965512, z: 1, w: 0.06821284}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -126,6 +149,7 @@ MonoBehaviour:
   - {fileID: 4009015476394002576}
   - {fileID: -1120701114863838531}
   - {fileID: 6651282600504100949}
+  - {fileID: -544314667390218094}
   - {fileID: -919754709286549345}
 --- !u!114 &2046698031595838527
 MonoBehaviour:
@@ -252,13 +276,13 @@ MonoBehaviour:
   m_AdvancedMode: 0
   shadows:
     m_OverrideState: 1
-    m_Value: {x: 0.7916344, y: 0.86480147, z: 1, w: 0.28795815}
+    m_Value: {x: 0.76113594, y: 0.8419183, z: 1, w: -0.0057481485}
   midtones:
     m_OverrideState: 1
-    m_Value: {x: 1, y: 0.8418262, z: 0.84435064, w: 0.055577956}
+    m_Value: {x: 1, y: 0.9840421, z: 0.98657817, w: 0.06956397}
   highlights:
     m_OverrideState: 1
-    m_Value: {x: 0.9158724, y: 0.9425708, z: 1, w: -0.01900193}
+    m_Value: {x: 0.976581, y: 0.9975937, z: 1, w: 0.06491415}
   shadowsStart:
     m_OverrideState: 0
     m_Value: 0
