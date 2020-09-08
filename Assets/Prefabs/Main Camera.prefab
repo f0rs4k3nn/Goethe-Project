@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 5739746644792993018}
   - component: {fileID: 5739746644792993019}
   - component: {fileID: 5739746644792993020}
-  - component: {fileID: 1036551482}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -131,9 +130,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mouseSensitivity: 5
+  target: {fileID: 0}
+  dstFromtarget: 6
   pitchMin: -40
   pitchMax: 85
-  rotationSmoothTime: 0.01
+  rotationSmoothTime: 0
 --- !u!114 &5739746644792993020
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -151,22 +152,3 @@ MonoBehaviour:
   blendDistance: 0
   weight: 1
   sharedProfile: {fileID: 11400000, guid: ce936441c2ea76c4f97a1e150e455e11, type: 2}
---- !u!114 &1036551482
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5739746644792993021}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 94b04ec3bda6b7747aa53936ef3b0ae2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  clipMoveTime: 0.05
-  returnTime: 0.4
-  sphereCastRadius: 0.1
-  visualiseInEditor: 1
-  closestDistance: 1
-  dontClipTag: Player
-  maxDistance: 12

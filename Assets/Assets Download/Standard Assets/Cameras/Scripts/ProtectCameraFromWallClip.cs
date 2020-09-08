@@ -16,7 +16,7 @@ namespace UnityStandardAssets.Cameras
 
         private Transform m_Cam;                  // the transform of the camera
         private Transform m_Pivot;                // the point at which the camera pivots around
-        public float maxDistance;             // the original distance to the camera before any modification are made
+        private float m_OriginalDist;             // the original distance to the camera before any modification are made
         private float m_MoveVelocity;             // the velocity at which the camera moved
         private float m_CurrentDist;              // the current distance from the camera to the target
         private Ray m_Ray = new Ray();                        // the ray used in the lateupdate for casting between the camera and the target
@@ -27,12 +27,10 @@ namespace UnityStandardAssets.Cameras
         private void Start()
         {
             // find the camera in the object hierarchy
-            m_Cam = transform;
-            m_Pivot = transform;
-
-          //  m_Pivot = m_Cam.parent;
-            //maxDistance = m_Cam.localPosition.magnitude;
-            m_CurrentDist = maxDistance;
+            m_Cam = GetComponentInChildren<Camera>().transform;
+            m_Pivot = m_Cam.parent;
+            m_OriginalDist = m_Cam.localPosition.magnitude;
+            m_CurrentDist = m_OriginalDist;
 
             // create a new RayHitComparer
             m_RayHitComparer = new RayHitComparer();
@@ -41,14 +39,10 @@ namespace UnityStandardAssets.Cameras
 
         private void LateUpdate()
         {
-           // Debug.Log(m_CurrentDist);
             // initially set the target distance
-            float targetDist = maxDistance;
+            float targetDist = m_OriginalDist;
 
-            m_Ray.origin =
-                m_Pivot.position 
-                + m_Pivot.forward*sphereCastRadius;
-
+            m_Ray.origin = m_Pivot.position + m_Pivot.forward*sphereCastRadius;
             m_Ray.direction = -m_Pivot.forward;
 
             // initial check to see if start of spherecast intersects anything
@@ -74,12 +68,12 @@ namespace UnityStandardAssets.Cameras
                 m_Ray.origin += m_Pivot.forward*sphereCastRadius;
 
                 // do a raycast and gather all the intersections
-                m_Hits = Physics.RaycastAll(m_Ray, maxDistance - sphereCastRadius);
+                m_Hits = Physics.RaycastAll(m_Ray, m_OriginalDist - sphereCastRadius);
             }
             else
             {
                 // if there was no collision do a sphere cast to see if there were any other collisions
-                m_Hits = Physics.SphereCastAll(m_Ray, sphereCastRadius, maxDistance + sphereCastRadius);
+                m_Hits = Physics.SphereCastAll(m_Ray, sphereCastRadius, m_OriginalDist + sphereCastRadius);
             }
 
             // sort the collisions by distance
@@ -113,13 +107,8 @@ namespace UnityStandardAssets.Cameras
             protecting = hitSomething;
             m_CurrentDist = Mathf.SmoothDamp(m_CurrentDist, targetDist, ref m_MoveVelocity,
                                            m_CurrentDist > targetDist ? clipMoveTime : returnTime);
-            m_CurrentDist = Mathf.Clamp(m_CurrentDist, closestDistance, maxDistance);
+            m_CurrentDist = Mathf.Clamp(m_CurrentDist, closestDistance, m_OriginalDist);
             m_Cam.localPosition = -Vector3.forward*m_CurrentDist;
-        }
-
-        public float GetCurrentDistance()
-        {
-            return m_CurrentDist;
         }
 
 

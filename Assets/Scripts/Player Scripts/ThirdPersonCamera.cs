@@ -6,8 +6,8 @@ public class ThirdPersonCamera : MonoBehaviour
 {
 
     public float mouseSensitivity = 10;
-    private Transform target;
-    private float dstFromtarget = 2;
+    public Transform target;
+    public float dstFromtarget = 2;
     public float pitchMin = -40;
     public float pitchMax = 85;
 
@@ -20,14 +20,10 @@ public class ThirdPersonCamera : MonoBehaviour
 
     private bool canMove = false;
 
-    private UnityStandardAssets.Cameras.ProtectCameraFromWallClip clipControl;
-
     // Start is called before the first frame update
     void Start()
     {
-        target = GameObject.Find("CameraFollow").transform;
         canMove = true;
-        clipControl = GetComponent<UnityStandardAssets.Cameras.ProtectCameraFromWallClip>();
     }
 
     // Update is called once per frame
@@ -46,7 +42,7 @@ public class ThirdPersonCamera : MonoBehaviour
         transform.eulerAngles = currentRotation;
 
 
-        dstFromtarget = clipControl.GetCurrentDistance();
+
         transform.position = target.position - transform.forward * dstFromtarget;
     }
 
