@@ -68,6 +68,8 @@ public class PlayerController : MonoBehaviour
         if (!canMove)
             return;
 
+        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+
        /* if (Input.GetKeyDown(KeyCode.G) && !isGrounded && canChangeGravity)
         {
             playerModel.rotation = Quaternion.Euler(0, 0, 180f + playerModel.rotation.eulerAngles.z);
