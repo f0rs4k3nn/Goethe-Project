@@ -2,6 +2,8 @@
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <LangVersion>latest</LangVersion>
+    <CscToolPath>C:\Program Files\Unity\Hub\Editor\2019.3.4f1\Editor\Data\Tools\RoslynScripts</CscToolPath>
+    <CscToolExe>unity_csc.bat</CscToolExe>
   </PropertyGroup>
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -51,9 +53,6 @@
     <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
     <UnityVersion>2019.3.4f1</UnityVersion>
   </PropertyGroup>
-  <ItemGroup>
-    <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\16.0\Analyzers\Microsoft.Unity.Analyzers.dll" />
-  </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2019.3.4f1\Editor\Data\Managed/UnityEngine/UnityEngine.dll</HintPath>
@@ -202,19 +201,20 @@
     <Compile Include="Assets\Assets Download\TextMesh Pro\Examples &amp; Extras\Scripts\WarpTextExample.cs" />
     <Compile Include="Assets\Assets Download\Windridge City Assets\Scripts\ExtendedFlycam.cs" />
     <Compile Include="Assets\Assets Download\Windridge City Assets\Scripts\UIQuallityManager\UIQualityManager.cs" />
-    <Compile Include="Assets\ResetLevel.cs" />
-    <Compile Include="Assets\ScoringSystem.cs" />
     <Compile Include="Assets\Scripts\BadWall.cs" />
     <Compile Include="Assets\Scripts\CoolCollectible.cs" />
-    <Compile Include="Assets\Scripts\Dialog\Dialog.cs" />
+    <Compile Include="Assets\Scripts\Dialog.cs" />
     <Compile Include="Assets\Scripts\Enemy\DamageZone.cs" />
     <Compile Include="Assets\Scripts\Enemy\DetectionZone.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyBehaviour.cs" />
     <Compile Include="Assets\Scripts\Enemy\MagnetEnemyBehaviour.cs" />
+    <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\Items\CollectibleScript.cs" />
     <Compile Include="Assets\Scripts\Items\MagnetScript.cs" />
     <Compile Include="Assets\Scripts\Misc\Platforms\MovingPlatform.cs" />
     <Compile Include="Assets\Scripts\Misc\Platforms\ResetTrigger.cs" />
+    <Compile Include="Assets\Scripts\Misc\Platforms\RotatingPlatform.cs" />
+    <Compile Include="Assets\Scripts\Misc\Singleton.cs" />
     <Compile Include="Assets\Scripts\PlatformAttach.cs" />
     <Compile Include="Assets\Scripts\Player Scripts\BulletScript.cs" />
     <Compile Include="Assets\Scripts\Player Scripts\CameraCollision.cs" />
@@ -227,7 +227,9 @@
     <Compile Include="Assets\Scripts\PlayerBehaviour.cs" />
     <Compile Include="Assets\Scripts\PlayerDeath.cs" />
     <Compile Include="Assets\Scripts\QuitGame.cs" />
-    <Compile Include="Assets\Scripts\Shaders\DitherEffect.cs" />
+    <Compile Include="Assets\Scripts\ResetLevel.cs" />
+    <Compile Include="Assets\Scripts\ScoringSystem.cs" />
+    <Compile Include="Assets\Shaders\DitherEffect.cs" />
     <None Include="Assets\Assets Download\NatureManufacture Assets - Trials Not Full Resolution\EasyRoads-HD_Add_ON\Shaders\Decal_Metalic_Road_Shader Parallax Trial.shader" />
     <None Include="Assets\Assets Download\Standard Assets\Prototyping\Shaders\WorldCoordDiffuse.shader" />
     <None Include="Assets\Assets Download\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
@@ -280,7 +282,7 @@
     <None Include="Assets\Assets Download\TextMesh Pro\Resources\Shaders\TMPro_Properties.cginc" />
     <None Include="Assets\Assets Download\Windridge City Assets\CTS Trial\Shaders\CTS Terrain Shader Advanced Trial.shader" />
     <None Include="Assets\Assets Download\Standard Assets\ParticleSystems\Shaders\PriorityParticleAddSoft.shader" />
-    <None Include="Assets\Scripts\Shaders\DitherEffect.shader" />
+    <None Include="Assets\Shaders\DitherEffect.shader" />
     <None Include="Assets\Assets Download\NatureManufacture Assets - Trials Not Full Resolution\Park Photo Scanned Assets\Shaders\Standard_Metalic_UV_Free_Walls_and_Floors.shader" />
     <None Include="Assets\Assets Download\TextMesh Pro\Resources\Shaders\TMPro_Surface.cginc" />
     <None Include="Assets\Assets Download\Standard Assets\Effects\TessellationShaders\Shaders\BumpedSpecularDisplacement.shader" />
