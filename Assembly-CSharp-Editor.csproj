@@ -63,6 +63,41 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Assets Download\DreamForestTree\Editor\SettingsPrompt.cs" />
+    <Compile Include="Assets\Assets Download\DreamForestTree\PostProcessing\Editor\Attributes\PostProcessingModelEditorAttribute.cs" />
+    <Compile Include="Assets\Assets Download\DreamForestTree\PostProcessing\Editor\Models\AmbientOcclusionModelEditor.cs" />
+    <Compile Include="Assets\Assets Download\DreamForestTree\PostProcessing\Editor\Models\AntialiasingModelEditor.cs" />
+    <Compile Include="Assets\Assets Download\DreamForestTree\PostProcessing\Editor\Models\BloomModelEditor.cs" />
+    <Compile Include="Assets\Assets Download\DreamForestTree\PostProcessing\Editor\Models\BuiltinDebugViewsEditor.cs" />
+    <Compile Include="Assets\Assets Download\DreamForestTree\PostProcessing\Editor\Models\ChromaticAberrationEditor.cs" />
+    <Compile Include="Assets\Assets Download\DreamForestTree\PostProcessing\Editor\Models\ColorGradingModelEditor.cs" />
+    <Compile Include="Assets\Assets Download\DreamForestTree\PostProcessing\Editor\Models\DefaultPostFxModelEditor.cs" />
+    <Compile Include="Assets\Assets Download\DreamForestTree\PostProcessing\Editor\Models\DepthOfFieldModelEditor.cs" />
+    <Compile Include="Assets\Assets Download\DreamForestTree\PostProcessing\Editor\Models\DitheringModelEditor.cs" />
+    <Compile Include="Assets\Assets Download\DreamForestTree\PostProcessing\Editor\Models\EyeAdaptationModelEditor.cs" />
+    <Compile Include="Assets\Assets Download\DreamForestTree\PostProcessing\Editor\Models\FogModelEditor.cs" />
+    <Compile Include="Assets\Assets Download\DreamForestTree\PostProcessing\Editor\Models\GrainModelEditor.cs" />
+    <Compile Include="Assets\Assets Download\DreamForestTree\PostProcessing\Editor\Models\MotionBlurModelEditor.cs" />
+    <Compile Include="Assets\Assets Download\DreamForestTree\PostProcessing\Editor\Models\ScreenSpaceReflectionModelEditor.cs" />
+    <Compile Include="Assets\Assets Download\DreamForestTree\PostProcessing\Editor\Models\UserLutModelEditor.cs" />
+    <Compile Include="Assets\Assets Download\DreamForestTree\PostProcessing\Editor\Models\VignetteModelEditor.cs" />
+    <Compile Include="Assets\Assets Download\DreamForestTree\PostProcessing\Editor\Monitors\HistogramMonitor.cs" />
+    <Compile Include="Assets\Assets Download\DreamForestTree\PostProcessing\Editor\Monitors\ParadeMonitor.cs" />
+    <Compile Include="Assets\Assets Download\DreamForestTree\PostProcessing\Editor\Monitors\VectorscopeMonitor.cs" />
+    <Compile Include="Assets\Assets Download\DreamForestTree\PostProcessing\Editor\Monitors\WaveformMonitor.cs" />
+    <Compile Include="Assets\Assets Download\DreamForestTree\PostProcessing\Editor\PostProcessingBehaviourEditor.cs" />
+    <Compile Include="Assets\Assets Download\DreamForestTree\PostProcessing\Editor\PostProcessingFactory.cs" />
+    <Compile Include="Assets\Assets Download\DreamForestTree\PostProcessing\Editor\PostProcessingInspector.cs" />
+    <Compile Include="Assets\Assets Download\DreamForestTree\PostProcessing\Editor\PostProcessingModelEditor.cs" />
+    <Compile Include="Assets\Assets Download\DreamForestTree\PostProcessing\Editor\PostProcessingMonitor.cs" />
+    <Compile Include="Assets\Assets Download\DreamForestTree\PostProcessing\Editor\PropertyDrawers\GetSetDrawer.cs" />
+    <Compile Include="Assets\Assets Download\DreamForestTree\PostProcessing\Editor\PropertyDrawers\MinDrawer.cs" />
+    <Compile Include="Assets\Assets Download\DreamForestTree\PostProcessing\Editor\PropertyDrawers\TrackballGroupDrawer.cs" />
+    <Compile Include="Assets\Assets Download\DreamForestTree\PostProcessing\Editor\Utils\CurveEditor.cs" />
+    <Compile Include="Assets\Assets Download\DreamForestTree\PostProcessing\Editor\Utils\EditorGUIHelper.cs" />
+    <Compile Include="Assets\Assets Download\DreamForestTree\PostProcessing\Editor\Utils\EditorResources.cs" />
+    <Compile Include="Assets\Assets Download\DreamForestTree\PostProcessing\Editor\Utils\FxStyles.cs" />
+    <Compile Include="Assets\Assets Download\DreamForestTree\PostProcessing\Editor\Utils\ReflectionUtils.cs" />
     <Compile Include="Assets\Assets Download\Standard Assets\Editor\CrossPlatformInput\CrossPlatformInputInitialize.cs" />
     <Compile Include="Assets\Assets Download\Standard Assets\Editor\Water\Water4\GerstnerDisplaceEditor.cs" />
     <Compile Include="Assets\Assets Download\Standard Assets\Editor\Water\Water4\PlanarReflectionEditor.cs" />
