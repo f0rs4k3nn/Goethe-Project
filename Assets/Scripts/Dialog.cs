@@ -22,8 +22,7 @@ public class Dialog : MonoBehaviour
         textDisplay.text = "";
         
         player = PlayerManager.instance.player;
-        PlayerManager.instance.DialogBox.SetActive(false);
-           
+        PlayerManager.instance.DialogBox.SetActive(false);   
     }
 
     private void OnTriggerStay(Collider other)
