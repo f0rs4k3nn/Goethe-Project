@@ -23,14 +23,14 @@ public class PlayerDeath : MonoBehaviour
         if (other.tag=="Death")
         {
             //oh no i dieded
-            game.Player.transform.parent = null;
-            this.transform.position = checkPoint.transform.position;
+           // GetComponent<PlayerController>().parentTransform = null;
+            transform.position = checkPoint.transform.position;
         }
     }
 
     public void CheckPoint()
     {
-        game.Player.transform.parent = null;
-        this.transform.position = checkPoint.transform.position;
+       // GetComponent<PlayerController>().parentTransform = null;
+        transform.position = checkPoint.transform.position;
     }
 }

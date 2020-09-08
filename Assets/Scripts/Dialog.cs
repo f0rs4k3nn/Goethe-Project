@@ -21,7 +21,7 @@ public class Dialog : MonoBehaviour
       
         textDisplay.text = "";
         
-        player = PlayerManager.instance.player;
+        player = GameObject.Find("Player");
         PlayerManager.instance.DialogBox.SetActive(false);
            
     }

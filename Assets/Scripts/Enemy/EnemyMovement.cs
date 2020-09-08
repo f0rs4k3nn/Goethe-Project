@@ -17,7 +17,7 @@ public class EnemyMovement : MonoBehaviour
 	// Use this for initialization
 	void Start()
 	{
-		target = PlayerManager.instance.player.transform;
+		target = GameObject.Find("Player").transform;
 		agent = GetComponent<NavMeshAgent>();
 	}
 
