@@ -6,7 +6,6 @@ using System;
 
 public class TimeTravelMechanic : MonoBehaviour
 {
-
     public float fadeDuration = 1.0f;
     private bool isInFuture;
     private GameObject[] pastObjects;
@@ -15,17 +14,16 @@ public class TimeTravelMechanic : MonoBehaviour
     private Image fadeScreen;
     private bool canTimeTravel = false;
     private bool keyWasReleased = true;
-    private PlayerMisc player;
-
+//    private PlayerMisc player;
 
     private Light mainLight;
-
+    [Space]
     public Color pastSkyBoxColour;
     public Color pastLightColour;
     public Color pastFogColour;
     public float pastLightIntensity;
     public float pastFogEndDist;
-
+    [Space]
     public Color futureSkyBoxColour;
     public Color futureLightColour;
     public Color futureFogColour;
@@ -34,8 +32,14 @@ public class TimeTravelMechanic : MonoBehaviour
 
     public Material skyBox;
 
+    private GameManager game;
 
 
+    private void Awake()
+    {
+        game = GameManager.Instance;
+        game.TimeTravelMechanic = this;
+    }
 
 
     // Start is called before the first frame update
@@ -43,7 +47,6 @@ public class TimeTravelMechanic : MonoBehaviour
     {
         
         //Skybox.
-        player = FindObjectOfType<PlayerMisc>();
         fadeScreen = GetComponent<Image>();
         mainLight = GameObject.Find("Directional Light").GetComponent<Light>();
         pastObjects = GameObject.FindGameObjectsWithTag("Past Object");
@@ -57,8 +60,7 @@ public class TimeTravelMechanic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-        if(Input.GetAxisRaw("TimeTravel") > 0.3 && keyWasReleased && player.IsActive())
+        if(Input.GetAxisRaw("TimeTravel") > 0.3 && keyWasReleased && game.IsMovementEnabled)
         {
             keyWasReleased = false;
             TriggerTimeTravel();
@@ -81,7 +83,7 @@ public class TimeTravelMechanic : MonoBehaviour
                 anim.speed = 0;
             }
 
-            player.ActivateMovement(false);
+            game.IsMovementEnabled = false;
             canTimeTravel = false;
             isInFuture = !isInFuture;
 
@@ -126,9 +128,7 @@ public class TimeTravelMechanic : MonoBehaviour
             {
                 anim.speed = 1;
             }
-
-            player.ActivateMovement(true);
-
+            game.IsMovementEnabled = true;
         }
     }
 

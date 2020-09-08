@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -21,6 +22,11 @@ public class ThirdPersonCamera : MonoBehaviour
     private bool canMove = false;
 
     private UnityStandardAssets.Cameras.ProtectCameraFromWallClip clipControl;
+
+    private void Awake()
+    {
+        GameManager.Instance.Camera = this;
+    }
 
     // Start is called before the first frame update
     void Start()

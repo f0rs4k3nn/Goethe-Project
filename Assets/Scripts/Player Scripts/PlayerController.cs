@@ -72,6 +72,11 @@ public class PlayerController : MonoBehaviour
     //public GameObject cameraLookAt;
     //public Transform playerModel;
 
+    void Awake()
+    {
+        GameManager.Instance.Player = this; // Assign itself to the GameManager
+    }
+
     // Start is called before the first frame update
     void Start()
     {
