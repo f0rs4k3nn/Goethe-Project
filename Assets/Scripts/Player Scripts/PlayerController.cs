@@ -36,7 +36,7 @@ public class PlayerController : MonoBehaviour
     private bool isGrounded;
     public float jumpForce;
     public float gravityIntensity;
-    private bool jumpKeyReleased = true;
+    private bool m_jumpKeyReleased = true;
    // public bool gravityIsReversed = false;
 
     //variables used for the progressive jump when the jump button is held
@@ -45,6 +45,8 @@ public class PlayerController : MonoBehaviour
     public float progressiveJumpPower; //how much force to add while jump is still pressed
     public bool doubleJumpUnlocked; // boolean to see if the player can double jump yet
     public bool canDoubleJump;
+    private int m_staticFallVelocity = -45; //the speed at which the player is pushed to the ground when grounded
+    private bool m_beganFalling = false;
 
 
     public int maxFallSpeed;
@@ -82,8 +84,9 @@ public class PlayerController : MonoBehaviour
         canMove = true;
     }
 
-    void Update()
+    void FixedUpdate()
     {
+        Debug.Log(velocity.y);
         if (!canMove)
             return;
 
@@ -94,6 +97,7 @@ public class PlayerController : MonoBehaviour
 
         if (isGrounded)
         {
+            m_beganFalling = false;
             canDoubleJump = true;
 
             bool parentChanged = false;
@@ -114,11 +118,20 @@ public class PlayerController : MonoBehaviour
 
             if (velocity.y < 0)
             {
-               velocity.y = -2f;
+               velocity.y = m_staticFallVelocity;
             }
             
         } else //!isGrounded
         {
+            if(!m_beganFalling)
+            {
+                if(velocity.y < 0)
+                {
+                    m_beganFalling = true;
+                    velocity.y = -5;
+                }
+            }
+            
             velocity.y -= gravityIntensity * Time.deltaTime;
             parentTransform = null;
 
@@ -136,15 +149,15 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetAxis("Jump") > 0)
         {
-            if(isGrounded && jumpKeyReleased)
+            if(isGrounded && m_jumpKeyReleased)
             {
                 velocity.y = jumpForce;
-                jumpKeyReleased = false;
+                m_jumpKeyReleased = false;
                 accumulatedJumpPower = 0;
             }
             else
             {
-                if(!jumpKeyReleased && accumulatedJumpPower < accumulativeJumpLimit)
+                if(!m_jumpKeyReleased && accumulatedJumpPower < accumulativeJumpLimit)
                 {
                     float jumpStep = progressiveJumpPower * Time.deltaTime;
                     velocity.y += jumpStep;
@@ -152,7 +165,7 @@ public class PlayerController : MonoBehaviour
                 }
             }
 
-            if (!isGrounded && jumpKeyReleased && doubleJumpUnlocked && canDoubleJump)
+            if (!isGrounded && m_jumpKeyReleased && doubleJumpUnlocked && canDoubleJump)
             {
                 canDoubleJump = false;
                 velocity.y = jumpForce;
@@ -160,7 +173,7 @@ public class PlayerController : MonoBehaviour
         }
         else if (Input.GetAxis("Jump") == 0)
         {
-            jumpKeyReleased = true;
+            m_jumpKeyReleased = true;
         }
 
         Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
@@ -192,20 +205,21 @@ public class PlayerController : MonoBehaviour
         m_TurnAmount *= 200;
         m_ForwardAmount = movement.magnitude * m_RunningAnimationMultiplier;
         UpdateAnimator(movement);
-        player.Move(movement + parentMovement + velocity / 100.0f);
+
+        player.Move(movement + velocity / 100.0f);
+        transform.position += parentMovement;
     }
 
     
 
     private void OnTriggerStay(Collider other)
     {
-        if (!other.name.Equals("Player"))
-        {
-            Vector3 objPos = other.transform.position;
-            Vector3 currentPos = transform.position;
+        Debug.Log("I'VE BEEN HIT");
+      
+        Vector3 objPos = other.transform.position;
+        Vector3 currentPos = transform.position;
 
-            player.Move((currentPos - objPos).normalized * Time.deltaTime * 0.01f);
-        }
+        player.Move((currentPos - objPos).normalized * Time.deltaTime * 0.7f); 
     }
 
     public static Vector3 RadianToVector3(float radian)
@@ -250,6 +264,7 @@ public class PlayerController : MonoBehaviour
             Mathf.Repeat(
                 m_Animator.GetCurrentAnimatorStateInfo(0).normalizedTime, 1);
         float jumpLeg = (runCycle < k_Half ? 1 : -1) * m_ForwardAmount;
+
         if (isGrounded)
         {
             m_Animator.SetFloat("JumpLeg", jumpLeg);
