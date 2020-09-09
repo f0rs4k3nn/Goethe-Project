@@ -1,19 +1,26 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class PlayerTriggerTeleport : MonoBehaviour
 {
-    public Transform spwanPoint;
+    public Transform spawnPoint;
     private float duration = 0.6f;
-    private PlayerMisc player;
     private CanvasGroup canvas;
     private Image fadeScreen;
+    
+    private GameManager game;
+    
+    private void Awake()
+    {
+        game = GameManager.Instance;
+    }
 
     private void Start()
     {
-        GameObject obj = GameObject.Find("TimeTravelManager");
+        GameObject obj = game.TimeTravelMechanic.gameObject;
         canvas = obj.GetComponent<CanvasGroup>();
         fadeScreen = obj.GetComponent<Image>();
     }
@@ -21,8 +28,7 @@ public class PlayerTriggerTeleport : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         
-        player = other.gameObject.GetComponent<PlayerMisc>();
-        player.ActivateMovement(false);
+        game.IsMovementEnabled = false;
         fadeScreen.color = new Color(0.1f, 0.1f, 0.1f);
 
         StartCoroutine(Fade(0, 1, duration, true));
@@ -50,14 +56,12 @@ public class PlayerTriggerTeleport : MonoBehaviour
 
         if (isFadeIn)
         {
-            player.gameObject.transform.position = spwanPoint.position;
-
+            game.Player.transform.position = spawnPoint.position;
             StartCoroutine(Fade(1, 0, duration, false));
         }
         else
         {
-            
-            player.ActivateMovement(true);
+            game.IsMovementEnabled = true;
         }
     }
 }

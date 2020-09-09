@@ -806,7 +806,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4000010828360526, guid: d8185c26d9422ab41a0e3507aaab9abe, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4000010828360526, guid: d8185c26d9422ab41a0e3507aaab9abe, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1158,7 +1158,7 @@ PrefabInstance:
     - target: {fileID: 5739746644792992967, guid: 478ba2cdb03e6b44fab428134b63314f,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 5739746644792992967, guid: 478ba2cdb03e6b44fab428134b63314f,
         type: 3}
@@ -1594,7 +1594,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: e834e0d0b1671de439dc22a336e7fec8, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: e834e0d0b1671de439dc22a336e7fec8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1651,7 +1651,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4571446205119890, guid: 87a65d9e02df41f449073bfeab2ee78f, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4571446205119890, guid: 87a65d9e02df41f449073bfeab2ee78f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1714,7 +1714,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4545829119595346, guid: 85ab1a79d9a7a374ea7182a729d804c7, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4545829119595346, guid: 85ab1a79d9a7a374ea7182a729d804c7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2097,7 +2097,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: 06eaf66162ff8ec48b674c4ee36b6f0e, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: 06eaf66162ff8ec48b674c4ee36b6f0e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2253,7 +2253,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4000012067424442, guid: 9a8a037e5343199458bcacb9d8803837, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4000012067424442, guid: 9a8a037e5343199458bcacb9d8803837, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2648,17 +2648,27 @@ MonoBehaviour:
   walkSpeed: 10
   runSpeed: 6
   maxSpeed: 5
-  turnsmoothTime: 0.1
+  turnSmoothTime: 0.2
+  turnSmoothTimeAir: 0.5
   speedSmoothTime: 0.1
+  speedSmoothTimeAir: 0.2
   groundCheck: {fileID: 5939357689654412186}
+  ceilingCheck: {fileID: 0}
   groundDistance: 0.5
   groundMask:
     serializedVersion: 2
     m_Bits: 256
-  isGrounded: 0
   jumpForce: 15
   gravityIntensity: 40
-  airControl: 0.5
+  accumulativeJumpLimit: 0
+  progressiveJumpPower: 0
+  doubleJumpUnlocked: 0
+  canDoubleJump: 0
+  maxFallSpeed: 0
+  m_RunCycleLegOffset: 0.2
+  m_MoveSpeedMultiplier: 1
+  m_AnimSpeedMultiplier: 1
+  m_RunningAnimationMultiplier: 10
 --- !u!1 &5939357688497218753
 GameObject:
   m_ObjectHideFlags: 0
@@ -2673,7 +2683,6 @@ GameObject:
   - component: {fileID: 5939357688497218755}
   - component: {fileID: 5939357688497218759}
   - component: {fileID: 5939357688497218752}
-  - component: {fileID: 5939357688497218758}
   m_Layer: 11
   m_Name: Player
   m_TagString: Untagged
@@ -2760,18 +2769,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5939357688497218753}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &5939357688497218758
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5939357688497218753}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d3a605f38b4f1324e9b66dd8bc0fd61d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!143 &5939357688497218759
 CharacterController:
   m_ObjectHideFlags: 0

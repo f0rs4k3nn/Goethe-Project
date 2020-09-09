@@ -42,7 +42,7 @@ public class CollectibleScript : MonoBehaviour
         if(!taken && other.tag =="Player")
         {
             taken = true;
-            other.GetComponent<PlayerMisc>().IncrementPoints(pointsWorth);
+            GameManager.Instance.GameScore = pointsWorth;
             ScoringSystem.theScore += 1;
             Destroy(gameObject);
         } 

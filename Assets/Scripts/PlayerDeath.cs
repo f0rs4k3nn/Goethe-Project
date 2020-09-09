@@ -5,14 +5,13 @@ using UnityEngine;
 public class PlayerDeath : MonoBehaviour
 {
     public GameObject checkPoint;
-
-    // Start is called before the first frame update
-    void Start()
+    private GameManager game;
+    
+    void Awake()
     {
-        
+        game = GameManager.Instance;
     }
-
-
+    
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "CheckPoint")
@@ -27,18 +26,11 @@ public class PlayerDeath : MonoBehaviour
            // GetComponent<PlayerController>().parentTransform = null;
             transform.position = checkPoint.transform.position;
         }
-
     }
 
     public void CheckPoint()
     {
        // GetComponent<PlayerController>().parentTransform = null;
         transform.position = checkPoint.transform.position;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
