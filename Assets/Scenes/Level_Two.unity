@@ -4575,6 +4575,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 7506436239547996048, guid: 4d8537e5f22d83944bc913ccae04541b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Death
+      objectReference: {fileID: 0}
     - target: {fileID: 7506436239547996055, guid: 4d8537e5f22d83944bc913ccae04541b,
         type: 3}
       propertyPath: lookRadius
@@ -12618,6 +12623,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 7506436239547996048, guid: 4d8537e5f22d83944bc913ccae04541b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Death
+      objectReference: {fileID: 0}
     - target: {fileID: 7506436239547996055, guid: 4d8537e5f22d83944bc913ccae04541b,
         type: 3}
       propertyPath: lookRadius
@@ -15177,7 +15187,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &374106070
 PrefabInstance:
@@ -16389,6 +16399,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Patroling Enemy (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7305969304837503617, guid: aefbd11b29d2ef54b8a27e03a9c23de8,
+        type: 3}
+      propertyPath: m_TagString
+      value: Death
+      objectReference: {fileID: 0}
+    - target: {fileID: 7305969305745799170, guid: aefbd11b29d2ef54b8a27e03a9c23de8,
+        type: 3}
+      propertyPath: m_TagString
+      value: Death
       objectReference: {fileID: 0}
     - target: {fileID: 7305969305745799173, guid: aefbd11b29d2ef54b8a27e03a9c23de8,
         type: 3}
@@ -21106,6 +21126,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 7506436239547996048, guid: 4d8537e5f22d83944bc913ccae04541b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Death
+      objectReference: {fileID: 0}
     - target: {fileID: 7506436239547996055, guid: 4d8537e5f22d83944bc913ccae04541b,
         type: 3}
       propertyPath: lookRadius
@@ -22708,6 +22733,51 @@ PrefabInstance:
       propertyPath: skyBox
       value: 
       objectReference: {fileID: 2100000, guid: 500dbc774af40e2438e59974586e863d, type: 2}
+    - target: {fileID: 4976432101538654893, guid: dff3d1d277ce5924f9300a8d4e65b29e,
+        type: 3}
+      propertyPath: pastLightColour.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4976432101538654893, guid: dff3d1d277ce5924f9300a8d4e65b29e,
+        type: 3}
+      propertyPath: pastLightColour.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4976432101538654893, guid: dff3d1d277ce5924f9300a8d4e65b29e,
+        type: 3}
+      propertyPath: pastLightColour.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4976432101538654893, guid: dff3d1d277ce5924f9300a8d4e65b29e,
+        type: 3}
+      propertyPath: futureLightColour.r
+      value: 0.9339623
+      objectReference: {fileID: 0}
+    - target: {fileID: 4976432101538654893, guid: dff3d1d277ce5924f9300a8d4e65b29e,
+        type: 3}
+      propertyPath: futureLightColour.g
+      value: 0.374466
+      objectReference: {fileID: 0}
+    - target: {fileID: 4976432101538654893, guid: dff3d1d277ce5924f9300a8d4e65b29e,
+        type: 3}
+      propertyPath: futureLightColour.b
+      value: 0.69548845
+      objectReference: {fileID: 0}
+    - target: {fileID: 4976432101538654893, guid: dff3d1d277ce5924f9300a8d4e65b29e,
+        type: 3}
+      propertyPath: futureSkyBoxColour.r
+      value: 0.8113208
+      objectReference: {fileID: 0}
+    - target: {fileID: 4976432101538654893, guid: dff3d1d277ce5924f9300a8d4e65b29e,
+        type: 3}
+      propertyPath: futureSkyBoxColour.g
+      value: 0.24110004
+      objectReference: {fileID: 0}
+    - target: {fileID: 4976432101538654893, guid: dff3d1d277ce5924f9300a8d4e65b29e,
+        type: 3}
+      propertyPath: futureSkyBoxColour.b
+      value: 0.24110004
+      objectReference: {fileID: 0}
     - target: {fileID: 4976432101805874665, guid: dff3d1d277ce5924f9300a8d4e65b29e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -23814,7 +23884,7 @@ GameObject:
   - component: {fileID: 599580515}
   m_Layer: 0
   m_Name: Plane
-  m_TagString: Untagged
+  m_TagString: Death
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26668,6 +26738,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Enemy (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7506436239547996048, guid: 4d8537e5f22d83944bc913ccae04541b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Death
       objectReference: {fileID: 0}
     - target: {fileID: 7506436239547996055, guid: 4d8537e5f22d83944bc913ccae04541b,
         type: 3}
@@ -33154,6 +33229,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 7506436239547996048, guid: 4d8537e5f22d83944bc913ccae04541b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Death
+      objectReference: {fileID: 0}
     - target: {fileID: 7506436239547996055, guid: 4d8537e5f22d83944bc913ccae04541b,
         type: 3}
       propertyPath: lookRadius
@@ -39318,7 +39398,7 @@ PrefabInstance:
     - target: {fileID: 1972962438354793487, guid: c80579ec89e7d5c48bd65b2346fff8c8,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 64.5
+      value: 64.3
       objectReference: {fileID: 0}
     - target: {fileID: 1972962438354793487, guid: c80579ec89e7d5c48bd65b2346fff8c8,
         type: 3}
@@ -44394,6 +44474,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 7506436239547996048, guid: 4d8537e5f22d83944bc913ccae04541b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Death
+      objectReference: {fileID: 0}
     - target: {fileID: 7506436239547996055, guid: 4d8537e5f22d83944bc913ccae04541b,
         type: 3}
       propertyPath: lookRadius
@@ -44893,6 +44978,21 @@ PrefabInstance:
       propertyPath: textDisplay
       value: 
       objectReference: {fileID: 7338691770592638561}
+    - target: {fileID: 7159791904483531824, guid: 61e2dc926c6b4e543a8f94ae03819d3f,
+        type: 3}
+      propertyPath: sentencesNpc.Array.data[0]
+      value: 'Details '
+      objectReference: {fileID: 0}
+    - target: {fileID: 7159791904483531824, guid: 61e2dc926c6b4e543a8f94ae03819d3f,
+        type: 3}
+      propertyPath: sentencesNpc.Array.data[1]
+      value: More info
+      objectReference: {fileID: 0}
+    - target: {fileID: 7159791904483531824, guid: 61e2dc926c6b4e543a8f94ae03819d3f,
+        type: 3}
+      propertyPath: sentencesNpc.Array.data[2]
+      value: Last bit of info
+      objectReference: {fileID: 0}
     - target: {fileID: 7159791904483531825, guid: 61e2dc926c6b4e543a8f94ae03819d3f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -49413,6 +49513,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 7506436239547996048, guid: 4d8537e5f22d83944bc913ccae04541b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Death
+      objectReference: {fileID: 0}
     - target: {fileID: 7506436239547996055, guid: 4d8537e5f22d83944bc913ccae04541b,
         type: 3}
       propertyPath: lookRadius
@@ -49642,6 +49747,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Enemy (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7506436239547996048, guid: 4d8537e5f22d83944bc913ccae04541b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Death
       objectReference: {fileID: 0}
     - target: {fileID: 7506436239547996055, guid: 4d8537e5f22d83944bc913ccae04541b,
         type: 3}
@@ -54671,7 +54781,7 @@ Transform:
   m_Children:
   - {fileID: 2006174413}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1367095429
 PrefabInstance:
@@ -58687,32 +58797,32 @@ PrefabInstance:
     - target: {fileID: 5939357689767091215, guid: 330d482c6461f2c459d14bda071c2522,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 741.8
+      value: 420.6
       objectReference: {fileID: 0}
     - target: {fileID: 5939357689767091215, guid: 330d482c6461f2c459d14bda071c2522,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 59.9
+      value: 51.100002
       objectReference: {fileID: 0}
     - target: {fileID: 5939357689767091215, guid: 330d482c6461f2c459d14bda071c2522,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 682.3
+      value: 18.6
       objectReference: {fileID: 0}
     - target: {fileID: 5939357689767091215, guid: 330d482c6461f2c459d14bda071c2522,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5939357689767091215, guid: 330d482c6461f2c459d14bda071c2522,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5939357689767091215, guid: 330d482c6461f2c459d14bda071c2522,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5939357689767091215, guid: 330d482c6461f2c459d14bda071c2522,
         type: 3}
@@ -60681,6 +60791,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 7506436239547996048, guid: 4d8537e5f22d83944bc913ccae04541b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Death
+      objectReference: {fileID: 0}
     - target: {fileID: 7506436239547996055, guid: 4d8537e5f22d83944bc913ccae04541b,
         type: 3}
       propertyPath: lookRadius
@@ -60763,7 +60878,7 @@ GameObject:
   - component: {fileID: 1524301872}
   m_Layer: 0
   m_Name: Plane (1)
-  m_TagString: Untagged
+  m_TagString: Death
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -61531,6 +61646,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Patroling Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 7305969304837503617, guid: aefbd11b29d2ef54b8a27e03a9c23de8,
+        type: 3}
+      propertyPath: m_TagString
+      value: Death
+      objectReference: {fileID: 0}
+    - target: {fileID: 7305969305745799170, guid: aefbd11b29d2ef54b8a27e03a9c23de8,
+        type: 3}
+      propertyPath: m_TagString
+      value: Death
       objectReference: {fileID: 0}
     - target: {fileID: 7305969305745799173, guid: aefbd11b29d2ef54b8a27e03a9c23de8,
         type: 3}
@@ -73795,6 +73920,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 7506436239547996048, guid: 4d8537e5f22d83944bc913ccae04541b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Death
+      objectReference: {fileID: 0}
     - target: {fileID: 7506436239547996055, guid: 4d8537e5f22d83944bc913ccae04541b,
         type: 3}
       propertyPath: lookRadius
@@ -79877,6 +80007,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7506436239547996048, guid: 4d8537e5f22d83944bc913ccae04541b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Death
+      objectReference: {fileID: 0}
     - target: {fileID: 7506436239547996055, guid: 4d8537e5f22d83944bc913ccae04541b,
         type: 3}
       propertyPath: lookRadius
@@ -83602,99 +83737,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2058350192}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &2058968776
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2058968780}
-  - component: {fileID: 2058968779}
-  - component: {fileID: 2058968778}
-  - component: {fileID: 2058968777}
-  m_Layer: 11
-  m_Name: SpawnPoint (3)
-  m_TagString: CheckPoint
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!65 &2058968777
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2058968776}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!23 &2058968778
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2058968776}
-  m_Enabled: 0
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
---- !u!33 &2058968779
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2058968776}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!4 &2058968780
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2058968776}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 554.4, y: 1.105, z: 527.3}
-  m_LocalScale: {x: 101.32, y: 34.35553, z: 22.505}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2059724725
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -88545,6 +88587,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Enemy (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7506436239547996048, guid: 4d8537e5f22d83944bc913ccae04541b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Death
       objectReference: {fileID: 0}
     - target: {fileID: 7506436239547996055, guid: 4d8537e5f22d83944bc913ccae04541b,
         type: 3}
