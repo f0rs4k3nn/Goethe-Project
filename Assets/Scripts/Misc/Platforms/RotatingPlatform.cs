@@ -14,12 +14,13 @@ public class RotatingPlatform : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        rotation = new Vector3(xSpeed, ySpeed, zSpeed);
+        
     }
 
     // Update is called once per frame
     void Update()
     {
+        rotation = new Vector3(xSpeed, ySpeed, zSpeed);
         transform.Rotate(rotation * speedMultiplier * Time.deltaTime);
     }
 }

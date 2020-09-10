@@ -6,36 +6,43 @@ using UnityEngine.ProBuilder.MeshOperations;
 
 public class PlayerController : MonoBehaviour
 {
-    public float walkSpeed = 2;
-    public float runSpeed = 6;
-    public int maxSpeed = 1;
+    public float walkSpeed = 12;
+    public float runSpeed = 45;
+   // public int maxSpeed = 1;
 
-    public float turnSmoothTime = 0.2f;
+    public float turnSmoothTime = 0.18f;
     public float turnSmoothTimeAir = 0.5f;
 
     float turnSmoothVelocity;
     CharacterController player;
 
-    public float speedSmoothTime = 0.1f;
-    public float speedSmoothTimeAir = 0.2f;
+    public float speedSmoothTime = 0.25f;
+    public float speedSmoothTimeAir = 0.5f;
     Vector3 speedSmoothVelocity;
 
-    Vector3 currentSpeed;
-    Vector3 velocity;
+    Vector3 currentSpeed; //used for movement given by input
+    Vector3 velocity; //only used for calculating vertical velocity
     Vector3 movementDir = Vector3.zero;
 
+    //Used to set the speed of the animation depanding on how fast the player 
+    //*actually* is. E.g. We don't want the player to have a running animation
+    //when running against a wall.
+    Vector3 movementSinceLastFrame;
+    Vector3 lastFramePositon;
+
+
    // private GameObject temporaryParent;
-    private Transform parentTransform;
+    public Transform parentTransform;
     private Vector3 previousParentPosition;
     private Vector3 previousParentRotation;
     private Vector3 parentMovement;
 
     public Transform groundCheck;
     public Transform ceilingCheck;
-    public float groundDistance;
+    public float groundDistance = 0.28f;
     public LayerMask groundMask;
     private bool isGrounded;
-    public float jumpForce;
+    public float jumpForce = 45;
     public float gravityIntensity;
     private bool m_jumpKeyReleased = true;
    // public bool gravityIsReversed = false;
@@ -45,12 +52,12 @@ public class PlayerController : MonoBehaviour
     public float accumulativeJumpLimit; //how much force can be added
     public float progressiveJumpPower; //how much force to add while jump is still pressed
     public bool doubleJumpUnlocked; // boolean to see if the player can double jump yet
-    public bool canDoubleJump;
+    private bool canDoubleJump;
     private int m_staticFallVelocity = -45; //the speed at which the player is pushed to the ground when grounded
     private bool m_beganFalling = false;
 
 
-    public int maxFallSpeed;
+    public int maxFallSpeed = -250;
     private bool canMove = false;
 
 
@@ -65,9 +72,6 @@ public class PlayerController : MonoBehaviour
     float m_TurnAmount;
     float m_ForwardAmount;
     public float m_RunningAnimationMultiplier = 10;
-
-
-    //  bool canChangeGravity = true;
 
     private Transform camera;
 
@@ -87,17 +91,23 @@ public class PlayerController : MonoBehaviour
         camera = Camera.main.transform;
         player = GetComponent<CharacterController>();
         canMove = true;
+        movementSinceLastFrame = Vector3.zero;
     }
 
     void FixedUpdate()
     {
-        Debug.Log(velocity.y);
+        
         if (!canMove)
             return;
 
-        parentMovement = Vector3.zero;     
+        parentMovement = Vector3.zero;
+
 
         Collider[] groundColliders = Physics.OverlapSphere(groundCheck.position, groundDistance, groundMask);
+
+       // Debug.Log(velocity.y + " " + groundColliders.Length);
+
+
         isGrounded = groundColliders.Length != 0;
 
         if (isGrounded)
@@ -105,7 +115,6 @@ public class PlayerController : MonoBehaviour
             m_beganFalling = false;
             canDoubleJump = true;
 
-            bool parentChanged = false;
             Transform currentGroundTransform = groundColliders[0].transform;
 
             if (parentTransform != currentGroundTransform)
@@ -113,12 +122,10 @@ public class PlayerController : MonoBehaviour
                 parentTransform = currentGroundTransform;
                 previousParentPosition = parentTransform.position;
                 previousParentRotation = parentTransform.rotation.eulerAngles;
-                parentChanged = true;
-            } 
 
-            if(!parentChanged && parentTransform != null)
+            } else if(parentTransform != null)
             {
-               CalculateParentOffset(); 
+                CalculateParentOffset();
             }
 
             if (velocity.y < 0)
@@ -160,24 +167,20 @@ public class PlayerController : MonoBehaviour
                 m_jumpKeyReleased = false;
                 accumulatedJumpPower = 0;
             }
-            else
+            else if(!m_jumpKeyReleased && accumulatedJumpPower < accumulativeJumpLimit && canDoubleJump) //accumulative jump, also makes sure it isn't a double jump
             {
-                if(!m_jumpKeyReleased && accumulatedJumpPower < accumulativeJumpLimit)
-                {
-                    float jumpStep = progressiveJumpPower * Time.deltaTime;
-                    velocity.y += jumpStep;
-                    accumulatedJumpPower += jumpStep;
-                }
-            }
-
-            if (!isGrounded && m_jumpKeyReleased && doubleJumpUnlocked && canDoubleJump)
+                float jumpStep = progressiveJumpPower * Time.deltaTime;
+                velocity.y += jumpStep;
+                accumulatedJumpPower += jumpStep;
+            } else if (!isGrounded && m_jumpKeyReleased && doubleJumpUnlocked && canDoubleJump)
             {
+                m_jumpKeyReleased = false;
                 canDoubleJump = false;
                 velocity.y = jumpForce;
             }
-        }
-        else if (Input.GetAxis("Jump") == 0)
+        } else if (Input.GetAxis("Jump") == 0)
         {
+            
             m_jumpKeyReleased = true;
         }
 
@@ -199,19 +202,23 @@ public class PlayerController : MonoBehaviour
             if(isGrounded)
             {
                 targetspeedSmooth /= 3.5f;
-            }
-            
+            }           
         }
 
         currentSpeed = Vector3.SmoothDamp(currentSpeed, movementDir * targetSpeed, ref speedSmoothVelocity, targetspeedSmooth);
 
-        Vector3 movement = currentSpeed * 0.01f ;
+        Vector3 movement = currentSpeed * 0.01f;
+
+        Vector3 lastFramePositon = transform.position;
+        player.Move(movement + velocity / 100.0f);
+        currentSpeed = (transform.position - lastFramePositon) * 100f;
+        currentSpeed.y = 0;
 
         m_TurnAmount *= 200;
-        m_ForwardAmount = movement.magnitude * m_RunningAnimationMultiplier;
+        m_ForwardAmount = currentSpeed.magnitude * m_RunningAnimationMultiplier / 100.0f;
+
         UpdateAnimator(movement);
 
-        player.Move(movement + velocity / 100.0f);
         transform.position += parentMovement;
     }
 
