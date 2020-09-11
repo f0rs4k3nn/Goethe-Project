@@ -57,6 +57,7 @@ public class TimeTravelMechanic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         
         if(Input.GetAxisRaw("TimeTravel") > 0.3 && keyWasReleased && player.IsActive())
         {
