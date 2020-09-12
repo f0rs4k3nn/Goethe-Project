@@ -11,12 +11,13 @@ public class TimeTravelMechanic : MonoBehaviour
     private bool isInFuture;
     private GameObject[] pastObjects;
     private GameObject[] futureObjects;
+    private GameObject[] pastObjectsConstruct;
+    private GameObject[] futureObjectsConstruct;
     private Animator[] animatedObjects;
     private Image fadeScreen;
     private bool canTimeTravel = false;
     private bool keyWasReleased = true;
     private PlayerMisc player;
-
 
     private Light mainLight;
 
@@ -34,20 +35,17 @@ public class TimeTravelMechanic : MonoBehaviour
 
     public Material skyBox;
 
-
-
-
-
     // Start is called before the first frame update
     void Start()
-    {
-        
+    {       
         //Skybox.
         player = FindObjectOfType<PlayerMisc>();
         fadeScreen = GetComponent<Image>();
         mainLight = GameObject.Find("Directional Light").GetComponent<Light>();
         pastObjects = GameObject.FindGameObjectsWithTag("Past Object");
+        pastObjectsConstruct = GameObject.FindGameObjectsWithTag("Past Construct");
         futureObjects = GameObject.FindGameObjectsWithTag("Future Object");
+        futureObjectsConstruct = GameObject.FindGameObjectsWithTag("Future Construct");
         animatedObjects = GameObject.FindObjectsOfType<Animator>();
 
         ChangeSceneEnvironment(true);
@@ -56,9 +54,7 @@ public class TimeTravelMechanic : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
-
-        
+    {        
         if(Input.GetAxisRaw("TimeTravel") > 0.3 && keyWasReleased && player.IsActive())
         {
             keyWasReleased = false;
@@ -150,11 +146,12 @@ public class TimeTravelMechanic : MonoBehaviour
 
 
         SetCollisions();
+        SetEnabled();
         /**
          * Change material jajajajajaja not yet.
          */
 
-        if(!isStartOfLevel)
+        if (!isStartOfLevel)
         {
             //End the time travel sequence by fading out the fade screen.
             StartCoroutine(Fade(1, 0, fadeDuration, false));
@@ -205,4 +202,46 @@ public class TimeTravelMechanic : MonoBehaviour
         }
     }
 
+    private void SetEnabled()
+    {
+        foreach (GameObject obj in pastObjectsConstruct)
+        {
+            if (obj == null)
+                continue;
+
+            obj.SetActive(!isInFuture);
+
+            //try
+            //{
+            //    Material mat = obj.GetComponent<Renderer>().material;
+            //    mat.SetFloat("Vector1_A397D302", (isInFuture ? 0.73f : 0.0f));
+            //    mat.SetFloat("Vector1_B97EA0A9", (isInFuture ? 1 : 0));
+            //}
+            //catch (Exception e)
+            //{
+            //    //literally nothing to do
+            //    //we do this because there are some objects which simply don't have a material
+            //}
+        }
+
+        foreach (GameObject obj in futureObjectsConstruct)
+        {
+            if (obj == null)
+                continue;
+
+            obj.SetActive(isInFuture);
+
+            //try
+            //{
+            //    Material mat = obj.GetComponent<Renderer>().material;
+            //    mat.SetFloat("Vector1_A397D302", (isInFuture ? 0.0f : 0.73f));
+            //    mat.SetFloat("Vector1_B97EA0A9", (isInFuture ? 0 : 1));
+            //}
+            //catch (Exception e)
+            //{
+            //    //literally nothing to do
+            //    //we do this because there are some objects which simply don't have a material
+            //}
+        }
+    }
 }
