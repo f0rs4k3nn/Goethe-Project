@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerDeath : MonoBehaviour
 {
-    public GameObject checkPoint;
+    private Transform checkPoint;
     private GameManager game;
     
     void Awake()
@@ -17,10 +17,8 @@ public class PlayerDeath : MonoBehaviour
         if (other.tag == "CheckPoint")
         {
             //oh no i checkpointed
-            checkPoint = other.gameObject;
-        }
-
-        if (other.tag=="Death")
+            checkPoint = other.transform;
+        } else if (other.tag=="Death")
         {
             //oh no i dieded
            // GetComponent<PlayerController>().parentTransform = null;

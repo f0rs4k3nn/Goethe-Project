@@ -53,7 +53,7 @@ public class PlayerController : MonoBehaviour
     public float progressiveJumpPower; //how much force to add while jump is still pressed
     public bool doubleJumpUnlocked; // boolean to see if the player can double jump yet
     private bool canDoubleJump;
-    private int m_staticFallVelocity = -45; //the speed at which the player is pushed to the ground when grounded
+    private int m_staticFallVelocity = -100; //the speed at which the player is pushed to the ground when grounded
     private bool m_beganFalling = false;
 
 
@@ -64,7 +64,7 @@ public class PlayerController : MonoBehaviour
     /**
      *Animation variables 
      **/
-    private Animator m_Animator;
+    public Animator m_Animator;
     [SerializeField] float m_RunCycleLegOffset = 0.2f; //specific to the character in sample assets, will need to be modified to work with others
     [SerializeField] float m_MoveSpeedMultiplier = 1f;
     [SerializeField] float m_AnimSpeedMultiplier = 1f;
@@ -87,7 +87,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         //Time.timeScale = 0.03f;
-        m_Animator = GetComponent<Animator>();
+       // m_Animator = GetComponent<Animator>();
         camera = Camera.main.transform;
         player = GetComponent<CharacterController>();
         canMove = true;
@@ -102,13 +102,11 @@ public class PlayerController : MonoBehaviour
 
         parentMovement = Vector3.zero;
 
-
         Collider[] groundColliders = Physics.OverlapSphere(groundCheck.position, groundDistance, groundMask);
 
        // Debug.Log(velocity.y + " " + groundColliders.Length);
 
-
-        isGrounded = groundColliders.Length != 0;
+        isGrounded = groundColliders.Length != 0; //if there is nothing beneath us, there is no parent
 
         if (isGrounded)
         {
@@ -135,6 +133,10 @@ public class PlayerController : MonoBehaviour
             
         } else //!isGrounded
         {
+            /*
+             * Because we have a static falling velocity of -45, we don't want our character to have a high velocity when they just started falling
+             * this is why we first check so we can lower their starting falling velocity
+             * */
             if(!m_beganFalling)
             {
                 if(velocity.y < 0)
@@ -144,8 +146,9 @@ public class PlayerController : MonoBehaviour
                 }
             }
             
-            velocity.y -= gravityIntensity * Time.deltaTime;
-            parentTransform = null;
+            
+            velocity.y -= gravityIntensity * Time.deltaTime; //add gravity
+            parentTransform = null; //because we have nothing beneath us, there is no parent
 
             if(velocity.y < maxFallSpeed)
             {
@@ -161,7 +164,7 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetAxis("Jump") > 0)
         {
-            if(isGrounded && m_jumpKeyReleased)
+            if(isGrounded && m_jumpKeyReleased) //default jump
             {
                 velocity.y = jumpForce;
                 m_jumpKeyReleased = false;
@@ -172,7 +175,7 @@ public class PlayerController : MonoBehaviour
                 float jumpStep = progressiveJumpPower * Time.deltaTime;
                 velocity.y += jumpStep;
                 accumulatedJumpPower += jumpStep;
-            } else if (!isGrounded && m_jumpKeyReleased && doubleJumpUnlocked && canDoubleJump)
+            } else if (!isGrounded && m_jumpKeyReleased && doubleJumpUnlocked && canDoubleJump) //doublejump
             {
                 m_jumpKeyReleased = false;
                 canDoubleJump = false;
@@ -193,15 +196,15 @@ public class PlayerController : MonoBehaviour
 
         if (input != Vector2.zero)
         {
-            float m_TurnAmount = Mathf.Atan2(input.x, input.y) * Mathf.Rad2Deg + camera.eulerAngles.y;
+            float m_TurnAmount = Mathf.Atan2(input.x, input.y) * Mathf.Rad2Deg + camera.eulerAngles.y; //desired direction of movement
             transform.eulerAngles = Vector3.up * Mathf.SmoothDampAngle(transform.eulerAngles.y, m_TurnAmount, ref turnSmoothVelocity, targetTurnSpeedSmooth);
 
-            movementDir = DegreeToVector3(m_TurnAmount);
+            movementDir = DegreeToVector3(m_TurnAmount); //converts the degrees into a vector to use for the movement
         } else
         {
             if(isGrounded)
             {
-                targetspeedSmooth /= 3.5f;
+                targetspeedSmooth /= 3.5f; //if we stop moving and we are grounded, stop faster
             }           
         }
 
@@ -215,23 +218,33 @@ public class PlayerController : MonoBehaviour
         currentSpeed.y = 0;
 
         m_TurnAmount *= 200;
-        m_ForwardAmount = currentSpeed.magnitude * m_RunningAnimationMultiplier / 100.0f;
+        m_ForwardAmount = currentSpeed.magnitude;
 
-        UpdateAnimator(movement);
+        UpdateAnimator();
 
         transform.position += parentMovement;
     }
 
     
-
+    /*
+     * We use this because we want to make sure other objects push the player when they interact with them
+     */
     private void OnTriggerStay(Collider other)
     {
-        Debug.Log("I'VE BEEN HIT");
+        //Debug.Log("I'VE BEEN HIT");
       
         Vector3 objPos = other.transform.position;
         Vector3 currentPos = transform.position;
 
-        player.Move((currentPos - objPos).normalized * Time.deltaTime * 0.7f); 
+
+        Vector3 lastPosition = currentPos;
+        player.Move((currentPos - objPos).normalized * Time.deltaTime * 0.7f);
+        Vector3 newPos = transform.position;
+
+        if(lastPosition == newPos)
+        {
+            Debug.LogError("I AM DEAD LMAP");
+        }
     }
 
     public static Vector3 RadianToVector3(float radian)
@@ -257,13 +270,54 @@ public class PlayerController : MonoBehaviour
         transform.RotateAround(currentParentPosition, Vector3.up, parentRotation.y);
     }
 
-    void UpdateAnimator(Vector3 move)
+    void UpdateAnimator()
+    {
+
+        // update the animator parameters
+        m_Animator.SetFloat("GroundSpeed", m_ForwardAmount, 0.1f, Time.deltaTime);
+       // Debug.Log(m_ForwardAmount);
+       // m_Animator.SetFloat("Turn", m_TurnAmount, 0.1f, Time.deltaTime);
+        m_Animator.SetBool("IsGrounded", isGrounded);
+
+        if (!isGrounded)
+        {
+            m_Animator.SetFloat("VerticalSpeed", velocity.y);
+        }
+
+        // calculate which leg is behind, so as to leave that leg trailing in the jump animation
+        // (This code is reliant on the specific run cycle offset in our animations,
+        // and assumes one leg passes the other at the normalized clip times of 0.0 and 0.5)
+        float runCycle =
+            Mathf.Repeat(
+                m_Animator.GetCurrentAnimatorStateInfo(0).normalizedTime, 1);
+        float jumpLeg = (runCycle < k_Half ? 1 : -1) * m_ForwardAmount;
+
+      /*  if (isGrounded)
+        {
+            m_Animator.SetFloat("JumpLeg", jumpLeg);
+        }*/
+
+        // the anim speed multiplier allows the overall speed of walking/running to be tweaked in the inspector,
+        // which affects the movement speed because of the root motion.
+        if (isGrounded && m_ForwardAmount > 7)
+        {
+            m_Animator.speed = m_AnimSpeedMultiplier * m_ForwardAmount / 14.0f;
+        }
+        else
+        {
+            // don't use that while airborne
+            m_Animator.speed = m_AnimSpeedMultiplier;
+        }
+    }
+
+    void UpdateAnimatorOLD(Vector3 move)
     {
         
         // update the animator parameters
         m_Animator.SetFloat("Forward", m_ForwardAmount, 0.1f, Time.deltaTime);
         m_Animator.SetFloat("Turn", m_TurnAmount, 0.1f, Time.deltaTime);
         m_Animator.SetBool("OnGround", isGrounded);
+
         if (!isGrounded)
         {
             m_Animator.SetFloat("Jump", velocity.y);
@@ -286,12 +340,12 @@ public class PlayerController : MonoBehaviour
         // which affects the movement speed because of the root motion.
         if (isGrounded && move.magnitude > 0)
         {
-            m_Animator.speed = Mathf.Max(m_AnimSpeedMultiplier * m_ForwardAmount, m_AnimSpeedMultiplier);
+            m_Animator.speed = m_AnimSpeedMultiplier * m_RunningAnimationMultiplier;
         }
         else
         {
             // don't use that while airborne
-            m_Animator.speed = 1;
+            m_Animator.speed = m_AnimSpeedMultiplier;
         }
     }
 

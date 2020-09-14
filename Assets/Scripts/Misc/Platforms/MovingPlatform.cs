@@ -32,6 +32,7 @@ public class MovingPlatform : MonoBehaviour
     //speed of the moving platform
     //Might need it if you have points with huge gaps in between
     public float maxSpeed;
+    public float waitTimeBetweenPoints;
     
     //If it's a cycle, it will return to the first point
     //once the last one is reached
@@ -49,6 +50,7 @@ public class MovingPlatform : MonoBehaviour
 
     void Start()
     {
+        Application.targetFrameRate = 60;
         //checkPoints = transform.GetChild(2).GetComponentInChildren<Transform>(); 
         platform = transform.GetChild(0);
         checkPoints = new Vector3[transform.GetChild(1).transform.childCount];

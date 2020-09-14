@@ -53,6 +53,7 @@ public class ThirdPersonCamera : MonoBehaviour
 
 
         dstFromtarget = clipControl.GetCurrentDistance();
+        //Debug.Log(clipControl.GetCurrentDistance());
         transform.position = target.position - transform.forward * dstFromtarget;
     }
 
