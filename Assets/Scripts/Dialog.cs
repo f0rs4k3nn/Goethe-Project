@@ -85,7 +85,7 @@ public class Dialog : MonoBehaviour
     public void ResetConversation()
     {
         textDisplay.text = "";
-        index = 2;
+        index = 1;
     }
 
     public void FreezeMovement()
