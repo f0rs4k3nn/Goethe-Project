@@ -1025,22 +1025,22 @@ PrefabInstance:
     - target: {fileID: 137916109329169202, guid: 0f1d9245d7f45da4db8a23fdf28355a5,
         type: 3}
       propertyPath: m_AABB.m_Center.z
-      value: 0.000000005005859
+      value: 0.000000038184226
       objectReference: {fileID: 0}
     - target: {fileID: 137916109329169202, guid: 0f1d9245d7f45da4db8a23fdf28355a5,
         type: 3}
       propertyPath: m_AABB.m_Extent.x
-      value: 1.0130029
+      value: 7.6798787
       objectReference: {fileID: 0}
     - target: {fileID: 137916109329169202, guid: 0f1d9245d7f45da4db8a23fdf28355a5,
         type: 3}
       propertyPath: m_AABB.m_Extent.y
-      value: 0.6078017
+      value: 4.607927
       objectReference: {fileID: 0}
     - target: {fileID: 137916109329169202, guid: 0f1d9245d7f45da4db8a23fdf28355a5,
         type: 3}
       propertyPath: m_AABB.m_Extent.z
-      value: 0.0015600424
+      value: 0.011827148
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0f1d9245d7f45da4db8a23fdf28355a5, type: 3}
@@ -1119,12 +1119,12 @@ PrefabInstance:
     - target: {fileID: 137916109329169202, guid: 0f1d9245d7f45da4db8a23fdf28355a5,
         type: 3}
       propertyPath: m_AABB.m_Center.z
-      value: 0.000000038184226
+      value: 0.000000037252903
       objectReference: {fileID: 0}
     - target: {fileID: 137916109329169202, guid: 0f1d9245d7f45da4db8a23fdf28355a5,
         type: 3}
       propertyPath: m_AABB.m_Extent.x
-      value: 7.6798787
+      value: 7.679878
       objectReference: {fileID: 0}
     - target: {fileID: 137916109329169202, guid: 0f1d9245d7f45da4db8a23fdf28355a5,
         type: 3}
@@ -1134,7 +1134,7 @@ PrefabInstance:
     - target: {fileID: 137916109329169202, guid: 0f1d9245d7f45da4db8a23fdf28355a5,
         type: 3}
       propertyPath: m_AABB.m_Extent.z
-      value: 0.011827148
+      value: 0.01182713
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0f1d9245d7f45da4db8a23fdf28355a5, type: 3}
@@ -1637,6 +1637,7 @@ MonoBehaviour:
   futureFogColour: {r: 0.3962264, g: 0.17724481, b: 0.16260235, a: 0}
   futureLightIntensity: 0.8
   futureFogEndDist: 200
+  skyBox: {fileID: 0}
 --- !u!114 &1997867639
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2280,6 +2281,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5006512736323112993, guid: 330d482c6461f2c459d14bda071c2522,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 5939357688642665296, guid: 330d482c6461f2c459d14bda071c2522,
         type: 3}
       propertyPath: m_Layer
@@ -2338,12 +2344,12 @@ PrefabInstance:
     - target: {fileID: 5939357689767091215, guid: 330d482c6461f2c459d14bda071c2522,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -26.5
+      value: -13.92
       objectReference: {fileID: 0}
     - target: {fileID: 5939357689767091215, guid: 330d482c6461f2c459d14bda071c2522,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 20.67
+      value: 7.78
       objectReference: {fileID: 0}
     - target: {fileID: 5939357689767091215, guid: 330d482c6461f2c459d14bda071c2522,
         type: 3}

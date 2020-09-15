@@ -32,7 +32,7 @@ public class PlayerController : MonoBehaviour
 
 
    // private GameObject temporaryParent;
-    public Transform parentTransform;
+    private Transform parentTransform;
     private Vector3 previousParentPosition;
     private Vector3 previousParentRotation;
     private Vector3 parentMovement;
