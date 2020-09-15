@@ -21,14 +21,9 @@ public class Dialog : MonoBehaviour
       
         textDisplay.text = "";
         
-<<<<<<< HEAD
         player = GameObject.Find("Player");
         PlayerManager.instance.DialogBox.SetActive(false);
            
-=======
-        player = PlayerManager.instance.player;
-        PlayerManager.instance.DialogBox.SetActive(false);   
->>>>>>> Eduard_LevelDesign
     }
 
     private void OnTriggerStay(Collider other)
@@ -91,7 +86,7 @@ public class Dialog : MonoBehaviour
     public void ResetConversation()
     {
         textDisplay.text = "";
-        index = 1;
+        index = 2;
     }
 
     public void FreezeMovement()
