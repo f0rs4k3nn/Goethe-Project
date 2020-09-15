@@ -1,0 +1,118 @@
+using UnityEngine.Audio;
+using System;
+using UnityEngine;
+using UnityEngine.UI;
+
+public class AudioManager : MonoBehaviour
+{
+
+	public static AudioManager instance;
+
+	public AudioMixerGroup mixerGroup;
+
+	public float effectsVolume;
+	public float musicVolume;
+
+	public Slider musicSlider;
+	public Slider effectsSlider;
+	private Sound currentlyPlayingMusic;
+
+	//private SaveData saveData;
+
+	public Sound[] sounds;
+
+	void Awake()
+	{
+		if (instance != null)
+		{
+			Destroy(gameObject);
+		}
+		else
+		{
+			instance = this;
+			DontDestroyOnLoad(gameObject);
+		}
+
+		effectsVolume = musicVolume = 0;
+
+		foreach (Sound s in sounds)
+		{
+			s.source = gameObject.AddComponent<AudioSource>();
+			s.source.clip = s.clip;
+			s.source.loop = s.isMusic;
+
+			s.source.outputAudioMixerGroup = mixerGroup;
+		}
+	}
+	
+	private void Start()
+	{
+		//saveData = GameData.gameData.saveData;
+		//musicVolume = saveData.musicVolume;
+		//effectsVolume = saveData.effectsVolume;
+
+		musicSlider.value = musicVolume;
+		effectsSlider.value = effectsVolume;
+
+		SetMusicVolume();
+		SetEffectsVolume();
+	}
+
+	public void Play(string sound)
+	{
+		Sound s = Array.Find(sounds, item => item.name == sound);
+		if (s == null)
+		{
+			Debug.LogWarning("Sound: " + name + " not found!");
+			return;
+		}
+
+		//s.source.volume = s.volume * (1f + UnityEngine.Random.Range(-s.volumeVariance / 2f, s.volumeVariance / 2f));
+		s.source.volume = s.volume * (s.isMusic ? musicVolume : effectsVolume);
+
+		s.source.pitch = s.pitch * (1f + UnityEngine.Random.Range(-s.pitchVariance / 2f, s.pitchVariance / 2f));
+
+		if(s.isMusic)
+		{
+			currentlyPlayingMusic = s;
+		}
+		
+		s.source.Play();
+	}
+
+	public void Stop(string sound)
+	{
+		Sound s = Array.Find(sounds, item => item.name == sound);
+		if (s == null)
+		{
+			Debug.LogWarning("Sound: " + name + " not found!");
+			return;
+		}
+
+		s.source.Stop();
+	}
+
+	public void SetMusicVolume()
+	{
+		musicVolume = musicSlider.value;
+
+		if(currentlyPlayingMusic != null)
+		{
+			currentlyPlayingMusic.source.volume = currentlyPlayingMusic.volume * (currentlyPlayingMusic.isMusic ? musicVolume : effectsVolume);
+		} else
+		{
+			Debug.Log("nothing is playing dfq");
+		}
+
+		//saveData.musicVolume = musicVolume;
+	}
+
+	public void SetEffectsVolume()
+	{
+		effectsVolume = effectsSlider.value;
+
+		//saveData.effectsVolume = effectsVolume;
+
+		Play("Dunno");
+	}
+}

@@ -1593,11 +1593,11 @@ PrefabInstance:
         type: 3}
       propertyPath: parentTransform
       value: 
-      objectReference: {fileID: 1718288613}
+      objectReference: {fileID: 0}
     - target: {fileID: 7341067383311871511, guid: 330d482c6461f2c459d14bda071c2522,
         type: 3}
-      propertyPath: speedSmoothTime
-      value: 0.25
+      propertyPath: runSpeed
+      value: 16
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 330d482c6461f2c459d14bda071c2522, type: 3}
@@ -1608,14 +1608,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1036551482, guid: 478ba2cdb03e6b44fab428134b63314f, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1036551482, guid: 478ba2cdb03e6b44fab428134b63314f, type: 3}
-      propertyPath: maxDistance
-      value: 6
-      objectReference: {fileID: 0}
     - target: {fileID: 5739746644792992967, guid: 478ba2cdb03e6b44fab428134b63314f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1669,11 +1661,6 @@ PrefabInstance:
     - target: {fileID: 5739746644792992967, guid: 478ba2cdb03e6b44fab428134b63314f,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5739746644792993020, guid: 478ba2cdb03e6b44fab428134b63314f,
-        type: 3}
-      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5739746644792993021, guid: 478ba2cdb03e6b44fab428134b63314f,
