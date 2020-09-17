@@ -94,13 +94,11 @@ public class PlayerController : MonoBehaviour
        
     }
 
-    void Update()
+    void FixedUpdate()
     {
-        
         if (!canMove)
             return;
 
-        parentMovement = Vector3.zero;
 
         Collider[] groundColliders = Physics.OverlapSphere(groundCheck.position, groundDistance, groundMask);
 
@@ -121,10 +119,7 @@ public class PlayerController : MonoBehaviour
                 previousParentPosition = parentTransform.position;
                 previousParentRotation = parentTransform.rotation.eulerAngles;
 
-            } else if(parentTransform != null)
-            {
-                CalculateParentOffset();
-            }
+            } 
 
             if (velocity.y < 0)
             {
@@ -164,26 +159,28 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetAxis("Jump") > 0)
         {
-            if(isGrounded && m_jumpKeyReleased) //default jump
+            if (isGrounded && m_jumpKeyReleased) //default jump
             {
                 velocity.y = jumpForce;
                 m_jumpKeyReleased = false;
                 accumulatedJumpPower = 0;
             }
-            else if(!m_jumpKeyReleased && accumulatedJumpPower < accumulativeJumpLimit && canDoubleJump) //accumulative jump, also makes sure it isn't a double jump
+            else if (!m_jumpKeyReleased && accumulatedJumpPower < accumulativeJumpLimit && canDoubleJump) //accumulative jump, also makes sure it isn't a double jump
             {
                 float jumpStep = progressiveJumpPower * Time.deltaTime;
                 velocity.y += jumpStep;
                 accumulatedJumpPower += jumpStep;
-            } else if (!isGrounded && m_jumpKeyReleased && doubleJumpUnlocked && canDoubleJump) //doublejump
+            }
+            else if (!isGrounded && m_jumpKeyReleased && doubleJumpUnlocked && canDoubleJump) //doublejump
             {
                 m_jumpKeyReleased = false;
                 canDoubleJump = false;
                 velocity.y = jumpForce;
             }
-        } else if (Input.GetAxis("Jump") == 0)
+        }
+        else if (Input.GetAxis("Jump") == 0)
         {
-            
+
             m_jumpKeyReleased = true;
         }
 
@@ -220,12 +217,20 @@ public class PlayerController : MonoBehaviour
         m_TurnAmount *= 200;
         m_ForwardAmount = currentSpeed.magnitude;
 
-        UpdateAnimator();
-
-        transform.position += parentMovement;
+        UpdateAnimator();    
     }
 
-    
+   private void Update()
+    {
+        //parentMovement = Vector3.zero;
+
+        if (parentTransform != null)
+        {
+            CalculateParentOffset();
+            transform.position += parentMovement;
+        }
+    }
+
     /*
      * We use this because we want to make sure other objects push the player when they interact with them
      */
