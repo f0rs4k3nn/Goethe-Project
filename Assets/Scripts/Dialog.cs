@@ -2,14 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System.Linq;
 
 public class Dialog : MonoBehaviour
 {
-    public TextMeshProUGUI textDisplay;
-    TextMeshProUGUI continueTextDisplay;
+    /*TextMeshProUGUI textDisplay;*/
+    /*TextMeshProUGUI continueTextDisplay;*/
 
     GameObject player;
-    GameObject dialogueBox;
+    GameObject dialogBox;
 
     public string[] sentencesNpc;
     public int index = 0;
@@ -18,30 +19,31 @@ public class Dialog : MonoBehaviour
 
     void Start()
     {
-      
-        textDisplay.text = "";
+        /*textDisplay = GameObject.Find("DialogText").GetComponent<TextMeshProUGUI>();*/
+
+        GameManager.Instance.textDisplay.text = "";
         
         player = GameObject.Find("Player");
-        dialogueBox = GameObject.Find("DialogBox");
-        dialogueBox.SetActive(false);
-        
-      //  dialogueBox.active = false;
 
+        /*dialogBox = GameObject.Find("DialogBox");
+       
+        dialogBox.SetActive(false);*/
     }
 
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerStay(Collider player)
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
             if(!startConversation)
             {
                 startConversation = true;
-                dialogueBox.SetActive(true);
+                /*dialogBox.SetActive(true);*/
+                GameManager.Instance.dialogBox.SetActive(true);
                 StartCoroutine(Type());
             }
         }
 
-        if (textDisplay.text == sentencesNpc[index] && startConversation && Input.GetKeyDown(KeyCode.E))
+        if (GameManager.Instance.textDisplay.text == sentencesNpc[index] && startConversation && Input.GetKeyDown(KeyCode.E))
         {
             NextSentence();
         }
@@ -50,7 +52,8 @@ public class Dialog : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         startConversation = false;
-        dialogueBox.SetActive(false);
+        /*dialogBox.SetActive(false);*/
+        GameManager.Instance.dialogBox.SetActive(false);
         ResetConversation();
     }
 
@@ -61,7 +64,7 @@ public class Dialog : MonoBehaviour
 
         foreach (char letter in sentencesNpc[index].ToCharArray())
         {
-            textDisplay.text += letter;
+            GameManager.Instance.textDisplay.text += letter;
             yield return new WaitForSeconds(typingSpeed);
         }
 
@@ -74,20 +77,18 @@ public class Dialog : MonoBehaviour
         if(index < sentencesNpc.Length - 1)
         {
             index++;
-            textDisplay.text = "";
+            GameManager.Instance.textDisplay.text = "";
             StartCoroutine(Type());
         }
         else
         {
-            textDisplay.text = sentencesNpc[index];
+            GameManager.Instance.textDisplay.text = sentencesNpc[index];
         }
     }
 
     public void ResetConversation()
     {
-        textDisplay.text = "";
-        index = 2;
+        GameManager.Instance.textDisplay.text = "";
+        index = sentencesNpc.Length - 1;
     }
-
-  
 }

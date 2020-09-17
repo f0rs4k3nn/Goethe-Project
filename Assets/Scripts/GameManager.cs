@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class GameManager : Singleton<GameManager>
@@ -7,7 +8,8 @@ public class GameManager : Singleton<GameManager>
     public PlayerController player;
     public TimeTravelMechanic TimeTravelMechanic;
     public new ThirdPersonCamera camera;
-    public GameObject dialogueBox;
+    public GameObject dialogBox;
+    public TextMeshProUGUI textDisplay;
 
     //overwrites the last played level and score if 
     //played in the main save
@@ -55,9 +57,13 @@ public class GameManager : Singleton<GameManager>
 
         _gameData = GameData.gameData;
         IsMovementEnabled = true;
-        dialogueBox = GameObject.Find("DialogBox");
+        dialogBox = GameObject.Find("DialogBox");
+
+        textDisplay = GameObject.Find("DialogText").GetComponent<TextMeshProUGUI>();
+
         camera = Camera.main.GetComponent<ThirdPersonCamera>();
-        dialogueBox.SetActive(false);
+
+        dialogBox.SetActive(false);
     }
 
     private int _gameScore;
