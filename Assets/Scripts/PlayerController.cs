@@ -94,7 +94,7 @@ public class PlayerController : MonoBehaviour
        
     }
 
-    void Update()
+    void FixedUpdate()
     {
         
         if (!canMove)
