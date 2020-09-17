@@ -56,7 +56,7 @@ public class PlayerTriggerTeleport : MonoBehaviour
 
         if (isFadeIn)
         {
-            game.Player.transform.position = spawnPoint.position;
+            game.player.transform.position = spawnPoint.position;
             StartCoroutine(Fade(1, 0, duration, false));
         }
         else

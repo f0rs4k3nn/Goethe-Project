@@ -10,7 +10,7 @@ public abstract class Singleton<T> : MonoBehaviour where T : Component
 	/// <summary>
 	/// The instance.
 	/// </summary>
-	private static T instance;
+	protected static T instance;
 
 	#endregion
 

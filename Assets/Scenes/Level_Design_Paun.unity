@@ -14,7 +14,7 @@ OcclusionCullingSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
-  m_Fog: 0
+  m_Fog: 1
   m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   m_FogMode: 1
   m_FogDensity: 0.01
@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -197,7 +197,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 58
+  m_RootOrder: 61
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &7216076 stripped
 Transform:
@@ -445,7 +445,7 @@ Transform:
   - {fileID: 1256985776}
   - {fileID: 677302385}
   m_Father: {fileID: 0}
-  m_RootOrder: 33
+  m_RootOrder: 36
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &20715153 stripped
 Transform:
@@ -1250,7 +1250,7 @@ Transform:
   m_LocalScale: {x: 25, y: 10, z: 10}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 45
+  m_RootOrder: 48
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &68474008
 PrefabInstance:
@@ -1418,7 +1418,7 @@ Transform:
   m_LocalScale: {x: 3.9032755, y: 0.095535, z: 6.6296}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 38
+  m_RootOrder: 41
   m_LocalEulerAnglesHint: {x: 21.654001, y: 0, z: 0}
 --- !u!4 &73685304 stripped
 Transform:
@@ -1742,7 +1742,7 @@ Transform:
   m_LocalScale: {x: 22.082384, y: 20, z: 81.01802}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 69
+  m_RootOrder: 72
   m_LocalEulerAnglesHint: {x: 0, y: 87.804, z: 0}
 --- !u!1001 &124767862
 PrefabInstance:
@@ -2227,7 +2227,6 @@ GameObject:
   - component: {fileID: 175736356}
   - component: {fileID: 175736355}
   - component: {fileID: 175736354}
-  - component: {fileID: 175736353}
   - component: {fileID: 175736352}
   m_Layer: 8
   m_Name: Platdorm_Red_015 (9)
@@ -2264,18 +2263,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 35.621414, y: 25.530235, z: 7.701654}
   m_Center: {x: -0.00012265153, y: 0.6052736, z: 1.4226129}
---- !u!114 &175736353
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 175736350}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7707b6aabc636684aa38ee40d51c6358, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!64 &175736354
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -2355,7 +2342,6 @@ GameObject:
   - component: {fileID: 183705695}
   - component: {fileID: 183705694}
   - component: {fileID: 183705693}
-  - component: {fileID: 183705692}
   - component: {fileID: 183705691}
   m_Layer: 8
   m_Name: Platdorm_Red_015 (4)
@@ -2392,18 +2378,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 35.621414, y: 25.530235, z: 7.701654}
   m_Center: {x: -0.00012265153, y: 0.6052736, z: 1.4226129}
---- !u!114 &183705692
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 183705689}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7707b6aabc636684aa38ee40d51c6358, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!64 &183705693
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -3294,7 +3268,99 @@ Transform:
   - {fileID: 645201089}
   - {fileID: 1624244187}
   - {fileID: 32385986}
-  - {fileID: 1274849703}
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &234931427
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 234931431}
+  - component: {fileID: 234931430}
+  - component: {fileID: 234931429}
+  - component: {fileID: 234931428}
+  m_Layer: 4
+  m_Name: DeathZone
+  m_TagString: Death
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!65 &234931428
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 234931427}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &234931429
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 234931427}
+  m_Enabled: 0
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!33 &234931430
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 234931427}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &234931431
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 234931427}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 417, y: -35.3, z: -212.70001}
+  m_LocalScale: {x: 2458.476, y: 43.738754, z: 1893.0265}
+  m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3668,7 +3734,7 @@ Transform:
   - {fileID: 874628101}
   - {fileID: 515675092}
   m_Father: {fileID: 0}
-  m_RootOrder: 27
+  m_RootOrder: 30
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &269387243
 PrefabInstance:
@@ -3869,7 +3935,7 @@ PrefabInstance:
     - target: {fileID: 6997916122546516781, guid: 4dbe9656b0409994eb8d2fc3feb1e809,
         type: 3}
       propertyPath: m_RootOrder
-      value: 16
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 6997916122546516781, guid: 4dbe9656b0409994eb8d2fc3feb1e809,
         type: 3}
@@ -5011,7 +5077,6 @@ GameObject:
   - component: {fileID: 315850126}
   - component: {fileID: 315850125}
   - component: {fileID: 315850124}
-  - component: {fileID: 315850123}
   - component: {fileID: 315850122}
   m_Layer: 8
   m_Name: Platdorm_Red_015 (5)
@@ -5048,18 +5113,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 35.621414, y: 25.530235, z: 7.701654}
   m_Center: {x: -0.00012265153, y: 0.6052736, z: 1.4226129}
---- !u!114 &315850123
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 315850120}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7707b6aabc636684aa38ee40d51c6358, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!64 &315850124
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -5220,7 +5273,6 @@ GameObject:
   - component: {fileID: 341654925}
   - component: {fileID: 341654924}
   - component: {fileID: 341654923}
-  - component: {fileID: 341654922}
   - component: {fileID: 341654921}
   m_Layer: 8
   m_Name: Platdorm_Red_015 (8)
@@ -5256,18 +5308,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 35.621414, y: 25.530235, z: 7.701654}
   m_Center: {x: -0.00012265153, y: 0.6052736, z: 1.4226129}
---- !u!114 &341654922
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 341654919}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7707b6aabc636684aa38ee40d51c6358, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!64 &341654923
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -5329,6 +5369,36 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 341654919}
   m_Mesh: {fileID: 3659302426899665872, guid: 8d05bd5f18f798c48bf169887f302638, type: 3}
+--- !u!1 &346440068
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 346440069}
+  m_Layer: 0
+  m_Name: SpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &346440069
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 346440068}
+  m_LocalRotation: {x: 0.13149415, y: -0.8020625, z: 0.19170849, w: 0.55013895}
+  m_LocalPosition: {x: -0.5, y: 20.9, z: -28.7}
+  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &347750176
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6034,7 +6104,7 @@ Transform:
   m_LocalScale: {x: 30, y: 10, z: 40}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 51
+  m_RootOrder: 54
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &379407273 stripped
 Transform:
@@ -6455,7 +6525,7 @@ Transform:
   m_LocalScale: {x: 17.4275, y: 20, z: 48.623287}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 65
+  m_RootOrder: 68
   m_LocalEulerAnglesHint: {x: 0, y: 93.317, z: 0}
 --- !u!1001 &417123348
 PrefabInstance:
@@ -7259,7 +7329,7 @@ PrefabInstance:
     - target: {fileID: 6997916122546516781, guid: 4dbe9656b0409994eb8d2fc3feb1e809,
         type: 3}
       propertyPath: m_RootOrder
-      value: 13
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 6997916122546516781, guid: 4dbe9656b0409994eb8d2fc3feb1e809,
         type: 3}
@@ -7690,7 +7760,6 @@ GameObject:
   - component: {fileID: 453868447}
   - component: {fileID: 453868446}
   - component: {fileID: 453868445}
-  - component: {fileID: 453868444}
   m_Layer: 8
   m_Name: Platdorm_Red_016 (6)
   m_TagString: Future Object
@@ -7712,18 +7781,6 @@ Transform:
   m_Father: {fileID: 810180572}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &453868444
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 453868442}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7707b6aabc636684aa38ee40d51c6358, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!65 &453868445
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8831,7 +8888,7 @@ PrefabInstance:
     - target: {fileID: 6997916122546516781, guid: 4dbe9656b0409994eb8d2fc3feb1e809,
         type: 3}
       propertyPath: m_RootOrder
-      value: 15
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 6997916122546516781, guid: 4dbe9656b0409994eb8d2fc3feb1e809,
         type: 3}
@@ -9175,7 +9232,7 @@ PrefabInstance:
     - target: {fileID: 3401557553922619127, guid: 97398a36ad46fda4ebea8a7fa01b5eab,
         type: 3}
       propertyPath: m_RootOrder
-      value: 25
+      value: 28
       objectReference: {fileID: 0}
     - target: {fileID: 3401557553922619127, guid: 97398a36ad46fda4ebea8a7fa01b5eab,
         type: 3}
@@ -9295,7 +9352,7 @@ Transform:
   m_LocalScale: {x: 10, y: 10, z: 25}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 46
+  m_RootOrder: 49
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &507888028 stripped
 Transform:
@@ -9562,7 +9619,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4607884563498882, guid: 298385cb4c58d6a498bf12919188476c, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4607884563498882, guid: 298385cb4c58d6a498bf12919188476c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -9773,7 +9830,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 32
+  m_RootOrder: 35
   m_LocalEulerAnglesHint: {x: 100.28198, y: -0.000015258789, z: -0.000015258789}
 --- !u!1 &535649728
 GameObject:
@@ -10994,7 +11051,7 @@ Transform:
   m_LocalScale: {x: 22.082384, y: 20, z: 81.01802}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 67
+  m_RootOrder: 70
   m_LocalEulerAnglesHint: {x: 0, y: 87.804, z: 0}
 --- !u!1001 &599720477
 PrefabInstance:
@@ -11230,7 +11287,7 @@ Transform:
   m_LocalScale: {x: 22.082384, y: 20, z: 54.015614}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 66
+  m_RootOrder: 69
   m_LocalEulerAnglesHint: {x: 0, y: 91.58301, z: 0}
 --- !u!4 &608991005 stripped
 Transform:
@@ -11553,7 +11610,7 @@ Transform:
   m_LocalScale: {x: 10, y: 10, z: 10}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 43
+  m_RootOrder: 46
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &642285165 stripped
 Transform:
@@ -11722,7 +11779,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 60
+  m_RootOrder: 63
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &658746457
 PrefabInstance:
@@ -12640,7 +12697,7 @@ Transform:
   - {fileID: 1968332048}
   - {fileID: 1395099767}
   m_Father: {fileID: 0}
-  m_RootOrder: 34
+  m_RootOrder: 37
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &701951101
 PrefabInstance:
@@ -12952,7 +13009,7 @@ PrefabInstance:
     - target: {fileID: 2244552742671438687, guid: f9a24f72a7e582247865e46f97d8ef26,
         type: 3}
       propertyPath: m_RootOrder
-      value: 14
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 2244552742671438687, guid: f9a24f72a7e582247865e46f97d8ef26,
         type: 3}
@@ -13246,7 +13303,7 @@ PrefabInstance:
     - target: {fileID: 2244552742671438687, guid: f9a24f72a7e582247865e46f97d8ef26,
         type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 2244552742671438687, guid: f9a24f72a7e582247865e46f97d8ef26,
         type: 3}
@@ -13850,7 +13907,7 @@ PrefabInstance:
     - target: {fileID: 6997916122546516781, guid: 4dbe9656b0409994eb8d2fc3feb1e809,
         type: 3}
       propertyPath: m_RootOrder
-      value: 21
+      value: 24
       objectReference: {fileID: 0}
     - target: {fileID: 6997916122546516781, guid: 4dbe9656b0409994eb8d2fc3feb1e809,
         type: 3}
@@ -13950,7 +14007,6 @@ GameObject:
   - component: {fileID: 755304587}
   - component: {fileID: 755304586}
   - component: {fileID: 755304585}
-  - component: {fileID: 755304584}
   - component: {fileID: 755304583}
   m_Layer: 8
   m_Name: Platdorm_Red_015 (6)
@@ -13986,18 +14042,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 35.621414, y: 25.530235, z: 7.701654}
   m_Center: {x: -0.00012265153, y: 0.6052736, z: 1.4226129}
---- !u!114 &755304584
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 755304581}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7707b6aabc636684aa38ee40d51c6358, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!64 &755304585
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -14375,7 +14419,6 @@ GameObject:
   - component: {fileID: 789065155}
   - component: {fileID: 789065154}
   - component: {fileID: 789065153}
-  - component: {fileID: 789065152}
   m_Layer: 8
   m_Name: Platdorm_Red_016 (5)
   m_TagString: Future Object
@@ -14397,18 +14440,6 @@ Transform:
   m_Father: {fileID: 810180572}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &789065152
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 789065150}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7707b6aabc636684aa38ee40d51c6358, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!65 &789065153
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14649,7 +14680,7 @@ Transform:
   - {fileID: 2089391773}
   - {fileID: 2031093049}
   m_Father: {fileID: 0}
-  m_RootOrder: 40
+  m_RootOrder: 43
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &797972371
 PrefabInstance:
@@ -14794,7 +14825,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 63
+  m_RootOrder: 66
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &806859191 stripped
 Transform:
@@ -16383,7 +16414,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 5783cbb047e4f8f43b9d3146ff09d7a7,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 5783cbb047e4f8f43b9d3146ff09d7a7,
         type: 3}
@@ -16628,7 +16659,7 @@ PrefabInstance:
     - target: {fileID: 6997916122546516781, guid: 4dbe9656b0409994eb8d2fc3feb1e809,
         type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 6997916122546516781, guid: 4dbe9656b0409994eb8d2fc3feb1e809,
         type: 3}
@@ -17034,7 +17065,7 @@ Transform:
   - {fileID: 462498242}
   - {fileID: 528067718}
   m_Father: {fileID: 0}
-  m_RootOrder: 36
+  m_RootOrder: 39
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &998870411
 PrefabInstance:
@@ -17285,7 +17316,7 @@ PrefabInstance:
     - target: {fileID: 2244552742671438687, guid: f9a24f72a7e582247865e46f97d8ef26,
         type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 2244552742671438687, guid: f9a24f72a7e582247865e46f97d8ef26,
         type: 3}
@@ -17980,7 +18011,7 @@ Transform:
   m_LocalScale: {x: 17.4275, y: 20, z: 71.73375}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 64
+  m_RootOrder: 67
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1071843153 stripped
 Transform:
@@ -18160,7 +18191,7 @@ Transform:
   m_LocalScale: {x: 50, y: 10, z: 40}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 53
+  m_RootOrder: 56
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1082006994
 GameObject:
@@ -18253,7 +18284,7 @@ Transform:
   m_LocalScale: {x: 50, y: 20, z: 40}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 52
+  m_RootOrder: 55
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1084280988
 GameObject:
@@ -18347,7 +18378,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1.214, z: 1.105}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 42
+  m_RootOrder: 45
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1085249786
 GameObject:
@@ -18381,7 +18412,7 @@ Transform:
   - {fileID: 193070363}
   - {fileID: 5151189004626519646}
   m_Father: {fileID: 0}
-  m_RootOrder: 35
+  m_RootOrder: 38
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1087178355
 GameObject:
@@ -18423,7 +18454,7 @@ Transform:
   - {fileID: 757675161}
   - {fileID: 810180572}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1089576378
 GameObject:
@@ -18516,7 +18547,7 @@ Transform:
   m_LocalScale: {x: 50, y: 10, z: 40}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 54
+  m_RootOrder: 57
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1097234276
 PrefabInstance:
@@ -19003,7 +19034,6 @@ GameObject:
   - component: {fileID: 1138684669}
   - component: {fileID: 1138684668}
   - component: {fileID: 1138684667}
-  - component: {fileID: 1138684666}
   m_Layer: 8
   m_Name: Platdorm_Red_016 (7)
   m_TagString: Future Object
@@ -19025,18 +19055,6 @@ Transform:
   m_Father: {fileID: 810180572}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1138684666
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1138684664}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7707b6aabc636684aa38ee40d51c6358, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!65 &1138684667
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -19416,7 +19434,7 @@ PrefabInstance:
     - target: {fileID: 3401557553922619127, guid: 97398a36ad46fda4ebea8a7fa01b5eab,
         type: 3}
       propertyPath: m_RootOrder
-      value: 24
+      value: 27
       objectReference: {fileID: 0}
     - target: {fileID: 3401557553922619127, guid: 97398a36ad46fda4ebea8a7fa01b5eab,
         type: 3}
@@ -19500,7 +19518,7 @@ PrefabInstance:
     - target: {fileID: 3401557553922619127, guid: 97398a36ad46fda4ebea8a7fa01b5eab,
         type: 3}
       propertyPath: m_RootOrder
-      value: 26
+      value: 29
       objectReference: {fileID: 0}
     - target: {fileID: 3401557553922619127, guid: 97398a36ad46fda4ebea8a7fa01b5eab,
         type: 3}
@@ -19925,7 +19943,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 59
+  m_RootOrder: 62
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1170826405
 PrefabInstance:
@@ -20058,7 +20076,7 @@ PrefabInstance:
     - target: {fileID: 2244552742671438687, guid: f9a24f72a7e582247865e46f97d8ef26,
         type: 3}
       propertyPath: m_RootOrder
-      value: 19
+      value: 22
       objectReference: {fileID: 0}
     - target: {fileID: 2244552742671438687, guid: f9a24f72a7e582247865e46f97d8ef26,
         type: 3}
@@ -21105,7 +21123,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1.214, z: 1.105}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 41
+  m_RootOrder: 44
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1233396561
 PrefabInstance:
@@ -21355,7 +21373,7 @@ PrefabInstance:
     - target: {fileID: 6997916122546516781, guid: 4dbe9656b0409994eb8d2fc3feb1e809,
         type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6997916122546516781, guid: 4dbe9656b0409994eb8d2fc3feb1e809,
         type: 3}
@@ -21590,12 +21608,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1274849702}
-  m_LocalRotation: {x: 0.1314942, y: -0.8020624, z: 0.19170846, w: 0.5501392}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0.13149415, y: -0.8020625, z: 0.19170849, w: 0.55013895}
+  m_LocalPosition: {x: -148.3, y: -13.317681, z: -446.1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
-  m_Father: {fileID: 224597872}
-  m_RootOrder: 36
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 26.885002, y: -111.107, z: 0}
 --- !u!108 &1274849704
 Light:
@@ -21964,7 +21982,7 @@ Transform:
   m_LocalScale: {x: 25, y: 10, z: 10}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 44
+  m_RootOrder: 47
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1309996656 stripped
 Transform:
@@ -22329,7 +22347,6 @@ GameObject:
   - component: {fileID: 1322896486}
   - component: {fileID: 1322896485}
   - component: {fileID: 1322896484}
-  - component: {fileID: 1322896483}
   m_Layer: 8
   m_Name: Platdorm_Red_016 (4)
   m_TagString: Future Object
@@ -22351,18 +22368,6 @@ Transform:
   m_Father: {fileID: 757675161}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1322896483
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1322896481}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7707b6aabc636684aa38ee40d51c6358, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!65 &1322896484
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -22511,7 +22516,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 62
+  m_RootOrder: 65
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1328677380 stripped
 Transform:
@@ -23539,7 +23544,7 @@ Transform:
   m_LocalScale: {x: 50, y: 10, z: 50}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 49
+  m_RootOrder: 52
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1382198783
 PrefabInstance:
@@ -24006,11 +24011,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1399767122}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -634, y: -13.336, z: -1836}
+  m_LocalPosition: {x: -631, y: -13.336, z: -1836}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 61
+  m_RootOrder: 64
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1400344137
 PrefabInstance:
@@ -24398,7 +24403,7 @@ PrefabInstance:
     - target: {fileID: 6997916122546516781, guid: 4dbe9656b0409994eb8d2fc3feb1e809,
         type: 3}
       propertyPath: m_RootOrder
-      value: 20
+      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: 6997916122546516781, guid: 4dbe9656b0409994eb8d2fc3feb1e809,
         type: 3}
@@ -24712,7 +24717,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4144252128789790, guid: 5a675dcfe669d5e4e93d9c677c628ba6, type: 3}
       propertyPath: m_RootOrder
-      value: 57
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 4144252128789790, guid: 5a675dcfe669d5e4e93d9c677c628ba6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -25208,7 +25213,7 @@ Transform:
   m_LocalScale: {x: 30, y: 10, z: 30}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 50
+  m_RootOrder: 53
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1478095668
 PrefabInstance:
@@ -25480,7 +25485,6 @@ GameObject:
   - component: {fileID: 1502565598}
   - component: {fileID: 1502565597}
   - component: {fileID: 1502565596}
-  - component: {fileID: 1502565595}
   m_Layer: 8
   m_Name: Platdorm_Red_016 (1)
   m_TagString: Future Object
@@ -25502,18 +25506,6 @@ Transform:
   m_Father: {fileID: 757675161}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1502565595
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1502565593}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7707b6aabc636684aa38ee40d51c6358, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!65 &1502565596
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -25650,7 +25642,7 @@ PrefabInstance:
     - target: {fileID: 2244552742671438687, guid: f9a24f72a7e582247865e46f97d8ef26,
         type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 2244552742671438687, guid: f9a24f72a7e582247865e46f97d8ef26,
         type: 3}
@@ -25847,7 +25839,7 @@ Transform:
   m_LocalScale: {x: 50, y: 10, z: 40}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 55
+  m_RootOrder: 58
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1538565877
 PrefabInstance:
@@ -25983,7 +25975,6 @@ GameObject:
   - component: {fileID: 1541686682}
   - component: {fileID: 1541686681}
   - component: {fileID: 1541686680}
-  - component: {fileID: 1541686679}
   - component: {fileID: 1541686678}
   m_Layer: 8
   m_Name: Platdorm_Red_015 (7)
@@ -26020,18 +26011,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 35.621414, y: 25.530235, z: 7.701654}
   m_Center: {x: -0.00012265153, y: 0.6052736, z: 1.4226129}
---- !u!114 &1541686679
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1541686676}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7707b6aabc636684aa38ee40d51c6358, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!64 &1541686680
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -26280,7 +26259,6 @@ GameObject:
   - component: {fileID: 1548910255}
   - component: {fileID: 1548910254}
   - component: {fileID: 1548910253}
-  - component: {fileID: 1548910252}
   - component: {fileID: 1548910251}
   m_Layer: 8
   m_Name: Platdorm_Red_015 (2)
@@ -26316,18 +26294,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 35.621414, y: 25.530235, z: 7.701654}
   m_Center: {x: -0.00012265153, y: 0.6052736, z: 1.4226129}
---- !u!114 &1548910252
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1548910249}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7707b6aabc636684aa38ee40d51c6358, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!64 &1548910253
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -27097,7 +27063,7 @@ Transform:
   m_LocalScale: {x: 50, y: 20, z: 50}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 56
+  m_RootOrder: 59
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1573331559
 PrefabInstance:
@@ -27560,7 +27526,7 @@ Transform:
   m_LocalScale: {x: 25, y: 10, z: 10}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 47
+  m_RootOrder: 50
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1585271854
 GameObject:
@@ -27947,7 +27913,7 @@ PrefabInstance:
     - target: {fileID: 3401557553922619127, guid: 97398a36ad46fda4ebea8a7fa01b5eab,
         type: 3}
       propertyPath: m_RootOrder
-      value: 23
+      value: 26
       objectReference: {fileID: 0}
     - target: {fileID: 3401557553922619127, guid: 97398a36ad46fda4ebea8a7fa01b5eab,
         type: 3}
@@ -28308,7 +28274,7 @@ Transform:
   m_LocalScale: {x: 10, y: 10, z: 50}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 48
+  m_RootOrder: 51
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1649507956 stripped
 Transform:
@@ -28489,7 +28455,7 @@ PrefabInstance:
     - target: {fileID: 6997916122546516781, guid: 4dbe9656b0409994eb8d2fc3feb1e809,
         type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 6997916122546516781, guid: 4dbe9656b0409994eb8d2fc3feb1e809,
         type: 3}
@@ -29202,7 +29168,7 @@ Transform:
   - {fileID: 2248330486545219914}
   - {fileID: 2899673772120410462}
   m_Father: {fileID: 0}
-  m_RootOrder: 28
+  m_RootOrder: 31
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1688068818 stripped
 Transform:
@@ -29751,7 +29717,7 @@ Transform:
   m_LocalScale: {x: 7.395218, y: 0.5871113, z: 17.85451}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 39
+  m_RootOrder: 42
   m_LocalEulerAnglesHint: {x: 30.982002, y: 0, z: 0}
 --- !u!1 &1706787048
 GameObject:
@@ -29765,7 +29731,6 @@ GameObject:
   - component: {fileID: 1706787054}
   - component: {fileID: 1706787053}
   - component: {fileID: 1706787052}
-  - component: {fileID: 1706787051}
   - component: {fileID: 1706787050}
   m_Layer: 8
   m_Name: Platdorm_Red_015 (1)
@@ -29801,18 +29766,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 35.621414, y: 25.530235, z: 7.701654}
   m_Center: {x: -0.00012265153, y: 0.6052736, z: 1.4226129}
---- !u!114 &1706787051
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1706787048}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7707b6aabc636684aa38ee40d51c6358, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!64 &1706787052
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -29989,7 +29942,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4858416500853050, guid: 8f483f20ce93c27439e3502ffd666e56, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4858416500853050, guid: 8f483f20ce93c27439e3502ffd666e56, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -30714,7 +30667,6 @@ GameObject:
   - component: {fileID: 1779132087}
   - component: {fileID: 1779132086}
   - component: {fileID: 1779132085}
-  - component: {fileID: 1779132084}
   m_Layer: 8
   m_Name: Platdorm_Red_016 (2)
   m_TagString: Future Object
@@ -30736,18 +30688,6 @@ Transform:
   m_Father: {fileID: 757675161}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1779132084
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1779132082}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7707b6aabc636684aa38ee40d51c6358, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!65 &1779132085
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -31666,7 +31606,7 @@ PrefabInstance:
     - target: {fileID: 2244552742671438687, guid: f9a24f72a7e582247865e46f97d8ef26,
         type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 2244552742671438687, guid: f9a24f72a7e582247865e46f97d8ef26,
         type: 3}
@@ -32002,7 +31942,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 37
+  m_RootOrder: 40
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1859238856
 GameObject:
@@ -32516,7 +32456,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 780611a67e8e941a2b3aa96e5915a793, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 780611a67e8e941a2b3aa96e5915a793, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -33494,7 +33434,7 @@ PrefabInstance:
     - target: {fileID: 2244552742671438687, guid: f9a24f72a7e582247865e46f97d8ef26,
         type: 3}
       propertyPath: m_RootOrder
-      value: 18
+      value: 21
       objectReference: {fileID: 0}
     - target: {fileID: 2244552742671438687, guid: f9a24f72a7e582247865e46f97d8ef26,
         type: 3}
@@ -34585,7 +34525,6 @@ GameObject:
   - component: {fileID: 2050151976}
   - component: {fileID: 2050151975}
   - component: {fileID: 2050151974}
-  - component: {fileID: 2050151973}
   - component: {fileID: 2050151972}
   m_Layer: 8
   m_Name: Platdorm_Red_015 (3)
@@ -34622,18 +34561,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 35.621414, y: 25.530235, z: 7.701654}
   m_Center: {x: -0.00012265153, y: 0.6052736, z: 1.4226129}
---- !u!114 &2050151973
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2050151970}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7707b6aabc636684aa38ee40d51c6358, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!64 &2050151974
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -35758,7 +35685,7 @@ PrefabInstance:
     - target: {fileID: 6997916122546516781, guid: 4dbe9656b0409994eb8d2fc3feb1e809,
         type: 3}
       propertyPath: m_RootOrder
-      value: 17
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 6997916122546516781, guid: 4dbe9656b0409994eb8d2fc3feb1e809,
         type: 3}
@@ -36253,7 +36180,7 @@ Transform:
   m_LocalScale: {x: 22.082384, y: 20, z: 55.286697}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 68
+  m_RootOrder: 71
   m_LocalEulerAnglesHint: {x: 0, y: 90.128006, z: 0}
 --- !u!1 &2135057596 stripped
 GameObject:
@@ -36433,7 +36360,7 @@ Transform:
   - {fileID: 1499709487424412826}
   - {fileID: 2676297188220087637}
   m_Father: {fileID: 0}
-  m_RootOrder: 31
+  m_RootOrder: 34
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &204255662985857003
 MeshFilter:
@@ -36924,7 +36851,6 @@ GameObject:
   - component: {fileID: 8690431421566430301}
   - component: {fileID: 1540992524651467199}
   - component: {fileID: 704045299262452182}
-  - component: {fileID: 704045299262452184}
   - component: {fileID: 704045299262452183}
   m_Layer: 8
   m_Name: Platdorm_Red_017
@@ -36960,18 +36886,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 35.62141, y: 25.530241, z: 7.362302}
   m_Center: {x: 0, y: 0.6052179, z: 1.2529829}
---- !u!114 &704045299262452184
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 704045299262452181}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7707b6aabc636684aa38ee40d51c6358, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &721056895871333343
 GameObject:
   m_ObjectHideFlags: 0
@@ -37194,7 +37108,6 @@ GameObject:
   - component: {fileID: 2740993820010882752}
   - component: {fileID: 879839240568400259}
   - component: {fileID: 879839240568400261}
-  - component: {fileID: 879839240568400260}
   m_Layer: 8
   m_Name: Platdorm_Red_014
   m_TagString: Past Object
@@ -37216,18 +37129,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -3520226020863423120, guid: 8d05bd5f18f798c48bf169887f302638, type: 3}
---- !u!114 &879839240568400260
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 879839240568400258}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7707b6aabc636684aa38ee40d51c6358, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!65 &879839240568400261
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -37401,7 +37302,6 @@ GameObject:
   - component: {fileID: 3784261200108294010}
   - component: {fileID: 964277605123928876}
   - component: {fileID: 964277605123928878}
-  - component: {fileID: 964277605123928877}
   m_Layer: 8
   m_Name: Platform_Green_023
   m_TagString: Past Object
@@ -37423,18 +37323,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 7591743155912269962, guid: 8d05bd5f18f798c48bf169887f302638, type: 3}
---- !u!114 &964277605123928877
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 964277605123928875}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7707b6aabc636684aa38ee40d51c6358, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!65 &964277605123928878
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -37488,7 +37376,6 @@ GameObject:
   - component: {fileID: 7640901523079386873}
   - component: {fileID: 1085208333280380779}
   - component: {fileID: 1085208333280380781}
-  - component: {fileID: 1085208333280380780}
   m_Layer: 8
   m_Name: Platdorm_Red_018
   m_TagString: Future Object
@@ -37510,18 +37397,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -5889178351442976374, guid: 8d05bd5f18f798c48bf169887f302638, type: 3}
---- !u!114 &1085208333280380780
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1085208333280380778}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7707b6aabc636684aa38ee40d51c6358, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!65 &1085208333280380781
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -38409,7 +38284,6 @@ GameObject:
   - component: {fileID: 1571098060852670152}
   - component: {fileID: 1571098060852670153}
   - component: {fileID: 1571098060852670155}
-  - component: {fileID: 1571098060852670154}
   m_Layer: 8
   m_Name: Platform_Green_020
   m_TagString: Past Object
@@ -38450,18 +38324,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &1571098060852670154
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1571098060852670151}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7707b6aabc636684aa38ee40d51c6358, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!65 &1571098060852670155
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -38678,7 +38540,6 @@ GameObject:
   - component: {fileID: 5189273941883118967}
   - component: {fileID: 3169361415352646464}
   - component: {fileID: 1701821414811489409}
-  - component: {fileID: 1701821414811489410}
   - component: {fileID: 1701821414811489411}
   m_Layer: 8
   m_Name: Cylinder002
@@ -38701,18 +38562,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -2128599272216676504, guid: 8d05bd5f18f798c48bf169887f302638, type: 3}
---- !u!114 &1701821414811489410
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1701821414811489408}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7707b6aabc636684aa38ee40d51c6358, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!65 &1701821414811489411
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -41122,7 +40971,7 @@ PrefabInstance:
     - target: {fileID: 3401557553922619127, guid: 97398a36ad46fda4ebea8a7fa01b5eab,
         type: 3}
       propertyPath: m_RootOrder
-      value: 22
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 3401557553922619127, guid: 97398a36ad46fda4ebea8a7fa01b5eab,
         type: 3}
@@ -42319,7 +42168,6 @@ GameObject:
   - component: {fileID: 4427626805182948496}
   - component: {fileID: 4501141015559516538}
   - component: {fileID: 4501141015559516540}
-  - component: {fileID: 4501141015559516539}
   m_Layer: 8
   m_Name: Platdorm_Red_016
   m_TagString: Future Object
@@ -42341,18 +42189,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 3086696410059571952, guid: 8d05bd5f18f798c48bf169887f302638, type: 3}
---- !u!114 &4501141015559516539
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4501141015559516537}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7707b6aabc636684aa38ee40d51c6358, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!65 &4501141015559516540
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -42810,7 +42646,7 @@ Transform:
   - {fileID: 8926873415722061855}
   - {fileID: 8714661496036176544}
   m_Father: {fileID: 0}
-  m_RootOrder: 30
+  m_RootOrder: 33
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &5006512735193806398
 Transform:
@@ -42835,7 +42671,7 @@ Transform:
   - {fileID: 6627893254955898143}
   - {fileID: 1564206294994908589}
   m_Father: {fileID: 0}
-  m_RootOrder: 29
+  m_RootOrder: 32
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &5007814254405140249
 Transform:
@@ -43339,7 +43175,6 @@ GameObject:
   - component: {fileID: 6166669793731202212}
   - component: {fileID: 2657299129845859906}
   - component: {fileID: 5438989309929252702}
-  - component: {fileID: 5438989309929252704}
   - component: {fileID: 5438989309929252703}
   m_Layer: 8
   m_Name: Platform_Green_024
@@ -43375,18 +43210,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 35.621414, y: 25.530235, z: 6.2900267}
   m_Center: {x: -0.00009166997, y: 0.6052735, z: 0.7167997}
---- !u!114 &5438989309929252704
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5438989309929252701}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7707b6aabc636684aa38ee40d51c6358, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!23 &5448579309313290300
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -43826,7 +43649,6 @@ GameObject:
   - component: {fileID: 7349072835688107985}
   - component: {fileID: 5832632653392222444}
   - component: {fileID: 5832632653392222446}
-  - component: {fileID: 5832632653392222445}
   m_Layer: 8
   m_Name: Platform_Green_025
   m_TagString: Future Object
@@ -43848,18 +43670,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4537863337849613023, guid: 8d05bd5f18f798c48bf169887f302638, type: 3}
---- !u!114 &5832632653392222445
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5832632653392222443}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7707b6aabc636684aa38ee40d51c6358, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!65 &5832632653392222446
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -44312,7 +44122,6 @@ GameObject:
   - component: {fileID: 3903773208280137380}
   - component: {fileID: 6132049361223607583}
   - component: {fileID: 6132049361223607584}
-  - component: {fileID: 6132049361223607586}
   - component: {fileID: 6132049361223607585}
   m_Layer: 8
   m_Name: Platform_Green_021
@@ -44367,18 +44176,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 35.621414, y: 25.530245, z: 6.599794}
   m_Center: {x: -0.000060554863, y: 0.6051513, z: 0.8717358}
---- !u!114 &6132049361223607586
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6132049361223607582}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7707b6aabc636684aa38ee40d51c6358, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &6144563827014799650
 GameObject:
   m_ObjectHideFlags: 0
@@ -44739,7 +44536,6 @@ GameObject:
   - component: {fileID: 2418780973523473158}
   - component: {fileID: 871300185138521366}
   - component: {fileID: 6477786676371247826}
-  - component: {fileID: 6477786676371247827}
   - component: {fileID: 6477786676371247828}
   m_Layer: 8
   m_Name: Cylinder001
@@ -44762,18 +44558,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -951608786083511892, guid: 8d05bd5f18f798c48bf169887f302638, type: 3}
---- !u!114 &6477786676371247827
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6477786676371247825}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7707b6aabc636684aa38ee40d51c6358, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!65 &6477786676371247828
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -45036,7 +44820,6 @@ GameObject:
   - component: {fileID: 7610254617125423829}
   - component: {fileID: 6692043338668818746}
   - component: {fileID: 6692043338668818748}
-  - component: {fileID: 6692043338668818747}
   m_Layer: 8
   m_Name: Platform_Green_026
   m_TagString: Past Object
@@ -45058,18 +44841,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -68658278070325260, guid: 8d05bd5f18f798c48bf169887f302638, type: 3}
---- !u!114 &6692043338668818747
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6692043338668818745}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7707b6aabc636684aa38ee40d51c6358, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!65 &6692043338668818748
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -45587,7 +45358,6 @@ GameObject:
   - component: {fileID: 1054850659219238188}
   - component: {fileID: 8919904988197332776}
   - component: {fileID: 7142324262476535825}
-  - component: {fileID: 7142324262476535827}
   - component: {fileID: 7142324262476535826}
   m_Layer: 8
   m_Name: Platdorm_Red_015
@@ -45623,18 +45393,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 35.621414, y: 25.530235, z: 7.701654}
   m_Center: {x: -0.00012265153, y: 0.6052736, z: 1.4226129}
---- !u!114 &7142324262476535827
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7142324262476535824}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7707b6aabc636684aa38ee40d51c6358, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &7150638682882401068
 Transform:
   m_ObjectHideFlags: 0
@@ -45926,7 +45684,6 @@ GameObject:
   - component: {fileID: 1190983144239285069}
   - component: {fileID: 7368051218096947742}
   - component: {fileID: 7368051218096947744}
-  - component: {fileID: 7368051218096947743}
   m_Layer: 8
   m_Name: Platform_Green_022
   m_TagString: Past Object
@@ -45948,18 +45705,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -3658142345691560455, guid: 8d05bd5f18f798c48bf169887f302638, type: 3}
---- !u!114 &7368051218096947743
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7368051218096947741}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7707b6aabc636684aa38ee40d51c6358, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!65 &7368051218096947744
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -20,7 +20,7 @@ public class MagnetEnemyBehaviour : MonoBehaviour
     public float spinInterval;
 
     private bool isWaiting = false;
-    private bool arrivedAtDest = false;
+    //private bool arrivedAtDest = false;
 
     private bool isFollowingPlayer = false;
 

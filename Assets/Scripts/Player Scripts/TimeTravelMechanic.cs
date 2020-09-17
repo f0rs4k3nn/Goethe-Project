@@ -45,6 +45,7 @@ public class TimeTravelMechanic : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
         fadeScreen = GetComponent<Image>();
         mainLight = GameObject.Find("Directional Light").GetComponent<Light>();
         pastObjects = GameObject.FindGameObjectsWithTag("Past Object");

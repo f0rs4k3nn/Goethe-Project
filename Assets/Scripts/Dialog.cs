@@ -9,11 +9,11 @@ public class Dialog : MonoBehaviour
     TextMeshProUGUI continueTextDisplay;
 
     GameObject player;
+    GameObject dialogueBox;
 
     public string[] sentencesNpc;
     public int index = 0;
     bool startConversation = false;
-    bool freezeMovement;
     public float typingSpeed;
 
     void Start()
@@ -22,8 +22,11 @@ public class Dialog : MonoBehaviour
         textDisplay.text = "";
         
         player = GameObject.Find("Player");
-        PlayerManager.instance.DialogBox.SetActive(false);
-           
+        dialogueBox = GameObject.Find("DialogBox");
+        dialogueBox.SetActive(false);
+        
+      //  dialogueBox.active = false;
+
     }
 
     private void OnTriggerStay(Collider other)
@@ -33,7 +36,7 @@ public class Dialog : MonoBehaviour
             if(!startConversation)
             {
                 startConversation = true;
-                PlayerManager.instance.DialogBox.SetActive(true);
+                dialogueBox.SetActive(true);
                 StartCoroutine(Type());
             }
         }
@@ -44,21 +47,17 @@ public class Dialog : MonoBehaviour
         }
     }
 
-    private void Update()
-    {
-        FreezeMovement();
-    }
-
     private void OnTriggerExit(Collider other)
     {
         startConversation = false;
-        PlayerManager.instance.DialogBox.SetActive(false);
+        dialogueBox.SetActive(false);
         ResetConversation();
     }
 
     IEnumerator Type()
     {
-        freezeMovement = true;
+        //player.GetComponent<CharacterController>().enabled = false;
+        player.GetComponent<PlayerController>().enabled = false;
 
         foreach (char letter in sentencesNpc[index].ToCharArray())
         {
@@ -66,7 +65,8 @@ public class Dialog : MonoBehaviour
             yield return new WaitForSeconds(typingSpeed);
         }
 
-        freezeMovement = false;
+       // player.GetComponent<CharacterController>().enabled = true;
+        player.GetComponent<PlayerController>().enabled = true;
     }
 
     public void NextSentence()
@@ -89,17 +89,5 @@ public class Dialog : MonoBehaviour
         index = 2;
     }
 
-    public void FreezeMovement()
-    {
-        if (freezeMovement)
-        {
-            player.GetComponent<CharacterController>().enabled = false;
-            player.GetComponent<PlayerController>().enabled = false;
-        }
-        else
-        {
-            player.GetComponent<PlayerController>().enabled = true;
-            player.GetComponent<CharacterController>().enabled = true;
-        }
-    }
+  
 }

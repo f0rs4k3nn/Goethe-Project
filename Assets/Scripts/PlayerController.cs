@@ -65,36 +65,36 @@ public class PlayerController : MonoBehaviour
      *Animation variables 
      **/
     public Animator m_Animator;
-    [SerializeField] float m_RunCycleLegOffset = 0.2f; //specific to the character in sample assets, will need to be modified to work with others
-    [SerializeField] float m_MoveSpeedMultiplier = 1f;
+    //[SerializeField] float m_RunCycleLegOffset = 0.2f; //specific to the character in sample assets, will need to be modified to work with others
     [SerializeField] float m_AnimSpeedMultiplier = 1f;
     const float k_Half = 0.5f;
     float m_TurnAmount;
     float m_ForwardAmount;
     public float m_RunningAnimationMultiplier = 10;
 
-    private Transform camera;
+    private new Transform camera;
 
-    //public GameObject cameraLookAt;
-    //public Transform playerModel;
+ 
 
     void Awake()
     {
-        GameManager.Instance.Player = this; // Assign itself to the GameManager
+        GameManager.Instance.player = this; // Assign itself to the GameManager
     }
 
     // Start is called before the first frame update
     void Start()
     {
         //Time.timeScale = 0.03f;
-       // m_Animator = GetComponent<Animator>();
-        camera = Camera.main.transform;
+        // m_Animator = GetComponent<Animator>();
+        camera = GameManager.Instance.camera.transform;
         player = GetComponent<CharacterController>();
         canMove = true;
         movementSinceLastFrame = Vector3.zero;
+
+       
     }
 
-    void FixedUpdate()
+    void Update()
     {
         
         if (!canMove)
@@ -231,7 +231,12 @@ public class PlayerController : MonoBehaviour
      */
     private void OnTriggerStay(Collider other)
     {
-        //Debug.Log("I'VE BEEN HIT");
+        if (other.isTrigger)
+        {
+            return;
+        }
+
+        Debug.Log("I'VE BEEN HIT BY " + other.name);
       
         Vector3 objPos = other.transform.position;
         Vector3 currentPos = transform.position;
@@ -241,10 +246,10 @@ public class PlayerController : MonoBehaviour
         player.Move((currentPos - objPos).normalized * Time.deltaTime * 0.7f);
         Vector3 newPos = transform.position;
 
-        if(lastPosition == newPos)
+       /* if(lastPosition == newPos)
         {
             Debug.LogError("I AM DEAD LMAP");
-        }
+        }*/
     }
 
     public static Vector3 RadianToVector3(float radian)

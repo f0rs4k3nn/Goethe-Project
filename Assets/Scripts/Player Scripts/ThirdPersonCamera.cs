@@ -25,7 +25,7 @@ public class ThirdPersonCamera : MonoBehaviour
 
     private void Awake()
     {
-        GameManager.Instance.Camera = this;
+        GameManager.Instance.camera = this;
     }
 
     // Start is called before the first frame update
