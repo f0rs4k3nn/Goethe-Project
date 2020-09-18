@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 7159791904483531827}
   - component: {fileID: 7159791904483531828}
   - component: {fileID: 7159791904483531824}
+  - component: {fileID: 1850267341}
   m_Layer: 0
   m_Name: NPC1
-  m_TagString: Untagged
+  m_TagString: Interactive
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -107,10 +108,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8536a1d7b48a6e2428f69df1468e8a5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textDisplay: {fileID: 0}
   sentencesNpc:
-  - senteeeeeeeeence 1
-  - Seeeeeeeenteeence 2
-  - Seeeeeeenteeence 4
+  - Welcome to the park!
+  - Have fun! :~)
   index: 0
   typingSpeed: 0.02
+--- !u!114 &1850267341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7159791904483531829}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32377db4d2583bd4ca080f2389a15954, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

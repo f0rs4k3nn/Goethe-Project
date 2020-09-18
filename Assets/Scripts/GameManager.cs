@@ -6,10 +6,20 @@ using UnityEngine;
 public class GameManager : Singleton<GameManager>
 {
     public PlayerController player;
+
     public TimeTravelMechanic TimeTravelMechanic;
+
     public new ThirdPersonCamera camera;
-    public GameObject dialogBox;
+    
     public TextMeshProUGUI textDisplay;
+    public TextMeshProUGUI textSignUp;
+    public TextMeshProUGUI textSignDown;
+
+    public GameObject dialogBox;
+    public GameObject playerGameObj;
+    public GameObject sign;
+    public GameObject interactBttn;
+    public GameObject[] interactiveObj;
 
     //overwrites the last played level and score if 
     //played in the main save
@@ -57,13 +67,26 @@ public class GameManager : Singleton<GameManager>
 
         _gameData = GameData.gameData;
         IsMovementEnabled = true;
+
         dialogBox = GameObject.Find("DialogBox");
 
         textDisplay = GameObject.Find("DialogText").GetComponent<TextMeshProUGUI>();
+        textSignUp = GameObject.Find("Up Text (TMP)").GetComponent<TextMeshProUGUI>();
+        textSignDown = GameObject.Find("Down Text (TMP)").GetComponent<TextMeshProUGUI>();
+
+        playerGameObj = GameObject.Find("Player");
+
+        sign = GameObject.Find("SignOverlay");
+
+        interactBttn = GameObject.Find("Interact Button");
+
+        interactiveObj = GameObject.FindGameObjectsWithTag("Interactive");
 
         camera = Camera.main.GetComponent<ThirdPersonCamera>();
 
         dialogBox.SetActive(false);
+        interactBttn.SetActive(false);
+        sign.SetActive(false);
     }
 
     private int _gameScore;

@@ -17,7 +17,8 @@ public class EnemyMovement : MonoBehaviour
 	// Use this for initialization
 	void Start()
 	{
-		target = GameObject.Find("Player").transform;
+		target = GameManager.Instance.playerGameObj.transform;
+
 		agent = GetComponent<NavMeshAgent>();
 	}
 
@@ -36,7 +37,6 @@ public class EnemyMovement : MonoBehaviour
 			// If within attacking distance
 			if (distance <= agent.stoppingDistance)
 			{
-
 				FaceTarget();   // Make sure to face towards the target
 			}
 		}
@@ -57,8 +57,6 @@ public class EnemyMovement : MonoBehaviour
 		if (other.tag == "Player")
 		{
 			other.GetComponent<PlayerDeath>().CheckPoint();
-
-			Destroy(gameObject);
 		}
     }
 
