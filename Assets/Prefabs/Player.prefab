@@ -4124,7 +4124,9 @@ MonoBehaviour:
   maxFallSpeed: -300
   m_Animator: {fileID: 8296172668203622963}
   m_AnimSpeedMultiplier: 1
-  m_RunningAnimationMultiplier: 1
+  m_RunningAnimationMultiplier: 0.07
+  footstepSpeed: 0.2
+  canMakeFootstepSound: 1
 --- !u!114 &1489083556977501934
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4137,9 +4139,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1be5f642e7363774eabf490f15975392, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeDuration: 0.6
-  respawnDelay: 0.2
+  fadeDuration: 1
+  respawnDelay: 0.3
   screenOverlay: {fileID: 0}
+  deathParticle: {fileID: 100004, guid: 417d95259df90e4488eb927fde45cba3, type: 3}
+  respawnParticle: {fileID: 100006, guid: 68849d937b3285f4083f33a1dc4cd5ed, type: 3}
 --- !u!1 &5939357689838682466
 GameObject:
   m_ObjectHideFlags: 0
