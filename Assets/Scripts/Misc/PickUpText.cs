@@ -6,16 +6,22 @@ public class PickUpText : MonoBehaviour
 {
     public string pickUpText;
 
-    static bool pickUpKey;
+    public static bool pickUpTools = false;
+
+    private void Start()
+    {
+        pickUpText = "";
+    }
 
     private void OnTriggerStay(Collider player)
     {
-        if (Input.GetKeyDown(KeyCode.E) && gameObject.name == "Box")
+        if (Input.GetKeyDown(KeyCode.E) && gameObject.name == "ToolBox")
         {
-            if (!pickUpKey)
+            if (!pickUpTools)
             {
-                pickUpText = "You found a key!";
-                pickUpKey = true;               
+                pickUpText = "You found some tools!";
+                GameManager.Instance.pickUpText.text = pickUpText;
+                pickUpTools = true;               
             }
             else
             {

@@ -1,19 +1,22 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class UnlockingTeleport : MonoBehaviour
 {
+    private string sceneName;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
-        
+        Scene currentScene = SceneManager.GetActiveScene();
+        sceneName = currentScene.name;
     }
+    
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.tag == "Player" && sceneName == "Dani")
         {
             if (ScoringSystem.theScore >= 10 && name == "TeleporterPad")
             {
@@ -30,7 +33,17 @@ public class UnlockingTeleport : MonoBehaviour
 
             }
         }
+
+        if (other.tag == "Player" && sceneName == "Level_Park")
+        {
+            if (PickUpText.pickUpTools)
+            {
+                GetComponent<Teleport>().enabled = true;
+                Destroy(this);
+            }                
+        }
     }
+
 
     // Update is called once per frame
     void Update()
