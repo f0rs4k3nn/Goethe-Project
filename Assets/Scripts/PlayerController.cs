@@ -73,7 +73,11 @@ public class PlayerController : MonoBehaviour
     public float m_RunningAnimationMultiplier = 10;
 
     private new Transform camera;
+    private AudioManager audioManager;
+    private bool playedLandSound;
 
+    public float footstepSpeed;
+    public bool canMakeFootstepSound = true;
  
 
     void Awake()
@@ -90,8 +94,9 @@ public class PlayerController : MonoBehaviour
         player = GetComponent<CharacterController>();
         canMove = true;
         movementSinceLastFrame = Vector3.zero;
+        audioManager = AudioManager.instance;
 
-       
+        //StartCoroutine(Footstep());
     }
 
     void FixedUpdate()
@@ -125,6 +130,12 @@ public class PlayerController : MonoBehaviour
             {
                velocity.y = m_staticFallVelocity;
             }
+
+            if(!playedLandSound)
+            {
+                audioManager.Play("JumpLand");
+                playedLandSound = true;
+            }
             
         } else //!isGrounded
         {
@@ -155,6 +166,8 @@ public class PlayerController : MonoBehaviour
                 accumulatedJumpPower = accumulativeJumpLimit;
                 velocity.y = -5f;
             }
+
+            playedLandSound = false;
         }
 
         if (Input.GetAxis("Jump") > 0)
@@ -164,6 +177,7 @@ public class PlayerController : MonoBehaviour
                 velocity.y = jumpForce;
                 m_jumpKeyReleased = false;
                 accumulatedJumpPower = 0;
+                audioManager.Play("NormalJump");
             }
             else if (!m_jumpKeyReleased && accumulatedJumpPower < accumulativeJumpLimit && canDoubleJump) //accumulative jump, also makes sure it isn't a double jump
             {
@@ -176,6 +190,7 @@ public class PlayerController : MonoBehaviour
                 m_jumpKeyReleased = false;
                 canDoubleJump = false;
                 velocity.y = jumpForce;
+                audioManager.Play("DoubleJump");
             }
         }
         else if (Input.GetAxis("Jump") == 0)
@@ -217,7 +232,7 @@ public class PlayerController : MonoBehaviour
         m_TurnAmount *= 200;
         m_ForwardAmount = currentSpeed.magnitude;
 
-        UpdateAnimator();    
+        UpdateAnimator(input);    
     }
 
    private void Update()
@@ -280,7 +295,7 @@ public class PlayerController : MonoBehaviour
         transform.RotateAround(currentParentPosition, Vector3.up, parentRotation.y);
     }
 
-    void UpdateAnimator()
+    void UpdateAnimator(Vector2 input)
     {
 
         // update the animator parameters
@@ -309,15 +324,34 @@ public class PlayerController : MonoBehaviour
 
         // the anim speed multiplier allows the overall speed of walking/running to be tweaked in the inspector,
         // which affects the movement speed because of the root motion.
-        if (isGrounded && m_ForwardAmount > 7)
+        if (isGrounded && input.magnitude > 0.2f && !m_Animator.IsInTransition(0))
         {
-            m_Animator.speed = m_AnimSpeedMultiplier * m_ForwardAmount / 14.0f;
+           // Debug.Log("USING COOL SETTINGS");
+            m_Animator.speed = m_AnimSpeedMultiplier * m_ForwardAmount * m_RunningAnimationMultiplier;
         }
         else
         {
-            // don't use that while airborne
+            // don't use that while airborne or transitioning
             m_Animator.speed = m_AnimSpeedMultiplier;
         }
+
+        if (canMakeFootstepSound && m_ForwardAmount > 17.0f && isGrounded)
+        {
+           // Debug.Log("I've been called??");
+
+            canMakeFootstepSound = false;
+            StartCoroutine(Footstep());
+        }
+    }
+
+    private IEnumerator Footstep()
+    {
+        //String index = ((int)UnityEngine.Random.Range(1, 4)).ToString();
+       // Debug.Log(index);
+        audioManager.Play("Footstep");
+        yield return new WaitForSeconds(footstepSpeed / m_AnimSpeedMultiplier);
+
+        canMakeFootstepSound = true;
     }
 
     void UpdateAnimatorOLD(Vector3 move)
