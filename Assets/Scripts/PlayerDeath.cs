@@ -11,40 +11,25 @@ public class PlayerDeath : MonoBehaviour
     public float respawnDelay;
     public Image screenOverlay;
 
-    public GameObject deathParticle;
-    public GameObject respawnParticle;
-
-    private AudioManager audioManager;
-
-
-
     private bool _isRespawning = false;
     
     void Awake()
     {
         game = GameManager.Instance;
 
-          
-    }
-
-    private void Start()
-    {
-        audioManager = AudioManager.instance;
-
-        GameObject spawnpoint = GameObject.Find("SpawnPoint");
+        Transform spawnpoint = GameObject.Find("SpawnPoint").transform;
 
         if (spawnpoint != null)
         {
-            transform.position = spawnpoint.transform.position;
-        }
-        else
+            transform.position = spawnpoint.position;
+        } else
         {
             Debug.Log("DIDN'T FIND SPAWNPOINT AAa");
         }
 
-        checkpoint = transform.position;
+        checkpoint = transform.position;      
     }
-
+    
     private void OnTriggerEnter(Collider other)
     {
         
@@ -69,18 +54,10 @@ public class PlayerDeath : MonoBehaviour
 
     private IEnumerator RespawnTriggered()
     {
-        GameObject particle = Instantiate(deathParticle, transform);
-        particle.transform.parent = null;
-        Destroy(particle, 3);
-
-        audioManager.Play("DeathSound");
-        
         game.IsMovementEnabled = false;
 
 
         yield return new WaitForSeconds(respawnDelay);
-        audioManager.Play("RespawnSound");
-
 
         Color fixedColor = screenOverlay.color;
         fixedColor.a = 1;
@@ -94,12 +71,8 @@ public class PlayerDeath : MonoBehaviour
         game.IsMovementEnabled = true;
         _isRespawning = false;
 
-        particle = Instantiate(respawnParticle, transform);
-        particle.transform.parent = null;
-
         screenOverlay.CrossFadeAlpha(0, fadeDuration, true);
-        Destroy(particle, 3);
-        //yield return new WaitForSeconds(fadeDuration);
+        yield return new WaitForSeconds(fadeDuration);
 
 
     }

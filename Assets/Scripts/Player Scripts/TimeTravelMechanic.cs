@@ -35,7 +35,6 @@ public class TimeTravelMechanic : MonoBehaviour
     public Material skyBox;
 
     private GameManager game;
-    private AudioManager audio;
 
 
     private void Awake()
@@ -48,7 +47,7 @@ public class TimeTravelMechanic : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        audio = AudioManager.instance;
+        
         fadeScreen = GetComponent<Image>();
         mainLight = GameObject.Find("Directional Light").GetComponent<Light>();
         pastObjects = GameObject.FindGameObjectsWithTag("Past Object");
@@ -81,7 +80,6 @@ public class TimeTravelMechanic : MonoBehaviour
     {
         if(canTimeTravel)
         {
-           
             //pause every animation
             foreach(Animator anim in animatedObjects)
             {
@@ -91,8 +89,6 @@ public class TimeTravelMechanic : MonoBehaviour
             game.IsMovementEnabled = false;
             canTimeTravel = false;
             isInFuture = !isInFuture;
-
-            audio.Play(isInFuture ? "FutureChange" : "PastChange");
 
             //Select a random colour for the fade screen.
             fadeScreen.color = new Color(UnityEngine.Random.Range(0.3f, 0.8f), UnityEngine.Random.Range(0.3f, 0.8f), UnityEngine.Random.Range(0.3f, 0.8f));

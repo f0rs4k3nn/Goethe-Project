@@ -13,6 +13,8 @@ public class AudioManager : MonoBehaviour
 	public float effectsVolume;
 	public float musicVolume;
 
+	public Slider musicSlider;
+	public Slider effectsSlider;
 	private Sound currentlyPlayingMusic;
 
 	//private SaveData saveData;
@@ -45,9 +47,15 @@ public class AudioManager : MonoBehaviour
 	
 	private void Start()
 	{
-        effectsVolume = musicVolume = 0.1f;
-		//SetMusicVolume();
-		//SetEffectsVolume();
+		//saveData = GameData.gameData.saveData;
+		//musicVolume = saveData.musicVolume;
+		//effectsVolume = saveData.effectsVolume;
+
+		musicSlider.value = musicVolume;
+		effectsSlider.value = effectsVolume;
+
+		SetMusicVolume();
+		SetEffectsVolume();
 	}
 
 	public void Play(string sound)
@@ -66,14 +74,11 @@ public class AudioManager : MonoBehaviour
 
 		if(s.isMusic)
 		{
-            currentlyPlayingMusic.source.Stop();
 			currentlyPlayingMusic = s;
 		}
 		
 		s.source.Play();
 	}
-
-
 
 	public void Stop(string sound)
 	{
@@ -87,8 +92,9 @@ public class AudioManager : MonoBehaviour
 		s.source.Stop();
 	}
 
-    /*public void SetMusicVolume()
+	public void SetMusicVolume()
 	{
+		musicVolume = musicSlider.value;
 
 		if(currentlyPlayingMusic != null)
 		{
@@ -100,12 +106,13 @@ public class AudioManager : MonoBehaviour
 
 		//saveData.musicVolume = musicVolume;
 	}
+
 	public void SetEffectsVolume()
 	{
+		effectsVolume = effectsSlider.value;
 
 		//saveData.effectsVolume = effectsVolume;
 
 		Play("Dunno");
-	}*/
-
+	}
 }
