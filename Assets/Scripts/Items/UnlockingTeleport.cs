@@ -33,15 +33,6 @@ public class UnlockingTeleport : MonoBehaviour
 
             }
         }
-
-        if (other.tag == "Player" && sceneName == "Level_Park")
-        {
-            if (PickUpText.pickUpTools)
-            {
-                GetComponent<Teleport>().enabled = true;
-                Destroy(this);
-            }                
-        }
     }
 
 

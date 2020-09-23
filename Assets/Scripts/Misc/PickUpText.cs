@@ -6,8 +6,6 @@ public class PickUpText : MonoBehaviour
 {
     public string pickUpText;
 
-    public static bool pickUpTools = false;
-
     private void Start()
     {
         pickUpText = "";
@@ -17,11 +15,11 @@ public class PickUpText : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E) && gameObject.name == "ToolBox")
         {
-            if (!pickUpTools)
+            if (!CustomTeleporter.teleportPadOn)
             {
                 pickUpText = "You found some tools!";
                 GameManager.Instance.pickUpText.text = pickUpText;
-                pickUpTools = true;               
+                CustomTeleporter.teleportPadOn = true;               
             }
             else
             {
