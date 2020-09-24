@@ -52,14 +52,6 @@ public class EnemyMovement : MonoBehaviour
 		transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5f);
 	}
 
-    private void OnTriggerEnter(Collider other)
-    {
-		if (other.tag == "Player")
-		{
-			other.GetComponent<PlayerDeath>().CheckPoint();
-		}
-    }
-
     // Show the lookRadius in editor
     void OnDrawGizmosSelected()
 	{
