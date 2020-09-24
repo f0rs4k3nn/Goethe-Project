@@ -5,7 +5,7 @@ using UnityEngine;
 public class InteractText : MonoBehaviour
 {
     public string interactText;
-    private bool hasTools = true;
+    private bool hasTools;
     private bool isIn;
 
     void Start()
@@ -15,6 +15,13 @@ public class InteractText : MonoBehaviour
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.E) && gameObject.name == "ToolBox" && isIn)
+        {
+            interactText = "You found some tools!";
+            hasTools = true;
+            GameManager.Instance.interactText.text = interactText;
+        }
+
         if (Input.GetKeyDown(KeyCode.E) && gameObject.name == "Teleport_Terminal" && isIn)
         {
             if (hasTools == true)
