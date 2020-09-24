@@ -5,7 +5,7 @@ using UnityEngine;
 public class InteractText : MonoBehaviour
 {
     public string interactText;
-    private bool hasTools;
+    private static bool hasTools;
     private bool isIn;
 
     void Start()
@@ -19,7 +19,9 @@ public class InteractText : MonoBehaviour
         {
             interactText = "You found some tools!";
             hasTools = true;
+            Debug.Log(hasTools);
             GameManager.Instance.interactText.text = interactText;
+            Destroy(this);
         }
 
         if (Input.GetKeyDown(KeyCode.E) && gameObject.name == "Teleport_Terminal" && isIn)
@@ -29,6 +31,7 @@ public class InteractText : MonoBehaviour
                 interactText = "Terminal is now repaired!";
                 GameManager.Instance.interactText.text = interactText;
                 CustomTeleporter.teleportPadOn = true;
+                Destroy(this);
             }
         }
     }
