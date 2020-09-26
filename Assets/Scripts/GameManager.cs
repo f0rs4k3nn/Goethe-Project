@@ -6,6 +6,7 @@ using UnityEngine;
 public class GameManager : Singleton<GameManager>
 {
     public PlayerController player;
+    public GameObject playerModel;
 
     public TimeTravelMechanic TimeTravelMechanic;
 
@@ -21,16 +22,16 @@ public class GameManager : Singleton<GameManager>
     public GameObject sign;
     public GameObject interactBttn;
     public GameObject[] interactiveObj;
+    public static int currentLevel;
 
     //overwrites the last played level and score if 
     //played in the main save
-    public static bool isMainSave; 
+    public static bool isMainSave;
 
+    private GameObject levelFinishedMenu;
     private GameData _gameData;
-    public const int lastLevel = 6; //the index of the final level
+    public const int lastLevel = 8; //the index of the final level
    // private Scene
-
-    private int currentLevel;
 
     private bool _isMovementEnabled;
     public bool IsMovementEnabled
@@ -48,12 +49,34 @@ public class GameManager : Singleton<GameManager>
             {
                 player = FindObjectOfType<PlayerController>();
             }
+
+            if (playerModel == null)
+            {
+                playerModel = GameObject.Find("PlayerModel");
+            }
+
             player.SetActive(value);
         }
         get { return _isMovementEnabled; }
     }
 
-    
+    private bool _playerModelVisible;
+    public bool playerModelVisible
+    {
+        set
+        {
+            _playerModelVisible = value;
+            if (playerModel == null)
+            {
+                playerModel = GameObject.Find("PlayerModel");
+            }
+
+            playerModel.SetActive(value);
+        }
+        get { return _playerModelVisible; }
+    }
+
+
     new public void Awake()
     {
         if (instance == null)
@@ -87,6 +110,9 @@ public class GameManager : Singleton<GameManager>
 
         camera = Camera.main.GetComponent<ThirdPersonCamera>();
 
+
+        levelFinishedMenu = FindObjectOfType<LevelFinishedMenu>().gameObject;
+
         dialogBox.SetActive(false);
         interactBttn.SetActive(false);
         sign.SetActive(false);
@@ -101,7 +127,22 @@ public class GameManager : Singleton<GameManager>
 
     public void FinishedLevel()
     {
+        IsMovementEnabled = false;
+
+        try
+        {
+            currentLevel = FindObjectOfType<LevelManager>().levelIndex;
+        }catch(System.Exception e)
+        {
+            Debug.Log(e.StackTrace);
+        }
+
+
+        playerModelVisible = false;
         currentLevel++;
+
+        Debug.Log("I finished the level " + currentLevel);
+        
         if(currentLevel > lastLevel)
         {
             Debug.Log("End GAME");
@@ -123,6 +164,9 @@ public class GameManager : Singleton<GameManager>
             {
                 Debug.Log("Yes");
             }
+
+            levelFinishedMenu.SetActive(true);
+            levelFinishedMenu.GetComponent<LevelFinishedMenu>().finishedLevel = true;
         }
     }
 }

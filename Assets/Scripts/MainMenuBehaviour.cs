@@ -11,7 +11,10 @@ public class MainMenuBehaviour : MonoBehaviour
     public void StartGame()
     {
         GameManager.isMainSave = true;
-        LoadingScreenManager.LoadScene(3);
+        //LoadingScreenManager.LoadScene(4);
+
+        TextBoxBehaviour.currentDialogue = 1;
+        SceneManager.LoadScene(3);
     }
 
     public void Continue()
