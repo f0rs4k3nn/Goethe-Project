@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Spot Light Profile 2
   m_EditorClassIdentifier: 
   blendMode: 0
-  raymarchQuality: 4
-  dithering: 0.5
+  raymarchQuality: 6
+  dithering: 0.451
   jittering: 0.55
   useBlueNoise: 0
   renderQueue: 3101
@@ -27,12 +27,12 @@ MonoBehaviour:
   noiseStrength: 1.04
   noiseScale: 1
   noiseFinalMultiplier: 1
-  density: 0.82
-  mediumAlbedo: {r: 1, g: 1, b: 1, a: 1}
-  brightness: 1
-  diffusionIntensity: 0
-  distanceFallOff: 1
-  border: 1
+  density: 0.00003
+  mediumAlbedo: {r: 1, g: 0.84413767, b: 0, a: 1}
+  brightness: 0.2
+  diffusionIntensity: 10
+  distanceFallOff: 0
+  border: 0
   tipRadius: 0.1
   frustumAngle: 0
   windDirection: {x: 0.03, y: 0.02, z: 0}
@@ -42,10 +42,10 @@ MonoBehaviour:
   dustMaxSize: 0.04
   dustWindSpeed: 1
   enableShadows: 1
-  shadowIntensity: 0.7
+  shadowIntensity: 1
   shadowResolution: 1024
   shadowCullingMask:
     serializedVersion: 2
     m_Bits: 4294967293
   shadowBakeInterval: 1
-  shadowNearDistance: 0.1
+  shadowNearDistance: 100

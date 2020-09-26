@@ -69,10 +69,25 @@
     <Compile Include="Assets\Assets Download\Standard Assets\Editor\Water\Water4\SpecularLightingEditor.cs" />
     <Compile Include="Assets\Assets Download\Standard Assets\Editor\Water\Water4\WaterBaseEditor.cs" />
     <Compile Include="Assets\Assets Download\Standard Assets\Editor\Water\Water4\WaterEditorUtility.cs" />
+    <Compile Include="Assets\Aura\Editor\Drawers\ColorCircularPickerDrawer.cs" />
+    <Compile Include="Assets\Aura\Editor\Drawers\Texture3DPreviewDrawer.cs" />
+    <Compile Include="Assets\Aura\Editor\Editors\AuraEditor.cs" />
+    <Compile Include="Assets\Aura\Editor\Editors\AuraLightEditor.cs" />
+    <Compile Include="Assets\Aura\Editor\Editors\AuraVolumeEditor.cs" />
+    <Compile Include="Assets\Aura\Editor\Editors\CreateTexture3DAssetTool.cs" />
+    <Compile Include="Assets\Aura\Editor\Editors\Texture3DEditor.cs" />
+    <Compile Include="Assets\Aura\Editor\Enums\Texture3DReadingOrderEnum.cs" />
+    <Compile Include="Assets\Aura\Editor\Extensions\Texture3DExtensions.cs" />
+    <Compile Include="Assets\Aura\Editor\Helpers\GuiHelpers.cs" />
+    <Compile Include="Assets\Aura\Editor\Helpers\MeshHelpers.cs" />
+    <Compile Include="Assets\Aura\Editor\Helpers\PreviewRenderUtilityHelpers.cs" />
+    <Compile Include="Assets\Aura\Editor\Statics\GuiStyles.cs" />
     <Compile Include="Assets\MaxP\Shaders\Scripts\Editor\DirtyLensFlareEditor.cs" />
     <Compile Include="Assets\PyroParticles\Prefab\Editor\PyroParticlesEditor.cs" />
     <Compile Include="Assets\VolumetricLights\Editor\MenuIntegration.cs" />
     <Compile Include="Assets\VolumetricLights\Editor\VolumetricLightEditor.cs" />
+    <None Include="Assets\Aura\Editor\Shaders\Texture3DPreviewShader.shader" />
+    <None Include="Assets\Aura\Editor\Shaders\ColorFieldDrawerShader.shader" />
     <Reference Include="UnityEditor.TestRunner">
       <HintPath>D:/GituMatii/Goethe-Project/Library/ScriptAssemblies/UnityEditor.TestRunner.dll</HintPath>
     </Reference>

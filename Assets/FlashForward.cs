@@ -5,6 +5,7 @@ using UnityEngine.Experimental.GlobalIllumination;
 
 public class FlashForward : MonoBehaviour
 {
+    public GameObject path1;
     Color colorNow;
     public GameObject mainCamera;
     public GameObject dirLight;
@@ -17,6 +18,7 @@ public class FlashForward : MonoBehaviour
     {
         mainCamera.GetComponent<AudioSource>().enabled = false;
         colorNow = dirLight.GetComponent<Light>().color;
+        path1.SetActive(false);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -38,6 +40,7 @@ public class FlashForward : MonoBehaviour
         explosion2.SetActive(false);
         explosion3.SetActive(false);
         explosion4.SetActive(false);
+        path1.SetActive(true);
         Destroy(gameObject);
     }
 }
