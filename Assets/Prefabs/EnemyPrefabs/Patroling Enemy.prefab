@@ -39,7 +39,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7305969304837503616}
-  - component: {fileID: 1291765529087674806}
   m_Layer: 0
   m_Name: Patroling Enemy
   m_TagString: Untagged
@@ -65,20 +64,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1291765529087674806
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7305969304837503617}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: acbf4c9b3129fb142b2e1ff22aa5e7f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lookRadius: 10
-  spawnPoint: {fileID: 7305969304916215109}
 --- !u!1 &7305969304916215106
 GameObject:
   m_ObjectHideFlags: 0

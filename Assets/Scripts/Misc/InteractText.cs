@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class InteractText : MonoBehaviour
 {
-    public string interactText;
+    string interactText;
     private static bool hasTools;
     private bool isIn;
 
@@ -22,7 +22,7 @@ public class InteractText : MonoBehaviour
         {
             interactText = "You found some tools!";
             hasTools = true;
-            SlideTween();
+            SlideTweenIn();
             GameManager.Instance.interactText.text = interactText;
             StartCoroutine(DestroyInteractScript());
         }
@@ -33,6 +33,7 @@ public class InteractText : MonoBehaviour
             {
                 interactText = "Terminal is broken! If only you had some tools to fix it...";
                 GameManager.Instance.interactText.text = interactText;
+                SlideTweenIn();
             }
 
             if (hasTools)
@@ -41,6 +42,7 @@ public class InteractText : MonoBehaviour
                 GameManager.Instance.interactText.text = interactText;
                 CustomTeleporter.teleportPadOn = true;
                 GameManager.Instance.interactBttn.SetActive(false);
+                SlideTweenIn();
                 Destroy(this);
             }
         }
@@ -78,15 +80,13 @@ public class InteractText : MonoBehaviour
         Destroy(this);
     }
 
-    IEnumerator TweenTimer()
+    void SlideTweenIn()
     {
-        yield return new WaitForSeconds(2f);
+        LeanTween.moveX(GameManager.Instance.interactBox, 150f, 2.5f).setEaseOutExpo().setOnComplete(SlideTweenOut);
     }
 
-    void SlideTween()
+    void SlideTweenOut()
     {
-        LeanTween.moveX(GameManager.Instance.interactBox, 150f, 0.5f).setEaseInOutCubic();
-        StartCoroutine(TweenTimer());
-        LeanTween.moveX(GameManager.Instance.interactBox, -150f, 0.5f).setEaseInOutCubic();
+        LeanTween.moveX(GameManager.Instance.interactBox, -150f, 2.5f).setEaseOutExpo();
     }
 }
