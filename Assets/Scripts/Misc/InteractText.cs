@@ -21,7 +21,8 @@ public class InteractText : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E) && gameObject.name == "ToolBox" && isIn)
         {
             interactText = "You found some tools!";
-            hasTools = true;           
+            hasTools = true;
+            StartCoroutine(SlideTween());
             GameManager.Instance.interactText.text = interactText;
             StartCoroutine(DestroyInteractScript());
         }
@@ -75,5 +76,12 @@ public class InteractText : MonoBehaviour
         isIn = false;
         yield return new WaitForSeconds(0.5f);
         Destroy(this);
+    }
+
+    IEnumerator SlideTween()
+    {
+        LeanTween.moveX(GameManager.Instance.interactBox, 150f, 0.5f).setEaseInOutCubic();
+        yield return new WaitForSeconds(1f);
+        LeanTween.moveX(GameManager.Instance.interactBox, -150f, 0.5f).setEaseInOutCubic();
     }
 }

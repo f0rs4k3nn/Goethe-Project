@@ -17,6 +17,7 @@ public class GameManager : Singleton<GameManager>
     public TextMeshProUGUI interactText;
 
     public GameObject dialogBox;
+    public GameObject interactBox;
     public GameObject playerGameObj;
     public GameObject sign;
     public GameObject interactBttn;
@@ -74,10 +75,12 @@ public class GameManager : Singleton<GameManager>
         textDisplay = GameObject.Find("DialogText").GetComponent<TextMeshProUGUI>();
         textSignUp = GameObject.Find("Up Text (TMP)").GetComponent<TextMeshProUGUI>();
         textSignDown = GameObject.Find("Down Text (TMP)").GetComponent<TextMeshProUGUI>();
-        interactText = GameObject.Find("Pick Up Text (TMP)").GetComponent<TextMeshProUGUI>();
+        interactText = GameObject.Find("Interact Text (TMP)").GetComponent<TextMeshProUGUI>();
 
 
         playerGameObj = GameObject.Find("Player");
+
+        interactBox = GameObject.Find("InteractBox");
 
         sign = GameObject.Find("SignOverlay");
 
