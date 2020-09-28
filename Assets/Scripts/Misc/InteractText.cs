@@ -22,7 +22,7 @@ public class InteractText : MonoBehaviour
         {
             interactText = "You found some tools!";
             hasTools = true;
-            StartCoroutine(SlideTween());
+            SlideTween();
             GameManager.Instance.interactText.text = interactText;
             StartCoroutine(DestroyInteractScript());
         }
@@ -78,10 +78,15 @@ public class InteractText : MonoBehaviour
         Destroy(this);
     }
 
-    IEnumerator SlideTween()
+    IEnumerator TweenTimer()
+    {
+        yield return new WaitForSeconds(2f);
+    }
+
+    void SlideTween()
     {
         LeanTween.moveX(GameManager.Instance.interactBox, 150f, 0.5f).setEaseInOutCubic();
-        yield return new WaitForSeconds(1f);
+        StartCoroutine(TweenTimer());
         LeanTween.moveX(GameManager.Instance.interactBox, -150f, 0.5f).setEaseInOutCubic();
     }
 }
