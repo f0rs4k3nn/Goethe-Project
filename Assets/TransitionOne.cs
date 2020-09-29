@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TransitionOne : MonoBehaviour
 {
@@ -38,5 +39,7 @@ public class TransitionOne : MonoBehaviour
         mainCamera.GetComponent<StressReceiver>().InduceStress(10);
         yield return new WaitForSeconds(1f);
         mainCamera.GetComponent<StressReceiver>().InduceStress(25);
+        yield return new WaitForSeconds(24);
+        SceneManager.LoadScene(1);
     }
 }

@@ -279,6 +279,13 @@
     <Compile Include="Assets\PyroParticles\Prefab\Script\FireProjectileScript.cs" />
     <Compile Include="Assets\PyroParticles\Prefab\Script\MeteorSwarmScript.cs" />
     <Compile Include="Assets\PyroParticles\Prefab\Script\SingleLineAttribute.cs" />
+    <Compile Include="Assets\RainMaker\Demo\DemoScript.cs" />
+    <Compile Include="Assets\RainMaker\Demo\DemoScript2D.cs" />
+    <Compile Include="Assets\RainMaker\Demo\DemoScriptStartRainOnSpaceBar.cs" />
+    <Compile Include="Assets\RainMaker\Prefab\BaseRainScript.cs" />
+    <Compile Include="Assets\RainMaker\Prefab\RainCollision.cs" />
+    <Compile Include="Assets\RainMaker\Prefab\RainScript.cs" />
+    <Compile Include="Assets\RainMaker\Prefab\RainScript2D.cs" />
     <Compile Include="Assets\Scripts\BadWall.cs" />
     <Compile Include="Assets\Scripts\CoolCollectible.cs" />
     <Compile Include="Assets\Scripts\Enemy\DamageZone.cs" />
@@ -323,6 +330,10 @@
     <Compile Include="Assets\Shaders\DitherEffect.cs" />
     <Compile Include="Assets\SimpleCloudSystem by RM\SCS.cs" />
     <Compile Include="Assets\TransitionOne.cs" />
+    <Compile Include="Assets\TriggerGravity.cs" />
+    <Compile Include="Assets\UB\Simple2dWeatherEffects\Standard\D2FogsNoiseTexPE.cs" />
+    <Compile Include="Assets\UB\Simple2dWeatherEffects\Standard\D2FogsPE.cs" />
+    <Compile Include="Assets\UB\Simple2dWeatherEffects\Standard\EffectBase.cs" />
     <Compile Include="Assets\VolumetricLights\Demo\Scripts\CubeGen.cs" />
     <Compile Include="Assets\VolumetricLights\Demo\Scripts\FenceGen.cs" />
     <Compile Include="Assets\VolumetricLights\Demo\Scripts\ObjectRotate.cs" />
@@ -333,6 +344,7 @@
     <Compile Include="Assets\VolumetricLights\Scripts\VolumetricLightProfile.cs" />
     <Compile Include="Assets\ZoneEffect\Script\Playercontroller.cs" />
     <Compile Include="Assets\ZoneEffect\Script\ZoneEffect.cs" />
+    <None Include="Assets\UB\Simple2dWeatherEffects\Standard\D2Fogs.shader" />
     <None Include="Assets\Assets Download\NatureManufacture Assets - Trials Not Full Resolution\EasyRoads-HD_Add_ON\Shaders\Decal_Metalic_Road_Shader Parallax Trial.shader" />
     <None Include="Assets\Assets Download\Standard Assets\Prototyping\Shaders\WorldCoordDiffuse.shader" />
     <None Include="Assets\Assets Download\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
@@ -372,6 +384,7 @@
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro_Surface.cginc" />
     <None Include="Assets\Assets Download\Standard Assets\Effects\ToonShading\Shaders\ToonLitOutline.shader" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
+    <None Include="Assets\Asset_Imports\PixelMake\CanyonPack\READ ME!.txt" />
     <None Include="Assets\Assets Download\SampleScenes\Shaders\Skybox-Procedural.shader" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Masking.shader" />
     <None Include="Assets\Assets Download\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
@@ -384,8 +397,10 @@
     <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
     <None Include="Assets\Aura\Shaders\Includes\Structs.cginc" />
     <None Include="Assets\Assets Download\Standard Assets\Cameras\CameraGuidelines.txt" />
+    <None Include="Assets\UB\Simple2dWeatherEffects\Standard\D2FogsNoiseTex.shader" />
     <None Include="Assets\Assets Download\Standard Assets\Effects\GlassRefraction\Shaders\GlassStainedBumpDistort.shader" />
     <None Include="Assets\Assets Download\NatureManufacture Assets - Trials Not Full Resolution\Foliage Shaders\Cross_Model_Shader.shader" />
+    <None Include="Assets\RainMaker\Readme.txt" />
     <None Include="Assets\Assets Download\NatureManufacture Assets - Trials Not Full Resolution\Foliage Shaders\NMWind.cginc" />
     <None Include="Assets\Assets Download\Standard Assets\Vehicles\Car\Shaders\ReflectiveDiffuseSpecTransp.shader" />
     <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
@@ -430,6 +445,7 @@
     <None Include="Assets\Assets Download\Standard Assets\Environment\Water\Water4\Shaders\FXWater4Simple.shader" />
     <None Include="Assets\Aura\Shaders\Shaders\Particles\AuraParticlesBlendAdd.shader" />
     <None Include="Assets\Assets Download\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
+    <None Include="Assets\RainMaker\Prefab\RainShader.shader" />
     <None Include="Assets\Assets Download\Windridge City Assets\READ ME - About project and assets.txt" />
     <None Include="Assets\Aura\Shaders\Shaders\BuiltinReplacement\BillboardTree.shader" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
