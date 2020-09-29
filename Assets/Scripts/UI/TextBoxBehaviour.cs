@@ -95,13 +95,13 @@ public class TextBoxBehaviour : MonoBehaviour
 
         for (int i = 0; i < line.Length; i++)
         {
-            yield return new WaitForSeconds(timeBetweenLetters);
-
             if(_finished)
                 break;
             
             _audio.Play("LetterSound");
             _textBox.text += line[i];
+
+            yield return new WaitForSeconds(timeBetweenLetters);
         }
 
         if(!_finished) //checks if the text wasn't skipped

@@ -58,14 +58,14 @@ public class LoadingScreenManager : MonoBehaviour {
 	private IEnumerator LoadAsync(int levelNum) {
 		ShowLoadingVisuals();
 
-		yield return null; 
+        FadeOut();
+        yield return new WaitForSeconds(fadeDuration);
 
-		FadeIn();
-		StartOperation(levelNum);
+        StartOperation(levelNum);
 
 		float lastProgress = 0f;
 
-        
+        GameManager.hasToInitialize = true;
 
         // operation does not auto-activate scene, so it's stuck at 0.9
         while (DoneLoading() == false) {
@@ -77,29 +77,50 @@ public class LoadingScreenManager : MonoBehaviour {
 			}
 		}
 
+        FadeIn();
+        yield return new WaitForSeconds(fadeDuration);
+
         //loads the camera, canvas and player
-       SceneManager.LoadSceneAsync(mainSceneIndex, LoadSceneMode.Additive);
+        SceneManager.LoadSceneAsync(mainSceneIndex, LoadSceneMode.Additive);
 
         if (loadSceneMode == LoadSceneMode.Additive)
 			audioListener.enabled = false;
 
 		ShowCompletionVisuals();
 
-		yield return new WaitForSeconds(1);
+        float elapsedSeconds = 0;
 
-        FadeOut();
-        
-        yield return new WaitForSeconds(fadeDuration);
+        while(GameManager.hasToInitialize && elapsedSeconds < 10)
+        {
+            GameManager.Instance.Initialize();
+            yield return new WaitForSeconds(0.05f);
+            elapsedSeconds += 0.05f;
+        }
 
-        //fadeOverlay.gameObject.SetActive(false);
+        if(elapsedSeconds == 10)
+        {
+            Debug.LogError("FAILED TO LOAD");
+        }
 
+        Image gameFade = GameObject.Find("LoadFade").GetComponent<Image>();
 
+        if(gameFade != null)
+        {
+            gameFade.CrossFadeAlpha(1, 0, true);
+            gameFade.CrossFadeAlpha(0, fadeDuration, true);
+            Destroy(gameFade.gameObject, fadeDuration);
+        }
 
         if (loadSceneMode == LoadSceneMode.Additive)
-			SceneManager.UnloadSceneAsync(currentScene.name);
-		else
+        {
+            SceneManager.UnloadSceneAsync(currentScene.name);
+        }
+        else
 			operation.allowSceneActivation = true;
 	}
+
+
+
 
 	private void StartOperation(int levelNum) {
 		Application.backgroundLoadingPriority = loadThreadPriority;

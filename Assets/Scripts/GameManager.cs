@@ -24,12 +24,10 @@ public class GameManager : Singleton<GameManager>
     public GameObject[] interactiveObj;
     public static int currentLevel;
 
-    //overwrites the last played level and score if 
-    //played in the main save
-    public static bool isMainSave;
+    public static bool hasToInitialize = true;
 
     private GameObject levelFinishedMenu;
-    private GameData _gameData;
+    private SaveData _save;
     public const int lastLevel = 8; //the index of the final level
    // private Scene
 
@@ -43,19 +41,20 @@ public class GameManager : Singleton<GameManager>
             {
                 camera = FindObjectOfType<ThirdPersonCamera>();
             }
-            camera.SetActive(value);
 
-            if(player == null)
+            if (player == null)
             {
-                player = FindObjectOfType<PlayerController>();
+                player = FindObjectOfType<PlayerController>();              
             }
+
 
             if (playerModel == null)
             {
                 playerModel = GameObject.Find("PlayerModel");
             }
 
-            player.SetActive(value);
+            if (camera != null) camera.SetActive(value);
+            if (camera != null) player.SetActive(value);
         }
         get { return _isMovementEnabled; }
     }
@@ -89,33 +88,63 @@ public class GameManager : Singleton<GameManager>
             Destroy(gameObject);
         }
 
-        _gameData = GameData.gameData;
-        IsMovementEnabled = true;
+    }
 
-        dialogBox = GameObject.Find("DialogBox");
+    public void Start()
+    {
+        Initialize();
+    }
 
-        textDisplay = GameObject.Find("DialogText").GetComponent<TextMeshProUGUI>();
-        textSignUp = GameObject.Find("Up Text (TMP)").GetComponent<TextMeshProUGUI>();
-        textSignDown = GameObject.Find("Down Text (TMP)").GetComponent<TextMeshProUGUI>();
-        pickUpText = GameObject.Find("Pick Up Text (TMP)").GetComponent<TextMeshProUGUI>();
-
-
-        playerGameObj = GameObject.Find("Player");
-
-        sign = GameObject.Find("SignOverlay");
-
-        interactBttn = GameObject.Find("Interact Button");
-
-        interactiveObj = GameObject.FindGameObjectsWithTag("Interactive");
-
-        camera = Camera.main.GetComponent<ThirdPersonCamera>();
+    public void Initialize()
+    {
+        try
+        {
+            // Debug.Log("I am initializing A AH AHA AH and the bool is " + hasToInitialize);
+            if (!hasToInitialize) //exit if already initialized
+                return;
 
 
-        levelFinishedMenu = FindObjectOfType<LevelFinishedMenu>().gameObject;
+            _save = GameData.gameData.saveData;
+            IsMovementEnabled = true;
 
-        dialogBox.SetActive(false);
-        interactBttn.SetActive(false);
-        sign.SetActive(false);
+            dialogBox = GameObject.Find("DialogBox");
+
+            textDisplay = GameObject.Find("DialogText").GetComponent<TextMeshProUGUI>();
+            textSignUp = GameObject.Find("Up Text (TMP)").GetComponent<TextMeshProUGUI>();
+            textSignDown = GameObject.Find("Down Text (TMP)").GetComponent<TextMeshProUGUI>();
+            pickUpText = GameObject.Find("Pick Up Text (TMP)").GetComponent<TextMeshProUGUI>();
+
+
+            playerGameObj = GameObject.Find("Player");
+
+            sign = GameObject.Find("SignOverlay");
+
+            interactBttn = GameObject.Find("Interact Button");
+
+            interactiveObj = GameObject.FindGameObjectsWithTag("Interactive");
+
+            textSignUp.text = "";
+            textSignDown.text = "";
+            textDisplay.text = "";
+
+            camera = Camera.main.GetComponent<ThirdPersonCamera>();
+
+
+            levelFinishedMenu = FindObjectOfType<LevelFinishedMenu>().gameObject;
+
+            levelFinishedMenu.SetActive(false);
+            dialogBox.SetActive(false);
+            interactBttn.SetActive(false);
+            sign.SetActive(false);
+
+            hasToInitialize = false;
+
+            Debug.Log("NUTSHACK");
+        } catch(System.Exception e)
+        {
+            Debug.Log("Loading " + e + " incomplete");
+        }
+        
     }
 
     private int _gameScore;
@@ -148,22 +177,14 @@ public class GameManager : Singleton<GameManager>
             Debug.Log("End GAME");
         } else
         {
+            if (currentLevel > _save.lastUnlockedLevel)
+            {
+                _save.lastUnlockedLevel = currentLevel;
+            }
+
             Debug.Log("Level finished");
 
-            if(isMainSave)
-            {
-                _gameData.saveData.lastPlayedLevel = currentLevel;
-
-                if (currentLevel > _gameData.saveData.lastUnlockedLevel)
-                {
-                    _gameData.saveData.lastUnlockedLevel = currentLevel;
-                }
-
-                _gameData.Save();
-            } else
-            {
-                Debug.Log("Yes");
-            }
+            GameData.gameData.Save();
 
             levelFinishedMenu.SetActive(true);
             levelFinishedMenu.GetComponent<LevelFinishedMenu>().finishedLevel = true;
