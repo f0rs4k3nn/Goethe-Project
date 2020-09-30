@@ -71,7 +71,6 @@ public class PlayerDeath : MonoBehaviour
     {
         GameObject particle = Instantiate(deathParticle, transform);
         particle.transform.parent = null;
-        game.playerModelVisible = false;
         Destroy(particle, 3);
 
         audioManager.Play("DeathSound");
@@ -92,7 +91,6 @@ public class PlayerDeath : MonoBehaviour
         yield return new WaitForSeconds(fadeDuration);
 
         transform.position = checkpoint;
-        game.playerModelVisible = true;
         game.IsMovementEnabled = true;
         _isRespawning = false;
 
