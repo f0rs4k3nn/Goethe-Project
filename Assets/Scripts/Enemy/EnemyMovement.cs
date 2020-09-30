@@ -17,7 +17,7 @@ public class EnemyMovement : MonoBehaviour
 	// Use this for initialization
 	void Start()
 	{
-		//target = GameManager.Instance.playerGameObj.transform;
+		target = GameManager.Instance.playerGameObj.transform;
 
 		agent = GetComponent<NavMeshAgent>();
 	}
@@ -25,20 +25,6 @@ public class EnemyMovement : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-        if(target == null)
-        {
-            PlayerController player = GameManager.Instance.player;
-
-            if (player == null)
-            {
-                return;
-            } else
-            {
-                target = GameManager.Instance.player.transform;
-
-            }
-        }
-
 		// Distance to the target
 		float distance = Vector3.Distance(target.position, transform.position);
 
@@ -66,6 +52,13 @@ public class EnemyMovement : MonoBehaviour
 		transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5f);
 	}
 
+    private void OnTriggerEnter(Collider other)
+    {
+		if (other.tag == "Player")
+		{
+			other.GetComponent<PlayerDeath>().CheckPoint();
+		}
+    }
 
     // Show the lookRadius in editor
     void OnDrawGizmosSelected()

@@ -8,22 +8,21 @@ public class SignText : MonoBehaviour
     public string[] sentencesSign;
     bool isIn = false;
 
-    private GameManager game;
-
     void Start()
     {
-        game = GameManager.Instance;  
+        GameManager.Instance.textSignUp.text = "";
+        GameManager.Instance.textSignDown.text = "";
     }
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.E) && isIn)
         {
-            game.textSignUp.text = "";
-            game.textSignDown.text = "";
-            game.sign.SetActive(true);
-            game.textSignUp.text += sentencesSign[0];
-            game.textSignDown.text += sentencesSign[1];
+            GameManager.Instance.textSignUp.text = "";
+            GameManager.Instance.textSignDown.text = "";
+            GameManager.Instance.sign.SetActive(true);
+            GameManager.Instance.textSignUp.text += sentencesSign[0];
+            GameManager.Instance.textSignDown.text += sentencesSign[1];
         }
     }
 
@@ -35,6 +34,6 @@ public class SignText : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         isIn = false;
-        game.sign.SetActive(false);
+        GameManager.Instance.sign.SetActive(false);
     }
 }

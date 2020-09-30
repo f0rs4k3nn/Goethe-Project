@@ -18,16 +18,13 @@ public class LevelFinishedMenu : MonoBehaviour
     private void Start()
     {
         _cv = GetComponent<CanvasGroup>();
-        _cv.alpha = 0;        
+        _cv.alpha = 0;
+        
+        this.gameObject.SetActive(false);
     }
 
     private void Update()
     {
-        if(!finishedLevel)
-        {
-            return;
-        }
-
         if(!_fadedIn)
         {
             _fadedIn = true;
@@ -65,7 +62,6 @@ public class LevelFinishedMenu : MonoBehaviour
 
     private IEnumerator ChoiceMade(bool nextLevelSelected)
     {
-        AudioManager.instance.Play("Selection");
         if (finishedLevel)
         {
             fadeOverlay.gameObject.SetActive(true);

@@ -4124,9 +4124,7 @@ MonoBehaviour:
   maxFallSpeed: -300
   m_Animator: {fileID: 8296172668203622963}
   m_AnimSpeedMultiplier: 1
-  m_RunningAnimationMultiplier: 0.07
-  footstepSpeed: 0.2
-  canMakeFootstepSound: 1
+  m_RunningAnimationMultiplier: 1
 --- !u!114 &1489083556977501934
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4139,11 +4137,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1be5f642e7363774eabf490f15975392, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeDuration: 0.9
+  fadeDuration: 0.6
   respawnDelay: 0.2
   screenOverlay: {fileID: 0}
-  deathParticle: {fileID: 100006, guid: 10b506478f435cf4ca5bbcf982c59f08, type: 3}
-  respawnParticle: {fileID: 100004, guid: 96536afb634b32043bb988d4576053d3, type: 3}
 --- !u!1 &5939357689838682466
 GameObject:
   m_ObjectHideFlags: 0
@@ -5184,7 +5180,7 @@ GameObject:
   - component: {fileID: 751505611874706506}
   - component: {fileID: 8479536607693659980}
   m_Layer: 11
-  m_Name: DefaultModel
+  m_Name: Model
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5868,7 +5864,7 @@ GameObject:
   - component: {fileID: 5006512736323112993}
   - component: {fileID: 8296172668203622963}
   m_Layer: 0
-  m_Name: PlayerModel
+  m_Name: RobotModel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
