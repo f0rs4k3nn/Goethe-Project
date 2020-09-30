@@ -10,7 +10,7 @@ public class GameManager : Singleton<GameManager>
     public TimeTravelMechanic TimeTravelMechanic;
 
     public new ThirdPersonCamera camera;
-    
+
     public TextMeshProUGUI textDisplay;
     public TextMeshProUGUI textSignUp;
     public TextMeshProUGUI textSignDown;
@@ -24,9 +24,9 @@ public class GameManager : Singleton<GameManager>
     public GameObject interactBttn;
     public GameObject[] interactiveObj;
 
-    //overwrites the last played level and score if 
+    //overwrites the last played level and score if
     //played in the main save
-    public static bool isMainSave; 
+    public static bool isMainSave;
 
     private GameData _gameData;
     public const int lastLevel = 6; //the index of the final level
@@ -55,7 +55,7 @@ public class GameManager : Singleton<GameManager>
         get { return _isMovementEnabled; }
     }
 
-    
+
     new public void Awake()
     {
         if (instance == null)
@@ -102,9 +102,20 @@ public class GameManager : Singleton<GameManager>
 
         camera = Camera.main.GetComponent<ThirdPersonCamera>();
 
-        dialogBox.SetActive(false);
-        interactBttn.SetActive(false);
-        sign.SetActive(false);
+            Debug.Log("NUTSHACK");
+
+
+            //Remove fade screen if game started from unity
+            if(!LoadingScreenManager.currentlyLoading)
+            {
+                Destroy(GameObject.Find("LoadFade"));
+            }
+
+        } catch(System.Exception e)
+        {
+            Debug.Log("Loading " + e + " incomplete");
+        }
+
     }
 
     private int _gameScore;

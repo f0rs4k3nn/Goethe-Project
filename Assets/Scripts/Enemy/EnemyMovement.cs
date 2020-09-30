@@ -25,8 +25,23 @@ public class EnemyMovement : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		// Distance to the target
-		float distance = Vector3.Distance(target.position, transform.position);
+        if(target == null)
+        {
+            PlayerController player = GameManager.Instance.player;
+
+            if (player == null)
+            {
+            } else
+            {
+                target = GameManager.Instance.player.transform;
+
+            }
+        }
+
+        //NavMeshAgent.Warp(target.position);
+
+        // Distance to the target
+        float distance = Vector3.Distance(target.position, transform.position);
 
 		// If inside the lookRadius
 		if (distance <= lookRadius)

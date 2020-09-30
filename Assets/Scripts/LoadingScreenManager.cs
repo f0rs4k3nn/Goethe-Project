@@ -38,6 +38,7 @@ public class LoadingScreenManager : MonoBehaviour {
 	// IMPORTANT! This is the build index of your loading scene. You need to change this to match your actual scene index
 	static int loadingSceneIndex = 1;
     static int mainSceneIndex = 2;
+    public static bool currentlyLoading = false;
     
 	public static void LoadScene(int levelNum) {				
 		Application.backgroundLoadingPriority = ThreadPriority.High;
@@ -56,7 +57,10 @@ public class LoadingScreenManager : MonoBehaviour {
 	}
 
 	private IEnumerator LoadAsync(int levelNum) {
-		ShowLoadingVisuals();
+
+        currentlyLoading = true;
+
+        ShowLoadingVisuals();
 
 		yield return null; 
 
@@ -94,6 +98,8 @@ public class LoadingScreenManager : MonoBehaviour {
         //fadeOverlay.gameObject.SetActive(false);
 
 
+
+        currentlyLoading = false;
 
         if (loadSceneMode == LoadSceneMode.Additive)
 			SceneManager.UnloadSceneAsync(currentScene.name);
