@@ -26,7 +26,7 @@ public class SignText : MonoBehaviour
         }
     }
 
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         isIn = true;
     }

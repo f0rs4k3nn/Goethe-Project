@@ -14,9 +14,10 @@ public class GameManager : Singleton<GameManager>
     public TextMeshProUGUI textDisplay;
     public TextMeshProUGUI textSignUp;
     public TextMeshProUGUI textSignDown;
-    public TextMeshProUGUI pickUpText;
+    public TextMeshProUGUI interactText;
 
     public GameObject dialogBox;
+    public GameObject interactBox;
     public GameObject playerGameObj;
     public GameObject sign;
     public GameObject interactBttn;
@@ -71,15 +72,39 @@ public class GameManager : Singleton<GameManager>
 
         dialogBox = GameObject.Find("DialogBox");
 
+<<<<<<< HEAD
         textDisplay = GameObject.Find("DialogText").GetComponent<TextMeshProUGUI>();
         textSignUp = GameObject.Find("Up Text (TMP)").GetComponent<TextMeshProUGUI>();
         textSignDown = GameObject.Find("Down Text (TMP)").GetComponent<TextMeshProUGUI>();
         pickUpText = GameObject.Find("Pick Up Text (TMP)").GetComponent<TextMeshProUGUI>();
+=======
+<<<<<<< HEAD
+        textDisplay = GameObject.Find("DialogText").GetComponent<TextMeshProUGUI>();
+        textSignUp = GameObject.Find("Up Text (TMP)").GetComponent<TextMeshProUGUI>();
+        textSignDown = GameObject.Find("Down Text (TMP)").GetComponent<TextMeshProUGUI>();
+        interactText = GameObject.Find("Interact Text (TMP)").GetComponent<TextMeshProUGUI>();
+=======
+            textDisplay = GameObject.Find("DialogText").GetComponent<TextMeshProUGUI>();
+            textSignUp = GameObject.Find("Up Text (TMP)").GetComponent<TextMeshProUGUI>();
+            textSignDown = GameObject.Find("Down Text (TMP)").GetComponent<TextMeshProUGUI>();
+            pickUpText = GameObject.Find("Pick Up Text (TMP)").GetComponent<TextMeshProUGUI>();
+>>>>>>> a479fadd80434c9355e68466a7cb4e5563c01d02
+>>>>>>> 15243ef152d07798785876ad54a68a3b7d9d81b6
 
 
         playerGameObj = GameObject.Find("Player");
 
+<<<<<<< HEAD
         sign = GameObject.Find("SignOverlay");
+=======
+<<<<<<< HEAD
+        interactBox = GameObject.Find("InteractBox");
+
+        sign = GameObject.Find("SignOverlay");
+=======
+            sign = GameObject.Find("SignOverlay");
+>>>>>>> a479fadd80434c9355e68466a7cb4e5563c01d02
+>>>>>>> 15243ef152d07798785876ad54a68a3b7d9d81b6
 
         interactBttn = GameObject.Find("Interact Button");
 
