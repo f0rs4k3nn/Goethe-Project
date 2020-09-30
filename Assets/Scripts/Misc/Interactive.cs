@@ -23,6 +23,7 @@ public class Interactive : MonoBehaviour
             isIn = true;
     }
 
+
     private void OnTriggerExit(Collider other)
     {
         if (other.tag == "Player")
