@@ -1,10 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
-<<<<<<< HEAD
 --- !u!1 &601856088516925229
-=======
---- !u!1 &189995894915943381
->>>>>>> 35f51e16ac0d6eef18578814e7cc87c06c37445c
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -12,60 +8,9 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-<<<<<<< HEAD
   - component: {fileID: 4467959183817565502}
   - component: {fileID: 3923479300844155898}
   - component: {fileID: 3125914391328886370}
-=======
-  - component: {fileID: 189995894915943380}
-  - component: {fileID: 189995894915943387}
-  m_Layer: 0
-  m_Name: CollisionObject0
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &189995894915943380
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 189995894915943381}
-  m_LocalRotation: {x: -0, y: -0.009321322, z: 0.7009284, w: 0.71317077}
-  m_LocalPosition: {x: 0.002625117, y: 0.121883914, z: 0.0020262185}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 189995895675687428}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!136 &189995894915943387
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 189995894915943381}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.0762
-  m_Height: 2.6541834
-  m_Direction: 0
-  m_Center: {x: 1.0985029, y: -0.0033719295, z: 0.0025323036}
---- !u!1 &189995895811883648
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 189995895675687428}
-  - component: {fileID: 189995895811883654}
-  - component: {fileID: 189995895811883655}
->>>>>>> 35f51e16ac0d6eef18578814e7cc87c06c37445c
   m_Layer: 0
   m_Name: FraserFir_Low
   m_TagString: Untagged
@@ -73,17 +18,12 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
-<<<<<<< HEAD
 --- !u!4 &4467959183817565502
-=======
---- !u!4 &189995895675687428
->>>>>>> 35f51e16ac0d6eef18578814e7cc87c06c37445c
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-<<<<<<< HEAD
   m_GameObject: {fileID: 601856088516925229}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 435.2, y: 51.4, z: 102}
@@ -95,29 +35,12 @@ Transform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!205 &3923479300844155898
-=======
-  m_GameObject: {fileID: 189995895811883648}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 214.5, y: 50.259155, z: 67.3}
-  m_LocalScale: {x: 17, y: 20, z: 17}
-  m_Children:
-  - {fileID: 189995894915943380}
-  - {fileID: 189995896037565303}
-  m_Father: {fileID: 0}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!205 &189995895811883654
->>>>>>> 35f51e16ac0d6eef18578814e7cc87c06c37445c
 LODGroup:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-<<<<<<< HEAD
   m_GameObject: {fileID: 601856088516925229}
-=======
-  m_GameObject: {fileID: 189995895811883648}
->>>>>>> 35f51e16ac0d6eef18578814e7cc87c06c37445c
   serializedVersion: 2
   m_LocalReferencePoint: {x: -0.017623305, y: 1.2727635, z: -0.07225102}
   m_Size: 2.6999917
@@ -128,25 +51,15 @@ LODGroup:
   - screenRelativeHeight: 0.095661834
     fadeTransitionWidth: 0.25
     renderers:
-<<<<<<< HEAD
     - renderer: {fileID: 5831090435567880474}
   m_Enabled: 1
 --- !u!54 &3125914391328886370
-=======
-    - renderer: {fileID: 189995896037565301}
-  m_Enabled: 1
---- !u!54 &189995895811883655
->>>>>>> 35f51e16ac0d6eef18578814e7cc87c06c37445c
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-<<<<<<< HEAD
   m_GameObject: {fileID: 601856088516925229}
-=======
-  m_GameObject: {fileID: 189995895811883648}
->>>>>>> 35f51e16ac0d6eef18578814e7cc87c06c37445c
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
@@ -156,11 +69,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
-<<<<<<< HEAD
 --- !u!1 &652217581619855037
-=======
---- !u!1 &189995896037565296
->>>>>>> 35f51e16ac0d6eef18578814e7cc87c06c37445c
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -168,17 +77,10 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-<<<<<<< HEAD
   - component: {fileID: 2367363234543498134}
   - component: {fileID: 6015158500298060273}
   - component: {fileID: 5831090435567880474}
   - component: {fileID: 295721752675550445}
-=======
-  - component: {fileID: 189995896037565303}
-  - component: {fileID: 189995896037565300}
-  - component: {fileID: 189995896037565301}
-  - component: {fileID: 189995896037565302}
->>>>>>> 35f51e16ac0d6eef18578814e7cc87c06c37445c
   m_Layer: 0
   m_Name: FraserFir_Low_LOD0
   m_TagString: Untagged
@@ -186,60 +88,35 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
-<<<<<<< HEAD
 --- !u!4 &2367363234543498134
-=======
---- !u!4 &189995896037565303
->>>>>>> 35f51e16ac0d6eef18578814e7cc87c06c37445c
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-<<<<<<< HEAD
   m_GameObject: {fileID: 652217581619855037}
-=======
-  m_GameObject: {fileID: 189995896037565296}
->>>>>>> 35f51e16ac0d6eef18578814e7cc87c06c37445c
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-<<<<<<< HEAD
   m_Father: {fileID: 4467959183817565502}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6015158500298060273
-=======
-  m_Father: {fileID: 189995895675687428}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &189995896037565300
->>>>>>> 35f51e16ac0d6eef18578814e7cc87c06c37445c
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-<<<<<<< HEAD
   m_GameObject: {fileID: 652217581619855037}
   m_Mesh: {fileID: 4300000, guid: a5f1ae0fb11fe7d48bad60ae8023cfc6, type: 3}
 --- !u!23 &5831090435567880474
-=======
-  m_GameObject: {fileID: 189995896037565296}
-  m_Mesh: {fileID: 4300000, guid: a5f1ae0fb11fe7d48bad60ae8023cfc6, type: 3}
---- !u!23 &189995896037565301
->>>>>>> 35f51e16ac0d6eef18578814e7cc87c06c37445c
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-<<<<<<< HEAD
   m_GameObject: {fileID: 652217581619855037}
-=======
-  m_GameObject: {fileID: 189995896037565296}
->>>>>>> 35f51e16ac0d6eef18578814e7cc87c06c37445c
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -275,17 +152,12 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-<<<<<<< HEAD
 --- !u!193 &295721752675550445
-=======
---- !u!193 &189995896037565302
->>>>>>> 35f51e16ac0d6eef18578814e7cc87c06c37445c
 Tree:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-<<<<<<< HEAD
   m_GameObject: {fileID: 652217581619855037}
   m_SpeedTreeWindAsset: {fileID: 0}
   m_TreeData: {fileID: 0}
@@ -334,8 +206,3 @@ CapsuleCollider:
   m_Height: 2.6541834
   m_Direction: 0
   m_Center: {x: 1.0985029, y: -0.0033719295, z: 0.0025323036}
-=======
-  m_GameObject: {fileID: 189995896037565296}
-  m_SpeedTreeWindAsset: {fileID: 0}
-  m_TreeData: {fileID: 0}
->>>>>>> 35f51e16ac0d6eef18578814e7cc87c06c37445c
