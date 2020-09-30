@@ -140,6 +140,14 @@ public class GameManager : Singleton<GameManager>
             hasToInitialize = false;
 
             Debug.Log("NUTSHACK");
+
+
+            //Remove fade screen if game started from unity
+            if(!LoadingScreenManager.currentlyLoading)
+            {
+                Destroy(GameObject.Find("LoadFade"));
+            }
+
         } catch(System.Exception e)
         {
             Debug.Log("Loading " + e + " incomplete");

@@ -31,7 +31,6 @@ public class EnemyMovement : MonoBehaviour
 
             if (player == null)
             {
-                return;
             } else
             {
                 target = GameManager.Instance.player.transform;
@@ -39,8 +38,10 @@ public class EnemyMovement : MonoBehaviour
             }
         }
 
-		// Distance to the target
-		float distance = Vector3.Distance(target.position, transform.position);
+        //NavMeshAgent.Warp(target.position);
+
+        // Distance to the target
+        float distance = Vector3.Distance(target.position, transform.position);
 
 		// If inside the lookRadius
 		if (distance <= lookRadius)
