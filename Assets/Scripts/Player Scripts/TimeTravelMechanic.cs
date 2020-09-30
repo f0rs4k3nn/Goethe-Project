@@ -35,7 +35,6 @@ public class TimeTravelMechanic : MonoBehaviour
     public Material skyBox;
 
     private GameManager game;
-    private AudioManager audio;
 
 
     private void Awake()
@@ -48,7 +47,7 @@ public class TimeTravelMechanic : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        audio = AudioManager.instance;
+        
         fadeScreen = GetComponent<Image>();
         mainLight = GameObject.Find("Directional Light").GetComponent<Light>();
         pastObjects = GameObject.FindGameObjectsWithTag("Past Object");
@@ -91,8 +90,6 @@ public class TimeTravelMechanic : MonoBehaviour
             canTimeTravel = false;
             isInFuture = !isInFuture;
 
-
-            audio.Play(isInFuture ? "FutureChange" : "PastChange");
             //Select a random colour for the fade screen.
             fadeScreen.color = new Color(UnityEngine.Random.Range(0.3f, 0.8f), UnityEngine.Random.Range(0.3f, 0.8f), UnityEngine.Random.Range(0.3f, 0.8f));
 
@@ -108,7 +105,7 @@ public class TimeTravelMechanic : MonoBehaviour
     /// <param name="start">The start value</param>
     /// <param name="end">The end value</param>
     /// <param name="duration">The duration of the fade</param>
-    /// <param name="isFadeIn">This bool serves to tell the function if we just started the
+    /// <param name="isFadeIn">This bool serves to tell the function if we just started the 
     ///                       time travel sequence or if we are ending it.If it's true, the entire scene will be changed, otherwise
     ///                    it will simply do a fadeoutt</param>
     private IEnumerator Fade(float start, float end, float duration, bool isFadeIn)
