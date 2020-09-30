@@ -82,11 +82,11 @@ public class InteractText : MonoBehaviour
 
     void SlideTweenIn()
     {
-        LeanTween.moveX(GameManager.Instance.interactBox, 150f, 2.5f).setEaseOutExpo().setOnComplete(SlideTweenOut);
+        LeanTween.moveX(GameManager.Instance.interactBox, 250f, 2.5f).setEaseOutExpo().setOnComplete(SlideTweenOut);
     }
 
     void SlideTweenOut()
     {
-        LeanTween.moveX(GameManager.Instance.interactBox, -150f, 2.5f).setEaseOutExpo();
+        LeanTween.moveX(GameManager.Instance.interactBox, -250f, 2.5f).setEaseOutExpo();
     }
 }
