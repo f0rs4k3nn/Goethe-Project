@@ -52,7 +52,7 @@ public class EnemyMovement : MonoBehaviour
 		transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5f);
 	}
 
-<<<<<<< HEAD
+
     private void OnTriggerEnter(Collider other)
     {
 		if (other.tag == "Player")
@@ -60,13 +60,9 @@ public class EnemyMovement : MonoBehaviour
 			other.GetComponent<PlayerDeath>().CheckPoint();
 		}
     }
-=======
-<<<<<<< HEAD
-=======
->>>>>>> 15243ef152d07798785876ad54a68a3b7d9d81b6
 
->>>>>>> a479fadd80434c9355e68466a7cb4e5563c01d02
-    // Show the lookRadius in editor
+
+
     void OnDrawGizmosSelected()
 	{
 		Gizmos.color = Color.red;
