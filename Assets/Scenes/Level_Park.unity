@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -10531,7 +10531,6 @@ GameObject:
   - component: {fileID: 373060315}
   - component: {fileID: 373060314}
   - component: {fileID: 373060313}
-  - component: {fileID: 373060312}
   m_Layer: 11
   m_Name: SpawnPoint
   m_TagString: CheckPoint
@@ -10539,19 +10538,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!65 &373060312
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 373060311}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &373060313
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -46928,6 +46914,7 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1671966256}
     m_Modifications:
+<<<<<<< HEAD
     - target: {fileID: 7305969304248450174, guid: aefbd11b29d2ef54b8a27e03a9c23de8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -46938,6 +46925,8 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 13.9
       objectReference: {fileID: 0}
+=======
+>>>>>>> a479fadd80434c9355e68466a7cb4e5563c01d02
     - target: {fileID: 7305969304837503616, guid: aefbd11b29d2ef54b8a27e03a9c23de8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -46998,6 +46987,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: Patroling Enemy
       objectReference: {fileID: 0}
+<<<<<<< HEAD
     - target: {fileID: 7305969304837503617, guid: aefbd11b29d2ef54b8a27e03a9c23de8,
         type: 3}
       propertyPath: m_TagString
@@ -47030,6 +47020,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1291765529087674806, guid: aefbd11b29d2ef54b8a27e03a9c23de8, type: 3}
+=======
+    m_RemovedComponents: []
+>>>>>>> a479fadd80434c9355e68466a7cb4e5563c01d02
   m_SourcePrefab: {fileID: 100100000, guid: aefbd11b29d2ef54b8a27e03a9c23de8, type: 3}
 --- !u!1001 &1544606559
 PrefabInstance:

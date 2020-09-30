@@ -11,9 +11,11 @@ public class Dialog : MonoBehaviour
     bool startConversation = false;
     public float typingSpeed;
 
+    private GameManager game;
+
     void Start()
     {
-        GameManager.Instance.textDisplay.text = "";       
+        game = GameManager.Instance;       
     }
 
     private void OnTriggerStay(Collider player)
@@ -23,12 +25,12 @@ public class Dialog : MonoBehaviour
             if(!startConversation)
             {
                 startConversation = true;
-                GameManager.Instance.dialogBox.SetActive(true);
+                game.dialogBox.SetActive(true);
                 StartCoroutine(Type());
             }
         }
 
-        if (GameManager.Instance.textDisplay.text == sentencesNpc[index] && startConversation && Input.GetKeyDown(KeyCode.E))
+        if (game.textDisplay.text == sentencesNpc[index] && startConversation && Input.GetKeyDown(KeyCode.E))
         {
             NextSentence();
         }
@@ -37,21 +39,21 @@ public class Dialog : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         startConversation = false;
-        GameManager.Instance.dialogBox.SetActive(false);
+        game.dialogBox.SetActive(false);
         ResetConversation();
     }
 
     IEnumerator Type()
     {
-        GameManager.Instance.playerGameObj.GetComponent<PlayerController>().enabled = false;
+        game.playerGameObj.GetComponent<PlayerController>().enabled = false;
 
         foreach (char letter in sentencesNpc[index].ToCharArray())
         {
-            GameManager.Instance.textDisplay.text += letter;
+            game.textDisplay.text += letter;
             yield return new WaitForSeconds(typingSpeed);
         }
 
-        GameManager.Instance.playerGameObj.GetComponent<PlayerController>().enabled = true;
+        game.playerGameObj.GetComponent<PlayerController>().enabled = true;
     }
 
     public void NextSentence()
@@ -59,18 +61,18 @@ public class Dialog : MonoBehaviour
         if(index < sentencesNpc.Length - 1)
         {
             index++;
-            GameManager.Instance.textDisplay.text = "";
+            game.textDisplay.text = "";
             StartCoroutine(Type());
         }
         else
         {
-            GameManager.Instance.textDisplay.text = sentencesNpc[index];
+            game.textDisplay.text = sentencesNpc[index];
         }
     }
 
     public void ResetConversation()
     {
-        GameManager.Instance.textDisplay.text = "";
+        game.textDisplay.text = "";
         index = sentencesNpc.Length - 1;
     }
 }
