@@ -17,7 +17,7 @@ public class EnemyMovement : MonoBehaviour
 	// Use this for initialization
 	void Start()
 	{
-		target = GameManager.Instance.playerGameObj.transform;
+		//target = GameManager.Instance.playerGameObj.transform;
 
 		agent = GetComponent<NavMeshAgent>();
 	}
@@ -69,16 +69,7 @@ public class EnemyMovement : MonoBehaviour
 	}
 
 
-    private void OnTriggerEnter(Collider other)
-    {
-		if (other.tag == "Player")
-		{
-			other.GetComponent<PlayerDeath>().CheckPoint();
-		}
-    }
-
-
-
+    // Show the lookRadius in editor
     void OnDrawGizmosSelected()
 	{
 		Gizmos.color = Color.red;

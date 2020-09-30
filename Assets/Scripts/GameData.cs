@@ -55,7 +55,6 @@ public class GameData : MonoBehaviour
     public void Load()
     {
 
-
         if(File.Exists(Application.persistentDataPath+ "/player.data"))
         {
             BinaryFormatter formatter = new BinaryFormatter();
@@ -67,6 +66,7 @@ public class GameData : MonoBehaviour
         }
         else
         {
+            saveData = new SaveData();
             Save();
         }
     }

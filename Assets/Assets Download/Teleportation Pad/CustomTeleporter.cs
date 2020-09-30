@@ -38,7 +38,7 @@ public class CustomTeleporter : MonoBehaviour
 	public AudioSource teleportPadSound;
 	//simple enable/disable function in case you want the teleport not working at some point
 	//without disabling the entire script, so receiving objects still works
-	public static bool teleportPadOn;
+	public static bool teleportPadOn = false;
 
 	void Start ()
 	{

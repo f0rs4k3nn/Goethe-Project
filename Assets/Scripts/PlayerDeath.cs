@@ -11,25 +11,40 @@ public class PlayerDeath : MonoBehaviour
     public float respawnDelay;
     public Image screenOverlay;
 
+    public GameObject deathParticle;
+    public GameObject respawnParticle;
+
+    private AudioManager audioManager;
+
+
+
     private bool _isRespawning = false;
     
     void Awake()
     {
         game = GameManager.Instance;
 
-        Transform spawnpoint = GameObject.Find("SpawnPoint").transform;
+          
+    }
+
+    private void Start()
+    {
+        audioManager = AudioManager.instance;
+
+        GameObject spawnpoint = GameObject.Find("SpawnPoint");
 
         if (spawnpoint != null)
         {
-            transform.position = spawnpoint.position;
-        } else
+            transform.position = spawnpoint.transform.position;
+        }
+        else
         {
             Debug.Log("DIDN'T FIND SPAWNPOINT AAa");
         }
 
-        checkpoint = transform.position;      
+        checkpoint = transform.position;
     }
-    
+
     private void OnTriggerEnter(Collider other)
     {
         
@@ -54,10 +69,19 @@ public class PlayerDeath : MonoBehaviour
 
     private IEnumerator RespawnTriggered()
     {
+        GameObject particle = Instantiate(deathParticle, transform);
+        particle.transform.parent = null;
+        game.playerModelVisible = false;
+        Destroy(particle, 3);
+
+        audioManager.Play("DeathSound");
+        
         game.IsMovementEnabled = false;
 
 
         yield return new WaitForSeconds(respawnDelay);
+        audioManager.Play("RespawnSound");
+
 
         Color fixedColor = screenOverlay.color;
         fixedColor.a = 1;
@@ -68,11 +92,16 @@ public class PlayerDeath : MonoBehaviour
         yield return new WaitForSeconds(fadeDuration);
 
         transform.position = checkpoint;
+        game.playerModelVisible = true;
         game.IsMovementEnabled = true;
         _isRespawning = false;
 
+        particle = Instantiate(respawnParticle, transform);
+        particle.transform.parent = null;
+
         screenOverlay.CrossFadeAlpha(0, fadeDuration, true);
-        yield return new WaitForSeconds(fadeDuration);
+        Destroy(particle, 3);
+        //yield return new WaitForSeconds(fadeDuration);
 
 
     }
