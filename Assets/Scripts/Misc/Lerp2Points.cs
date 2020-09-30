@@ -8,13 +8,6 @@ public class Lerp2Points : MonoBehaviour
     public Transform endPosition;
     public float speed = 1;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        startPosition = this.transform;
-        endPosition = GetComponentInChildren<Transform>().transform;
-    }
-
     // Update is called once per frame
     void Update()
     {
