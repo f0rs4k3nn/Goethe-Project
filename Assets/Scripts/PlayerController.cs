@@ -88,22 +88,21 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //Time.timeScale = 0.03f;
-        // m_Animator = GetComponent<Animator>();
         camera = GameManager.Instance.camera.transform;
         player = GetComponent<CharacterController>();
         canMove = true;
         movementSinceLastFrame = Vector3.zero;
         audioManager = AudioManager.instance;
-
-        //StartCoroutine(Footstep());
     }
+
+    
 
     void FixedUpdate()
     {
         if (!canMove)
             return;
 
+        //GameManager.Instance.Initialize();
 
         Collider[] groundColliders = Physics.OverlapSphere(groundCheck.position, groundDistance, groundMask);
 
