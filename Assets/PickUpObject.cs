@@ -2,27 +2,21 @@
 using System.Collections;
 
 public class PickUpObject : MonoBehaviour {
-    public Transform player;
     public float throwForce = 10;
     bool hasPlayer = false;
     bool beingCarried = false;
 
-    
-	void Start()
-	
-	{
-		player = GameManager.Instance.playerGameObj.transform;
+    public GameObject movingFloor;
 
+    private void Start()
+    {
+        movingFloor = GameObject.Find("MoveMyAss");
+    }
 
-		
-		
-		
-	}
-	private void OnTriggerStay(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         if (!hasPlayer)
-            other.GetComponent<MovingFloor>().moving = true;
-		Debug.Log("trigger");
+            movingFloor.GetComponent<MovingFloor>().moving = true;
     }
 
     void OnTriggerEnter(Collider other)
@@ -35,8 +29,6 @@ public class PickUpObject : MonoBehaviour {
     {
 		if (other.tag == "Player")
 			hasPlayer = false;	
-		
-		
 	}
 
     void Update()
@@ -48,7 +40,7 @@ public class PickUpObject : MonoBehaviour {
                 GetComponent<Rigidbody>().isKinematic = false;
                 transform.parent = null;
                 beingCarried = false;
-                GetComponent<Rigidbody>().AddForce(player.forward * throwForce);
+                GetComponent<Rigidbody>().AddForce(GameManager.Instance.playerTransform.forward * throwForce);
 				
             }
         }
@@ -57,7 +49,7 @@ public class PickUpObject : MonoBehaviour {
             if(Input.GetMouseButtonDown(0) && hasPlayer)
             {
                 GetComponent<Rigidbody>().isKinematic = true;
-                transform.parent = player;
+                transform.parent = GameManager.Instance.playerTransform;
                 beingCarried = true;
             }
         }

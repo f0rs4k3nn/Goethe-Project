@@ -7,6 +7,7 @@ public class GameManager : Singleton<GameManager>
 {
     public PlayerController player;
     public GameObject playerModel;
+    public Transform playerTransform;
 
     public TimeTravelMechanic TimeTravelMechanic;
 
@@ -123,15 +124,15 @@ public class GameManager : Singleton<GameManager>
 
             sign = GameObject.Find("SignOverlay");
 
-
             interactiveObj = GameObject.FindGameObjectsWithTag("Interactive");
+
+            playerTransform = GameObject.Find("Player").transform;
 
             textSignUp.text = "";
             textSignDown.text = "";
             textDisplay.text = "";
 
             camera = Camera.main.GetComponent<ThirdPersonCamera>();
-
 
             levelFinishedMenu = FindObjectOfType<LevelFinishedMenu>().gameObject;
 
