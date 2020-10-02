@@ -18,7 +18,7 @@ public class PickUpText : MonoBehaviour
             if (!CustomTeleporter.teleportPadOn)
             {
                 pickUpText = "You found some tools!";
-                GameManager.Instance.pickUpText.text = pickUpText;
+                GameManager.Instance.interactText.text = pickUpText;
                 CustomTeleporter.teleportPadOn = true;               
             }
             else

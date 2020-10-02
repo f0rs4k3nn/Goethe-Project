@@ -15,7 +15,10 @@ public class GameManager : Singleton<GameManager>
     public TextMeshProUGUI textDisplay;
     public TextMeshProUGUI textSignUp;
     public TextMeshProUGUI textSignDown;
-    public TextMeshProUGUI pickUpText;
+    //public TextMeshProUGUI pickUpText;
+
+    public TextMeshProUGUI interactText;
+    public GameObject interactBox;
 
     public GameObject dialogBox;
     public GameObject playerGameObj;
@@ -112,14 +115,13 @@ public class GameManager : Singleton<GameManager>
             textDisplay = GameObject.Find("DialogText").GetComponent<TextMeshProUGUI>();
             textSignUp = GameObject.Find("Up Text (TMP)").GetComponent<TextMeshProUGUI>();
             textSignDown = GameObject.Find("Down Text (TMP)").GetComponent<TextMeshProUGUI>();
-            pickUpText = GameObject.Find("Pick Up Text (TMP)").GetComponent<TextMeshProUGUI>();
-
+            interactText = GameObject.Find("Interact Text (TMP)").GetComponent<TextMeshProUGUI>();
+            interactBox = GameObject.Find("InteractBox");
 
             playerGameObj = GameObject.Find("Player");
 
             sign = GameObject.Find("SignOverlay");
 
-            interactBttn = GameObject.Find("Interact Button");
 
             interactiveObj = GameObject.FindGameObjectsWithTag("Interactive");
 

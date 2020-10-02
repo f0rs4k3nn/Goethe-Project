@@ -50,7 +50,7 @@ public class TimeTravelMechanic : MonoBehaviour
     {
         audio = AudioManager.instance;
         fadeScreen = GetComponent<Image>();
-        mainLight = GameObject.Find("Directional Light").GetComponent<Light>();
+        
         pastObjects = GameObject.FindGameObjectsWithTag("Past Object");
         pastObjectsConstruct = GameObject.FindGameObjectsWithTag("Past Construct");
         futureObjects = GameObject.FindGameObjectsWithTag("Future Object");
@@ -59,6 +59,8 @@ public class TimeTravelMechanic : MonoBehaviour
 
         ChangeSceneEnvironment(true);
         canTimeTravel = true;
+
+        mainLight = GameObject.Find("Directional Light").GetComponent<Light>();
     }
 
     // Update is called once per frame

@@ -56,6 +56,7 @@ public class PlayerDeath : MonoBehaviour
         {
             if (!_isRespawning)
             {
+                _isRespawning = true;
                 StartCoroutine(RespawnTriggered());
             } 
         }

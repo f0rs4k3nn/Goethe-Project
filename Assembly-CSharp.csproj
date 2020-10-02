@@ -62,13 +62,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Assets Download\48 Particle Effect Pack\Script\csDestroyEffect.cs" />
-    <Compile Include="Assets\Assets Download\48 Particle Effect Pack\Script\csMouseOrbit.cs" />
-    <Compile Include="Assets\Assets Download\48 Particle Effect Pack\Script\csParticleEffectPackLightControl.cs" />
-    <Compile Include="Assets\Assets Download\48 Particle Effect Pack\Script\csParticleMove.cs" />
-    <Compile Include="Assets\Assets Download\48 Particle Effect Pack\Script\csShowAllEffect.cs" />
-    <Compile Include="Assets\Assets Download\48 Particle Effect Pack\ShurikenEffectEditor\csShurikenEffectChanger.cs" />
-    <Compile Include="Assets\Assets Download\48 Particle Effect Pack\ShurikenEffectEditor\csShurikenEffectEditor.cs" />
+    <Compile Include="Assets\48 Particle Effect Pack\Script\csDestroyEffect.cs" />
+    <Compile Include="Assets\48 Particle Effect Pack\Script\csMouseOrbit.cs" />
+    <Compile Include="Assets\48 Particle Effect Pack\Script\csParticleEffectPackLightControl.cs" />
+    <Compile Include="Assets\48 Particle Effect Pack\Script\csParticleMove.cs" />
+    <Compile Include="Assets\48 Particle Effect Pack\Script\csShowAllEffect.cs" />
+    <Compile Include="Assets\48 Particle Effect Pack\ShurikenEffectEditor\csShurikenEffectChanger.cs" />
+    <Compile Include="Assets\48 Particle Effect Pack\ShurikenEffectEditor\csShurikenEffectEditor.cs" />
     <Compile Include="Assets\Assets Download\LeanTween\Examples\Archived\OldGUIExamplesCS.cs" />
     <Compile Include="Assets\Assets Download\LeanTween\Examples\Archived\TestingPunch.cs" />
     <Compile Include="Assets\Assets Download\LeanTween\Examples\Archived\TestingRigidbodyCS.cs" />
@@ -303,10 +303,13 @@
     <Compile Include="Assets\Scripts\Items\UnlockingTeleport.cs" />
     <Compile Include="Assets\Scripts\LoadingScreenManager.cs" />
     <Compile Include="Assets\Scripts\MainMenuBehaviour.cs" />
+    <Compile Include="Assets\Scripts\Misc\Bouncy.cs" />
     <Compile Include="Assets\Scripts\Misc\Dialog.cs" />
     <Compile Include="Assets\Scripts\Misc\InteractText.cs" />
     <Compile Include="Assets\Scripts\Misc\Interactive.cs" />
     <Compile Include="Assets\Scripts\Misc\Lerp2Points.cs" />
+    <Compile Include="Assets\Scripts\Misc\LevelManager.cs" />
+    <Compile Include="Assets\Scripts\Misc\PickUpText.cs" />
     <Compile Include="Assets\Scripts\Misc\Platforms\MovingPlatform.cs" />
     <Compile Include="Assets\Scripts\Misc\Platforms\ResetTrigger.cs" />
     <Compile Include="Assets\Scripts\Misc\Platforms\RotatingPlatform.cs" />
@@ -317,6 +320,7 @@
     <Compile Include="Assets\Scripts\Player Scripts\BulletScript.cs" />
     <Compile Include="Assets\Scripts\Player Scripts\CameraCollision.cs" />
     <Compile Include="Assets\Scripts\Player Scripts\FiringScript.cs" />
+    <Compile Include="Assets\Scripts\Player Scripts\LevelFinisher.cs" />
     <Compile Include="Assets\Scripts\Player Scripts\PlayerManager.cs" />
     <Compile Include="Assets\Scripts\Player Scripts\PlayerTriggerTeleport.cs" />
     <Compile Include="Assets\Scripts\Player Scripts\ThirdPersonCamera.cs" />
@@ -331,10 +335,10 @@
     <Compile Include="Assets\Scripts\Sounds\AudioManager.cs" />
     <Compile Include="Assets\Scripts\Sounds\Sound.cs" />
     <Compile Include="Assets\Scripts\UI\DialogueScript.cs" />
+    <Compile Include="Assets\Scripts\UI\LevelFinishedMenu.cs" />
     <Compile Include="Assets\Scripts\UI\SpriteAnimator.cs" />
     <Compile Include="Assets\Scripts\UI\TextBoxBehaviour.cs" />
     <Compile Include="Assets\Shaders\DitherEffect.cs" />
-    <Compile Include="Assets\SlideTween.cs" />
     <None Include="Assets\Assets Download\subway_entrance_pack\PostProcessing\Resources\Shaders\ACES.cginc" />
     <None Include="Assets\Assets Download\subway_entrance_pack\PostProcessing\Resources\Shaders\LutGen.shader" />
     <None Include="Assets\Assets Download\subway_entrance_pack\PostProcessing\Resources\Shaders\Uber.shader" />
