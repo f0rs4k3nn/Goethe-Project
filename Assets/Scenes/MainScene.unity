@@ -120,7 +120,7 @@ NavMeshSettings:
     accuratePlacement: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 23800000, guid: fb20c119eff8da34f911e9070ebbfa3b, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 4281757b1955b7e4e90dfd9bb22c786c, type: 2}
 --- !u!1 &62824930
 GameObject:
   m_ObjectHideFlags: 0
@@ -1701,6 +1701,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1467490004}
     m_Modifications:
+    - target: {fileID: 2132933865902363118, guid: d73802134fdf8334a80ff7c3d3a1188a,
+        type: 3}
+      propertyPath: m_Name
+      value: Interact Text (TMP)
+      objectReference: {fileID: 0}
     - target: {fileID: 2132933865993446520, guid: d73802134fdf8334a80ff7c3d3a1188a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1759,7 +1764,7 @@ PrefabInstance:
     - target: {fileID: 2132933865993446520, guid: d73802134fdf8334a80ff7c3d3a1188a,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -713.7
+      value: -1200
       objectReference: {fileID: 0}
     - target: {fileID: 2132933865993446520, guid: d73802134fdf8334a80ff7c3d3a1188a,
         type: 3}
@@ -1809,7 +1814,7 @@ PrefabInstance:
     - target: {fileID: 2132933865993446521, guid: d73802134fdf8334a80ff7c3d3a1188a,
         type: 3}
       propertyPath: m_Name
-      value: PickUpBox
+      value: InteractBox
       objectReference: {fileID: 0}
     - target: {fileID: 2132933865993446521, guid: d73802134fdf8334a80ff7c3d3a1188a,
         type: 3}
@@ -2082,6 +2087,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7341067383311871511, guid: 330d482c6461f2c459d14bda071c2522,
+        type: 3}
+      propertyPath: walkSpeed
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 330d482c6461f2c459d14bda071c2522, type: 3}

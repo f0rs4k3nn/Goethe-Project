@@ -117,6 +117,7 @@ public class GameManager : Singleton<GameManager>
             textSignDown = GameObject.Find("Down Text (TMP)").GetComponent<TextMeshProUGUI>();
             interactText = GameObject.Find("Interact Text (TMP)").GetComponent<TextMeshProUGUI>();
             interactBox = GameObject.Find("InteractBox");
+            interactBttn = GameObject.Find("Interact Button");
 
             playerGameObj = GameObject.Find("Player");
 
