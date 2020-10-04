@@ -6,31 +6,6 @@ public class PickUpObject : MonoBehaviour {
     bool hasPlayer = false;
     bool beingCarried = false;
 
-    public GameObject movingFloor;
-
-    private void Start()
-    {
-        movingFloor = GameObject.Find("MoveMyAss");
-    }
-
-    private void OnTriggerStay(Collider other)
-    {
-        if (!hasPlayer)
-            movingFloor.GetComponent<MovingFloor>().moving = true;
-    }
-
-    void OnTriggerEnter(Collider other)
-    {
-       if (other.tag == "Player")
-			hasPlayer = true;
-    }
-
-    void OnTriggerExit(Collider other)
-    {
-		if (other.tag == "Player")
-			hasPlayer = false;	
-	}
-
     void Update()
     {
         if(beingCarried)
