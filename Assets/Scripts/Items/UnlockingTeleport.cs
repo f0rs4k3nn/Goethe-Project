@@ -18,27 +18,19 @@ public class UnlockingTeleport : MonoBehaviour
     {
         if (other.tag == "Player" && sceneName == "Dani")
         {
-            if (ScoringSystem.theScore >= 10 && name == "TeleporterPad")
+            if (GameManager.Instance.ScoringSystem.Score >= 10 && name == "TeleporterPad")
             {
-                ScoringSystem.theScore -= 10;
+                GameManager.Instance.ScoringSystem.Score -= 10;
                 GetComponent<Teleport>().enabled = true;
                 Destroy(this);
             }
 
-            if (ScoringSystem.theScore >= 10 && name == "DoubleJumpUnlocker" )
+            if (GameManager.Instance.ScoringSystem.Score >= 10 && name == "DoubleJumpUnlocker" )
             {
-                ScoringSystem.theScore -= 10;
+                GameManager.Instance.ScoringSystem.Score -= 10;
                 other.GetComponent<PlayerController>().doubleJumpUnlocked = true;
                 Destroy(this);
-
             }
         }
-    }
-
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

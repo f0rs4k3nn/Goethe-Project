@@ -9,7 +9,9 @@ public class GameManager : Singleton<GameManager>
 
     public TimeTravelMechanic TimeTravelMechanic;
 
-    public new ThirdPersonCamera camera;
+    public ThirdPersonCamera camera;
+
+    public ScoringSystem ScoringSystem;
     
     public TextMeshProUGUI textDisplay;
     public TextMeshProUGUI textSignUp;
@@ -93,13 +95,6 @@ public class GameManager : Singleton<GameManager>
         dialogBox.SetActive(false);
         interactBttn.SetActive(false);
         sign.SetActive(false);
-    }
-
-    private int _gameScore;
-    public int GameScore
-    {
-        get { return _gameScore; }
-        set { _gameScore = value; }
     }
 
     public void FinishedLevel()
