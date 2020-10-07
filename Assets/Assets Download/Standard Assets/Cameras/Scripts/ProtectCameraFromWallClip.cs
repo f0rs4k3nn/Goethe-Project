@@ -22,6 +22,7 @@ namespace UnityStandardAssets.Cameras
         private Ray m_Ray = new Ray();                        // the ray used in the lateupdate for casting between the camera and the target
         private RaycastHit[] m_Hits;              // the hits between the camera and the target
         private RayHitComparer m_RayHitComparer;  // variable to compare raycast hit distances
+        public Transform player;
 
 
         private void Start()
@@ -109,10 +110,21 @@ namespace UnityStandardAssets.Cameras
                 Debug.DrawRay(m_Ray.origin, -m_Pivot.forward*(targetDist + sphereCastRadius), Color.red);
             }
 
+
+            RaycastHit hit;
+            if (Physics.Linecast(player.position, transform.position, out hit))
+            {
+                Debug.Log("WOW I  HIT " + hit.distance);
+                targetDist = hit.distance - 5f;
+            }
+
             // hit something so move the camera to a better position
             protecting = hitSomething;
             m_CurrentDist = Mathf.SmoothDamp(m_CurrentDist, targetDist, ref m_MoveVelocity,
                                            m_CurrentDist > targetDist ? clipMoveTime : returnTime);
+
+            
+
             m_CurrentDist = Mathf.Clamp(m_CurrentDist, closestDistance, maxDistance);
             //m_Cam.localPosition = -Vector3.forward*m_CurrentDist;
         }

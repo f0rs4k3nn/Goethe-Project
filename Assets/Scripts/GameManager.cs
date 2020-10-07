@@ -102,6 +102,12 @@ public class GameManager : Singleton<GameManager>
     {
         try
         {
+            //Remove fade screen if game started from unity
+            if (!LoadingScreenManager.currentlyLoading)
+            {
+                Destroy(GameObject.Find("LoadFade"));
+            }
+
             // Debug.Log("I am initializing A AH AHA AH and the bool is " + hasToInitialize);
             if (!hasToInitialize) //exit if already initialized
                 return;
@@ -117,7 +123,8 @@ public class GameManager : Singleton<GameManager>
             textSignDown = GameObject.Find("Down Text (TMP)").GetComponent<TextMeshProUGUI>();
             interactText = GameObject.Find("Interact Text (TMP)").GetComponent<TextMeshProUGUI>();
             interactBox = GameObject.Find("InteractBox");
-
+            //
+            interactBttn = GameObject.Find("Interact Button");
             playerGameObj = GameObject.Find("Player");
 
             sign = GameObject.Find("SignOverlay");
@@ -144,11 +151,7 @@ public class GameManager : Singleton<GameManager>
             Debug.Log("NUTSHACK");
 
 
-            //Remove fade screen if game started from unity
-            if(!LoadingScreenManager.currentlyLoading)
-            {
-                Destroy(GameObject.Find("LoadFade"));
-            }
+            
 
         } catch(System.Exception e)
         {
