@@ -42,8 +42,7 @@ public class CollectibleScript : MonoBehaviour
         if(!taken && other.tag =="Player")
         {
             taken = true;
-            GameManager.Instance.GameScore = pointsWorth;
-            ScoringSystem.theScore += 1;
+            GameManager.Instance.ScoringSystem.Score += pointsWorth;
             Destroy(gameObject);
         } 
     }

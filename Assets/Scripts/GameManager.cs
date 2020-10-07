@@ -11,7 +11,9 @@ public class GameManager : Singleton<GameManager>
 
     public TimeTravelMechanic TimeTravelMechanic;
 
-    public new ThirdPersonCamera camera;
+    public ThirdPersonCamera camera;
+
+    public ScoringSystem ScoringSystem;
     
     public TextMeshProUGUI textDisplay;
     public TextMeshProUGUI textSignUp;
@@ -162,13 +164,6 @@ public class GameManager : Singleton<GameManager>
             Debug.Log("Loading " + e + " incomplete");
         }
         
-    }
-
-    private int _gameScore;
-    public int GameScore
-    {
-        get { return _gameScore; }
-        set { _gameScore = value; }
     }
 
     public void FinishedLevel()
