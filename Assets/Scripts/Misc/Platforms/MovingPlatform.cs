@@ -12,7 +12,6 @@ public class MovingPlatform : MonoBehaviour
      * 
      * DO NOT CHANGE THE ORDER.
      * 
-     * 
      *****/
 
 
