@@ -4,20 +4,24 @@ using UnityEngine;
 
 public class PlatformActivation : MonoBehaviour
 {
+    private void Awake()
+    {
+        GameManager.keyPlatformActivated = false;
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "KeyItem")
         {
             GameManager.keyPlatformActivated = true;
-            Debug.Log(GameManager.keyPlatformActivated);
         }
     }
+
     private void OnTriggerExit(Collider other)
     {
         if (other.tag == "KeyItem")
         {
             GameManager.keyPlatformActivated = false;
-            Debug.Log(GameManager.keyPlatformActivated);
         }
     }
 }

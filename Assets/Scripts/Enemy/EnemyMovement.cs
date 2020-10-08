@@ -59,7 +59,7 @@ public class EnemyMovement : MonoBehaviour
             //intensity of the beep in report to the enemy's distance from the player
             float beepIntensity = distance / lookRadius;
 
-            Debug.Log(beepIntensity);
+            //Debug.Log(beepIntensity);
 
             beepPitch = Mathf.Lerp(3, -1, beepIntensity);
             timeBetweenBeeps = Mathf.Lerp(minIntervalBetweenBeeps, maxIntervalBetweenBeeps, beepIntensity);

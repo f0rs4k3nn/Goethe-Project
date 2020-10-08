@@ -19,7 +19,9 @@ public class TimeTravelMechanic : MonoBehaviour
 //    private PlayerMisc player;
 
     private Light mainLight;
-    [Space]
+    private TimeTravelPreset currentPreset;
+
+    /**[Space]
     public Color pastSkyBoxColour;
     public Color pastLightColour;
     public Color pastFogColour;
@@ -32,10 +34,17 @@ public class TimeTravelMechanic : MonoBehaviour
     public float futureLightIntensity;
     public float futureFogEndDist;
 
+    public Material skyBox;**/
+
     public Material skyBox;
 
     private GameManager game;
     private AudioManager audio;
+
+    public Material[] pastMaterials;
+
+    public Material[] pastPlatformMat;
+    public Material[] futurePlatformMat;
 
 
     private void Awake()
@@ -56,11 +65,20 @@ public class TimeTravelMechanic : MonoBehaviour
         futureObjects = GameObject.FindGameObjectsWithTag("Future Object");
         futureObjectsConstruct = GameObject.FindGameObjectsWithTag("Future Construct");
         animatedObjects = GameObject.FindObjectsOfType<Animator>();
+        mainLight = GameObject.Find("Directional Light").GetComponent<Light>();
+        skyBox = RenderSettings.skybox;
+
+        try
+        {
+            currentPreset = FindObjectOfType<LevelManager>().currentPreset;
+        } catch(Exception e)
+        {
+            Debug.Log("Manager not found ");
+            currentPreset = new TimeTravelPreset();
+        }
 
         ChangeSceneEnvironment(true);
-        canTimeTravel = true;
-
-        mainLight = GameObject.Find("Directional Light").GetComponent<Light>();
+        canTimeTravel = true;  
     }
 
     // Update is called once per frame
@@ -145,16 +163,30 @@ public class TimeTravelMechanic : MonoBehaviour
      */
     private void ChangeSceneEnvironment(bool isStartOfLevel)
     {
-        mainLight.color = isInFuture ? futureLightColour : pastLightColour;
-        mainLight.intensity = isInFuture ? futureLightIntensity : pastLightIntensity;
+        mainLight.color = isInFuture ? currentPreset.futureLightColour : currentPreset.pastLightColour;
+        mainLight.intensity = isInFuture ? currentPreset.futureLightIntensity : currentPreset.pastLightIntensity;
 
-        RenderSettings.fogColor = isInFuture ? futureFogColour : pastFogColour;
-        RenderSettings.fogEndDistance = isInFuture ? futureFogEndDist : pastFogEndDist;
+        RenderSettings.fogColor = isInFuture ? currentPreset.futureFogColour : currentPreset.pastFogColour;
+        RenderSettings.fogEndDistance = isInFuture ? currentPreset.futureFogEndDist : currentPreset.pastFogEndDist;
 
-        RenderSettings.ambientSkyColor = isInFuture ? futureSkyBoxColour : pastSkyBoxColour;
+        RenderSettings.ambientSkyColor = isInFuture ? currentPreset.futureSkyBoxColour : currentPreset.pastSkyBoxColour;
 
-        skyBox.SetColor("_Color", isInFuture ? futureSkyBoxColour : pastSkyBoxColour);
+        skyBox.SetColor("_Tint", isInFuture ? currentPreset.futureSkyBoxColour : currentPreset.pastSkyBoxColour);
 
+        foreach(Material mat in pastMaterials)
+        {
+            mat.color = new Color(mat.color.r, mat.color.g, mat.color.b, isInFuture ? 0 : 1);
+        }
+
+        foreach (Material mat in pastPlatformMat)
+        {
+            mat.SetColor("_BaseColor", new Color(mat.color.r, mat.color.g, mat.color.b, isInFuture ? 0.2f : 1));
+        }
+
+        foreach (Material mat in futurePlatformMat)
+        {
+            mat.SetColor("_BaseColor", new Color(mat.color.r, mat.color.g, mat.color.b, !isInFuture ? 0.2f : 1));
+        }
 
         SetCollisions();
         SetEnabled();
@@ -178,17 +210,6 @@ public class TimeTravelMechanic : MonoBehaviour
                 continue;
 
             obj.GetComponent<Collider>().enabled = !isInFuture;
-
-            try
-            {
-                Material mat = obj.GetComponent<Renderer>().material;
-                mat.SetFloat("Vector1_A397D302", (isInFuture ? 0.73f : 0.0f));
-                mat.SetFloat("Vector1_B97EA0A9", (isInFuture ? 1 : 0));
-            } catch(Exception e)
-            {
-                //literally nothing to do
-                //we do this because there are some objects which simply don't have a material
-            }
         }
 
         foreach (GameObject obj in futureObjects)
@@ -196,21 +217,7 @@ public class TimeTravelMechanic : MonoBehaviour
             if (obj == null)
                 continue;
 
-            obj.GetComponent<Collider>().enabled = isInFuture;
-
-            try
-            {
-                Material mat = obj.GetComponent<Renderer>().material;
-                mat.SetFloat("Vector1_A397D302", (isInFuture ? 0.0f : 0.73f));
-                mat.SetFloat("Vector1_B97EA0A9", (isInFuture ? 0 : 1));
-            }
-            catch (Exception e)
-            {
-                //literally nothing to do
-                //we do this because there are some objects which simply don't have a material
-            }
-
-
+            obj.GetComponent<Collider>().enabled = isInFuture;   
         }
     }
     private void SetEnabled()
@@ -221,18 +228,6 @@ public class TimeTravelMechanic : MonoBehaviour
                 continue;
 
             obj.SetActive(!isInFuture);
-
-/*            try
-            {
-                Material mat = obj.GetComponent<Renderer>().material;
-                mat.SetFloat("Vector1_A397D302", (isInFuture ? 0.73f : 0.0f));
-                mat.SetFloat("Vector1_B97EA0A9", (isInFuture ? 1 : 0));
-            }
-            catch (Exception e)
-            {
-                //literally nothing to do
-                //we do this because there are some objects which simply don't have a material
-            }*/
         }
 
         foreach (GameObject obj in futureObjectsConstruct)
@@ -241,20 +236,6 @@ public class TimeTravelMechanic : MonoBehaviour
                 continue;
 
             obj.SetActive(isInFuture);
-
-/*            try
-            {
-                Material mat = obj.GetComponent<Renderer>().material;
-                mat.SetFloat("Vector1_A397D302", (isInFuture ? 0.0f : 0.73f));
-                mat.SetFloat("Vector1_B97EA0A9", (isInFuture ? 0 : 1));
-            }
-            catch (Exception e)
-            {
-                //literally nothing to do
-                //we do this because there are some objects which simply don't have a material
-            }*/
-
-
         }
     }
 }

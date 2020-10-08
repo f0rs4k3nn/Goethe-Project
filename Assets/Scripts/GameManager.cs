@@ -14,7 +14,7 @@ public class GameManager : Singleton<GameManager>
     public ThirdPersonCamera camera;
 
     public ScoringSystem ScoringSystem;
-    
+
     public TextMeshProUGUI textDisplay;
     public TextMeshProUGUI textSignUp;
     public TextMeshProUGUI textSignDown;
@@ -27,13 +27,11 @@ public class GameManager : Singleton<GameManager>
     public GameObject playerGameObj;
     public GameObject sign;
     public GameObject interactBttn;
-    public GameObject movingPlatform;
-    public GameObject movingDoor;
     public GameObject[] interactiveObj;
     public static int currentLevel;
 
     public static bool hasToInitialize = true;
-    public static bool keyPlatformActivated;
+    public static bool keyPlatformActivated = false;
 
     private GameObject levelFinishedMenu;
     private SaveData _save;
@@ -53,7 +51,7 @@ public class GameManager : Singleton<GameManager>
 
             if (player == null)
             {
-                player = FindObjectOfType<PlayerController>();              
+                player = FindObjectOfType<PlayerController>();
             }
 
 
@@ -108,6 +106,12 @@ public class GameManager : Singleton<GameManager>
     {
         try
         {
+            //Remove fade screen if game started from unity
+            if (!LoadingScreenManager.currentlyLoading)
+            {
+                Destroy(GameObject.Find("LoadFade"));
+            }
+
             // Debug.Log("I am initializing A AH AHA AH and the bool is " + hasToInitialize);
             if (!hasToInitialize) //exit if already initialized
                 return;
@@ -123,13 +127,11 @@ public class GameManager : Singleton<GameManager>
             textSignDown = GameObject.Find("Down Text (TMP)").GetComponent<TextMeshProUGUI>();
             interactText = GameObject.Find("Interact Text (TMP)").GetComponent<TextMeshProUGUI>();
             interactBox = GameObject.Find("InteractBox");
+            //
             interactBttn = GameObject.Find("Interact Button");
-
             playerGameObj = GameObject.Find("Player");
 
             sign = GameObject.Find("SignOverlay");
-            movingPlatform = GameObject.Find("MovingPlatform");
-            movingDoor = GameObject.Find("MovingDoor");
 
             interactiveObj = GameObject.FindGameObjectsWithTag("Interactive");
 
@@ -153,17 +155,13 @@ public class GameManager : Singleton<GameManager>
             Debug.Log("NUTSHACK");
 
 
-            //Remove fade screen if game started from unity
-            if(!LoadingScreenManager.currentlyLoading)
-            {
-                Destroy(GameObject.Find("LoadFade"));
-            }
+
 
         } catch(System.Exception e)
         {
             Debug.Log("Loading " + e + " incomplete");
         }
-        
+
     }
 
     public void FinishedLevel()
@@ -183,7 +181,7 @@ public class GameManager : Singleton<GameManager>
         currentLevel++;
 
         Debug.Log("I finished the level " + currentLevel);
-        
+
         if(currentLevel > lastLevel)
         {
             Debug.Log("End GAME");

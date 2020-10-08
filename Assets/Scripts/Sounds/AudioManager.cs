@@ -14,6 +14,8 @@ public class AudioManager : MonoBehaviour
 	public float musicVolume;
 
 	private Sound currentlyPlayingMusic;
+    private Sound currentlyPlayingAmbient;
+    private Sound darkAmbient;
 
 	//private SaveData saveData;
 
@@ -86,6 +88,60 @@ public class AudioManager : MonoBehaviour
 
 		s.source.Stop();
 	}
+
+    public void PlayAmbient(string sound)
+    {
+        Sound s = Array.Find(sounds, item => item.name == sound);
+        if (s == null)
+        {
+            Debug.LogError("Sound: " + name + " not found!");
+            return;
+        }
+
+        //s.source.volume = s.volume * (1f + UnityEngine.Random.Range(-s.volumeVariance / 2f, s.volumeVariance / 2f));
+        s.source.volume = s.volume * (s.isMusic ? musicVolume : effectsVolume);
+
+        s.source.pitch = s.pitch * (1f + UnityEngine.Random.Range(-s.pitchVariance / 2f, s.pitchVariance / 2f));
+
+        if(sound.Equals("Dark Ambient"))
+        {
+            if (darkAmbient != null)
+                darkAmbient = s; 
+        }
+
+        currentlyPlayingAmbient.source.Stop();
+        currentlyPlayingAmbient = s;
+
+        s.source.Play();
+    }
+
+    public void SetPitch(float pitch)
+    {
+        if(currentlyPlayingAmbient != null)
+        {
+            currentlyPlayingAmbient.source.pitch = pitch;
+        }
+
+        if (currentlyPlayingMusic != null)
+        {
+            currentlyPlayingMusic.source.pitch = pitch;
+        }
+    }
+
+    public void SetVolume(float vol)
+    {
+        if (currentlyPlayingAmbient != null)
+        {
+            currentlyPlayingAmbient.source.volume = vol;
+        }
+
+        if (currentlyPlayingMusic != null)
+        {
+            currentlyPlayingMusic.source.volume = vol;
+        }
+    }
+
+    public void 
 
     /*public void SetMusicVolume()
 	{
