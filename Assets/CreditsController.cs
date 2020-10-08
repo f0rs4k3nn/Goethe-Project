@@ -13,9 +13,7 @@ public class CreditsController : MonoBehaviour
     {
 
         Sequence creditsSequence = DOTween.Sequence();
-        creditsSequence.Append(doText(text, "Goethe Institute Bucharest\nPresents..._"));
-        creditsSequence.Append(doFadeOut(text, 1f, 4f));
-        creditsSequence.Append(doText(text, "Goethe Institute Bucharest\nPresents..._"));
+        creditsSequence.Append(doText(text, "Goethe Institute Bucharest\nPresents... _"));
         creditsSequence.Append(doFadeOut(text, 1f, 4f));
         creditsSequence.Append(doText(text, "Collaboration of BUG Lab and \n Retina Film Production _"));
         creditsSequence.Append(doFadeOut(text, 1f, 4f));

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 
@@ -27,8 +28,17 @@ public class DialogueScript : MonoBehaviour
     //
     public static void FetchDialogue(int index)
     {
-        System.IO.StreamReader file = new System.IO.StreamReader(@"Assets\Scripts\UI\Dialogue.txt");
-
+        string targetFile;
+        if (Application.platform == RuntimePlatform.WindowsEditor ||
+            Application.platform == RuntimePlatform.WindowsPlayer)
+            targetFile = @"Assets\Scripts\UI\Dialogue.txt";
+        else // Platform is not Windows
+        {
+            targetFile = @"Assets/Scripts/UI/Dialogue.txt";
+        }
+        
+        System.IO.StreamReader file = new System.IO.StreamReader(@targetFile);
+        
         string line;
         rawDialogue = new List<string>();
 
