@@ -12,6 +12,7 @@ public class MainMenuBehaviour : MonoBehaviour
     public float fadeDelay = 1.0f;
     public GameObject mainScreen;
     public GameObject selectionScreen;
+    public GameObject customizationScreen;
     public Transform levelsParent;
 
 
@@ -70,6 +71,20 @@ public class MainMenuBehaviour : MonoBehaviour
         //LoadingScreenManager.LoadScene(firstLevelIndex + level - 1);
     }
 
+    public void OpenCustomization()
+    {
+        AudioManager.instance.Play("Selection");
+        mainScreen.SetActive(false);
+        customizationScreen.SetActive(true);
+    }
+
+    public void CloseCustomization(int selection)
+    {
+        AudioManager.instance.Play("Selection");
+        mainScreen.SetActive(true);
+        customizationScreen.SetActive(false);
+    }
+
     private IEnumerator ChoiceMade(int levelIndex)
     {
         AudioManager.instance.Play("Selection");
@@ -90,4 +105,8 @@ public class MainMenuBehaviour : MonoBehaviour
         SceneManager.LoadScene(3);
     }
 
+    public void QuitButton()
+    {
+        Application.Quit();
+    }
 }

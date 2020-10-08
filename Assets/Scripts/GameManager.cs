@@ -15,6 +15,8 @@ public class GameManager : Singleton<GameManager>
 
     public ScoringSystem ScoringSystem;
 
+    public PurchaseSystem PurchaseSystem;
+
     public TextMeshProUGUI textDisplay;
     public TextMeshProUGUI textSignUp;
     public TextMeshProUGUI textSignDown;
@@ -33,12 +35,20 @@ public class GameManager : Singleton<GameManager>
     public static bool hasToInitialize = true;
     public static bool keyPlatformActivated = false;
 
+    public int CurrentCharacterModelIndex = 0;
+
     private GameObject levelFinishedMenu;
     private SaveData _save;
     public const int lastLevel = 8; //the index of the final level
    // private Scene
 
-    private bool _isMovementEnabled;
+   public int TotalScrap
+   {
+       get { return PlayerPrefs.GetInt("Scrap", 0); }
+       set { if(value > 0) PlayerPrefs.SetInt("Scrap", value);}
+   }
+
+   private bool _isMovementEnabled;
     public bool IsMovementEnabled
     {
         set
