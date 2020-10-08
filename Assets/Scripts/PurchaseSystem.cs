@@ -1,4 +1,5 @@
 ﻿using System;
+using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -75,7 +76,8 @@ public class PurchaseSystem : MonoBehaviour
         }
         else
         {
-            ActivateText.text = "Not enough Scrap _";
+            DOTween.To(() => ActivateText.text, x => ActivateText.text = x, "Not enough Scrap _", .2f
+            );
         }
         
     }
@@ -83,16 +85,20 @@ public class PurchaseSystem : MonoBehaviour
     public void UpdateInfo(int index)
     {
         // Infos
-        NameText.text = characterInfos[index].name;
+        DOTween.To(() => NameText.text, x => NameText.text = x, characterInfos[index].name, .15f);
         previewImage.sprite = characterInfos[index].sprite;
 
         // Activation Button
         if (index == GameManager.Instance.CurrentCharacterModelIndex)
-            ActivateText.text = "Activated";
+        {
+            CostText.text = ""; // Remove Cost
+            DOTween.To(() => ActivateText.text, x => ActivateText.text = x, "Activated", .05f);
+        }
         else
         {
             if (characterInfos[index].isPurchased)
             {
+                CostText.text = ""; // Remove Cost
                 ActivateText.text = "[Activate]";
             }
             else

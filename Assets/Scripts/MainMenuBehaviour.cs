@@ -78,7 +78,7 @@ public class MainMenuBehaviour : MonoBehaviour
         customizationScreen.SetActive(true);
     }
 
-    public void CloseCustomization(int selection)
+    public void CloseCustomization()
     {
         AudioManager.instance.Play("Selection");
         mainScreen.SetActive(true);
