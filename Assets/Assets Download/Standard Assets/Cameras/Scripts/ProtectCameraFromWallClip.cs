@@ -114,8 +114,9 @@ namespace UnityStandardAssets.Cameras
             RaycastHit hit;
             if (Physics.Linecast(player.position, transform.position, out hit))
             {
-                Debug.Log("WOW I  HIT " + hit.distance);
-                targetDist = hit.distance - 5f;
+                //Debug.Log("WOW I  HIT " + hit.distance);
+                if(!hit.collider.isTrigger)
+                    targetDist = hit.distance - 5f;
             }
 
             // hit something so move the camera to a better position
