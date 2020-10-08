@@ -10,6 +10,6 @@ public class MovePlatformAnim : MonoBehaviour
     void Update()
     {
         _t += Time.fixedDeltaTime;  
-        transform.localPosition = Vector3.Lerp(distanceMin.localPosition, distanceMax.localPosition, (Mathf.Sin(_t/maxAnimTime) + 1.0f) / 2.0f); 
+        transform.position = Vector3.Lerp(distanceMin.position, distanceMax.position, (Mathf.Sin(_t/maxAnimTime) + 1.0f) / 2.0f); 
     }
 }
