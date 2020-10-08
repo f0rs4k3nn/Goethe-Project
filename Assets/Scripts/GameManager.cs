@@ -27,13 +27,11 @@ public class GameManager : Singleton<GameManager>
     public GameObject playerGameObj;
     public GameObject sign;
     public GameObject interactBttn;
-    public GameObject movingPlatform;
-    public GameObject movingDoor;
     public GameObject[] interactiveObj;
     public static int currentLevel;
 
     public static bool hasToInitialize = true;
-    public static bool keyPlatformActivated;
+    public static bool keyPlatformActivated = false;
 
     private GameObject levelFinishedMenu;
     private SaveData _save;
@@ -134,8 +132,6 @@ public class GameManager : Singleton<GameManager>
             playerGameObj = GameObject.Find("Player");
 
             sign = GameObject.Find("SignOverlay");
-            movingPlatform = GameObject.Find("MovingPlatform");
-            movingDoor = GameObject.Find("MovingDoor");
 
             interactiveObj = GameObject.FindGameObjectsWithTag("Interactive");
 

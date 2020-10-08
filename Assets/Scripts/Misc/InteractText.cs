@@ -7,8 +7,13 @@ public class InteractText : MonoBehaviour
 {
     string interactText;
     private static bool hasTools;
+    private static bool hasRustyKey;
     private bool isIn;
-
+    private void Awake()
+    {
+        hasTools = false;
+        hasRustyKey = false;
+    }
     void Start()
     {
         interactText = "";
@@ -43,7 +48,36 @@ public class InteractText : MonoBehaviour
                 CustomTeleporter.teleportPadOn = true;
                 GameManager.Instance.interactBttn.SetActive(false);
                 SlideTweenIn();
-                Destroy(this);
+                StartCoroutine(DestroyInteractScript());
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.E) && gameObject.name == "Rusty_Key" && isIn)
+        {
+            interactText = "You found a rusty key!";
+            hasRustyKey = true;
+            GameManager.Instance.interactText.text = interactText;
+            SlideTweenIn();
+            StartCoroutine(DestroyInteractScript());
+            Destroy(gameObject);            
+        }
+
+        if (Input.GetKeyDown(KeyCode.E) && gameObject.name == "MetalCabinetRusty" && isIn)
+        {
+            if (!hasRustyKey)
+            {
+                interactText = "This rusty locker is locked.";
+                GameManager.Instance.interactText.text = interactText;
+                SlideTweenIn();
+            }
+
+            if (hasRustyKey)
+            {
+                interactText = "The key worked! The locker is now open!";
+                GameManager.Instance.interactText.text = interactText;
+                GameManager.Instance.interactBttn.SetActive(false);
+                SlideTweenIn();
+                StartCoroutine(DestroyInteractScript());
             }
         }
 
