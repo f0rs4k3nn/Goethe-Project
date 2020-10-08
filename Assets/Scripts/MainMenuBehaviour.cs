@@ -12,7 +12,7 @@ public class MainMenuBehaviour : MonoBehaviour
     public float fadeDelay = 1.0f;
     public GameObject mainScreen;
     public GameObject selectionScreen;
-    public GameObject levelsParent;
+    public Transform levelsParent;
 
 
     private SaveData _save;
@@ -24,7 +24,19 @@ public class MainMenuBehaviour : MonoBehaviour
         fixedColor.a = 1;
         fadeOverlay.color = fixedColor;
         fadeOverlay.CrossFadeAlpha(1f, 0f, true);
-        //foreach(GameObject g in levelsParent.transform.)
+
+        for(int i = 1; i < levelsParent.childCount; i++)
+        {
+            if((GameData.gameData.saveData.lastUnlockedLevel - firstLevelIndex) >= i)
+            {
+                levelsParent.GetChild(i).gameObject.SetActive(true);
+            } else
+            {
+                levelsParent.GetChild(i).gameObject.SetActive(false);
+            }
+        }
+
+        selectionScreen.SetActive(false);
 
         StartCoroutine(StartMenu());
     }
