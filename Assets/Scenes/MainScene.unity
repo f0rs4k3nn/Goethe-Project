@@ -248,7 +248,7 @@ Transform:
   m_LocalScale: {x: 1, y: 11.333, z: 23.33396}
   m_Children: []
   m_Father: {fileID: 1342647419}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &461387180
 BoxCollider:
@@ -558,11 +558,11 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 871864824}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 9.276516, y: -0.9744501, z: -125.31542}
+  m_LocalScale: {x: 292.0579, y: 1, z: 166.33948}
   m_Children: []
-  m_Father: {fileID: 1454384144}
+  m_Father: {fileID: 1342647419}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!108 &871864826
@@ -989,7 +989,7 @@ Transform:
   m_Children:
   - {fileID: 894834538}
   m_Father: {fileID: 1342647419}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1342647418
 GameObject:
@@ -1018,6 +1018,7 @@ Transform:
   m_LocalPosition: {x: -23.196516, y: 7.0644503, z: 7.9154234}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 871864825}
   - {fileID: 461387179}
   - {fileID: 1326282970}
   - {fileID: 1454384144}
@@ -1119,10 +1120,9 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 9.276516, y: -0.9744501, z: -125.31542}
   m_LocalScale: {x: 292.0579, y: 1, z: 166.33948}
-  m_Children:
-  - {fileID: 871864825}
+  m_Children: []
   m_Father: {fileID: 1342647419}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1467490003
 GameObject:
@@ -1665,23 +1665,26 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1997867636}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f1cb6e1fbbfc7044a9a2517c9d507c36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   fadeDuration: 0.6
-  pastSkyBoxColour: {r: 0.38892844, g: 0.7168441, b: 0.8679245, a: 0}
+  pastSkyBoxColour: {r: 1, g: 0.9325686, b: 0.8254717, a: 0}
   pastLightColour: {r: 1, g: 0.8125633, b: 0.57254905, a: 0}
-  pastFogColour: {r: 0.5562478, g: 0.7080706, b: 0.9433962, a: 0}
+  pastFogColour: {r: 1, g: 0.9333334, b: 0.8235295, a: 0}
   pastLightIntensity: 1
-  pastFogEndDist: 500
-  futureSkyBoxColour: {r: 0.7169812, g: 0.4836241, b: 0.522517, a: 0}
+  pastFogEndDist: 600
+  futureSkyBoxColour: {r: 0.8679245, g: 0.250653, b: 0.09416164, a: 0}
   futureLightColour: {r: 0.4716981, g: 0.37957683, b: 0.30927375, a: 0}
-  futureFogColour: {r: 0.3301887, g: 0.26482645, b: 0.26010147, a: 0}
+  futureFogColour: {r: 0.8207547, g: 0.30078903, b: 0.23616053, a: 0}
   futureLightIntensity: 0.8
   futureFogEndDist: 200
   skyBox: {fileID: 2100000, guid: d31c39a02635df440a5fc4a31d963725, type: 2}
+  pastMaterials:
+  - {fileID: 2100000, guid: fbc8355e82f122f40b57115ddb584b33, type: 2}
+  - {fileID: 2100000, guid: 5549e4fb0d0e1b14b873d28546c0b9ce, type: 2}
 --- !u!114 &1997867639
 MonoBehaviour:
   m_ObjectHideFlags: 0

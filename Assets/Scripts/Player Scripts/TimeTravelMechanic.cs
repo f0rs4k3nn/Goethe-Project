@@ -37,6 +37,8 @@ public class TimeTravelMechanic : MonoBehaviour
     private GameManager game;
     private AudioManager audio;
 
+    public Material[] pastMaterials;
+
 
     private void Awake()
     {
@@ -56,11 +58,10 @@ public class TimeTravelMechanic : MonoBehaviour
         futureObjects = GameObject.FindGameObjectsWithTag("Future Object");
         futureObjectsConstruct = GameObject.FindGameObjectsWithTag("Future Construct");
         animatedObjects = GameObject.FindObjectsOfType<Animator>();
+        mainLight = GameObject.Find("Directional Light").GetComponent<Light>();
 
         ChangeSceneEnvironment(true);
-        canTimeTravel = true;
-
-        mainLight = GameObject.Find("Directional Light").GetComponent<Light>();
+        canTimeTravel = true;  
     }
 
     // Update is called once per frame
@@ -153,8 +154,12 @@ public class TimeTravelMechanic : MonoBehaviour
 
         RenderSettings.ambientSkyColor = isInFuture ? futureSkyBoxColour : pastSkyBoxColour;
 
-        skyBox.SetColor("_Color", isInFuture ? futureSkyBoxColour : pastSkyBoxColour);
+        skyBox.SetColor("_Tint", isInFuture ? futureSkyBoxColour : pastSkyBoxColour);
 
+        foreach(Material mat in pastMaterials)
+        {
+            mat.color = new Color(mat.color.r, mat.color.g, mat.color.b, isInFuture ? 0 : 1);
+        }
 
         SetCollisions();
         SetEnabled();
