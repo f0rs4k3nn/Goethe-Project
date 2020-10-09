@@ -6,7 +6,7 @@ public class FollowMeConsoles : MonoBehaviour
 {
     public Transform BossConsole;
     public static List<Transform> Waypoints = new List<Transform>();
-    Transform WaypointToFollow;
+    public Transform WaypointToFollow;
     void Start()
     {
         StartCoroutine(InitializeArrow());          
@@ -44,24 +44,26 @@ public class FollowMeConsoles : MonoBehaviour
     }
     private Transform CheckWaypoints()
     {
-        Transform target;
+        Transform target = null;
         if (Waypoints.Count > 0)
-        {
-            target = Waypoints[0].transform;
-            float distance = Vector3.Distance(transform.position, target.position);
-            for (int i = 1; i < Waypoints.Count - 1; i++)
-            {
-                if (Vector3.Distance(transform.position, Waypoints[i].position) < distance)
+        {            
+            float distance = 0f;
+            foreach(Transform obiect in Waypoints)
+            {               
+                float dist = Vector3.Distance(transform.position, obiect.position);
+                Debug.LogWarning("Checking : " + obiect + ", dist : " + dist);
+                if (distance == 0 || dist < distance)
                 {
-                    distance = Vector3.Distance(transform.position, Waypoints[i].position);
-                    target = Waypoints[i].transform;
+                    distance = dist;
+                    target = obiect;
                 }
-            }
+            }            
         }
         else
         {
             return BossConsole;
         }
+        
         return target;
     }
 }

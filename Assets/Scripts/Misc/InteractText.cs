@@ -105,6 +105,7 @@ public class InteractText : MonoBehaviour
             KillBossTerminal.shieldCount --;             
             interactText = "Security Console Deactivated. ";
             FollowMeConsoles.Waypoints.Remove(transform);
+            Debug.Log("Removed " + transform);
             if (KillBossTerminal.shieldCount <= 0)
             {
                 KillBossTerminal.shieldCount = 0;
