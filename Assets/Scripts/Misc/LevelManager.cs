@@ -31,6 +31,7 @@ public class LevelManager : MonoBehaviour
     }
 }
 
+[System.Serializable]
 public class TimeTravelPreset
 {
     [Space]

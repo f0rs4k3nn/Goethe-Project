@@ -10,7 +10,8 @@ public class ThirdPersonCamera : MonoBehaviour
     private Transform target;
     private float dstFromtarget = 2;
     public float pitchMin = -40;
-    public float pitchMax = 85;
+    public float pitchMax = 85;          
+    public static float shakeMagnitude = 0f;
 
     public float rotationSmoothTime = 1.2f;
     private Vector3 rotationSmoothVelocity;
@@ -26,6 +27,7 @@ public class ThirdPersonCamera : MonoBehaviour
     private void Awake()
     {
         GameManager.Instance.camera = this;
+        shakeMagnitude = 0;
     }
 
     // Start is called before the first frame update
@@ -38,7 +40,7 @@ public class ThirdPersonCamera : MonoBehaviour
 
     // Update is called once per frame
     void LateUpdate()
-    {
+    {       
         if (canMove)
         {
             yaw += Input.GetAxis("Mouse X") * mouseSensitivity;
@@ -54,7 +56,10 @@ public class ThirdPersonCamera : MonoBehaviour
 
         dstFromtarget = clipControl.GetCurrentDistance();
         //Debug.Log(clipControl.GetCurrentDistance());
-        transform.position = target.position - transform.forward * dstFromtarget;
+
+        Vector3 offset = UnityEngine.Random.insideUnitSphere * shakeMagnitude;
+
+        transform.position = (target.position - transform.forward * dstFromtarget) + offset;
     }
 
     public void SetActive(bool isActive) 
