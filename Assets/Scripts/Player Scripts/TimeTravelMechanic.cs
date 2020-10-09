@@ -65,7 +65,10 @@ public class TimeTravelMechanic : MonoBehaviour
         futureObjects = GameObject.FindGameObjectsWithTag("Future Object");
         futureObjectsConstruct = GameObject.FindGameObjectsWithTag("Future Construct");
         animatedObjects = GameObject.FindObjectsOfType<Animator>();
+
+
         mainLight = GameObject.Find("Directional Light").GetComponent<Light>();
+
         skyBox = RenderSettings.skybox;
 
         try
@@ -163,6 +166,19 @@ public class TimeTravelMechanic : MonoBehaviour
      */
     private void ChangeSceneEnvironment(bool isStartOfLevel)
     {
+
+        if(isInFuture)
+        {
+            audio.SetDarkAmbientVolume(1);
+            audio.SetPitch(0.3f);
+            audio.SetVolume(0.4f);
+        } else
+        {
+            audio.SetDarkAmbientVolume(0);
+            audio.SetPitch(1);
+            audio.SetVolume(1);
+        }
+
         mainLight.color = isInFuture ? currentPreset.futureLightColour : currentPreset.pastLightColour;
         mainLight.intensity = isInFuture ? currentPreset.futureLightIntensity : currentPreset.pastLightIntensity;
 

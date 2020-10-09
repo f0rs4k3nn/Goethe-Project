@@ -19,7 +19,9 @@ public class LevelFinisher : MonoBehaviour
     {
         //song.Stop();
         AudioManager.instance.Play("FinishLevel");
+        
         Instantiate(finishParticle, transform);
+
 
         GameManager.Instance.FinishedLevel();
     }

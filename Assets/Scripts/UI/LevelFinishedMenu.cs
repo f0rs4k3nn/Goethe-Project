@@ -68,6 +68,8 @@ public class LevelFinishedMenu : MonoBehaviour
         AudioManager.instance.Play("Selection");
         if (finishedLevel)
         {
+            AudioManager.instance.StopAudio();
+
             fadeOverlay.gameObject.SetActive(true);
 
             Color fixedColor = fadeOverlay.color;

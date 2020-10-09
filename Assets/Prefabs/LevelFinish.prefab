@@ -45,7 +45,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a8b22801e69add448b7cce70a1edf34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelIndex: 4
+  levelIndex: 10
+  ambientMusic: BirdsAmbient
+  music: AmbientPiano
+  currentPreset:
+    pastSkyBoxColour: {r: 0.21226418, g: 0.7567498, b: 1, a: 0}
+    pastLightColour: {r: 1, g: 0.72829944, b: 0.2028302, a: 0}
+    pastFogColour: {r: 0.4008989, g: 0.68455553, b: 0.9339623, a: 0}
+    pastLightIntensity: 1
+    pastFogEndDist: 600
+    futureSkyBoxColour: {r: 0.99215686, g: 0.6133739, b: 0.40784314, a: 0}
+    futureLightColour: {r: 0.745283, g: 0.2214756, b: 0.2214756, a: 0}
+    futureFogColour: {r: 0.3962264, g: 0.122200675, b: 0, a: 0}
+    futureLightIntensity: 0.5
+    futureFogEndDist: 60
 --- !u!1 &7095738410148874061
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
+
 using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
@@ -11,6 +13,7 @@ public class LevelManager : MonoBehaviour
 
     private bool fetchIndexAutomatically = false;
 
+    [SerializeField]
     public TimeTravelPreset currentPreset;
 
     void Awake()
@@ -25,12 +28,14 @@ public class LevelManager : MonoBehaviour
     private void Start()
     {
         AudioManager audio = AudioManager.instance;
-
+        
         audio.PlayAmbient(ambientMusic);
         audio.Play(music);
+        audio.PlayAmbient("Dark Ambient");
     }
 }
 
+[Serializable]
 public class TimeTravelPreset
 {
     [Space]
@@ -44,7 +49,5 @@ public class TimeTravelPreset
     public Color futureLightColour;
     public Color futureFogColour;
     public float futureLightIntensity;
-    public float futureFogEndDist;
-
-    
+    public float futureFogEndDist; 
 }

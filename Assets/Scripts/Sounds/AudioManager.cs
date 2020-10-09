@@ -39,7 +39,7 @@ public class AudioManager : MonoBehaviour
 		{
 			s.source = gameObject.AddComponent<AudioSource>();
 			s.source.clip = s.clip;
-			s.source.loop = s.isMusic;
+			s.source.loop = s.isMusic || s.loop;
 
 			s.source.outputAudioMixerGroup = mixerGroup;
 		}
@@ -47,10 +47,11 @@ public class AudioManager : MonoBehaviour
 	
 	private void Start()
 	{
-        effectsVolume = musicVolume = 0.1f;
-		//SetMusicVolume();
-		//SetEffectsVolume();
-	}
+        musicVolume = 0.2f;
+        effectsVolume = 0.1f;
+        //SetMusicVolume();
+        //SetEffectsVolume();
+    }
 
 	public void Play(string sound)
 	{
@@ -68,7 +69,9 @@ public class AudioManager : MonoBehaviour
 
 		if(s.isMusic)
 		{
-            currentlyPlayingMusic.source.Stop();
+            if(currentlyPlayingMusic != null)
+                currentlyPlayingMusic.source.Stop();
+
 			currentlyPlayingMusic = s;
 		}
 		
@@ -105,13 +108,18 @@ public class AudioManager : MonoBehaviour
 
         if(sound.Equals("Dark Ambient"))
         {
-            if (darkAmbient != null)
-                darkAmbient = s; 
+           darkAmbient = s;
+
+           s.source.volume = 0;
+        } else
+        {
+            if(currentlyPlayingAmbient != null)
+                currentlyPlayingAmbient.source.Stop();
+
+            currentlyPlayingAmbient = s;
         }
 
-        currentlyPlayingAmbient.source.Stop();
-        currentlyPlayingAmbient = s;
-
+        Debug.Log("I am playing " + sound);
         s.source.Play();
     }
 
@@ -119,12 +127,12 @@ public class AudioManager : MonoBehaviour
     {
         if(currentlyPlayingAmbient != null)
         {
-            currentlyPlayingAmbient.source.pitch = pitch;
+            currentlyPlayingAmbient.source.pitch = currentlyPlayingAmbient.pitch * pitch;
         }
 
         if (currentlyPlayingMusic != null)
         {
-            currentlyPlayingMusic.source.pitch = pitch;
+            currentlyPlayingMusic.source.pitch = currentlyPlayingMusic.pitch * pitch;
         }
     }
 
@@ -132,15 +140,34 @@ public class AudioManager : MonoBehaviour
     {
         if (currentlyPlayingAmbient != null)
         {
-            currentlyPlayingAmbient.source.volume = vol;
+            currentlyPlayingAmbient.source.volume = currentlyPlayingAmbient.volume * vol * musicVolume;
         }
 
         if (currentlyPlayingMusic != null)
         {
-            currentlyPlayingMusic.source.volume = vol;
+            currentlyPlayingMusic.source.volume = currentlyPlayingMusic.volume * vol * musicVolume;
         }
     }
 
+    public void SetDarkAmbientVolume(float vol)
+    {
+        Debug.Log("I GOT CALLED");
+        if (darkAmbient != null)
+        {
+            Debug.Log("Yoosh there is dark ambient ");
+            darkAmbient.source.volume = darkAmbient.volume * vol * musicVolume;
+        } else
+        {
+            Debug.Log("fuc ");
+        }
+    }
+
+    public void StopAudio()
+    {
+        darkAmbient.source.Stop();
+        currentlyPlayingMusic.source.Stop();
+        currentlyPlayingAmbient.source.Stop();
+    }
  
 
     /*public void SetMusicVolume()
