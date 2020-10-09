@@ -39,11 +39,17 @@ public class PurchaseSystem : MonoBehaviour
 
     private void Awake()
     {
-        TotalScrapText.text = GameManager.Instance.TotalScrap.ToString();
+//        TotalScrapText.text = GameManager.Instance.TotalScrap.ToString();
+//
+//        for(int i = 0; i < 9; ++i)
+//            PlayerPrefs.DeleteKey(characterInfos[i].name + "isPurchased");
+//        GameManager.Instance.TotalScrap = 20;
+    }
 
-        for(int i = 0; i < 9; ++i)
-            PlayerPrefs.DeleteKey(characterInfos[i].name + "isPurchased");
-        GameManager.Instance.TotalScrap = 20;
+    private void Start()
+    {
+        currentCharacterIndex = GameManager.Instance.CurrentCharacterModelIndex;
+        UpdateInfo(currentCharacterIndex);
     }
 
     public void OnActivateCharacterButton()

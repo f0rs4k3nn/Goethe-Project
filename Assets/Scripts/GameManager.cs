@@ -35,7 +35,15 @@ public class GameManager : Singleton<GameManager>
     public static bool hasToInitialize = true;
     public static bool keyPlatformActivated = false;
 
-    public int CurrentCharacterModelIndex = 0;
+    public int CurrentCharacterModelIndex
+    {
+        set
+        {
+            if(value < 10)
+                PlayerPrefs.SetInt("CurrentCharacterIndex", value);
+        }
+        get { return PlayerPrefs.GetInt("CurrentCharacterIndex", 0); }
+    }
 
     private GameObject levelFinishedMenu;
     private SaveData _save;
