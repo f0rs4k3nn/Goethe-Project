@@ -7,6 +7,12 @@ public class TriggerGravity : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        movingObject.GetComponent<Rigidbody>().isKinematic = false;
+        if (other.name == "Player")
+        {
+            if (movingObject.GetComponent<Rigidbody>())
+            {
+                movingObject.GetComponent<Rigidbody>().isKinematic = false;
+            }
+        }
     }
 }

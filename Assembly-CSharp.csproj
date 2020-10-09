@@ -63,6 +63,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\AddCheckpoint.cs" />
     <Compile Include="Assets\Assets Download\NatureManufacture Assets - Trials Not Full Resolution\NatureManufacture Wind\NM_Wind.cs" />
     <Compile Include="Assets\Assets Download\SampleScenes\Menu\Scripts\MenuSceneLoader.cs" />
     <Compile Include="Assets\Assets Download\SampleScenes\Menu\Scripts\PauseMenu.cs" />
@@ -268,6 +269,8 @@
     <Compile Include="Assets\Aura\Structs\VolumeTextureData.cs" />
     <Compile Include="Assets\CameraShakeFX\Scripts\StressReceiver.cs" />
     <Compile Include="Assets\CameraShakeFX\Scripts\TraumaInducer.cs" />
+    <Compile Include="Assets\Die.cs" />
+    <Compile Include="Assets\End.cs" />
     <Compile Include="Assets\FlashForward.cs" />
     <Compile Include="Assets\Interact.cs" />
     <Compile Include="Assets\MaxP\Shaders\Scripts\DirtyLensFlare.cs" />
@@ -286,6 +289,10 @@
     <Compile Include="Assets\RainMaker\Prefab\RainCollision.cs" />
     <Compile Include="Assets\RainMaker\Prefab\RainScript.cs" />
     <Compile Include="Assets\RainMaker\Prefab\RainScript2D.cs" />
+    <Compile Include="Assets\Real-Time Procedural Cable Simple\Scripts\CableProceduralCurve.cs" />
+    <Compile Include="Assets\Real-Time Procedural Cable Simple\Scripts\CableProceduralMultipoint.cs" />
+    <Compile Include="Assets\Real-Time Procedural Cable Simple\Scripts\CableProceduralSimple.cs" />
+    <Compile Include="Assets\Real-Time Procedural Cable Simple\Scripts\CableProceduralStatic.cs" />
     <Compile Include="Assets\Scripts\BadWall.cs" />
     <Compile Include="Assets\Scripts\CoolCollectible.cs" />
     <Compile Include="Assets\Scripts\Enemy\DamageZone.cs" />
@@ -364,9 +371,11 @@
     <None Include="Assets\Aura\Shaders\ComputeShaders\Includes\SpotLightInjection.cginc" />
     <None Include="Assets\Aura\Shaders\Shaders\StorePointLightShadowMap.shader" />
     <None Include="Assets\Assets Download\TextMesh Pro\Resources\Shaders\TMP_Bitmap.shader" />
+    <None Include="Assets\IceMaterial\Shader\Ice.shader" />
     <None Include="Assets\Assets Download\Standard Assets\Effects\Projectors\Guidelines.txt" />
     <None Include="Assets\Aura\Shaders\Includes\AuraParticlesBase.cginc" />
     <None Include="Assets\Assets Download\TextMesh Pro\Examples &amp; Extras\Fonts\Oswald-Bold - OFL.txt" />
+    <None Include="Assets\Real-Time Procedural Cable Simple\ReadmeSimpleCable.txt" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets\VolumetricLights\Resources\Shaders\Primitives.hlsl" />
     <None Include="Assets\Aura\Shaders\Shaders\Particles\AuraParticlesAlphaBlend.shader" />
@@ -425,6 +434,7 @@
     <None Include="Assets\Assets Download\NatureManufacture Assets - Trials Not Full Resolution\EasyRoads-HD_Add_ON\Shaders\Standard_Metalic_Cross_Road_Shader Parallax ArrayTrial.shader" />
     <None Include="Assets\Assets Download\Standard Assets\Effects\ToonShading\Shaders\ToonBasic.shader" />
     <None Include="Assets\Assets Download\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
+    <None Include="Assets\Real-Time Procedural Cable Simple\ReadmeStaticCable.txt" />
     <None Include="Assets\PyroParticles\Readme.txt" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF Overlay.shader" />
     <None Include="Assets\Aura\Shaders\ComputeShaders\Includes\TemporalReprojection.cginc" />
@@ -449,6 +459,7 @@
     <None Include="Assets\Assets Download\Windridge City Assets\READ ME - About project and assets.txt" />
     <None Include="Assets\Aura\Shaders\Shaders\BuiltinReplacement\BillboardTree.shader" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
+    <None Include="Assets\Real-Time Procedural Cable Simple\ReadmeCurveCable.txt" />
     <None Include="Assets\Assets Download\Standard Assets\Effects\ImageEffects\Readme.txt" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap.shader" />
     <None Include="Assets\Assets Download\Standard Assets\Characters\RollerBall\RollerBallGuidelines.txt" />
@@ -458,6 +469,7 @@
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile.shader" />
     <None Include="Assets\SimpleCloudSystem by RM\SCS Instructions.txt" />
     <None Include="Assets\Assets Download\Standard Assets\Effects\ToonShading\Shaders\ToonBasicOutline.shader" />
+    <None Include="Assets\Real-Time Procedural Cable Simple\ReadmeMultiPointCable.txt" />
     <None Include="Assets\Assets Download\NatureManufacture Assets - Trials Not Full Resolution\Foliage Shaders\NM_indirect.cginc" />
     <None Include="Assets\Assets Download\Standard Assets\Characters\FirstPersonCharacter\FirstPersonCharacterGuidelines.txt" />
     <None Include="Assets\Assets Download\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Masking.shader" />
