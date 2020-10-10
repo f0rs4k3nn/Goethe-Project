@@ -6,6 +6,8 @@ using UnityEngine.ProBuilder.MeshOperations;
 
 public class PlayerController : MonoBehaviour
 {
+    public Animator[] PlayerModels; // Predefined different models animations
+    
     public float walkSpeed = 12;
     public float runSpeed = 45;
    // public int maxSpeed = 1;
@@ -88,6 +90,15 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        for (int i = 0; i < 10; i++) // Disable all player model
+        {
+            PlayerModels[i].gameObject.SetActive(false);
+        }
+        
+        // Activate selected player model
+        PlayerModels[GameManager.Instance.CurrentCharacterModelIndex].gameObject.SetActive(true);
+        m_Animator = PlayerModels[GameManager.Instance.CurrentCharacterModelIndex];
+        
         camera = GameManager.Instance.camera.transform;
         player = GetComponent<CharacterController>();
         canMove = true;
