@@ -6,7 +6,6 @@ using System.Linq;
 
 public class Dialog : MonoBehaviour
 {
-
     public string[] sentencesNpc;
     public int index = 0;
     bool startConversation = false;
