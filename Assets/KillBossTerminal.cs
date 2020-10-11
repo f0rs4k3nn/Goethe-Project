@@ -5,13 +5,12 @@ using UnityEngine;
 public class KillBossTerminal : MonoBehaviour
 {
     public static int shieldCount;
-    public static bool shakeCam = false;    
-
-    void Start()
+    public static bool shakeCam = false;
+    private void Awake()
     {
         shieldCount = GameObject.FindGameObjectsWithTag("SecurityConsole").Length;
         Debug.Log("Consoles : " + shieldCount);
-    }
+    } 
 
     private void Update()
     {

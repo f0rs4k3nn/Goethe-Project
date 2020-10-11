@@ -7,9 +7,18 @@ public class FollowMeConsoles : MonoBehaviour
     public Transform BossConsole;
     public static List<Transform> Waypoints = new List<Transform>();
     public Transform WaypointToFollow;
+    private void Awake()
+    {
+        GameObject[] tempObj = GameObject.FindGameObjectsWithTag("SecurityConsole");
+
+        foreach (GameObject obiect in tempObj)
+            Waypoints.Add(obiect.transform);
+
+        Debug.Log("Found " + Waypoints.Count + " Consoles");        
+    }
     void Start()
     {
-        StartCoroutine(InitializeArrow());          
+        StartCoroutine(InitializeArrow());
         StartCoroutine(LoopCheck());
     }
    
@@ -26,13 +35,7 @@ public class FollowMeConsoles : MonoBehaviour
             transform.localPosition = new Vector3(0, 2, 0.5f);
             transform.localRotation = new Quaternion(0, 0, 0, 0);
             yield return null;            
-        }
-        GameObject[] tempObj = GameObject.FindGameObjectsWithTag("SecurityConsole");
-
-        foreach (GameObject obiect in tempObj)
-            Waypoints.Add(obiect.transform);
-
-        Debug.Log("Found " + Waypoints.Count + " Consoles");
+        }        
     }
     IEnumerator LoopCheck()
     {
