@@ -9,16 +9,10 @@ public class FollowMeConsoles : MonoBehaviour
     public Transform WaypointToFollow;
     private void Awake()
     {
-        GameObject[] tempObj = GameObject.FindGameObjectsWithTag("SecurityConsole");
-
-        foreach (GameObject obiect in tempObj)
-            Waypoints.Add(obiect.transform);
-
-        Debug.Log("Found " + Waypoints.Count + " Consoles");        
+        StartCoroutine(InitializeArrow());        
     }
     void Start()
-    {
-        StartCoroutine(InitializeArrow());
+    {        
         StartCoroutine(LoopCheck());
     }
    
@@ -28,7 +22,14 @@ public class FollowMeConsoles : MonoBehaviour
     }
     IEnumerator InitializeArrow()
     {
-        while(transform.parent == null)
+        GameObject[] tempObj = GameObject.FindGameObjectsWithTag("SecurityConsole");
+
+        foreach (GameObject obiect in tempObj)
+            Waypoints.Add(obiect.transform);
+
+        Debug.Log("Found " + Waypoints.Count + " Consoles");
+
+        while (transform.parent == null)
         {
             Debug.Log("checking for player...");
             transform.SetParent(GameManager.Instance.playerTransform);
