@@ -33,13 +33,12 @@ public class TransitionOne : MonoBehaviour
         yield return new WaitForSeconds(1);
         mainCamera.transform.SetParent(cameraAnim.transform);
         cameraAnim.GetComponent<Animation>().Play();
-        canvas.GetComponent<AudioSource>().Play();
         Destroy(instantiatedFire);
         yield return new WaitForSeconds(1f);
         mainCamera.GetComponent<StressReceiver>().InduceStress(10);
         yield return new WaitForSeconds(1f);
         mainCamera.GetComponent<StressReceiver>().InduceStress(25);
-        yield return new WaitForSeconds(24);
+        yield return new WaitForSeconds(5f);
         SceneManager.LoadScene(1);
     }
 }
