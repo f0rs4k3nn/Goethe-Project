@@ -69,7 +69,7 @@ public class TimeTravelMechanic : MonoBehaviour
 
         mainLight = GameObject.Find("Directional Light").GetComponent<Light>();
 
-        skyBox = RenderSettings.skybox;
+        //skyBox = RenderSettings.skybox;
 
         try
         {
