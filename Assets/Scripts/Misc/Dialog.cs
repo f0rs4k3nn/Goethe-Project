@@ -69,7 +69,13 @@ public class Dialog : MonoBehaviour
             game.textDisplay.text = sentencesNpc[index];
         }
     }
-
+    public void StartConversationAtSpawn()
+    {
+        Debug.Log("started dialog");
+        startConversation = true;
+        game.dialogBox.SetActive(true);
+        StartCoroutine(Type());
+    }
     public void ResetConversation()
     {
         game.textDisplay.text = "";

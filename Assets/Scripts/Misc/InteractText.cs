@@ -93,7 +93,7 @@ public class InteractText : MonoBehaviour
             }
             else
             {
-                interactText = "The terminal is still shielded. There are " + KillBossTerminal.shieldCount + " active security consoles remain to deactivate";
+                interactText = "The terminal is still shielded. " + KillBossTerminal.shieldCount + " security terminals remain to deactivate";
                 GameManager.Instance.interactText.text = interactText;
                 GameManager.Instance.interactBttn.SetActive(false);
                 SlideTweenIn();
@@ -109,11 +109,11 @@ public class InteractText : MonoBehaviour
             if (KillBossTerminal.shieldCount <= 0)
             {
                 KillBossTerminal.shieldCount = 0;
-                interactText += "All SecurityConsoles have been deactivated. Now get to the last floor and end it!";
+                interactText += "The Shutdown terminal is now ready to be used";
             }
             else
             {
-                interactText += "There are " + KillBossTerminal.shieldCount + " active security consoles remain to deactivate"; 
+                interactText += " " + KillBossTerminal.shieldCount + " security terminals left to deactivate"; 
             }
             
             GameManager.Instance.interactText.text = interactText;

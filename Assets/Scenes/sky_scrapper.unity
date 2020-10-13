@@ -19618,6 +19618,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 619979507}
+  - component: {fileID: 619979508}
+  - component: {fileID: 619979510}
+  - component: {fileID: 619979509}
   m_Layer: 0
   m_Name: SpawnPoint
   m_TagString: Untagged
@@ -19633,12 +19636,62 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 619979506}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.6, y: -11.47, z: 27.46}
+  m_LocalPosition: {x: 8.52, y: -11.84, z: 24.68}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1421493079}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &619979508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 619979506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8536a1d7b48a6e2428f69df1468e8a5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sentencesNpc:
+  - You have arrived at the Corpo Headquarters
+  - To end this you will need to use the shutdown terminal located at the very top
+    of this building.
+  - In order to do that you need deactivate its security terminals, which are spread
+    inside these two buildings.
+  - I managed to hack into their mainframe and found the location of all the security
+    terminals.
+  - You have been equiped with a navigation device and the location of the terminals
+    have been uploaded.
+  - Good luck. We are all counting on you.
+  index: 0
+  typingSpeed: 0
+--- !u!114 &619979509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 619979506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6428f47bee54031479968a61ee762432, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &619979510
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 619979506}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10, y: 10, z: 10}
+  m_Center: {x: 0, y: 2.98, z: 0}
 --- !u!1001 &620381872
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21807,7 +21860,6 @@ GameObject:
   - component: {fileID: 682007061}
   - component: {fileID: 682007063}
   - component: {fileID: 682007062}
-  - component: {fileID: 682007064}
   m_Layer: 0
   m_Name: SecurityConsole2 (8)
   m_TagString: SecurityConsole
@@ -21837,7 +21889,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 682007060}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3a9b92b10d64b2643b12ea6d55a57d29, type: 3}
   m_Name: 
@@ -21855,23 +21907,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3.4716907, y: 2.2659912, z: 3.9706678}
   m_Center: {x: -0.3241403, y: 1.3817139, z: 1.485337}
---- !u!114 &682007064
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 682007060}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8536a1d7b48a6e2428f69df1468e8a5a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sentencesNpc:
-  - All SecurityConsoles have been deactivated. Now get to the last floor and end
-    it!
-  index: 0
-  typingSpeed: 0
 --- !u!4 &683788572 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3924458943833692068, guid: 6890b466ffc2bd846925f470a2313721,
@@ -59136,12 +59171,12 @@ PrefabInstance:
     - target: {fileID: 3876173528336372034, guid: 04dc78af9b7c89b4a916e47e0e6da45f,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 13.700059
+      value: 7.1
       objectReference: {fileID: 0}
     - target: {fileID: 3876173528336372034, guid: 04dc78af9b7c89b4a916e47e0e6da45f,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.000015554571
+      value: -1.3
       objectReference: {fileID: 0}
     - target: {fileID: 3876173528336372034, guid: 04dc78af9b7c89b4a916e47e0e6da45f,
         type: 3}
@@ -59191,12 +59226,12 @@ PrefabInstance:
     - target: {fileID: 3876173528336372034, guid: 04dc78af9b7c89b4a916e47e0e6da45f,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.0041082
+      value: 1.0017985
       objectReference: {fileID: 0}
     - target: {fileID: 3876173528336372034, guid: 04dc78af9b7c89b4a916e47e0e6da45f,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.9800001
+      value: 0.9675835
       objectReference: {fileID: 0}
     - target: {fileID: 3876173528336372034, guid: 04dc78af9b7c89b4a916e47e0e6da45f,
         type: 3}
