@@ -169,12 +169,6 @@ public class GameManager : Singleton<GameManager>
             sign.SetActive(false);
 
             hasToInitialize = false;
-
-            Debug.Log("NUTSHACK");
-
-
-
-
         } catch(System.Exception e)
         {
             Debug.Log("Loading " + e + " incomplete");
