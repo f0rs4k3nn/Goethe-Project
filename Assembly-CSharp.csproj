@@ -2,8 +2,6 @@
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <LangVersion>latest</LangVersion>
-    <CscToolPath>C:\Program Files\Unity\Hub\Editor\2019.3.4f1\Editor\Data\Tools\RoslynScripts</CscToolPath>
-    <CscToolExe>unity_csc.bat</CscToolExe>
   </PropertyGroup>
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -54,6 +52,9 @@
     <UnityVersion>2019.3.4f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\16.0\Analyzers\Microsoft.Unity.Analyzers.dll" />
+  </ItemGroup>
+  <ItemGroup>
     <Reference Include="UnityEngine">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2019.3.4f1\Editor\Data\Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
@@ -62,6 +63,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\AddCheckpoint.cs" />
     <Compile Include="Assets\Assets Download\48 Particle Effect Pack\Script\csDestroyEffect.cs" />
     <Compile Include="Assets\Assets Download\48 Particle Effect Pack\Script\csMouseOrbit.cs" />
     <Compile Include="Assets\Assets Download\48 Particle Effect Pack\Script\csParticleEffectPackLightControl.cs" />
@@ -289,10 +291,90 @@
     <Compile Include="Assets\Assets Download\subway_entrance_pack\PostProcessing\Runtime\Utils\MaterialFactory.cs" />
     <Compile Include="Assets\Assets Download\subway_entrance_pack\PostProcessing\Runtime\Utils\RenderTextureFactory.cs" />
     <Compile Include="Assets\Assets Download\subway_entrance_pack\PostProcessing\Utilities\CustomMotionTexture\ExampleWheelController.cs" />
+    <Compile Include="Assets\Aura\Attributes\ColorCircularPickerAttribute.cs" />
+    <Compile Include="Assets\Aura\Attributes\Texture3DPreviewAttribute.cs" />
+    <Compile Include="Assets\Aura\Classes\Aura.cs" />
+    <Compile Include="Assets\Aura\Classes\AuraLight.cs" />
+    <Compile Include="Assets\Aura\Classes\AuraVolume.cs" />
+    <Compile Include="Assets\Aura\Classes\Buffers.cs" />
+    <Compile Include="Assets\Aura\Classes\CullableObject.cs" />
+    <Compile Include="Assets\Aura\Classes\DirectionalLightsManager.cs" />
+    <Compile Include="Assets\Aura\Classes\DirectionalShadowDataCollector.cs" />
+    <Compile Include="Assets\Aura\Classes\Frustum.cs" />
+    <Compile Include="Assets\Aura\Classes\FrustumSettings.cs" />
+    <Compile Include="Assets\Aura\Classes\LightsManager.cs" />
+    <Compile Include="Assets\Aura\Classes\ObjectsCuller.cs" />
+    <Compile Include="Assets\Aura\Classes\PointLightsManager.cs" />
+    <Compile Include="Assets\Aura\Classes\ShadowmapsCollector.cs" />
+    <Compile Include="Assets\Aura\Classes\SpotLightsManager.cs" />
+    <Compile Include="Assets\Aura\Classes\SwappableRenderTexture.cs" />
+    <Compile Include="Assets\Aura\Classes\Texture2DArrayComposer.cs" />
+    <Compile Include="Assets\Aura\Classes\VolumesManager.cs" />
+    <Compile Include="Assets\Aura\Classes\VolumetricTexture.cs" />
+    <Compile Include="Assets\Aura\Classes\VolumetricTextureArrayComposer.cs" />
+    <Compile Include="Assets\Aura\Enums\FrustumParametersEnum.cs" />
+    <Compile Include="Assets\Aura\Enums\OcclusionCullingAccuracyEnum.cs" />
+    <Compile Include="Assets\Aura\Enums\VolumeTypeEnum.cs" />
+    <Compile Include="Assets\Aura\Enums\VolumetricTextureFilterModeEnum.cs" />
+    <Compile Include="Assets\Aura\Enums\VolumetricTextureWrapModeEnum.cs" />
+    <Compile Include="Assets\Aura\Examples\Sponza\Fireball\Fireball.cs" />
+    <Compile Include="Assets\Aura\Examples\Sponza\Scripts\AuraFreeCamera.cs" />
+    <Compile Include="Assets\Aura\Examples\Sponza\Scripts\AutoMoveAndRotate.cs" />
+    <Compile Include="Assets\Aura\Examples\Sponza\Scripts\DebugFps.cs" />
+    <Compile Include="Assets\Aura\Examples\Sponza\Scripts\LightFlicker.cs" />
+    <Compile Include="Assets\Aura\Examples\Sponza\Scripts\MoveSinCos.cs" />
+    <Compile Include="Assets\Aura\Examples\Sponza\Scripts\SinRotationOffset.cs" />
+    <Compile Include="Assets\Aura\Extensions\CameraExtensions.cs" />
+    <Compile Include="Assets\Aura\Extensions\FloatExtensions.cs" />
+    <Compile Include="Assets\Aura\Extensions\FrustumParametersEnumExtensions.cs" />
+    <Compile Include="Assets\Aura\Extensions\Gaia\GaiaExtension.cs" />
+    <Compile Include="Assets\Aura\Extensions\GenericExtensions.cs" />
+    <Compile Include="Assets\Aura\Extensions\IntExtensions.cs" />
+    <Compile Include="Assets\Aura\Extensions\Matrix4x4Extensions.cs" />
+    <Compile Include="Assets\Aura\Extensions\RenderTextureExtensions.cs" />
+    <Compile Include="Assets\Aura\Extensions\StringExtensions.cs" />
+    <Compile Include="Assets\Aura\Extensions\Vector3Extensions.cs" />
+    <Compile Include="Assets\Aura\Extensions\Vector4Extensions.cs" />
+    <Compile Include="Assets\Aura\Scripts\GenerateComputeShaderKernelVariants.cs" />
+    <Compile Include="Assets\Aura\Statics\CustomGizmo.cs" />
+    <Compile Include="Assets\Aura\Statics\FrustumCorners.cs" />
+    <Compile Include="Assets\Aura\Structs\DirectionalLightParameters.cs" />
+    <Compile Include="Assets\Aura\Structs\DynamicNoiseParameters.cs" />
+    <Compile Include="Assets\Aura\Structs\FrustumSettingsParameters.cs" />
+    <Compile Include="Assets\Aura\Structs\LevelsParameters.cs" />
+    <Compile Include="Assets\Aura\Structs\MatrixFloats.cs" />
+    <Compile Include="Assets\Aura\Structs\PointLightParameters.cs" />
+    <Compile Include="Assets\Aura\Structs\SpotLightParameters.cs" />
+    <Compile Include="Assets\Aura\Structs\TransformParameters.cs" />
+    <Compile Include="Assets\Aura\Structs\VolumeData.cs" />
+    <Compile Include="Assets\Aura\Structs\VolumeDynamicNoiseData.cs" />
+    <Compile Include="Assets\Aura\Structs\VolumeGradient.cs" />
+    <Compile Include="Assets\Aura\Structs\VolumeInjectionColorParameters.cs" />
+    <Compile Include="Assets\Aura\Structs\VolumeInjectionCommonParameters.cs" />
+    <Compile Include="Assets\Aura\Structs\VolumeInjectionParameters.cs" />
+    <Compile Include="Assets\Aura\Structs\VolumeInjectionShape.cs" />
+    <Compile Include="Assets\Aura\Structs\VolumeLevelsData.cs" />
+    <Compile Include="Assets\Aura\Structs\VolumeTextureData.cs" />
+    <Compile Include="Assets\CameraShakeFX\Scripts\StressReceiver.cs" />
+    <Compile Include="Assets\CameraShakeFX\Scripts\TraumaInducer.cs" />
     <Compile Include="Assets\CreditsSceneController.cs" />
+    <Compile Include="Assets\Die.cs" />
+    <Compile Include="Assets\End.cs" />
+    <Compile Include="Assets\FlashForward.cs" />
+    <Compile Include="Assets\FollowMeConsoles.cs" />
+    <Compile Include="Assets\KillBossTerminal.cs" />
     <Compile Include="Assets\LightScript.cs" />
+    <Compile Include="Assets\MaxP\Shaders\Scripts\DirtyLensFlare.cs" />
+    <Compile Include="Assets\Petal Particles - Cherry Petals\Demo Scene\Script\DemoScene.cs" />
     <Compile Include="Assets\PickUpObject.cs" />
     <Compile Include="Assets\PlatformActivation.cs" />
+    <Compile Include="Assets\PyroParticles\Prefab\Script\FireBaseScript.cs" />
+    <Compile Include="Assets\PyroParticles\Prefab\Script\FireCollisionForwardScript.cs" />
+    <Compile Include="Assets\PyroParticles\Prefab\Script\FireConstantBaseScript.cs" />
+    <Compile Include="Assets\PyroParticles\Prefab\Script\FireLightScript.cs" />
+    <Compile Include="Assets\PyroParticles\Prefab\Script\FireProjectileScript.cs" />
+    <Compile Include="Assets\PyroParticles\Prefab\Script\MeteorSwarmScript.cs" />
+    <Compile Include="Assets\PyroParticles\Prefab\Script\SingleLineAttribute.cs" />
     <Compile Include="Assets\Scripts\BadWall.cs" />
     <Compile Include="Assets\Scripts\CoolCollectible.cs" />
     <Compile Include="Assets\Scripts\CreditsController.cs" />
@@ -346,6 +428,22 @@
     <Compile Include="Assets\Scripts\UI\SpriteAnimator.cs" />
     <Compile Include="Assets\Scripts\UI\TextBoxBehaviour.cs" />
     <Compile Include="Assets\Shaders\DitherEffect.cs" />
+    <Compile Include="Assets\TransitionOne.cs" />
+    <Compile Include="Assets\TriggerGravity.cs" />
+    <Compile Include="Assets\UB\Simple2dWeatherEffects\Standard\D2FogsNoiseTexPE.cs" />
+    <Compile Include="Assets\UB\Simple2dWeatherEffects\Standard\D2FogsPE.cs" />
+    <Compile Include="Assets\UB\Simple2dWeatherEffects\Standard\EffectBase.cs" />
+    <Compile Include="Assets\VolumetricLights\Demo\Scripts\CubeGen.cs" />
+    <Compile Include="Assets\VolumetricLights\Demo\Scripts\FenceGen.cs" />
+    <Compile Include="Assets\VolumetricLights\Demo\Scripts\ObjectRotate.cs" />
+    <Compile Include="Assets\VolumetricLights\Scripts\VolumetricLight.Mesh.cs" />
+    <Compile Include="Assets\VolumetricLights\Scripts\VolumetricLight.Particles.cs" />
+    <Compile Include="Assets\VolumetricLights\Scripts\VolumetricLight.Shadows.cs" />
+    <Compile Include="Assets\VolumetricLights\Scripts\VolumetricLight.cs" />
+    <Compile Include="Assets\VolumetricLights\Scripts\VolumetricLightProfile.cs" />
+    <Compile Include="Assets\ZoneEffect\Script\Playercontroller.cs" />
+    <Compile Include="Assets\ZoneEffect\Script\ZoneEffect.cs" />
+    <None Include="Assets\UB\Simple2dWeatherEffects\Standard\D2Fogs.shader" />
     <None Include="Assets\Assets Download\subway_entrance_pack\PostProcessing\Resources\Shaders\ACES.cginc" />
     <None Include="Assets\Assets Download\subway_entrance_pack\PostProcessing\Resources\Shaders\LutGen.shader" />
     <None Include="Assets\Assets Download\subway_entrance_pack\PostProcessing\Resources\Shaders\Uber.shader" />
@@ -353,63 +451,97 @@
     <None Include="Assets\Assets Download\Standard Assets\Prototyping\Shaders\WorldCoordDiffuse.shader" />
     <None Include="Assets\Assets Download\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
     <None Include="Assets\Assets Download\subway_entrance_pack\PostProcessing\Resources\Shaders\AmbientOcclusion.cginc" />
+    <None Include="Assets\Aura\Shaders\Shaders\PostProcessShader.shader" />
+    <None Include="Assets\Aura\Shaders\Includes\CommonVariables.cginc" />
+    <None Include="Assets\Aura\Examples\Sponza\Fireball\FireballBlendAdd.shader" />
     <None Include="Assets\Assets Download\subway_entrance_pack\PostProcessing\Resources\Shaders\FXAA.shader" />
     <None Include="Assets\Assets Download\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Overlay.shader" />
     <None Include="Assets\Assets Download\subway_entrance_pack\PostProcessing\Resources\Shaders\MotionBlur.shader" />
     <None Include="Assets\Assets Download\Standard Assets\Effects\Projectors\Shaders\ProjectorLight.shader" />
     <None Include="Assets\Assets Download\Standard Assets\Effects\Projectors\Shaders\ProjectorMultiply.shader" />
     <None Include="Assets\Assets Download\NatureManufacture Assets - Trials Not Full Resolution\EasyRoads-HD_Add_ON\Shaders\Decal_Metalic_Road_Shader Parallax ArrayTrial.shader" />
+    <None Include="Assets\VolumetricLights\Resources\Shaders\Particles\DustParticlesForwardPass.hlsl" />
     <None Include="Assets\Assets Download\NatureManufacture Assets - Trials Not Full Resolution\Foliage Shaders\NMWindNoShiver.cginc" />
     <None Include="Assets\Assets Download\subway_entrance_pack\PostProcessing\Editor Resources\Monitors\HistogramCompute.compute" />
+    <None Include="Assets\Aura\Shaders\ComputeShaders\ComputeAccumulationComputeShader.compute" />
     <None Include="Assets\Assets Download\Windridge City Assets\UnityCompanionLicense_ForAssetComnponentsStatedInThird-PartyNotices.txt" />
     <None Include="Assets\Assets Download\Windridge City Assets\Third-Party Notices.txt" />
     <None Include="Assets\Assets Download\NatureManufacture Assets - Trials Not Full Resolution\Foliage Shaders\Tree_Leaves_Specular.shader" />
+    <None Include="Assets\Aura\Shaders\ComputeShaders\Includes\SpotLightInjection.cginc" />
     <None Include="Assets\Assets Download\LeanTween\ReadMe.txt" />
+    <None Include="Assets\Aura\Shaders\Shaders\StorePointLightShadowMap.shader" />
     <None Include="Assets\Assets Download\TextMesh Pro\Resources\Shaders\TMP_Bitmap.shader" />
     <None Include="Assets\Assets Download\subway_entrance_pack\PostProcessing\Resources\Shaders\MotionBlur.cginc" />
     <None Include="Assets\Assets Download\subway_entrance_pack\PostProcessing\Resources\Shaders\Common.cginc" />
     <None Include="Assets\Assets Download\Standard Assets\Effects\Projectors\Guidelines.txt" />
+    <None Include="Assets\Aura\Shaders\Includes\AuraParticlesBase.cginc" />
     <None Include="Assets\Assets Download\TextMesh Pro\Examples &amp; Extras\Fonts\Oswald-Bold - OFL.txt" />
+    <None Include="Assets\VolumetricLights\Resources\Shaders\Primitives.hlsl" />
+    <None Include="Assets\Aura\Shaders\Shaders\Particles\AuraParticlesAlphaBlend.shader" />
     <None Include="Assets\Assets Download\TextMesh Pro\Examples &amp; Extras\Fonts\Anton OFL.txt" />
+    <None Include="Assets\Aura\Shaders\Shaders\StorePointLightCookieMap.shader" />
     <None Include="Assets\Assets Download\subway_entrance_pack\PostProcessing\Editor Resources\Monitors\ParadeRender.shader" />
     <None Include="Assets\Assets Download\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
+    <None Include="Assets\VolumetricLights\Resources\Shaders\Empty.shader" />
+    <None Include="Assets\Aura\Shaders\ComputeShaders\Includes\VolumeInjection.cginc" />
     <None Include="Assets\Assets Download\LeanTween\License.txt" />
+    <None Include="Assets\VolumetricLights\Resources\Shaders\VolumetricLightURP.shader" />
+    <None Include="Assets\PyroParticles\Prefab\Materials\AdditiveTintable.shader" />
     <None Include="Assets\Assets Download\Standard Assets\Environment\Water\Water4\Shaders\WaterInclude.cginc" />
+    <None Include="Assets\VolumetricLights\Resources\Shaders\Particles\DustParticlesInput.hlsl" />
+    <None Include="Assets\Petal Particles - Cherry Petals\ReadMe.txt" />
     <None Include="Assets\Assets Download\subway_entrance_pack\PostProcessing\Editor Resources\UI\Trackball.shader" />
+    <None Include="Assets\Le Tai's Asset\Wraith Effect\README.txt" />
     <None Include="Assets\Assets Download\AdventureForge\CabinetsAndShelvesReadme.txt" />
     <None Include="Assets\Assets Download\subway_entrance_pack\PostProcessing\Resources\Shaders\BuiltinDebugViews.shader" />
     <None Include="Assets\Assets Download\Standard Assets\Effects\ToonShading\Shaders\ToonLitOutline.shader" />
+    <None Include="Assets\Asset_Imports\PixelMake\CanyonPack\READ ME!.txt" />
     <None Include="Assets\Assets Download\SampleScenes\Shaders\Skybox-Procedural.shader" />
     <None Include="Assets\Assets Download\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
+    <None Include="Assets\Aura\Shaders\ComputeShaders\ComputeMaximumDepthComputeShader.compute" />
     <None Include="Assets\Assets Download\Standard Assets\Vehicles\Car\CarGuidelines.txt" />
+    <None Include="Assets\Aura\Shaders\Includes\AuraUsage.cginc" />
     <None Include="Assets\Assets Download\subway_entrance_pack\PostProcessing\Editor Resources\Monitors\VectorscopeRender.shader" />
     <None Include="Assets\Assets Download\subway_entrance_pack\PostProcessing\Resources\Shaders\UberSecondPass.cginc" />
     <None Include="Assets\Assets Download\Standard Assets\Vehicles\Aircraft\AircraftGuidelines.txt" />
+    <None Include="Assets\Aura\Shaders\Includes\Noise.cginc" />
+    <None Include="Assets\Aura\Shaders\Includes\Structs.cginc" />
     <None Include="Assets\Assets Download\Standard Assets\Cameras\CameraGuidelines.txt" />
+    <None Include="Assets\UB\Simple2dWeatherEffects\Standard\D2FogsNoiseTex.shader" />
     <None Include="Assets\Assets Download\Standard Assets\Effects\GlassRefraction\Shaders\GlassStainedBumpDistort.shader" />
     <None Include="Assets\Assets Download\NatureManufacture Assets - Trials Not Full Resolution\Foliage Shaders\Cross_Model_Shader.shader" />
     <None Include="Assets\Assets Download\subway_entrance_pack\PostProcessing\Resources\Shaders\DepthOfField.cginc" />
     <None Include="Assets\Assets Download\NatureManufacture Assets - Trials Not Full Resolution\Foliage Shaders\NMWind.cginc" />
     <None Include="Assets\Assets Download\Standard Assets\Vehicles\Car\Shaders\ReflectiveDiffuseSpecTransp.shader" />
     <None Include="Assets\Assets Download\subway_entrance_pack\PostProcessing\Resources\Shaders\TAA.cginc" />
-    <None Include="Assets\Assets Download\Packs\BirchPackVol1\Works For Fun.txt" />
+    <None Include="Assets\Assets Download\SampleScenes\Packs\BirchPackVol1\Works For Fun.txt" />
+    <None Include="Assets\Aura\Shaders\Shaders\Surface\AuraStandardAlphaBlended.shader" />
     <None Include="Assets\Assets Download\Standard Assets\Environment\Water\Water4\Shaders\FXWater4Advanced.shader" />
     <None Include="Assets\Assets Download\subway_entrance_pack\PostProcessing\Resources\Shaders\EyeHistogram.compute" />
+    <None Include="Assets\Aura\Shaders\ComputeShaders\ComputeDataComputeShader.compute" />
     <None Include="Assets\Assets Download\subway_entrance_pack\PostProcessing\Resources\Shaders\AmbientOcclusion.shader" />
+    <None Include="Assets\MaxP\Shaders\_Source\Shaders\Resources\DirtyLensFlare.shader" />
     <None Include="Assets\Assets Download\subway_entrance_pack\PostProcessing\Resources\Shaders\Fog.shader" />
+    <None Include="Assets\Aura\Shaders\Includes\BlueNoise.cginc" />
+    <None Include="Assets\VolumetricLights\README.txt" />
     <None Include="Assets\Assets Download\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface.shader" />
     <None Include="Assets\Assets Download\Crates And Barrels Pack Volume 1 - Free Version\manual.txt" />
     <None Include="Assets\Assets Download\subway_entrance_pack\PostProcessing\Resources\Shaders\Tonemapping.cginc" />
+    <None Include="Assets\VolumetricLights\Resources\Shaders\ShadowOcclusion.hlsl" />
+    <None Include="Assets\Aura\Shaders\Includes\Common.cginc" />
     <None Include="Assets\Assets Download\subway_entrance_pack\PostProcessing\Resources\Bluenoise64\COPYING.txt" />
     <None Include="Assets\Assets Download\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
     <None Include="Assets\Assets Download\TextMesh Pro\Resources\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
     <None Include="Assets\Assets Download\Standard Assets\Effects\ToonShading\Shaders\ToonLit.shader" />
+    <None Include="Assets\Aura\Shaders\ComputeShaders\Includes\PointLightInjection.cginc" />
     <None Include="Assets\Assets Download\TextMesh Pro\Resources\Shaders\TMP_SDF.shader" />
     <None Include="Assets\Assets Download\NatureManufacture Assets - Trials Not Full Resolution\Foliage Shaders\Tree_Bark_Metalic.shader" />
     <None Include="Assets\Assets Download\subway_entrance_pack\PostProcessing\Editor Resources\Monitors\WaveformRender.shader" />
     <None Include="Assets\Assets Download\NatureManufacture Assets - Trials Not Full Resolution\EasyRoads-HD_Add_ON\Shaders\Standard_Metalic_Cross_Road_Shader Parallax ArrayTrial.shader" />
     <None Include="Assets\Assets Download\Standard Assets\Effects\ToonShading\Shaders\ToonBasic.shader" />
     <None Include="Assets\Assets Download\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
+    <None Include="Assets\PyroParticles\Readme.txt" />
+    <None Include="Assets\Aura\Shaders\ComputeShaders\Includes\TemporalReprojection.cginc" />
     <None Include="Assets\Assets Download\Standard Assets\ParticleSystems\ParticleSystemsGuidelines.txt" />
     <None Include="Assets\Assets Download\Standard Assets\Effects\TessellationShaders\Shaders\BumpedSpecularSmooth.shader" />
     <None Include="Assets\Assets Download\TextMesh Pro\Resources\Shaders\TMPro_Properties.cginc" />
@@ -417,14 +549,18 @@
     <None Include="Assets\Assets Download\Standard Assets\ParticleSystems\Shaders\PriorityParticleAddSoft.shader" />
     <None Include="Assets\Assets Download\subway_entrance_pack\PostProcessing\Resources\Shaders\ScreenSpaceRaytrace.cginc" />
     <None Include="Assets\Shaders\DitherEffect.shader" />
+    <None Include="Assets\Aura\Shaders\Shaders\ProcessOcclusionTextureShader.shader" />
     <None Include="Assets\Assets Download\NatureManufacture Assets - Trials Not Full Resolution\Park Photo Scanned Assets\Shaders\Standard_Metalic_UV_Free_Walls_and_Floors.shader" />
     <None Include="Assets\Assets Download\subway_entrance_pack\PostProcessing\Editor Resources\Monitors\VectorscopeCompute.compute" />
     <None Include="Assets\Assets Download\TextMesh Pro\Resources\Shaders\TMPro_Surface.cginc" />
+    <None Include="Assets\VolumetricLights\Resources\Shaders\CommonsURP.hlsl" />
     <None Include="Assets\Assets Download\subway_entrance_pack\PostProcessing\Editor Resources\Monitors\HistogramRender.shader" />
     <None Include="Assets\Assets Download\Standard Assets\Effects\TessellationShaders\Shaders\BumpedSpecularDisplacement.shader" />
     <None Include="Assets\Assets Download\subway_entrance_pack\PostProcessing\Editor Resources\Monitors\WaveformCompute.compute" />
+    <None Include="Assets\Aura\Shaders\Includes\AuraParticlesUsage.cginc" />
     <None Include="Assets\Assets Download\subway_entrance_pack\PostProcessing\Resources\Shaders\DiskKernels.cginc" />
     <None Include="Assets\Assets Download\Standard Assets\Environment\Water\Water4\Shaders\FXWater4Simple.shader" />
+    <None Include="Assets\Aura\Shaders\Shaders\Particles\AuraParticlesBlendAdd.shader" />
     <None Include="Assets\Assets Download\subway_entrance_pack\PostProcessing\Resources\Shaders\EyeAdaptation.shader" />
     <None Include="Assets\Assets Download\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
     <None Include="Assets\Assets Download\subway_entrance_pack\PostProcessing\Editor Resources\UI\CurveBackground.shader" />
@@ -432,6 +568,7 @@
     <None Include="Assets\Assets Download\subway_entrance_pack\PostProcessing\Resources\Shaders\Bloom.shader" />
     <None Include="Assets\Assets Download\subway_entrance_pack\PostProcessing\Resources\Shaders\ScreenSpaceReflection.shader" />
     <None Include="Assets\Assets Download\Windridge City Assets\READ ME - About project and assets.txt" />
+    <None Include="Assets\Aura\Shaders\Shaders\BuiltinReplacement\BillboardTree.shader" />
     <None Include="Assets\Assets Download\LeanTween\Examples\Archived\2dUnlitWithFade.shader" />
     <None Include="Assets\Assets Download\subway_entrance_pack\PostProcessing\Resources\Shaders\FXAA3.cginc" />
     <None Include="Assets\Assets Download\Standard Assets\Effects\ImageEffects\Readme.txt" />
@@ -440,158 +577,169 @@
     <None Include="Assets\Assets Download\subway_entrance_pack\PostProcessing\Resources\Shaders\GrainGen.shader" />
     <None Include="Assets\Assets Download\Standard Assets\ParticleSystems\Shaders\PriorityParticleAdd.shader" />
     <None Include="Assets\Assets Download\subway_entrance_pack\PostProcessing\Resources\Shaders\Bloom.cginc" />
+    <None Include="Assets\Aura\Shaders\Aura.cginc" />
     <None Include="Assets\Assets Download\subway_entrance_pack\PostProcessing\Resources\Shaders\ColorGrading.cginc" />
     <None Include="Assets\Assets Download\Standard Assets\Effects\ToonShading\Shaders\ToonBasicOutline.shader" />
     <None Include="Assets\Assets Download\NatureManufacture Assets - Trials Not Full Resolution\Foliage Shaders\NM_indirect.cginc" />
     <None Include="Assets\Assets Download\Standard Assets\Characters\FirstPersonCharacter\FirstPersonCharacterGuidelines.txt" />
     <None Include="Assets\Assets Download\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Masking.shader" />
     <None Include="Assets\Assets Download\Standard Assets\ParticleSystems\Shaders\PriorityParticleAlpha.shader" />
+    <None Include="Assets\VolumetricLights\Resources\Shaders\Particles\DustParticles.shader" />
     <None Include="Assets\Assets Download\subway_entrance_pack\PostProcessing\Resources\Bluenoise64\LICENSE.txt" />
     <None Include="Assets\Assets Download\subway_entrance_pack\PostProcessing\Resources\Shaders\DepthOfField.shader" />
     <None Include="Assets\Assets Download\Windridge City Assets\CTS Trial\Shaders\CTS Terrain Shader Advanced LOD Trial.shader" />
+    <None Include="Assets\MaxP\Shaders\_Source\Shaders\Resources\Blur.shader" />
     <None Include="Assets\Assets Download\ChineseTing\ReadMe.txt" />
     <None Include="Assets\Assets Download\Teleportation Pad\README.txt" />
     <None Include="Assets\Assets Download\Standard Assets\Environment\Water (Basic)\Shaders\FXWaterBasic.shader" />
+    <None Include="Assets\Aura\Shaders\Shaders\Particles\AuraParticlesAdditive.shader" />
     <None Include="Assets\Assets Download\Mega Fantasy Props Pack\README.txt" />
     <None Include="Assets\Assets Download\subway_entrance_pack\PostProcessing\Resources\Shaders\TAA.shader" />
     <None Include="Assets\Assets Download\TextMesh Pro\Resources\Shaders\TMP_SDF Overlay.shader" />
     <None Include="Assets\Assets Download\TextMesh Pro\Resources\Shaders\TMP_Bitmap-Mobile.shader" />
+    <None Include="Assets\Aura\License\license.txt" />
     <None Include="Assets\Assets Download\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
     <None Include="Assets\Assets Download\subway_entrance_pack\PostProcessing\Resources\Shaders\EyeAdaptation.cginc" />
     <None Include="Assets\Assets Download\subway_entrance_pack\PostProcessing\Utilities\CustomMotionTexture\Shaders\CustomMotionVectorTexture.shader" />
     <None Include="Assets\Assets Download\Standard Assets\Vehicles\Car\Shaders\DiffuseReflectiveShader.shader" />
     <None Include="Assets\Assets Download\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile.shader" />
+    <None Include="Assets\Aura\Shaders\ComputeShaders\Includes\DirectionalLightInjection.cginc" />
     <None Include="Assets\Assets Download\NatureManufacture Assets - Trials Not Full Resolution\EasyRoads-HD_Add_ON\Shaders\Standard_Metalic_Road_Shader Parallax ArrayTrial.shader" />
+    <None Include="Assets\Aura\Shaders\ComputeShaders\Includes\OcclusionCulling.cginc" />
+    <None Include="Assets\VolumetricLights\Resources\Shaders\Raymarch.hlsl" />
     <None Include="Assets\Scripts\UI\Dialogue.txt" />
     <None Include="Assets\Assets Download\_Barking_Dog\Readme_Please.txt" />
+    <None Include="Assets\Aura\Shaders\Includes\CommonFunctions.cginc" />
     <None Include="Assets\Assets Download\Standard Assets\Characters\ThirdPersonCharacter\ThirdPersonCharacterGuidelines.txt" />
     <None Include="Assets\Assets Download\Standard Assets\Vehicles\Car\Shaders\ReflectiveDiffuseSpec.shader" />
     <None Include="Assets\Assets Download\TextMesh Pro\Resources\Shaders\TMP_Sprite.shader" />
     <None Include="Assets\Assets Download\Standard Assets\Fonts\OpenSans\License!.txt" />
     <None Include="Assets\Assets Download\subway_entrance_pack\PostProcessing\Resources\Shaders\Blit.shader" />
     <None Include="Assets\Assets Download\TextMesh Pro\Examples &amp; Extras\Fonts\Bangers - OFL.txt" />
+    <None Include="Assets\Aura\Shaders\Shaders\StoreShadowDataShader.shader" />
+    <None Include="Assets\Aura\Shaders\Shaders\StoreDirectionalSpotLightCookieMap.shader" />
     <Reference Include="Unity.RenderPipeline.Universal.ShaderLibrary">
-      <HintPath>D:/more stuff/works/Unity/Goethe-Project/Library/ScriptAssemblies/Unity.RenderPipeline.Universal.ShaderLibrary.dll</HintPath>
+      <HintPath>D:/Work/GitHub/Goethe-Project/Library/ScriptAssemblies/Unity.RenderPipeline.Universal.ShaderLibrary.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline.Editor">
-      <HintPath>D:/more stuff/works/Unity/Goethe-Project/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+      <HintPath>D:/Work/GitHub/Goethe-Project/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Cinemachine">
-      <HintPath>D:/more stuff/works/Unity/Goethe-Project/Library/ScriptAssemblies/Cinemachine.dll</HintPath>
+      <HintPath>D:/Work/GitHub/Goethe-Project/Library/ScriptAssemblies/Cinemachine.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipelines.Universal.Shaders">
-      <HintPath>D:/more stuff/works/Unity/Goethe-Project/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Shaders.dll</HintPath>
+      <HintPath>D:/Work/GitHub/Goethe-Project/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Shaders.dll</HintPath>
     </Reference>
     <Reference Include="com.unity.multiplayer-hlapi.Editor">
-      <HintPath>D:/more stuff/works/Unity/Goethe-Project/Library/ScriptAssemblies/com.unity.multiplayer-hlapi.Editor.dll</HintPath>
+      <HintPath>D:/Work/GitHub/Goethe-Project/Library/ScriptAssemblies/com.unity.multiplayer-hlapi.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.ProGrids">
-      <HintPath>D:/more stuff/works/Unity/Goethe-Project/Library/ScriptAssemblies/Unity.ProGrids.dll</HintPath>
+      <HintPath>D:/Work/GitHub/Goethe-Project/Library/ScriptAssemblies/Unity.ProGrids.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VSCode.Editor">
-      <HintPath>D:/more stuff/works/Unity/Goethe-Project/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+      <HintPath>D:/Work/GitHub/Goethe-Project/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.ProBuilder">
-      <HintPath>D:/more stuff/works/Unity/Goethe-Project/Library/ScriptAssemblies/Unity.ProBuilder.dll</HintPath>
+      <HintPath>D:/Work/GitHub/Goethe-Project/Library/ScriptAssemblies/Unity.ProBuilder.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipelines.Core.Editor">
-      <HintPath>D:/more stuff/works/Unity/Goethe-Project/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Editor.dll</HintPath>
+      <HintPath>D:/Work/GitHub/Goethe-Project/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.ProBuilder.Editor">
-      <HintPath>D:/more stuff/works/Unity/Goethe-Project/Library/ScriptAssemblies/Unity.ProBuilder.Editor.dll</HintPath>
+      <HintPath>D:/Work/GitHub/Goethe-Project/Library/ScriptAssemblies/Unity.ProBuilder.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.ProBuilder.AssetIdRemapUtility">
-      <HintPath>D:/more stuff/works/Unity/Goethe-Project/Library/ScriptAssemblies/Unity.ProBuilder.AssetIdRemapUtility.dll</HintPath>
+      <HintPath>D:/Work/GitHub/Goethe-Project/Library/ScriptAssemblies/Unity.ProBuilder.AssetIdRemapUtility.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipelines.Core.Runtime">
-      <HintPath>D:/more stuff/works/Unity/Goethe-Project/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Runtime.dll</HintPath>
+      <HintPath>D:/Work/GitHub/Goethe-Project/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.ProGrids.Editor">
-      <HintPath>D:/more stuff/works/Unity/Goethe-Project/Library/ScriptAssemblies/Unity.ProGrids.Editor.dll</HintPath>
+      <HintPath>D:/Work/GitHub/Goethe-Project/Library/ScriptAssemblies/Unity.ProGrids.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Recorder.Editor">
-      <HintPath>D:/more stuff/works/Unity/Goethe-Project/Library/ScriptAssemblies/Unity.Recorder.Editor.dll</HintPath>
+      <HintPath>D:/Work/GitHub/Goethe-Project/Library/ScriptAssemblies/Unity.Recorder.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>D:/more stuff/works/Unity/Goethe-Project/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>D:/Work/GitHub/Goethe-Project/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Recorder">
-      <HintPath>D:/more stuff/works/Unity/Goethe-Project/Library/ScriptAssemblies/Unity.Recorder.dll</HintPath>
+      <HintPath>D:/Work/GitHub/Goethe-Project/Library/ScriptAssemblies/Unity.Recorder.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipelines.Universal.Runtime">
-      <HintPath>D:/more stuff/works/Unity/Goethe-Project/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Runtime.dll</HintPath>
+      <HintPath>D:/Work/GitHub/Goethe-Project/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipelines.Universal.Editor">
-      <HintPath>D:/more stuff/works/Unity/Goethe-Project/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Editor.dll</HintPath>
+      <HintPath>D:/Work/GitHub/Goethe-Project/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
-      <HintPath>D:/more stuff/works/Unity/Goethe-Project/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+      <HintPath>D:/Work/GitHub/Goethe-Project/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline">
-      <HintPath>D:/more stuff/works/Unity/Goethe-Project/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+      <HintPath>D:/Work/GitHub/Goethe-Project/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
     </Reference>
     <Reference Include="Unity.CollabProxy.Editor">
-      <HintPath>D:/more stuff/works/Unity/Goethe-Project/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+      <HintPath>D:/Work/GitHub/Goethe-Project/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Postprocessing.Editor">
-      <HintPath>D:/more stuff/works/Unity/Goethe-Project/Library/ScriptAssemblies/Unity.Postprocessing.Editor.dll</HintPath>
+      <HintPath>D:/Work/GitHub/Goethe-Project/Library/ScriptAssemblies/Unity.Postprocessing.Editor.dll</HintPath>
     </Reference>
     <Reference Include="com.unity.multiplayer-weaver.Editor">
-      <HintPath>D:/more stuff/works/Unity/Goethe-Project/Library/ScriptAssemblies/com.unity.multiplayer-weaver.Editor.dll</HintPath>
+      <HintPath>D:/Work/GitHub/Goethe-Project/Library/ScriptAssemblies/com.unity.multiplayer-weaver.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.XR.LegacyInputHelpers">
-      <HintPath>D:/more stuff/works/Unity/Goethe-Project/Library/ScriptAssemblies/UnityEngine.XR.LegacyInputHelpers.dll</HintPath>
+      <HintPath>D:/Work/GitHub/Goethe-Project/Library/ScriptAssemblies/UnityEngine.XR.LegacyInputHelpers.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Rider.Editor">
-      <HintPath>D:/more stuff/works/Unity/Goethe-Project/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+      <HintPath>D:/Work/GitHub/Goethe-Project/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary">
-      <HintPath>D:/more stuff/works/Unity/Goethe-Project/Library/ScriptAssemblies/Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
+      <HintPath>D:/Work/GitHub/Goethe-Project/Library/ScriptAssemblies/Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Recorder.Base">
-      <HintPath>D:/more stuff/works/Unity/Goethe-Project/Library/ScriptAssemblies/Unity.Recorder.Base.dll</HintPath>
+      <HintPath>D:/Work/GitHub/Goethe-Project/Library/ScriptAssemblies/Unity.Recorder.Base.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Sprite.Editor">
-      <HintPath>D:/more stuff/works/Unity/Goethe-Project/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
+      <HintPath>D:/Work/GitHub/Goethe-Project/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Postprocessing.Runtime">
-      <HintPath>D:/more stuff/works/Unity/Goethe-Project/Library/ScriptAssemblies/Unity.Postprocessing.Runtime.dll</HintPath>
+      <HintPath>D:/Work/GitHub/Goethe-Project/Library/ScriptAssemblies/Unity.Postprocessing.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Tilemap.Editor">
-      <HintPath>D:/more stuff/works/Unity/Goethe-Project/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
+      <HintPath>D:/Work/GitHub/Goethe-Project/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.SpatialTracking">
-      <HintPath>D:/more stuff/works/Unity/Goethe-Project/Library/ScriptAssemblies/UnityEditor.SpatialTracking.dll</HintPath>
+      <HintPath>D:/Work/GitHub/Goethe-Project/Library/ScriptAssemblies/UnityEditor.SpatialTracking.dll</HintPath>
     </Reference>
     <Reference Include="com.unity.cinemachine.editor">
-      <HintPath>D:/more stuff/works/Unity/Goethe-Project/Library/ScriptAssemblies/com.unity.cinemachine.editor.dll</HintPath>
+      <HintPath>D:/Work/GitHub/Goethe-Project/Library/ScriptAssemblies/com.unity.cinemachine.editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.SpatialTracking">
-      <HintPath>D:/more stuff/works/Unity/Goethe-Project/Library/ScriptAssemblies/UnityEngine.SpatialTracking.dll</HintPath>
+      <HintPath>D:/Work/GitHub/Goethe-Project/Library/ScriptAssemblies/UnityEngine.SpatialTracking.dll</HintPath>
     </Reference>
     <Reference Include="Unity.ProBuilder.AddOns.Editor">
-      <HintPath>D:/more stuff/works/Unity/Goethe-Project/Library/ScriptAssemblies/Unity.ProBuilder.AddOns.Editor.dll</HintPath>
+      <HintPath>D:/Work/GitHub/Goethe-Project/Library/ScriptAssemblies/Unity.ProBuilder.AddOns.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.ShaderGraph.Editor">
-      <HintPath>D:/more stuff/works/Unity/Goethe-Project/Library/ScriptAssemblies/Unity.ShaderGraph.Editor.dll</HintPath>
+      <HintPath>D:/Work/GitHub/Goethe-Project/Library/ScriptAssemblies/Unity.ShaderGraph.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipelines.Core.ShaderLibrary">
-      <HintPath>D:/more stuff/works/Unity/Goethe-Project/Library/ScriptAssemblies/Unity.RenderPipelines.Core.ShaderLibrary.dll</HintPath>
+      <HintPath>D:/Work/GitHub/Goethe-Project/Library/ScriptAssemblies/Unity.RenderPipelines.Core.ShaderLibrary.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>D:/more stuff/works/Unity/Goethe-Project/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>D:/Work/GitHub/Goethe-Project/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.DataPrivacy">
-      <HintPath>D:/more stuff/works/Unity/Goethe-Project/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
+      <HintPath>D:/Work/GitHub/Goethe-Project/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.XR.LegacyInputHelpers">
-      <HintPath>D:/more stuff/works/Unity/Goethe-Project/Library/ScriptAssemblies/UnityEditor.XR.LegacyInputHelpers.dll</HintPath>
+      <HintPath>D:/Work/GitHub/Goethe-Project/Library/ScriptAssemblies/UnityEditor.XR.LegacyInputHelpers.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
-      <HintPath>D:/more stuff/works/Unity/Goethe-Project/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+      <HintPath>D:/Work/GitHub/Goethe-Project/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
     <Reference Include="com.unity.multiplayer-hlapi.Runtime">
-      <HintPath>D:/more stuff/works/Unity/Goethe-Project/Library/ScriptAssemblies/com.unity.multiplayer-hlapi.Runtime.dll</HintPath>
+      <HintPath>D:/Work/GitHub/Goethe-Project/Library/ScriptAssemblies/com.unity.multiplayer-hlapi.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.3.4f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -771,16 +919,16 @@
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.3.4f1/Editor/Data/Managed/UnityEngine/UnityEngine.XRModule.dll</HintPath>
     </Reference>
     <Reference Include="DOTween">
-      <HintPath>D:/more stuff/works/Unity/Goethe-Project/Assets/Plugins/Demigiant/DOTween/DOTween.dll</HintPath>
+      <HintPath>D:/Work/GitHub/Goethe-Project/Assets/Plugins/Demigiant/DOTween/DOTween.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.Editor">
-      <HintPath>D:/more stuff/works/Unity/Goethe-Project/Library/PackageCache/com.unity.analytics@3.3.5/Unity.Analytics.Editor.dll</HintPath>
+      <HintPath>D:/Work/GitHub/Goethe-Project/Library/PackageCache/com.unity.analytics@3.3.5/Unity.Analytics.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.Tracker">
-      <HintPath>D:/more stuff/works/Unity/Goethe-Project/Library/PackageCache/com.unity.analytics@3.3.5/Unity.Analytics.Tracker.dll</HintPath>
+      <HintPath>D:/Work/GitHub/Goethe-Project/Library/PackageCache/com.unity.analytics@3.3.5/Unity.Analytics.Tracker.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.StandardEvents">
-      <HintPath>D:/more stuff/works/Unity/Goethe-Project/Library/PackageCache/com.unity.analytics@3.3.5/AnalyticsStandardEvents/Unity.Analytics.StandardEvents.dll</HintPath>
+      <HintPath>D:/Work/GitHub/Goethe-Project/Library/PackageCache/com.unity.analytics@3.3.5/AnalyticsStandardEvents/Unity.Analytics.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.3.4f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>
