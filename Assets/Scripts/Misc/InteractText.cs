@@ -84,11 +84,7 @@ public class InteractText : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E) && name == "BossConsole" && isIn)
         {
             if(KillBossTerminal.shieldCount == 0)
-            {
-                /*interactText = "YOU DID IT! ... YOU ACTUALLY DID IT!";
-                GameManager.Instance.interactText.text = interactText;
-                GameManager.Instance.interactBttn.SetActive(false);
-                SlideTweenInVictory();*/
+            {                
                 KillBossTerminal.endgame_initiate = true;
                 StartCoroutine(DestroyInteractScript());
             }
@@ -165,30 +161,5 @@ public class InteractText : MonoBehaviour
     void SlideTweenOut()
     {
         LeanTween.moveX(GameManager.Instance.interactBox, -250f, 2.5f).setEaseOutExpo();
-    }
-
-   /* void SlideTweenInVictory()
-    {
-        LeanTween.moveX(GameManager.Instance.interactBox, 250f, 2.5f).setEaseOutExpo().setOnComplete(SlideTweenOutVictory);
-    }
-
-    void SlideTweenOutVictory()
-    {
-        LeanTween.moveX(GameManager.Instance.interactBox, -250f, 0.5f).setEaseOutExpo().setOnComplete(SlideTweenInEndGame);
-    }
-
-    void SlideTweenInEndGame()
-    {
-        interactText = "Quickly, Enter the portal before the building colapses!";
-        KillBossTerminal.shakeCam = true;
-        GameManager.Instance.interactText.text = interactText;
-        GameObject temp = GameObject.Find("LevelFinish");
-        temp.transform.GetChild(0).gameObject.SetActive(true);
-        temp.transform.GetChild(1).gameObject.SetActive(true);
-        LeanTween.moveX(GameManager.Instance.interactBox, 250f, 5f).setEaseOutExpo().setOnComplete(SlideTweenOutEndGame);
-    }
-    void SlideTweenOutEndGame()
-    {
-        LeanTween.moveX(GameManager.Instance.interactBox, -250f, 2.5f).setEaseOutExpo();
-    }*/
+    } 
 }
