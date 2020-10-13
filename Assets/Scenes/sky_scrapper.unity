@@ -10809,12 +10809,12 @@ PrefabInstance:
     - target: {fileID: 7095738409918977114, guid: 1512f34dc9c74db43a2b10cfb46950f1,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.29
+      value: -1.39
       objectReference: {fileID: 0}
     - target: {fileID: 7095738409918977114, guid: 1512f34dc9c74db43a2b10cfb46950f1,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 270.17
+      value: 274.54
       objectReference: {fileID: 0}
     - target: {fileID: 7095738409918977114, guid: 1512f34dc9c74db43a2b10cfb46950f1,
         type: 3}
@@ -19636,7 +19636,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 619979506}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 8.52, y: -11.84, z: 24.68}
+  m_LocalPosition: {x: 8.52, y: -11.78, z: 24.68}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1421493079}
@@ -19658,13 +19658,13 @@ MonoBehaviour:
   - You have arrived at the Corpo Headquarters
   - To end this you will need to use the shutdown terminal located at the very top
     of this building.
-  - In order to do that you need deactivate its security terminals, which are spread
+  - In order to do that you need deactivate its security terminals, which are located
     inside these two buildings.
   - I managed to hack into their mainframe and found the location of all the security
-    terminals.
+    terminals. There are TEN in total.
   - You have been equiped with a navigation device and the location of the terminals
     have been uploaded.
-  - Good luck. We are all counting on you.
+  - Good luck!  We are all counting on you!
   index: 0
   typingSpeed: 0
 --- !u!114 &619979509
@@ -19690,8 +19690,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 10, y: 10, z: 10}
-  m_Center: {x: 0, y: 2.98, z: 0}
+  m_Size: {x: 31.618498, y: 11.665161, z: 32.321503}
+  m_Center: {x: 5.3380995, y: 3.81258, z: -10.206863}
 --- !u!1001 &620381872
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -60171,6 +60171,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a42d6c5bb1966344bb16a3e4471510df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Finalsentence: YOU DID IT!   Now quickly, enter the portal before the building
+    colapses!
 --- !u!1 &2058092288
 GameObject:
   m_ObjectHideFlags: 0

@@ -85,10 +85,11 @@ public class InteractText : MonoBehaviour
         {
             if(KillBossTerminal.shieldCount == 0)
             {
-                interactText = "YOU DID IT! ... YOU ACTUALLY DID IT!";
+                /*interactText = "YOU DID IT! ... YOU ACTUALLY DID IT!";
                 GameManager.Instance.interactText.text = interactText;
                 GameManager.Instance.interactBttn.SetActive(false);
-                SlideTweenInVictory();
+                SlideTweenInVictory();*/
+                KillBossTerminal.endgame_initiate = true;
                 StartCoroutine(DestroyInteractScript());
             }
             else
@@ -166,7 +167,7 @@ public class InteractText : MonoBehaviour
         LeanTween.moveX(GameManager.Instance.interactBox, -250f, 2.5f).setEaseOutExpo();
     }
 
-    void SlideTweenInVictory()
+   /* void SlideTweenInVictory()
     {
         LeanTween.moveX(GameManager.Instance.interactBox, 250f, 2.5f).setEaseOutExpo().setOnComplete(SlideTweenOutVictory);
     }
@@ -189,5 +190,5 @@ public class InteractText : MonoBehaviour
     void SlideTweenOutEndGame()
     {
         LeanTween.moveX(GameManager.Instance.interactBox, -250f, 2.5f).setEaseOutExpo();
-    }
+    }*/
 }
