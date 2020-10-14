@@ -13,10 +13,10 @@ public class StartConversation : MonoBehaviour
     }
     IEnumerator StartConversationDelayed()
     {
-        GameManager.Instance.IsMovementEnabled = false;        
+        //GameManager.Instance.IsMovementEnabled = false;        
         yield return new WaitForSeconds(2);
         GetComponent<Dialog>().StartConversationAtSpawn();
-        GameManager.Instance.IsMovementEnabled = true;        
+        //GameManager.Instance.IsMovementEnabled = true;        
     }
 
 
