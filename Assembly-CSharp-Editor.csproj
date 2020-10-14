@@ -63,6 +63,19 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Assets Download\Aura\Editor\Drawers\ColorCircularPickerDrawer.cs" />
+    <Compile Include="Assets\Assets Download\Aura\Editor\Drawers\Texture3DPreviewDrawer.cs" />
+    <Compile Include="Assets\Assets Download\Aura\Editor\Editors\AuraEditor.cs" />
+    <Compile Include="Assets\Assets Download\Aura\Editor\Editors\AuraLightEditor.cs" />
+    <Compile Include="Assets\Assets Download\Aura\Editor\Editors\AuraVolumeEditor.cs" />
+    <Compile Include="Assets\Assets Download\Aura\Editor\Editors\CreateTexture3DAssetTool.cs" />
+    <Compile Include="Assets\Assets Download\Aura\Editor\Editors\Texture3DEditor.cs" />
+    <Compile Include="Assets\Assets Download\Aura\Editor\Enums\Texture3DReadingOrderEnum.cs" />
+    <Compile Include="Assets\Assets Download\Aura\Editor\Extensions\Texture3DExtensions.cs" />
+    <Compile Include="Assets\Assets Download\Aura\Editor\Helpers\GuiHelpers.cs" />
+    <Compile Include="Assets\Assets Download\Aura\Editor\Helpers\MeshHelpers.cs" />
+    <Compile Include="Assets\Assets Download\Aura\Editor\Helpers\PreviewRenderUtilityHelpers.cs" />
+    <Compile Include="Assets\Assets Download\Aura\Editor\Statics\GuiStyles.cs" />
     <Compile Include="Assets\Assets Download\LeanTween\Editor\LeanTweenDocumentationEditor.cs" />
     <Compile Include="Assets\Assets Download\Standard Assets\Editor\CrossPlatformInput\CrossPlatformInputInitialize.cs" />
     <Compile Include="Assets\Assets Download\Standard Assets\Editor\Water\Water4\GerstnerDisplaceEditor.cs" />
@@ -104,25 +117,12 @@
     <Compile Include="Assets\Assets Download\subway_entrance_pack\PostProcessing\Editor\Utils\EditorResources.cs" />
     <Compile Include="Assets\Assets Download\subway_entrance_pack\PostProcessing\Editor\Utils\FxStyles.cs" />
     <Compile Include="Assets\Assets Download\subway_entrance_pack\PostProcessing\Editor\Utils\ReflectionUtils.cs" />
-    <Compile Include="Assets\Aura\Editor\Drawers\ColorCircularPickerDrawer.cs" />
-    <Compile Include="Assets\Aura\Editor\Drawers\Texture3DPreviewDrawer.cs" />
-    <Compile Include="Assets\Aura\Editor\Editors\AuraEditor.cs" />
-    <Compile Include="Assets\Aura\Editor\Editors\AuraLightEditor.cs" />
-    <Compile Include="Assets\Aura\Editor\Editors\AuraVolumeEditor.cs" />
-    <Compile Include="Assets\Aura\Editor\Editors\CreateTexture3DAssetTool.cs" />
-    <Compile Include="Assets\Aura\Editor\Editors\Texture3DEditor.cs" />
-    <Compile Include="Assets\Aura\Editor\Enums\Texture3DReadingOrderEnum.cs" />
-    <Compile Include="Assets\Aura\Editor\Extensions\Texture3DExtensions.cs" />
-    <Compile Include="Assets\Aura\Editor\Helpers\GuiHelpers.cs" />
-    <Compile Include="Assets\Aura\Editor\Helpers\MeshHelpers.cs" />
-    <Compile Include="Assets\Aura\Editor\Helpers\PreviewRenderUtilityHelpers.cs" />
-    <Compile Include="Assets\Aura\Editor\Statics\GuiStyles.cs" />
     <Compile Include="Assets\MaxP\Shaders\Scripts\Editor\DirtyLensFlareEditor.cs" />
     <Compile Include="Assets\PyroParticles\Prefab\Editor\PyroParticlesEditor.cs" />
     <Compile Include="Assets\VolumetricLights\Editor\MenuIntegration.cs" />
     <Compile Include="Assets\VolumetricLights\Editor\VolumetricLightEditor.cs" />
-    <None Include="Assets\Aura\Editor\Shaders\Texture3DPreviewShader.shader" />
-    <None Include="Assets\Aura\Editor\Shaders\ColorFieldDrawerShader.shader" />
+    <None Include="Assets\Assets Download\Aura\Editor\Shaders\Texture3DPreviewShader.shader" />
+    <None Include="Assets\Assets Download\Aura\Editor\Shaders\ColorFieldDrawerShader.shader" />
     <Reference Include="UnityEditor.TestRunner">
       <HintPath>D:/Work/GitHub/Goethe-Project/Library/ScriptAssemblies/UnityEditor.TestRunner.dll</HintPath>
     </Reference>
