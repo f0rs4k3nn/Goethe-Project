@@ -28,6 +28,7 @@ public class LevelManager : MonoBehaviour
     private void Start()
     {
         AudioManager audio = AudioManager.instance;
+        audio.DefSettings();
         
         audio.PlayAmbient(ambientMusic);
         audio.Play(music);
