@@ -106,7 +106,7 @@ public class LoadingScreenManager : MonoBehaviour {
             Debug.LogError("FAILED TO LOAD");
         }
 
-        Image gameFade = GameObject.Find("LoadFade").GetComponent<Image>();
+         Image gameFade = GameObject.Find("LoadFade").GetComponent<Image>();
 
         if(gameFade != null)
         {
