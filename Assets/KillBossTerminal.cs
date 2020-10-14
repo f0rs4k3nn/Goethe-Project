@@ -7,11 +7,8 @@ public class KillBossTerminal : MonoBehaviour
     public static int shieldCount;
     public static bool shakeCam = false;
     public static bool endgame_initiate = false;
-    private bool ending = false;
-    private bool done = true;
-    private bool startConversation = false;
-    public string Finalsentence;
-    private int index = 0;
+    private bool ending = false;   
+    public string Finalsentence;    
 
     private void Awake()
     {
@@ -33,8 +30,7 @@ public class KillBossTerminal : MonoBehaviour
 
     }  
     IEnumerator Type()
-    {
-        done = false;
+    {       
         GameManager.Instance.playerGameObj.GetComponent<PlayerController>().enabled = false;
 
         foreach (char letter in Finalsentence.ToCharArray())
@@ -44,7 +40,8 @@ public class KillBossTerminal : MonoBehaviour
         }
 
         GameManager.Instance.playerGameObj.GetComponent<PlayerController>().enabled = true;
-        done = true;
+        FollowMeConsoles.Waypoints.Add(GameObject.Find("LevelFinish").GetComponent<Transform>());
+
     }
 
     private void OnTriggerExit(Collider other)
