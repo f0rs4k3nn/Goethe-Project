@@ -71,6 +71,9 @@ public class Dialog : MonoBehaviour
         done = false;
         game.playerGameObj.GetComponent<PlayerController>().enabled = false;
 
+        if (tag == "RandomTalk")
+            index = Random.Range(0, sentencesNpc.Length - 1);
+
         foreach (char letter in sentencesNpc[index].ToCharArray())
         {
             game.textDisplay.text += letter;
