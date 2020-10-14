@@ -31,6 +31,7 @@ public class GameManager : Singleton<GameManager>
     public GameObject sign;
     public GameObject interactBttn;
     public GameObject[] interactiveObj;
+    public GameObject finalDoorPark;
     public static int currentLevel;
 
     public static bool hasToInitialize = true;
@@ -150,6 +151,7 @@ public class GameManager : Singleton<GameManager>
             
             interactBttn = GameObject.Find("Interact Button");
             playerGameObj = GameObject.Find("Player");
+            finalDoorPark = GameObject.Find("FinalDoorPark");
 
             sign = GameObject.Find("SignOverlay");
 

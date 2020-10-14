@@ -13,12 +13,13 @@ public class EnemyMovement : MonoBehaviour
 	public Transform spawnPoint;
 	Transform target;   // Reference to the player
 	NavMeshAgent agent; // Reference to the NavMeshAgent
+    public Animator animator;  // Reference to the animator
 
     public float maxIntervalBetweenBeeps = 1.0f;
     public float minIntervalBetweenBeeps = 0.05f;
     private float timeBetweenBeeps;
     private float beepPitch = -3;
-    private AudioSource beepSound;
+    private AudioSource beepSound;  
 
 
 
@@ -27,7 +28,7 @@ public class EnemyMovement : MonoBehaviour
 	{
         //target = GameManager.Instance.playerGameObj.transform;
         beepSound = GetComponent<AudioSource>();
-		agent = GetComponent<NavMeshAgent>();
+		agent = GetComponent<NavMeshAgent>();      
 
         StartCoroutine(BeepCoroutine());
 	}
@@ -52,6 +53,15 @@ public class EnemyMovement : MonoBehaviour
         // Distance to the target
         float distance = Vector3.Distance(target.position, transform.position);
 
+        if(animator != null)
+            if(agent.velocity != Vector3.zero )
+            {
+                animator.SetBool("Follow", true);
+            }
+            else
+            {
+                animator.SetBool("Follow", false);
+            }
         // If inside the lookRadius
         if (distance <= lookRadius && distance >= 1)
         {
@@ -71,6 +81,8 @@ public class EnemyMovement : MonoBehaviour
             if (distance <= agent.stoppingDistance)
             {
                 FaceTarget();   // Make sure to face towards the target
+                if(animator!=null)
+                    animator.Play("Attack", -1, 0);
             }
         }
         else

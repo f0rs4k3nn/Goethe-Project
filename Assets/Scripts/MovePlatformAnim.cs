@@ -9,7 +9,10 @@ public class MovePlatformAnim : MonoBehaviour
 
     void Update()
     {
-        _t += Time.fixedDeltaTime;  
-        transform.position = Vector3.Lerp(distanceMin.position, distanceMax.position, (Mathf.Sin(_t/maxAnimTime) + 1.0f) / 2.0f); 
+        if (GameManager.Instance.IsMovementEnabled)
+        {
+            _t += Time.fixedDeltaTime;
+            transform.position = Vector3.Lerp(distanceMin.position, distanceMax.position, (Mathf.Sin(_t / maxAnimTime) + 1.0f) / 2.0f);
+        }
     }
 }

@@ -10,6 +10,8 @@ public class Dialog : MonoBehaviour
     public int index = 0;
     bool startConversation = false;
     public float typingSpeed;
+    private bool done = true;
+    private bool isin = false;
 
     private GameManager game;
 
@@ -18,34 +20,59 @@ public class Dialog : MonoBehaviour
         game = GameManager.Instance;       
     }
 
-    private void OnTriggerStay(Collider player)
+    private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (isin)
         {
-            if(!startConversation)
+            if (GameManager.Instance.dialogBox.activeSelf || GameManager.Instance.sign.activeSelf)
+                GameManager.Instance.interactBttn.SetActive(false);
+            else
+                GameManager.Instance.interactBttn.SetActive(true);
+        }
+
+        if (Input.GetKeyDown(KeyCode.E) && isin && done)
+        {
+            if (!startConversation)
             {
                 startConversation = true;
                 game.dialogBox.SetActive(true);
                 StartCoroutine(Type());
+                //Debug.Log("start convo");
             }
-        }
-
-        if (game.textDisplay.text == sentencesNpc[index] && startConversation && Input.GetKeyDown(KeyCode.E))
+            else
+            {
+                //Debug.Log("next convo")
+                NextSentence();
+            }
+        }       
+    }
+    private void OnTriggerStay(Collider player)
+    {
+        if (player.tag == "Player")
         {
-            NextSentence();
+            isin = true;
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        startConversation = false;
-        game.dialogBox.SetActive(false);
-        ResetConversation();
+        if (other.tag == "Player")
+        {
+            GameManager.Instance.interactBttn.SetActive(false);
+            isin = false;
+            startConversation = false;
+            game.dialogBox.SetActive(false);
+            ResetConversation();
+        }
     }
 
     IEnumerator Type()
     {
+        done = false;
         game.playerGameObj.GetComponent<PlayerController>().enabled = false;
+
+        if (tag == "RandomTalk")
+            index = Random.Range(0, sentencesNpc.Length - 1);
 
         foreach (char letter in sentencesNpc[index].ToCharArray())
         {
@@ -54,6 +81,7 @@ public class Dialog : MonoBehaviour
         }
 
         game.playerGameObj.GetComponent<PlayerController>().enabled = true;
+        done = true;
     }
 
     public void NextSentence()
@@ -66,10 +94,23 @@ public class Dialog : MonoBehaviour
         }
         else
         {
-            game.textDisplay.text = sentencesNpc[index];
+            //Debug.Log("ended convo");            
+            startConversation = false;
+            game.dialogBox.SetActive(false);
+            ResetConversation();
         }
     }
-
+    public void StartConversationAtSpawn()
+    {
+        
+        if(!startConversation)
+        {
+            //Debug.Log("started dialog");
+            startConversation = true;
+            game.dialogBox.SetActive(true);
+            StartCoroutine(Type());
+        }
+    }
     public void ResetConversation()
     {
         game.textDisplay.text = "";
