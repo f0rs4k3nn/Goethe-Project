@@ -55,7 +55,7 @@ public class FollowMeConsoles : MonoBehaviour
             foreach(Transform obiect in Waypoints)
             {               
                 float dist = Vector3.Distance(transform.position, obiect.position);
-                Debug.LogWarning("Checking : " + obiect + ", dist : " + dist);
+                //Debug.LogWarning("Checking : " + obiect + ", dist : " + dist);
                 if (distance == 0 || dist < distance)
                 {
                     distance = dist;
