@@ -8,15 +8,21 @@ public class InteractText : MonoBehaviour
     string interactText;
     private static bool hasTools;
     private static bool hasRustyKey;
+    private static bool hasScissors;
     private bool isIn;
+    private GameManager game;
+
     private void Awake()
     {
         hasTools = false;
         hasRustyKey = false;
+        hasScissors = false;
     }
+
     void Start()
     {
         interactText = "";
+        game = GameManager.Instance;
     }
 
     private void Update()
@@ -28,7 +34,7 @@ public class InteractText : MonoBehaviour
             interactText = "You found some tools!";
             hasTools = true;
             SlideTweenIn();
-            GameManager.Instance.interactText.text = interactText;
+            game.interactText.text = interactText;
             StartCoroutine(DestroyInteractScript());
         }
 
@@ -37,16 +43,16 @@ public class InteractText : MonoBehaviour
             if (!hasTools)
             {
                 interactText = "Terminal is broken! If only you had some tools to fix it...";
-                GameManager.Instance.interactText.text = interactText;
+                game.interactText.text = interactText;
                 SlideTweenIn();
             }
 
             if (hasTools)
             {
                 interactText = "Terminal is now repaired!";
-                GameManager.Instance.interactText.text = interactText;
+                game.interactText.text = interactText;
                 CustomTeleporter.teleportPadOn = true;
-                GameManager.Instance.interactBttn.SetActive(false);
+                game.interactBttn.SetActive(false);
                 SlideTweenIn();
                 StartCoroutine(DestroyInteractScript());
             }
@@ -56,7 +62,7 @@ public class InteractText : MonoBehaviour
         {
             interactText = "You found a rusty key!";
             hasRustyKey = true;
-            GameManager.Instance.interactText.text = interactText;
+            game.interactText.text = interactText;
             SlideTweenIn();
             StartCoroutine(DestroyInteractScript());
             Destroy(gameObject);            
@@ -67,32 +73,58 @@ public class InteractText : MonoBehaviour
             if (!hasRustyKey)
             {
                 interactText = "This rusty locker is locked.";
-                GameManager.Instance.interactText.text = interactText;
+                game.interactText.text = interactText;
                 SlideTweenIn();
             }
 
             if (hasRustyKey)
             {
-                interactText = "The key worked! The locker is now open!";
-                GameManager.Instance.interactText.text = interactText;
-                GameManager.Instance.interactBttn.SetActive(false);
+                hasScissors = true;
+                interactText = "The key worked! You found a pair of scissors!";
+                game.interactText.text = interactText;
+                game.interactBttn.SetActive(false);
                 SlideTweenIn();
                 StartCoroutine(DestroyInteractScript());
             }
         }
+
+        if (Input.GetKeyDown(KeyCode.E) && gameObject.name == "FinalDoorPark" && isIn)
+        {
+            if (!hasScissors)
+            {
+                interactText = "The door is closed tight by some ropes.";
+                game.interactText.text = interactText;
+                SlideTweenIn();
+            }
+
+            if (!hasScissors)
+            {
+                interactText = "The ropes are cut! The door is open now.";
+                game.interactText.text = interactText;
+                game.interactBttn.SetActive(false);
+                SlideTweenIn();
+                RotateDoorTween();
+                Destroy(transform.GetChild(0).gameObject);
+                StartCoroutine(DestroyInteractScript());
+            }
+        }
+
         //Nivel MoJo
         if (Input.GetKeyDown(KeyCode.E) && name == "BossConsole" && isIn)
         {
             if(KillBossTerminal.shieldCount == 0)
-            {                
-                KillBossTerminal.endgame_initiate = true;
+            {
+                interactText = "YOU DID IT! ... YOU ACTUALLY DID IT!";
+                game.interactText.text = interactText;
+                game.interactBttn.SetActive(false);
+                SlideTweenInVictory();
                 StartCoroutine(DestroyInteractScript());
             }
             else
             {
-                interactText = "The terminal is still shielded. " + KillBossTerminal.shieldCount + " security terminals remain to deactivate";
-                GameManager.Instance.interactText.text = interactText;
-                GameManager.Instance.interactBttn.SetActive(false);
+                interactText = "The terminal is still shielded. There are " + KillBossTerminal.shieldCount + " active security consoles remain to deactivate";
+                game.interactText.text = interactText;
+                game.interactBttn.SetActive(false);
                 SlideTweenIn();
             }
         }
@@ -102,19 +134,19 @@ public class InteractText : MonoBehaviour
             KillBossTerminal.shieldCount --;             
             interactText = "Security Console Deactivated. ";
             FollowMeConsoles.Waypoints.Remove(transform);
-            Debug.Log("Removed " + transform);
+
             if (KillBossTerminal.shieldCount <= 0)
             {
                 KillBossTerminal.shieldCount = 0;
-                interactText += "The Shutdown terminal is now ready to be used";
+                interactText += "All SecurityConsoles have been deactivated. Now get to the last floor and end it!";
             }
             else
             {
-                interactText += " " + KillBossTerminal.shieldCount + " security terminals left to deactivate"; 
+                interactText += "There are " + KillBossTerminal.shieldCount + " active security consoles remain to deactivate"; 
             }
-            
-            GameManager.Instance.interactText.text = interactText;
-            GameManager.Instance.interactBttn.SetActive(false);
+
+            game.interactText.text = interactText;
+            game.interactBttn.SetActive(false);
             SlideTweenIn();
             StartCoroutine(DestroyInteractScript());
         }
@@ -123,10 +155,10 @@ public class InteractText : MonoBehaviour
             // Show the interact button on screen
         if (isIn)
         {
-            if (GameManager.Instance.dialogBox.activeSelf || GameManager.Instance.sign.activeSelf)
-                GameManager.Instance.interactBttn.SetActive(false);
+            if (game.dialogBox.activeSelf || game.sign.activeSelf)
+                game.interactBttn.SetActive(false);
             else
-                GameManager.Instance.interactBttn.SetActive(true);
+                game.interactBttn.SetActive(true);
         }
     }
 
@@ -141,13 +173,13 @@ public class InteractText : MonoBehaviour
         if (other.tag == "Player")
         {
             isIn = false;
-            GameManager.Instance.interactBttn.SetActive(false);
+            game.interactBttn.SetActive(false);
         }
     }
 
     IEnumerator DestroyInteractScript()
     {
-        GameManager.Instance.interactBttn.SetActive(false);
+        game.interactBttn.SetActive(false);
         isIn = false;
         yield return new WaitForSeconds(0.5f);
         Destroy(this);
@@ -155,11 +187,41 @@ public class InteractText : MonoBehaviour
 
     void SlideTweenIn()
     {
-        LeanTween.moveX(GameManager.Instance.interactBox, 250f, 2.5f).setEaseOutExpo().setOnComplete(SlideTweenOut);
+        LeanTween.moveX(game.interactBox, 250f, 2.5f).setEaseOutExpo().setOnComplete(SlideTweenOut);
     }
 
     void SlideTweenOut()
     {
-        LeanTween.moveX(GameManager.Instance.interactBox, -250f, 2.5f).setEaseOutExpo();
-    } 
+        LeanTween.moveX(game.interactBox, -250f, 2.5f).setEaseOutExpo();
+    }
+
+    void RotateDoorTween()
+    {
+        LeanTween.rotateLocal(game.finalDoorPark, new Vector3(0f, -90f, 0f), 2.5f).setEaseOutExpo();
+    }
+
+    void SlideTweenInVictory()
+    {
+        LeanTween.moveX(game.interactBox, 250f, 2.5f).setEaseOutExpo().setOnComplete(SlideTweenOutVictory);
+    }
+
+    void SlideTweenOutVictory()
+    {
+        LeanTween.moveX(game.interactBox, -250f, 0.5f).setEaseOutExpo().setOnComplete(SlideTweenInEndGame);
+    }
+
+    void SlideTweenInEndGame()
+    {
+        interactText = "Quickly, Enter the portal before the building colapses!";
+        KillBossTerminal.shakeCam = true;
+        game.interactText.text = interactText;
+        GameObject temp = GameObject.Find("LevelFinish");
+        temp.transform.GetChild(0).gameObject.SetActive(true);
+        temp.transform.GetChild(1).gameObject.SetActive(true);
+        LeanTween.moveX(game.interactBox, 250f, 5f).setEaseOutExpo().setOnComplete(SlideTweenOutEndGame);
+    }
+    void SlideTweenOutEndGame()
+    {
+        LeanTween.moveX(game.interactBox, -250f, 2.5f).setEaseOutExpo();
+    }
 }
