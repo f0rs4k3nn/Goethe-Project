@@ -97,7 +97,7 @@ public class GameManager : Singleton<GameManager>
             _playerModelVisible = value;
             if (playerModel == null)
             {
-                playerModel = GameObject.Find("PlayerModel");
+                playerModel = player.PlayerModels[CurrentCharacterModelIndex].gameObject;
             }
 
             playerModel.SetActive(value);
@@ -174,6 +174,7 @@ public class GameManager : Singleton<GameManager>
             dialogBox.SetActive(false);
             interactBttn.SetActive(false);
             sign.SetActive(false);
+            ScoringSystem.Score = 0;
 
             hasToInitialize = false;
         } catch(System.Exception e)
@@ -194,13 +195,16 @@ public class GameManager : Singleton<GameManager>
         {
             Debug.Log(e.StackTrace);
         }
+        
+        
 
 
         playerModelVisible = false;
         currentLevel++;
 
         Debug.Log("I finished the level " + currentLevel);
-
+        TotalScrap += ScoringSystem.Score; // Add score to total scrap for purchases
+        
         if(currentLevel > lastLevel)
         {
             StartCoroutine(GameFinished());
