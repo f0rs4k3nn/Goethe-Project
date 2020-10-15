@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
 
 public class GameManager : Singleton<GameManager>
 {
@@ -49,7 +52,7 @@ public class GameManager : Singleton<GameManager>
 
     private GameObject levelFinishedMenu;
     private SaveData _save;
-    public const int lastLevel = 8; //the index of the final level
+    public const int lastLevel = 12; //the index of the final level
    // private Scene
 
    public int TotalScrap
@@ -173,12 +176,6 @@ public class GameManager : Singleton<GameManager>
             sign.SetActive(false);
 
             hasToInitialize = false;
-
-            Debug.Log("NUTSHACK");
-
-
-
-
         } catch(System.Exception e)
         {
             Debug.Log("Loading " + e + " incomplete");
@@ -206,7 +203,7 @@ public class GameManager : Singleton<GameManager>
 
         if(currentLevel > lastLevel)
         {
-            Debug.Log("End GAME");
+            StartCoroutine(GameFinished());
         } else
         {
             if (currentLevel > _save.lastUnlockedLevel)
@@ -221,5 +218,24 @@ public class GameManager : Singleton<GameManager>
             levelFinishedMenu.SetActive(true);
             levelFinishedMenu.GetComponent<LevelFinishedMenu>().finishedLevel = true;
         }
+    }
+
+    IEnumerator GameFinished()
+    {
+        Image fadeOverlay = GameObject.Find("DeathOverlay").GetComponent<Image>();
+
+        float fadeDelay = 3.0f;
+
+        Color fixedColor = Color.white;
+        fixedColor.a = 1;
+        fadeOverlay.color = fixedColor;
+        fadeOverlay.CrossFadeAlpha(0f, 0f, true);
+
+        fadeOverlay.CrossFadeAlpha(1f, fadeDelay, true);
+
+        yield return new WaitForSeconds(fadeDelay);
+
+        AudioManager.instance.StopAudio();
+        SceneManager.LoadScene(13);
     }
 }

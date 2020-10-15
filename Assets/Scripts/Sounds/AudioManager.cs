@@ -39,7 +39,7 @@ public class AudioManager : MonoBehaviour
 		{
 			s.source = gameObject.AddComponent<AudioSource>();
 			s.source.clip = s.clip;
-			s.source.loop = s.isMusic || s.loop;
+			s.source.loop = s.loop;
 
 			s.source.outputAudioMixerGroup = mixerGroup;
 		}
@@ -169,6 +169,11 @@ public class AudioManager : MonoBehaviour
         currentlyPlayingAmbient.source.Stop();
     }
  
+    public void DefSettings()
+    {
+        SetVolume(1);
+        SetPitch(1);
+    }
 
     /*public void SetMusicVolume()
 	{
