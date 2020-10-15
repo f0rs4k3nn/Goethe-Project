@@ -76,7 +76,7 @@ public class Dialog : MonoBehaviour
     IEnumerator Type()
     {
         done = false;
-        game.playerGameObj.GetComponent<PlayerController>().enabled = false;
+      //  game.playerGameObj.GetComponent<PlayerController>().enabled = false;
 
         if (tag == "RandomTalk")
             index = Random.Range(0, sentencesNpc.Length - 1);
@@ -92,7 +92,7 @@ public class Dialog : MonoBehaviour
             yield return new WaitForSeconds(typingSpeed);
         }
 
-        game.playerGameObj.GetComponent<PlayerController>().enabled = true;
+        //game.playerGameObj.GetComponent<PlayerController>().enabled = true;
         done = true;
     }
 
