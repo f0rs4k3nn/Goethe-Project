@@ -12,12 +12,12 @@ GameObject:
   - component: {fileID: 33227272413103650}
   - component: {fileID: 23021292354073692}
   - component: {fileID: 6314581284210471093}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Regroup14
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &4947788617222288
 Transform:
@@ -105,12 +105,13 @@ GameObject:
   - component: {fileID: 4310524467781276}
   - component: {fileID: 33549051615891296}
   - component: {fileID: 23971077116265870}
-  m_Layer: 0
+  - component: {fileID: 216371852}
+  m_Layer: 8
   m_Name: Regroup14
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &4310524467781276
 Transform:
@@ -173,6 +174,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &216371852
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1543473459700612}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300002, guid: 6f40be15404c06d45949f0aec91fdd34, type: 3}
 --- !u!1 &1917494639043280
 GameObject:
   m_ObjectHideFlags: 0
@@ -183,12 +198,12 @@ GameObject:
   m_Component:
   - component: {fileID: 4128865136965308}
   - component: {fileID: 205235446571868376}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: rus_build_5et_03b_low
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &4128865136965308
 Transform:
@@ -199,7 +214,7 @@ Transform:
   m_GameObject: {fileID: 1917494639043280}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.35, y: 0.35, z: 0.35}
+  m_LocalScale: {x: 1.9826972, y: 1.9826972, z: 1.9826972}
   m_Children:
   - {fileID: 4947788617222288}
   - {fileID: 4310524467781276}
@@ -220,11 +235,11 @@ LODGroup:
   m_AnimateCrossFading: 0
   m_LastLODIsBillboard: 0
   m_LODs:
-  - screenRelativeHeight: 0.49821672
+  - screenRelativeHeight: 0.11998299
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 23021292354073692}
-  - screenRelativeHeight: 0.1
+  - screenRelativeHeight: 0.042781014
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 23971077116265870}
