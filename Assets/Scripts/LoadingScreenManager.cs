@@ -50,7 +50,11 @@ public class LoadingScreenManager : MonoBehaviour {
 		if (sceneToLoad < 0)
 			return;
 
-		fadeOverlay.gameObject.SetActive(true); // Making sure it's on so that we can crossfade Alpha
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+
+
+        fadeOverlay.gameObject.SetActive(true); // Making sure it's on so that we can crossfade Alpha
 		currentScene = SceneManager.GetActiveScene();
         // Debug.Log("GOT HERE");
         StartCoroutine(LoadAsync(sceneToLoad));

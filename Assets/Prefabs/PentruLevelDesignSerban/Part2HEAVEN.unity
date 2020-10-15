@@ -14,9 +14,9 @@ OcclusionCullingSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
-  m_Fog: 0
+  m_Fog: 1
   m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-  m_FogMode: 3
+  m_FogMode: 1
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: d31c39a02635df440a5fc4a31d963725, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -2310,10 +2310,9 @@ GameObject:
   m_Component:
   - component: {fileID: 281355285}
   - component: {fileID: 281355287}
-  - component: {fileID: 281355286}
   m_Layer: 0
   m_Name: DeathTrigger4
-  m_TagString: Untagged
+  m_TagString: Death
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2332,18 +2331,6 @@ Transform:
   m_Father: {fileID: 809738552}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: -0.393, y: 85.53001, z: 0.068}
---- !u!114 &281355286
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 281355284}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 89e0a9def8d9e244888696ff7956614b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!65 &281355287
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2826,10 +2813,9 @@ GameObject:
   m_Component:
   - component: {fileID: 316830455}
   - component: {fileID: 316830457}
-  - component: {fileID: 316830456}
   m_Layer: 0
   m_Name: DeathTrigger6
-  m_TagString: Untagged
+  m_TagString: Death
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2848,18 +2834,6 @@ Transform:
   m_Father: {fileID: 809738552}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: -0.39800003, y: 91.865005, z: 0.025}
---- !u!114 &316830456
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 316830454}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 89e0a9def8d9e244888696ff7956614b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!65 &316830457
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5742,10 +5716,9 @@ GameObject:
   m_Component:
   - component: {fileID: 712091460}
   - component: {fileID: 712091462}
-  - component: {fileID: 712091461}
   m_Layer: 0
   m_Name: DeathTrigger9
-  m_TagString: Untagged
+  m_TagString: Death
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5764,18 +5737,6 @@ Transform:
   m_Father: {fileID: 326506471}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 6.1000004, z: 0}
---- !u!114 &712091461
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 712091459}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 89e0a9def8d9e244888696ff7956614b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!65 &712091462
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6542,10 +6503,9 @@ GameObject:
   m_Component:
   - component: {fileID: 785569413}
   - component: {fileID: 785569415}
-  - component: {fileID: 785569414}
   m_Layer: 0
   m_Name: DeathTrigger7
-  m_TagString: Untagged
+  m_TagString: Death
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6564,18 +6524,6 @@ Transform:
   m_Father: {fileID: 809738552}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: -0.393, y: 85.53001, z: 0.068}
---- !u!114 &785569414
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 785569412}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 89e0a9def8d9e244888696ff7956614b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!65 &785569415
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6599,10 +6547,9 @@ GameObject:
   m_Component:
   - component: {fileID: 800397533}
   - component: {fileID: 800397535}
-  - component: {fileID: 800397534}
   m_Layer: 0
   m_Name: DeathTrigger13
-  m_TagString: Untagged
+  m_TagString: Death
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6621,18 +6568,6 @@ Transform:
   m_Father: {fileID: 326506471}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: -7.2760005, z: 0}
---- !u!114 &800397534
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 800397532}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 89e0a9def8d9e244888696ff7956614b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!65 &800397535
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6806,10 +6741,9 @@ GameObject:
   m_Component:
   - component: {fileID: 819552181}
   - component: {fileID: 819552183}
-  - component: {fileID: 819552182}
   m_Layer: 0
   m_Name: Checkpoint3
-  m_TagString: Past Object
+  m_TagString: CheckPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6828,18 +6762,6 @@ Transform:
   m_Father: {fileID: 326506471}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -31.449001, z: 0}
---- !u!114 &819552182
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 819552180}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f495895511d72546bcb6ac6640f07c0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!65 &819552183
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10982,10 +10904,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1386067405}
   - component: {fileID: 1386067407}
-  - component: {fileID: 1386067406}
   m_Layer: 0
   m_Name: CheckpointFINAL
-  m_TagString: Past Object
+  m_TagString: CheckPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11004,18 +10925,6 @@ Transform:
   m_Father: {fileID: 326506471}
   m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 13.551001, z: 0}
---- !u!114 &1386067406
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1386067404}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f495895511d72546bcb6ac6640f07c0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!65 &1386067407
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11462,10 +11371,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1432199804}
   - component: {fileID: 1432199806}
-  - component: {fileID: 1432199805}
   m_Layer: 0
   m_Name: DeathTrigger10
-  m_TagString: Untagged
+  m_TagString: Death
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11484,18 +11392,6 @@ Transform:
   m_Father: {fileID: 326506471}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: -7.2760005, z: -30.000002}
---- !u!114 &1432199805
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1432199803}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 89e0a9def8d9e244888696ff7956614b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!65 &1432199806
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11603,10 +11499,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1462537996}
   - component: {fileID: 1462537998}
-  - component: {fileID: 1462537997}
   m_Layer: 0
   m_Name: DeathTrigger5
-  m_TagString: Untagged
+  m_TagString: Death
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11625,18 +11520,6 @@ Transform:
   m_Father: {fileID: 809738552}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: -0.39800003, y: 91.865005, z: 0.025}
---- !u!114 &1462537997
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1462537995}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 89e0a9def8d9e244888696ff7956614b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!65 &1462537998
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11828,10 +11711,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1465988349}
   - component: {fileID: 1465988351}
-  - component: {fileID: 1465988350}
   m_Layer: 0
   m_Name: DeathTrigger12
-  m_TagString: Untagged
+  m_TagString: Death
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11850,18 +11732,6 @@ Transform:
   m_Father: {fileID: 326506471}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: -3.364, y: -21.903002, z: -12.6710005}
---- !u!114 &1465988350
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1465988348}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 89e0a9def8d9e244888696ff7956614b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!65 &1465988351
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12260,10 +12130,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1500219790}
   - component: {fileID: 1500219792}
-  - component: {fileID: 1500219791}
   m_Layer: 0
   m_Name: DeathTrigger11
-  m_TagString: Untagged
+  m_TagString: Death
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12282,18 +12151,6 @@ Transform:
   m_Father: {fileID: 326506471}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0.13100001, y: -3.7640002, z: -2.1330001}
---- !u!114 &1500219791
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1500219789}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 89e0a9def8d9e244888696ff7956614b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!65 &1500219792
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13039,10 +12896,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1601399833}
   - component: {fileID: 1601399835}
-  - component: {fileID: 1601399834}
   m_Layer: 0
   m_Name: Checkpoint0
-  m_TagString: Past Object
+  m_TagString: CheckPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13061,18 +12917,6 @@ Transform:
   m_Father: {fileID: 809738552}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1601399834
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1601399832}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f495895511d72546bcb6ac6640f07c0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!65 &1601399835
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13334,7 +13178,102 @@ PrefabInstance:
     - target: {fileID: 7093032908100206499, guid: 39b27823ee85bff4496ecb7b22f07f9d,
         type: 3}
       propertyPath: levelIndex
-      value: 9
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7093032908100206499, guid: 39b27823ee85bff4496ecb7b22f07f9d,
+        type: 3}
+      propertyPath: currentPreset.pastSkyBoxColour.r
+      value: 0.81839633
+      objectReference: {fileID: 0}
+    - target: {fileID: 7093032908100206499, guid: 39b27823ee85bff4496ecb7b22f07f9d,
+        type: 3}
+      propertyPath: currentPreset.pastSkyBoxColour.g
+      value: 0.5990566
+      objectReference: {fileID: 0}
+    - target: {fileID: 7093032908100206499, guid: 39b27823ee85bff4496ecb7b22f07f9d,
+        type: 3}
+      propertyPath: currentPreset.pastSkyBoxColour.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7093032908100206499, guid: 39b27823ee85bff4496ecb7b22f07f9d,
+        type: 3}
+      propertyPath: currentPreset.pastLightColour.r
+      value: 0.32549024
+      objectReference: {fileID: 0}
+    - target: {fileID: 7093032908100206499, guid: 39b27823ee85bff4496ecb7b22f07f9d,
+        type: 3}
+      propertyPath: currentPreset.pastLightColour.g
+      value: 0.49163067
+      objectReference: {fileID: 0}
+    - target: {fileID: 7093032908100206499, guid: 39b27823ee85bff4496ecb7b22f07f9d,
+        type: 3}
+      propertyPath: currentPreset.pastFogColour.r
+      value: 0.27450982
+      objectReference: {fileID: 0}
+    - target: {fileID: 7093032908100206499, guid: 39b27823ee85bff4496ecb7b22f07f9d,
+        type: 3}
+      propertyPath: currentPreset.pastFogColour.g
+      value: 0.37647063
+      objectReference: {fileID: 0}
+    - target: {fileID: 7093032908100206499, guid: 39b27823ee85bff4496ecb7b22f07f9d,
+        type: 3}
+      propertyPath: currentPreset.pastFogColour.b
+      value: 0.8588236
+      objectReference: {fileID: 0}
+    - target: {fileID: 7093032908100206499, guid: 39b27823ee85bff4496ecb7b22f07f9d,
+        type: 3}
+      propertyPath: currentPreset.pastFogEndDist
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 7093032908100206499, guid: 39b27823ee85bff4496ecb7b22f07f9d,
+        type: 3}
+      propertyPath: currentPreset.futureSkyBoxColour.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7093032908100206499, guid: 39b27823ee85bff4496ecb7b22f07f9d,
+        type: 3}
+      propertyPath: currentPreset.futureSkyBoxColour.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7093032908100206499, guid: 39b27823ee85bff4496ecb7b22f07f9d,
+        type: 3}
+      propertyPath: currentPreset.futureSkyBoxColour.b
+      value: 0.51728797
+      objectReference: {fileID: 0}
+    - target: {fileID: 7093032908100206499, guid: 39b27823ee85bff4496ecb7b22f07f9d,
+        type: 3}
+      propertyPath: currentPreset.futureLightColour.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7093032908100206499, guid: 39b27823ee85bff4496ecb7b22f07f9d,
+        type: 3}
+      propertyPath: currentPreset.futureLightColour.g
+      value: 0.2688679
+      objectReference: {fileID: 0}
+    - target: {fileID: 7093032908100206499, guid: 39b27823ee85bff4496ecb7b22f07f9d,
+        type: 3}
+      propertyPath: currentPreset.futureLightColour.b
+      value: 0.9282657
+      objectReference: {fileID: 0}
+    - target: {fileID: 7093032908100206499, guid: 39b27823ee85bff4496ecb7b22f07f9d,
+        type: 3}
+      propertyPath: currentPreset.futureFogColour.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7093032908100206499, guid: 39b27823ee85bff4496ecb7b22f07f9d,
+        type: 3}
+      propertyPath: currentPreset.futureFogColour.g
+      value: 0.6320754
+      objectReference: {fileID: 0}
+    - target: {fileID: 7093032908100206499, guid: 39b27823ee85bff4496ecb7b22f07f9d,
+        type: 3}
+      propertyPath: currentPreset.futureFogColour.b
+      value: 0.4514824
+      objectReference: {fileID: 0}
+    - target: {fileID: 7093032908100206499, guid: 39b27823ee85bff4496ecb7b22f07f9d,
+        type: 3}
+      propertyPath: currentPreset.futureFogEndDist
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 9158712513939315166, guid: 39b27823ee85bff4496ecb7b22f07f9d,
         type: 3}
@@ -13970,10 +13909,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1823329293}
   - component: {fileID: 1823329295}
-  - component: {fileID: 1823329294}
   m_Layer: 0
   m_Name: DeathTrigger8
-  m_TagString: Untagged
+  m_TagString: Death
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13992,18 +13930,6 @@ Transform:
   m_Father: {fileID: 916863525}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: -2.565, y: 92.162, z: -15.122001}
---- !u!114 &1823329294
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1823329292}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 89e0a9def8d9e244888696ff7956614b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!65 &1823329295
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14253,10 +14179,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1871720244}
   - component: {fileID: 1871720246}
-  - component: {fileID: 1871720245}
   m_Layer: 0
   m_Name: Checkpoint3.5
-  m_TagString: Past Object
+  m_TagString: CheckPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14275,18 +14200,6 @@ Transform:
   m_Father: {fileID: 326506471}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: -61.449, z: 0}
---- !u!114 &1871720245
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1871720243}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f495895511d72546bcb6ac6640f07c0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!65 &1871720246
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14742,10 +14655,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1901345412}
   - component: {fileID: 1901345414}
-  - component: {fileID: 1901345413}
   m_Layer: 0
   m_Name: DeathTrigger0
-  m_TagString: Untagged
+  m_TagString: Death
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14764,18 +14676,6 @@ Transform:
   m_Father: {fileID: 809738552}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1901345413
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1901345411}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 89e0a9def8d9e244888696ff7956614b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!65 &1901345414
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14884,10 +14784,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1956446361}
   - component: {fileID: 1956446363}
-  - component: {fileID: 1956446362}
   m_Layer: 0
   m_Name: Checkpoint2
-  m_TagString: Past Object
+  m_TagString: CheckPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14906,18 +14805,6 @@ Transform:
   m_Father: {fileID: 916863525}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -20.072, z: 0}
---- !u!114 &1956446362
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1956446360}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f495895511d72546bcb6ac6640f07c0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!65 &1956446363
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -15573,6 +15460,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SpawnPoint
       objectReference: {fileID: 0}
+    - target: {fileID: 6548401010393116046, guid: 69dbc71dd1fbdc0478a95a20ed73bbcf,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 69dbc71dd1fbdc0478a95a20ed73bbcf, type: 3}
 --- !u!1001 &2029628188
@@ -15891,10 +15783,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2074804638}
   - component: {fileID: 2074804639}
-  - component: {fileID: 2074804640}
   m_Layer: 0
   m_Name: DeathTrigger3
-  m_TagString: Untagged
+  m_TagString: Death
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15926,18 +15817,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2074804640
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2074804637}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 89e0a9def8d9e244888696ff7956614b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &2089617475
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16017,10 +15896,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2111355914}
   - component: {fileID: 2111355915}
-  - component: {fileID: 2111355916}
   m_Layer: 0
   m_Name: DeathTrigger2
-  m_TagString: Untagged
+  m_TagString: Death
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16052,18 +15930,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2111355916
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2111355913}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 89e0a9def8d9e244888696ff7956614b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &2120595483
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17494,26 +17360,13 @@ GameObject:
   m_Component:
   - component: {fileID: 3571503430774309921}
   - component: {fileID: 7072166856182160855}
-  - component: {fileID: 5750651842529127291}
   m_Layer: 0
   m_Name: Checkpoint1
-  m_TagString: Past Object
+  m_TagString: CheckPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &5750651842529127291
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5750651842529127290}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f495895511d72546bcb6ac6640f07c0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!65 &7072166856182160855
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -17537,23 +17390,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1841745807484296579}
   - component: {fileID: 5348824136326677621}
-  - component: {fileID: 7481004679559262937}
   m_Layer: 0
   m_Name: DeathTrigger1
-  m_TagString: Untagged
+  m_TagString: Death
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &7481004679559262937
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7481004679559262936}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 89e0a9def8d9e244888696ff7956614b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

@@ -22,9 +22,7 @@ public class PlayerDeath : MonoBehaviour
     
     void Awake()
     {
-        game = GameManager.Instance;
-
-          
+        game = GameManager.Instance;  
     }
 
     private void Start()
@@ -92,6 +90,7 @@ public class PlayerDeath : MonoBehaviour
         screenOverlay.CrossFadeAlpha(1, fadeDuration, true);
         yield return new WaitForSeconds(fadeDuration);
 
+        game.player.SetVelocity(Vector3.zero); //reset the player's speed
         transform.position = checkpoint;
         game.playerModelVisible = true;
         game.IsMovementEnabled = true;

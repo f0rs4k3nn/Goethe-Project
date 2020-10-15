@@ -43,6 +43,7 @@ public class CollectibleScript : MonoBehaviour
         {
             taken = true;
             GameManager.Instance.ScoringSystem.Score += pointsWorth;
+            AudioManager.instance.Play("LetterSound");
             Destroy(gameObject);
         } 
     }

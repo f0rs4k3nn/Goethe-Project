@@ -170,8 +170,8 @@ public class TimeTravelMechanic : MonoBehaviour
         if(isInFuture)
         {
             audio.SetDarkAmbientVolume(1);
-            audio.SetPitch(0.3f);
-            audio.SetVolume(0.4f);
+            audio.SetPitch(0.5f);
+            audio.SetVolume(1.2f);
         } else
         {
             audio.SetDarkAmbientVolume(0);

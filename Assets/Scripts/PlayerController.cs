@@ -55,11 +55,11 @@ public class PlayerController : MonoBehaviour
     public float progressiveJumpPower; //how much force to add while jump is still pressed
     public bool doubleJumpUnlocked; // boolean to see if the player can double jump yet
     private bool canDoubleJump;
-    private int m_staticFallVelocity = -100; //the speed at which the player is pushed to the ground when grounded
+    private int m_staticFallVelocity = -150; //the speed at which the player is pushed to the ground when grounded
     private bool m_beganFalling = false;
 
 
-    public int maxFallSpeed = -250;
+    public int maxFallSpeed = -200;
     private bool canMove = false;
 
 
@@ -104,6 +104,8 @@ public class PlayerController : MonoBehaviour
         canMove = true;
         movementSinceLastFrame = Vector3.zero;
         audioManager = AudioManager.instance;
+
+        GameManager.Instance.IsMovementEnabled = false;
     }
 
     
@@ -226,11 +228,16 @@ public class PlayerController : MonoBehaviour
         {
             if(isGrounded)
             {
-                targetspeedSmooth /= 3.5f; //if we stop moving and we are grounded, stop faster
+                targetspeedSmooth /= 5f; //if we stop moving and we are grounded, stop faster
             }           
         }
 
         currentSpeed = Vector3.SmoothDamp(currentSpeed, movementDir * targetSpeed, ref speedSmoothVelocity, targetspeedSmooth);
+
+        if(velocity.y < maxFallSpeed)
+        {
+            velocity = new Vector3(velocity.x, maxFallSpeed, velocity.z);
+        }
 
         Vector3 movement = currentSpeed * 0.01f;
 
@@ -243,6 +250,16 @@ public class PlayerController : MonoBehaviour
         m_ForwardAmount = currentSpeed.magnitude;
 
         UpdateAnimator(input);    
+    }
+
+    public void SetVelocity(Vector3 velocity)
+    {
+        if(velocity == Vector3.zero)
+        {
+            canDoubleJump = true;
+        }
+
+        this.velocity = velocity;
     }
 
    private void Update()

@@ -88,6 +88,7 @@ public class Dialog : MonoBehaviour
                 break;
             }
 
+            AudioManager.instance.Play("LetterSound");
             game.textDisplay.text += letter;
             yield return new WaitForSeconds(typingSpeed);
         }

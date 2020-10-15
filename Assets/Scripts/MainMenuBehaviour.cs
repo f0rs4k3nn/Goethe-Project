@@ -20,6 +20,9 @@ public class MainMenuBehaviour : MonoBehaviour
 
     private void Start()
     {
+        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.visible = true;
+
         _save = GameData.gameData.saveData;
         Color fixedColor = fadeOverlay.color;
         fixedColor.a = 1;

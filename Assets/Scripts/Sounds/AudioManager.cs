@@ -164,9 +164,14 @@ public class AudioManager : MonoBehaviour
 
     public void StopAudio()
     {
-        darkAmbient.source.Stop();
-        currentlyPlayingMusic.source.Stop();
-        currentlyPlayingAmbient.source.Stop();
+        if(darkAmbient != null)
+            darkAmbient.source.Stop();
+
+        if (currentlyPlayingMusic != null)
+            currentlyPlayingMusic.source.Stop();
+
+        if (currentlyPlayingAmbient != null)
+            currentlyPlayingAmbient.source.Stop();
     }
  
     public void DefSettings()

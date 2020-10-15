@@ -177,7 +177,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -767,6 +767,7 @@ MonoBehaviour:
   nameText: {fileID: 1764925724}
   fadeOverlay: {fileID: 209179537}
   fadeDelay: 3
+  docImage: {fileID: 1739531975}
 --- !u!1 &1441767391
 GameObject:
   m_ObjectHideFlags: 0
@@ -1546,6 +1547,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5809128601289641036, guid: 0e99b8b5df4b2f04d9f2b64e5a97868d,
+        type: 3}
+      propertyPath: sounds.Array.data[18].volume
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 5809128601289641037, guid: 0e99b8b5df4b2f04d9f2b64e5a97868d,
         type: 3}

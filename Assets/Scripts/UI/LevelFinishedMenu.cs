@@ -17,6 +17,9 @@ public class LevelFinishedMenu : MonoBehaviour
 
     private void Start()
     {
+        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.visible = true;
+
         _cv = GetComponent<CanvasGroup>();
         _cv.alpha = 0;        
     }

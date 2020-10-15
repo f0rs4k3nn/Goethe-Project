@@ -52,7 +52,7 @@ public class GameManager : Singleton<GameManager>
 
     private GameObject levelFinishedMenu;
     private SaveData _save;
-    public const int lastLevel = 12; //the index of the final level
+    public const int lastLevel = 13; //the index of the final level
    // private Scene
 
    public int TotalScrap
@@ -177,11 +177,13 @@ public class GameManager : Singleton<GameManager>
             ScoringSystem.Score = 0;
 
             hasToInitialize = false;
+
+            _isMovementEnabled = true;
+
         } catch(System.Exception e)
         {
             Debug.Log("Loading " + e + " incomplete");
         }
-
     }
 
     public void FinishedLevel()
@@ -195,9 +197,6 @@ public class GameManager : Singleton<GameManager>
         {
             Debug.Log(e.StackTrace);
         }
-        
-        
-
 
         playerModelVisible = false;
         currentLevel++;

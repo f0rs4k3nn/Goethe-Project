@@ -15,6 +15,10 @@ public class FlashForward : MonoBehaviour
 
     private void Start()
     {
+        explosion1.SetActive(false);
+        explosion2.SetActive(false);
+        explosion3.SetActive(false);
+        explosion4.SetActive(false);
         colorNow = dirLight.GetComponent<Light>().color;
         path1.gameObject.GetComponentInChildren<MeshRenderer>().enabled = false;
     }
