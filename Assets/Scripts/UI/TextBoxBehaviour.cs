@@ -11,7 +11,7 @@ public class TextBoxBehaviour : MonoBehaviour
     public Image fadeOverlay;
     public float fadeDelay = 1.0f;
 
-
+    
     private AudioManager _audio;
     private bool _finished = true;
     private Text _textBox;
