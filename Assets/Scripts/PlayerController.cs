@@ -90,7 +90,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        for (int i = 0; i < 10; i++) // Disable all player model
+        for (int i = 0; i < PlayerModels.Length; i++) // Disable all player model
         {
             PlayerModels[i].gameObject.SetActive(false);
         }

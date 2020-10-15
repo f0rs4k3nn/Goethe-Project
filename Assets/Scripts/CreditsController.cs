@@ -16,8 +16,6 @@ public class CreditsController : MonoBehaviour
         creditsSequence.PrependInterval(2f);
         creditsSequence.Append(doText(text1, "<b>Goethe Institute Bucharest\nPresents... _</b>"));
         creditsSequence.Append(doFadeOut(text1, 2f, 4f));
-        creditsSequence.Append(doText(text1, ">Collaboration of BUG Lab and \n Retina Film Production _"));
-        creditsSequence.Append(doFadeOut(text1, 2f, 4f));
         creditsSequence.Append(doText(text1, "Romania\nTurkey\nSerbia\nMontenegro\nBosnia&Herzegovina\nMoldova _"));
         creditsSequence.Append(doFadeOut(text1, 4f, 4f));
         
