@@ -30,20 +30,27 @@ public class Dialog : MonoBehaviour
                 GameManager.Instance.interactBttn.SetActive(true);
         }
 
-        if (Input.GetKeyDown(KeyCode.E) && isin && done)
+        if (Input.GetKeyDown(KeyCode.E) && isin)
         {
-            if (!startConversation)
+            if(done)
             {
-                startConversation = true;
-                game.dialogBox.SetActive(true);
-                StartCoroutine(Type());
-                //Debug.Log("start convo");
-            }
-            else
+                if (!startConversation)
+                {
+                    startConversation = true;
+                    game.dialogBox.SetActive(true);
+                    StartCoroutine(Type());
+                    //Debug.Log("start convo");
+                }
+                else
+                {
+                    //Debug.Log("next convo")
+                    NextSentence();
+                }
+            } else
             {
-                //Debug.Log("next convo")
-                NextSentence();
+                game.textDisplay.text = sentencesNpc[index];
             }
+            
         }       
     }
     private void OnTriggerStay(Collider player)
@@ -76,6 +83,11 @@ public class Dialog : MonoBehaviour
 
         foreach (char letter in sentencesNpc[index].ToCharArray())
         {
+            if(game.textDisplay.text.Length == sentencesNpc[index].Length)
+            {
+                break;
+            }
+
             game.textDisplay.text += letter;
             yield return new WaitForSeconds(typingSpeed);
         }
