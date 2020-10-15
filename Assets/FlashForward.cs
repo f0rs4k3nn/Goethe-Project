@@ -7,7 +7,6 @@ public class FlashForward : MonoBehaviour
 {
     public GameObject path1;
     Color colorNow;
-    public GameObject mainCamera;
     public GameObject dirLight;
     public GameObject explosion1;
     public GameObject explosion2;
@@ -16,20 +15,21 @@ public class FlashForward : MonoBehaviour
 
     private void Start()
     {
-        mainCamera.GetComponent<AudioSource>().enabled = false;
         colorNow = dirLight.GetComponent<Light>().color;
-        path1.SetActive(false);
+        path1.gameObject.GetComponentInChildren<MeshRenderer>().enabled = false;
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        mainCamera.GetComponent<AudioSource>().enabled = true;
-        dirLight.GetComponent<Light>().color = Color.red;
-        explosion1.SetActive(true);
-        explosion2.SetActive(true);
-        explosion3.SetActive(true);
-        explosion4.SetActive(true);
-        StartCoroutine(OmgWhatsThat());
+        if (other.name == "Player")
+        {
+            dirLight.GetComponent<Light>().color = Color.red;
+            explosion1.SetActive(true);
+            explosion2.SetActive(true);
+            explosion3.SetActive(true);
+            explosion4.SetActive(true);
+            StartCoroutine(OmgWhatsThat());
+        }
     }
 
     IEnumerator OmgWhatsThat()
@@ -40,7 +40,7 @@ public class FlashForward : MonoBehaviour
         explosion2.SetActive(false);
         explosion3.SetActive(false);
         explosion4.SetActive(false);
-        path1.SetActive(true);
+        path1.GetComponent<Animator>().Play("spawnPath1");
         Destroy(gameObject);
     }
 }

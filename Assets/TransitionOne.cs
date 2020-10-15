@@ -5,40 +5,54 @@ using UnityEngine.SceneManagement;
 
 public class TransitionOne : MonoBehaviour
 {
-    public GameObject canvas;
     public GameObject cameraAnim;
-    public GameObject player;
-    public GameObject mainCamera;
     public GameObject fire;
     GameObject instantiatedFire;
+    //GameObject cumvreau;
 
     private void Start()
     {
+        //cumvreau = GameObject.Find("LevelFinish");
+        //cumvreau.transform.GetChild(0).gameObject.SetActive(false);
+        //cumvreau.transform.GetChild(1).gameObject.SetActive(false);
+       // StartCoroutine(InitializeArrow());
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
         {
-            mainCamera.GetComponent<ThirdPersonCamera>().enabled = false;
-            mainCamera.GetComponent<AudioSource>().Play();
+            GameManager.Instance.camera.enabled = false;
             instantiatedFire = Instantiate(fire, gameObject.transform);
-            Destroy(player.gameObject);
             StartCoroutine(OmgWhatsThat());
         }
     }
 
+  //  IEnumerator InitializeArrow()
+  //  {
+  //      while (cumvreau.transform.parent == null)
+  //      {
+  //          Debug.Log("checking for player...");
+  //          cumvreau.transform.SetParent(GameManager.Instance.playerTransform);
+  //          cumvreau.transform.localPosition = new Vector3(0, 2, 0.5f);
+  //          cumvreau.transform.localRotation = new Quaternion(0, 0, 0, 0);
+  //          yield return null;
+  //      }
+  //  }
+  
     IEnumerator OmgWhatsThat()
     {
-        yield return new WaitForSeconds(1);
-        mainCamera.transform.SetParent(cameraAnim.transform);
+        GameManager.Instance.camera.transform.SetParent(cameraAnim.transform);
         cameraAnim.GetComponent<Animation>().Play();
         Destroy(instantiatedFire);
         yield return new WaitForSeconds(1f);
-        mainCamera.GetComponent<StressReceiver>().InduceStress(10);
+        GameManager.Instance.camera.gameObject.AddComponent<StressReceiver>();
+        GameManager.Instance.camera.GetComponent<StressReceiver>().InduceStress(10);
         yield return new WaitForSeconds(1f);
-        mainCamera.GetComponent<StressReceiver>().InduceStress(25);
+        GameManager.Instance.camera.GetComponent<StressReceiver>().InduceStress(25);
         yield return new WaitForSeconds(5f);
-        SceneManager.LoadScene(1);
+        // cumvreau.transform.GetChild(0).gameObject.SetActive(true);
+        // cumvreau.transform.GetChild(1).gameObject.SetActive(true);
+        LoadingScreenManager.LoadScene(9);
     }
 }

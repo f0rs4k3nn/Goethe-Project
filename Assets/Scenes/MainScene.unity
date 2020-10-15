@@ -6159,7 +6159,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1872760421
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6984,6 +6984,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1467490004}
     m_Modifications:
+    - target: {fileID: 772377461980654472, guid: 189760d13d3073c41887258bb5e88b8c,
+        type: 3}
+      propertyPath: sprites.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 772377461980654472, guid: 189760d13d3073c41887258bb5e88b8c,
+        type: 3}
+      propertyPath: sprites.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: caf34d0f11cd6444ba6b4aa4ccbebb84,
+        type: 3}
     - target: {fileID: 4511447380235052838, guid: 189760d13d3073c41887258bb5e88b8c,
         type: 3}
       propertyPath: m_Name
