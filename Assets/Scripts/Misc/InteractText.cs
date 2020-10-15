@@ -90,14 +90,14 @@ public class InteractText : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.E) && gameObject.name == "FinalDoorPark" && isIn)
         {
-            if (hasScissors)
+            if (!hasScissors)
             {
                 interactText = "The door is closed tight by some ropes.";
                 game.interactText.text = interactText;
                 SlideTweenIn();
             }
 
-            if (!hasScissors)
+            if (hasScissors)
             {
                 interactText = "The ropes are cut! The door is open now.";
                 game.interactText.text = interactText;
