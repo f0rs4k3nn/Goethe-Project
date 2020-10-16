@@ -58,6 +58,26 @@ public class InteractText : MonoBehaviour
             }
         }
 
+        if (Input.GetKeyDown(KeyCode.E) && gameObject.name == "Teleport_TerminalDeactivated" && isIn)
+        {
+            if (!hasRustyKey)
+            {
+                interactText = "Terminal is shut down! If only you a key to turn it on...";
+                game.interactText.text = interactText;
+                SlideTweenIn();
+            }
+
+            if (hasRustyKey)
+            {
+                interactText = "Terminal is now online!";
+                game.interactText.text = interactText;
+                CustomTeleporter.teleportPadOn = true;
+                game.interactBttn.SetActive(false);
+                SlideTweenIn();
+                StartCoroutine(DestroyInteractScript());
+            }
+        }
+
         if (Input.GetKeyDown(KeyCode.E) && gameObject.name == "Rusty_Key" && isIn)
         {
             interactText = "You found a rusty key!";
@@ -66,6 +86,16 @@ public class InteractText : MonoBehaviour
             SlideTweenIn();
             StartCoroutine(DestroyInteractScript());
             Destroy(gameObject);            
+        }
+
+        if (Input.GetKeyDown(KeyCode.E) && gameObject.name == "Rusty_KeyTP" && isIn)
+        {
+            interactText = "You found a teleporter key!";
+            hasRustyKey = true;
+            game.interactText.text = interactText;
+            SlideTweenIn();
+            StartCoroutine(DestroyInteractScript());
+            Destroy(gameObject);
         }
 
         if (Input.GetKeyDown(KeyCode.E) && gameObject.name == "MetalCabinetRusty" && isIn)
