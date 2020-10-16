@@ -52,7 +52,7 @@ public class GameManager : Singleton<GameManager>
 
     private GameObject levelFinishedMenu;
     private SaveData _save;
-    public const int lastLevel = 13; //the index of the final level
+    public const int lastLevel = 14; //the index of the final level
    // private Scene
 
    public int TotalScrap
@@ -239,6 +239,6 @@ public class GameManager : Singleton<GameManager>
         yield return new WaitForSeconds(fadeDelay);
 
         AudioManager.instance.StopAudio();
-        SceneManager.LoadScene(13);
+        SceneManager.LoadScene(lastLevel + 1);
     }
 }
