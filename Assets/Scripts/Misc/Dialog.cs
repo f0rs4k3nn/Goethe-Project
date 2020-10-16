@@ -12,6 +12,7 @@ public class Dialog : MonoBehaviour
     public float typingSpeed;
     private bool done = true;
     private bool isin = false;
+    private bool endTalk = false;
 
     private GameManager game;
 
@@ -78,8 +79,18 @@ public class Dialog : MonoBehaviour
         done = false;
       //  game.playerGameObj.GetComponent<PlayerController>().enabled = false;
 
-        if (tag == "RandomTalk")
+        if (tag == "RandomTalk" && !endTalk)
             index = Random.Range(0, sentencesNpc.Length - 1);
+        else if(endTalk)
+        {
+            GameManager.Instance.interactBttn.SetActive(false);
+            isin = false;
+            startConversation = false;
+            game.dialogBox.SetActive(false);
+            game.interactBttn.SetActive(false);
+            isin = false;            
+            Destroy(this);            
+        }
 
         foreach (char letter in sentencesNpc[index].ToCharArray())
         {
@@ -95,6 +106,10 @@ public class Dialog : MonoBehaviour
 
         //game.playerGameObj.GetComponent<PlayerController>().enabled = true;
         done = true;
+        if (tag == "RandomTalk")
+        {
+            endTalk = true;           
+        }
     }
 
     public void NextSentence()
@@ -112,6 +127,13 @@ public class Dialog : MonoBehaviour
             game.dialogBox.SetActive(false);
             ResetConversation();
         }
+    }
+    IEnumerator DestroyInteractScript()
+    {
+        game.interactBttn.SetActive(false);
+        isin = false;
+        yield return null;
+        Destroy(this);
     }
     public void StartConversationAtSpawn()
     {
