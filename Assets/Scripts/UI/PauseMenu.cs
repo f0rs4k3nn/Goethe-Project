@@ -15,7 +15,14 @@ public class PauseMenu : MonoBehaviour
     private float m_TimeScaleRef = 1f;
     private float m_VolumeRef = 1f;
     private bool m_Paused;
-    
+
+    private GameObject levelFinish;
+
+
+    private void Awake()
+    {
+        levelFinish = FindObjectOfType<LevelFinishedMenu>().gameObject;
+    }
 
     // Start is called before the first frame update
     public void GoToMenu()
@@ -82,7 +89,7 @@ public class PauseMenu : MonoBehaviour
 #if !MOBILE_INPUT
     void Update()
     {
-        if (Input.GetKeyUp(KeyCode.Escape))
+        if (Input.GetKeyUp(KeyCode.Escape) && !levelFinish.active)
         {
             if(m_Paused)
             {

@@ -84,6 +84,8 @@ public class PlayerController : MonoBehaviour
 
     void Awake()
     {
+        GameManager.Instance.IsMovementEnabled = false;
+
         GameManager.Instance.player = this; // Assign itself to the GameManager
     }
 
@@ -105,7 +107,6 @@ public class PlayerController : MonoBehaviour
         movementSinceLastFrame = Vector3.zero;
         audioManager = AudioManager.instance;
 
-        GameManager.Instance.IsMovementEnabled = false;
     }
 
     

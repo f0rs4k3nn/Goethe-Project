@@ -12,12 +12,14 @@ public class FollowMeConsoles : MonoBehaviour
         StartCoroutine(InitializeArrow());        
     }
     void Start()
-    {        
+    {
+   
         StartCoroutine(LoopCheck());
     }
    
     void Update()
     {
+
         transform.LookAt(WaypointToFollow);
     }
     IEnumerator InitializeArrow()

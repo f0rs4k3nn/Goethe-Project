@@ -54,6 +54,8 @@ public class Dialog : MonoBehaviour
             
         }       
     }
+
+    
     private void OnTriggerStay(Collider player)
     {
         if (player.tag == "Player")
