@@ -12,6 +12,7 @@ public class KillBossTerminal : MonoBehaviour
 
     private void Awake()
     {
+        shakeCam = endgame_initiate = false;
         shieldCount = GameObject.FindGameObjectsWithTag("SecurityConsole").Length;
         Debug.Log("Consoles : " + shieldCount);
     } 
@@ -53,7 +54,8 @@ public class KillBossTerminal : MonoBehaviour
     }
     private void OnDestroy()
     {
-        shakeCam = false;
+        shakeCam = endgame_initiate = false;
+
         ThirdPersonCamera.shakeMagnitude = 0f;
     }
 
