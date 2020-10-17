@@ -67,18 +67,23 @@ public class MainMenuBehaviour : MonoBehaviour
     {
         if(_save.lastUnlockedLevel == 0)
         {
-            StartCoroutine(ChoiceMade(1));
+            StartCoroutine(ChoiceMade(1, true));
         }
         else
         {
-            StartCoroutine(ChoiceMade(_save.lastUnlockedLevel - firstLevelIndex + 1));
+            StartCoroutine(ChoiceMade(_save.lastUnlockedLevel - firstLevelIndex + 1, true));
         }        
     }
 
     public void LoadLevel(int level)
     {
-        StartCoroutine(ChoiceMade(level));
+        StartCoroutine(ChoiceMade(level, false));
         //LoadingScreenManager.LoadScene(firstLevelIndex + level - 1);
+    }
+
+    public void StartGame()
+    {
+        StartCoroutine(ChoiceMade(1, true));
     }
 
     public void OpenCustomization()
@@ -95,7 +100,7 @@ public class MainMenuBehaviour : MonoBehaviour
         customizationScreen.SetActive(false);
     }
 
-    private IEnumerator ChoiceMade(int levelIndex)
+    private IEnumerator ChoiceMade(int levelIndex, bool loadStory)
     {
         AudioManager.instance.Play("Selection");
 
@@ -110,9 +115,15 @@ public class MainMenuBehaviour : MonoBehaviour
 
         yield return new WaitForSeconds(fadeDelay);
 
-        // TextBoxBehaviour.currentDialogue = levelIndex;
-        LoadingScreenManager.LoadScene(levelIndex + firstLevelIndex - 1);
-        // SceneManager.LoadScene(3);
+        if(loadStory)
+        {
+             TextBoxBehaviour.currentDialogue = levelIndex;
+             SceneManager.LoadScene(3);
+        }
+        else
+        {
+            LoadingScreenManager.LoadScene(levelIndex + firstLevelIndex - 1);
+        }       
     }
 
     public void QuitButton()

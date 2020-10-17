@@ -28,6 +28,7 @@ public class PauseMenu : MonoBehaviour
     public void GoToMenu()
     {
         Time.timeScale = m_TimeScaleRef;
+        AudioListener.volume = m_VolumeRef;
         StartCoroutine(GoToMenuRoutine());
     }
 
