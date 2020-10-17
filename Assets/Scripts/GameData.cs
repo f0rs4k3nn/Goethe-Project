@@ -11,14 +11,12 @@ public class SaveData
     public int lastUnlockedLevel;
     public int lastPlayedLevel;
     public int lastScore;
-
 }
 
 public class GameData : MonoBehaviour
 {
     public static GameData gameData;
     public SaveData saveData;
-
 
     void Awake()
     {
@@ -50,7 +48,6 @@ public class GameData : MonoBehaviour
 
         Debug.Log("file saved succesfully");
     }
-
 
     public void Load()
     {
