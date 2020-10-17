@@ -65,7 +65,14 @@ public class MainMenuBehaviour : MonoBehaviour
 
     public void Continue()
     {
-        StartCoroutine(ChoiceMade(_save.lastUnlockedLevel - firstLevelIndex + 1));
+        if(_save.lastUnlockedLevel == 0)
+        {
+            StartCoroutine(ChoiceMade(1));
+        }
+        else
+        {
+            StartCoroutine(ChoiceMade(_save.lastUnlockedLevel - firstLevelIndex + 1));
+        }        
     }
 
     public void LoadLevel(int level)
