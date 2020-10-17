@@ -45,6 +45,7 @@ public class EnemyMovement : MonoBehaviour
 
             if (player == null)
             {
+                return;
             } else
             {
                 target = GameManager.Instance.player.transform;

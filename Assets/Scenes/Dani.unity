@@ -14,9 +14,9 @@ OcclusionCullingSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
-  m_Fog: 0
-  m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-  m_FogMode: 3
+  m_Fog: 1
+  m_FogColor: {r: 0.48584908, g: 0.69914985, b: 1, a: 1}
+  m_FogMode: 1
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: d31c39a02635df440a5fc4a31d963725, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -34,7 +34,7 @@ RenderSettings:
   m_SpotCookie: {fileID: 10001, guid: 0000000000000000e000000000000000, type: 0}
   m_DefaultReflectionMode: 0
   m_DefaultReflectionResolution: 128
-  m_ReflectionBounces: 1
+  m_ReflectionBounces: 2
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -27568,47 +27568,47 @@ PrefabInstance:
     - target: {fileID: 4486310936593790349, guid: 1512f34dc9c74db43a2b10cfb46950f1,
         type: 3}
       propertyPath: currentPreset.pastSkyBoxColour.r
-      value: 0.47209862
+      value: 0.4269313
       objectReference: {fileID: 0}
     - target: {fileID: 4486310936593790349, guid: 1512f34dc9c74db43a2b10cfb46950f1,
         type: 3}
       propertyPath: currentPreset.pastSkyBoxColour.g
-      value: 0.50493556
+      value: 0.45018312
       objectReference: {fileID: 0}
     - target: {fileID: 4486310936593790349, guid: 1512f34dc9c74db43a2b10cfb46950f1,
         type: 3}
       propertyPath: currentPreset.pastSkyBoxColour.b
-      value: 0.9716981
+      value: 0.735849
       objectReference: {fileID: 0}
     - target: {fileID: 4486310936593790349, guid: 1512f34dc9c74db43a2b10cfb46950f1,
         type: 3}
       propertyPath: currentPreset.pastLightColour.r
-      value: 0.740566
+      value: 0.5506338
       objectReference: {fileID: 0}
     - target: {fileID: 4486310936593790349, guid: 1512f34dc9c74db43a2b10cfb46950f1,
         type: 3}
       propertyPath: currentPreset.pastLightColour.g
-      value: 0.74896204
+      value: 0.5226504
       objectReference: {fileID: 0}
     - target: {fileID: 4486310936593790349, guid: 1512f34dc9c74db43a2b10cfb46950f1,
         type: 3}
       propertyPath: currentPreset.pastLightColour.b
-      value: 1
+      value: 0.8207547
       objectReference: {fileID: 0}
     - target: {fileID: 4486310936593790349, guid: 1512f34dc9c74db43a2b10cfb46950f1,
         type: 3}
       propertyPath: currentPreset.pastFogColour.r
-      value: 0.21568625
+      value: 0.3568441
       objectReference: {fileID: 0}
     - target: {fileID: 4486310936593790349, guid: 1512f34dc9c74db43a2b10cfb46950f1,
         type: 3}
       propertyPath: currentPreset.pastFogColour.g
-      value: 0.38021934
+      value: 0.51282203
       objectReference: {fileID: 0}
     - target: {fileID: 4486310936593790349, guid: 1512f34dc9c74db43a2b10cfb46950f1,
         type: 3}
       propertyPath: currentPreset.pastFogColour.b
-      value: 0.83137256
+      value: 0.9339623
       objectReference: {fileID: 0}
     - target: {fileID: 4486310936593790349, guid: 1512f34dc9c74db43a2b10cfb46950f1,
         type: 3}
@@ -27654,6 +27654,21 @@ PrefabInstance:
         type: 3}
       propertyPath: currentPreset.futureFogColour.b
       value: 0.35617658
+      objectReference: {fileID: 0}
+    - target: {fileID: 4486310936593790349, guid: 1512f34dc9c74db43a2b10cfb46950f1,
+        type: 3}
+      propertyPath: currentPreset.pastLightIntensity
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4486310936593790349, guid: 1512f34dc9c74db43a2b10cfb46950f1,
+        type: 3}
+      propertyPath: currentPreset.futureLightIntensity
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4486310936593790349, guid: 1512f34dc9c74db43a2b10cfb46950f1,
+        type: 3}
+      propertyPath: currentPreset.futureFogEndDist
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 7095738409918977113, guid: 1512f34dc9c74db43a2b10cfb46950f1,
         type: 3}

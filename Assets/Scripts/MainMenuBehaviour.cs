@@ -103,9 +103,9 @@ public class MainMenuBehaviour : MonoBehaviour
 
         yield return new WaitForSeconds(fadeDelay);
 
-        TextBoxBehaviour.currentDialogue = levelIndex;
-
-        SceneManager.LoadScene(3);
+        // TextBoxBehaviour.currentDialogue = levelIndex;
+        LoadingScreenManager.LoadScene(levelIndex + firstLevelIndex - 1);
+        // SceneManager.LoadScene(3);
     }
 
     public void QuitButton()
