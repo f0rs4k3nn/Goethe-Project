@@ -47,7 +47,7 @@ public class AudioManager : MonoBehaviour
 	
 	private void Start()
 	{
-        musicVolume = 0.2f;
+        musicVolume = 0.5f;
         effectsVolume = 0.1f;
         //SetMusicVolume();
         //SetEffectsVolume();
