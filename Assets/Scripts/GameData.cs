@@ -37,7 +37,7 @@ public class GameData : MonoBehaviour
     {
         BinaryFormatter formatter = new BinaryFormatter();
 
-        FileStream file = File.Open(@"Assets\Scripts\UI\player.data", FileMode.Create);
+        FileStream file = File.Open(Application.persistentDataPath + "/player.data", FileMode.Create);
 
         SaveData data = new SaveData();
         data = saveData;
@@ -52,10 +52,10 @@ public class GameData : MonoBehaviour
     public void Load()
     {
 
-        if(File.Exists(@"Assets\Scripts\UI\player.data"))
+        if(File.Exists(Application.persistentDataPath+ "/player.data"))
         {
             BinaryFormatter formatter = new BinaryFormatter();
-            FileStream file = File.Open(@"Assets\Scripts\UI\player.data", FileMode.Open);
+            FileStream file = File.Open(Application.persistentDataPath + "/player.data", FileMode.Open);
             saveData = formatter.Deserialize(file) as SaveData;
 
             file.Close();
