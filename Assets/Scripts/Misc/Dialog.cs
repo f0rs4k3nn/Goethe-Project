@@ -93,7 +93,7 @@ public class Dialog : MonoBehaviour
             isin = false;            
             Destroy(this);            
         }
-
+        game.textDisplay.text = "";
         foreach (char letter in sentencesNpc[index].ToCharArray())
         {
             if(game.textDisplay.text.Length == sentencesNpc[index].Length)
