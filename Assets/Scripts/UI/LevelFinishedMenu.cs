@@ -16,20 +16,24 @@ public class LevelFinishedMenu : MonoBehaviour
   
 
     private void Start()
-    {
+    {       
         _cv = GetComponent<CanvasGroup>();
         _cv.alpha = 0;        
     }
 
     private void Update()
     {
-        if(!finishedLevel)
+        if (!finishedLevel)
         {
             return;
         }
 
         if(!_fadedIn)
         {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.lockState = CursorLockMode.Confined;
+            Cursor.visible = true;
+
             _fadedIn = true;
             StartCoroutine(changeValueOverTime(0, 1, fadeDelay));
         }

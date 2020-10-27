@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
 
 public class GameManager : Singleton<GameManager>
 {
@@ -31,6 +34,7 @@ public class GameManager : Singleton<GameManager>
     public GameObject sign;
     public GameObject interactBttn;
     public GameObject[] interactiveObj;
+    public GameObject finalDoorPark;
     public static int currentLevel;
 
     public static bool hasToInitialize = true;
@@ -48,7 +52,7 @@ public class GameManager : Singleton<GameManager>
 
     private GameObject levelFinishedMenu;
     private SaveData _save;
-    public const int lastLevel = 8; //the index of the final level
+    public const int lastLevel = 14; //the index of the final level
    // private Scene
 
    public int TotalScrap
@@ -93,7 +97,7 @@ public class GameManager : Singleton<GameManager>
             _playerModelVisible = value;
             if (playerModel == null)
             {
-                playerModel = GameObject.Find("PlayerModel");
+                playerModel = player.PlayerModels[CurrentCharacterModelIndex].gameObject;
             }
 
             playerModel.SetActive(value);
@@ -150,6 +154,7 @@ public class GameManager : Singleton<GameManager>
             
             interactBttn = GameObject.Find("Interact Button");
             playerGameObj = GameObject.Find("Player");
+            finalDoorPark = GameObject.Find("FinalDoorPark");
 
             sign = GameObject.Find("SignOverlay");
 
@@ -169,19 +174,16 @@ public class GameManager : Singleton<GameManager>
             dialogBox.SetActive(false);
             interactBttn.SetActive(false);
             sign.SetActive(false);
+            ScoringSystem.Score = 0;
 
             hasToInitialize = false;
 
-            Debug.Log("NUTSHACK");
-
-
-
+            _isMovementEnabled = true;
 
         } catch(System.Exception e)
         {
             Debug.Log("Loading " + e + " incomplete");
         }
-
     }
 
     public void FinishedLevel()
@@ -196,15 +198,15 @@ public class GameManager : Singleton<GameManager>
             Debug.Log(e.StackTrace);
         }
 
-
         playerModelVisible = false;
         currentLevel++;
 
         Debug.Log("I finished the level " + currentLevel);
-
+        TotalScrap += ScoringSystem.Score; // Add score to total scrap for purchases
+        
         if(currentLevel > lastLevel)
         {
-            Debug.Log("End GAME");
+            StartCoroutine(GameFinished());
         } else
         {
             if (currentLevel > _save.lastUnlockedLevel)
@@ -219,5 +221,24 @@ public class GameManager : Singleton<GameManager>
             levelFinishedMenu.SetActive(true);
             levelFinishedMenu.GetComponent<LevelFinishedMenu>().finishedLevel = true;
         }
+    }
+
+    IEnumerator GameFinished()
+    {
+        Image fadeOverlay = GameObject.Find("DeathOverlay").GetComponent<Image>();
+
+        float fadeDelay = 3.0f;
+
+        Color fixedColor = Color.white;
+        fixedColor.a = 1;
+        fadeOverlay.color = fixedColor;
+        fadeOverlay.CrossFadeAlpha(0f, 0f, true);
+
+        fadeOverlay.CrossFadeAlpha(1f, fadeDelay, true);
+
+        yield return new WaitForSeconds(fadeDelay);
+
+        AudioManager.instance.StopAudio();
+        SceneManager.LoadScene(lastLevel + 1);
     }
 }

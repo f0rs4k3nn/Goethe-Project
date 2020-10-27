@@ -39,10 +39,11 @@ public class CollectibleScript : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         
-        if(!taken && other.tag =="Player")
+        if(!taken && other.CompareTag("Player"))
         {
             taken = true;
             GameManager.Instance.ScoringSystem.Score += pointsWorth;
+            AudioManager.instance.Play("LetterSound");
             Destroy(gameObject);
         } 
     }

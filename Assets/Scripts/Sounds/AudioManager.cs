@@ -39,7 +39,7 @@ public class AudioManager : MonoBehaviour
 		{
 			s.source = gameObject.AddComponent<AudioSource>();
 			s.source.clip = s.clip;
-			s.source.loop = s.isMusic || s.loop;
+			s.source.loop = s.loop;
 
 			s.source.outputAudioMixerGroup = mixerGroup;
 		}
@@ -47,7 +47,7 @@ public class AudioManager : MonoBehaviour
 	
 	private void Start()
 	{
-        musicVolume = 0.2f;
+        musicVolume = 0.5f;
         effectsVolume = 0.1f;
         //SetMusicVolume();
         //SetEffectsVolume();
@@ -164,11 +164,21 @@ public class AudioManager : MonoBehaviour
 
     public void StopAudio()
     {
-        darkAmbient.source.Stop();
-        currentlyPlayingMusic.source.Stop();
-        currentlyPlayingAmbient.source.Stop();
+        if(darkAmbient != null)
+            darkAmbient.source.Stop();
+
+        if (currentlyPlayingMusic != null)
+            currentlyPlayingMusic.source.Stop();
+
+        if (currentlyPlayingAmbient != null)
+            currentlyPlayingAmbient.source.Stop();
     }
  
+    public void DefSettings()
+    {
+        SetVolume(1);
+        SetPitch(1);
+    }
 
     /*public void SetMusicVolume()
 	{

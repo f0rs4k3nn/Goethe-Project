@@ -1,0 +1,166 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &130673621075753684
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 134411496508551336}
+  - component: {fileID: 118938708580518340}
+  - component: {fileID: 108654929947159056}
+  - component: {fileID: 85828816125713566}
+  - component: {fileID: 3635131257973110055}
+  - component: {fileID: -4716793547809570036}
+  - component: {fileID: 1361926934096936395}
+  m_Layer: 8
+  m_Name: ATMRandomBUll
+  m_TagString: RandomTalk
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &134411496508551336
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 130673621075753684}
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &118938708580518340
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 130673621075753684}
+  m_Mesh: {fileID: 4300000, guid: 9c9c01ea5d9bcf74db52c9818f202508, type: 3}
+--- !u!23 &108654929947159056
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 130673621075753684}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 28035663f93ed4a4b8bb4f9b3a208bc2, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!64 &85828816125713566
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 130673621075753684}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 9c9c01ea5d9bcf74db52c9818f202508, type: 3}
+--- !u!114 &3635131257973110055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 130673621075753684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8536a1d7b48a6e2428f69df1468e8a5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sentencesNpc: []
+  index: 0
+  typingSpeed: 0
+--- !u!114 &-4716793547809570036
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 130673621075753684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ca38659b4b730543bcac5331edba6ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Sentences:
+  - 'Did you know that the paper thrown out each year is equivalent to approximately
+    640 million trees?  '
+  - 'Did you know that when a forest is cut down the humidity level goes down and
+    the nearby plants dry out?  '
+  - 'Did you know that trees absorb and store water using their roots and when they
+    are cut down the soil loses the ability to retain water? This leads to floods
+    in some areas and drought in others! '
+  - 'Did you know that almost 70% of the industrial waste is tossed into the water
+    bodies and this causes the pollution of the usable water supplies?  '
+  - 'Did you know that trees play a major role in controlling global warming? They
+    utilize greenhouse gases and restores the balance in the atmosphere.  '
+  - 'Did you know that several animals and plants across the world are accustomed
+    to their natural habitat? The deforestation of their natural habitats will make
+    it difficult for them to adapt to a new environment. '
+  - 'Did you know that recycling one aluminum can save enough energy to power a TV
+    for two hours?  '
+  - 'Did you know that for every ton of glass you recycle prevents 315 kilograms
+    of carbon dioxide from being released into the atmosphere?  '
+  - 'Did you know that recycling textile materials results in less land, water and
+    fertilizer used for cotton growth?  '
+  - 'Did you know that recycling can help Enviro unlock new skins?   '
+  - 'Environment degradation does not discriminate and neither should we! '
+  - 'Diversity is a gift of life! Our differences make us stronger!  '
+  - "An eye for an eye will make the whole world blind. Remember, never resort to
+    violence to solve a conflict. It\u2019s better to solve the problems through
+    communication. "
+--- !u!65 &1361926934096936395
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 130673621075753684}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.6186218, y: 1.8499999, z: 2.5251515}
+  m_Center: {x: 0, y: 1, z: 0.8125757}

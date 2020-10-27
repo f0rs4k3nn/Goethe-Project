@@ -10,6 +10,7 @@ public class TextBoxBehaviour : MonoBehaviour
     public Text nameText;
     public Image fadeOverlay;
     public float fadeDelay = 1.0f;
+    public Image docImage;
 
     
     private AudioManager _audio;
@@ -19,7 +20,7 @@ public class TextBoxBehaviour : MonoBehaviour
     private string[] _currentSpeakingCharacter;
     private int _currentIndex;
 
-    public  static int currentDialogue = 3;
+    public  static int currentDialogue = 6;
 
     // Start is called before the first frame update
     void Start()
@@ -35,6 +36,11 @@ public class TextBoxBehaviour : MonoBehaviour
         nextSignal.SetActive(false);
         Debug.Log("The current dialogue is " + currentDialogue);
 
+        if(currentDialogue == 6)
+        {
+            docImage.enabled = false;
+        }
+
         StartCoroutine(StartDialogue());
     }
 
@@ -44,6 +50,10 @@ public class TextBoxBehaviour : MonoBehaviour
         fixedColor.a = 1;
         fadeOverlay.color = fixedColor;
         fadeOverlay.CrossFadeAlpha(1f, 0f, true);
+
+        yield return new WaitForSeconds(1); //wait 1 second for the scene to load
+
+        _audio.Play("Tension");
 
         fadeOverlay.CrossFadeAlpha(0f, fadeDelay, true);   
         
@@ -61,6 +71,7 @@ public class TextBoxBehaviour : MonoBehaviour
         fadeOverlay.CrossFadeAlpha(1, fadeDelay, true);
 
         yield return new WaitForSeconds(fadeDelay);
+        _audio.StopAudio();
 
         LoadingScreenManager.LoadScene(currentDialogue + 3);
     }

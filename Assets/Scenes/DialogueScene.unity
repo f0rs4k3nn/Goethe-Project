@@ -177,7 +177,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -248,12 +248,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 1
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -556,6 +556,21 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 3757101914039681071, guid: 1601329d46d78494ca7128d69f64f34d,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.41543818
+      objectReference: {fileID: 0}
+    - target: {fileID: 3757101914039681071, guid: 1601329d46d78494ca7128d69f64f34d,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3757101914039681071, guid: 1601329d46d78494ca7128d69f64f34d,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1601329d46d78494ca7128d69f64f34d, type: 3}
 --- !u!1 &1144177922
@@ -714,7 +729,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: a9ae0a03a3f34514095ffc7a4e74663e, type: 3}
-    m_FontSize: 90
+    m_FontSize: 75
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -725,7 +740,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Cool wow have you heard of the tragedy of darth plagueis the wise?
+  m_Text: But don't look at them for too long, the research of my peers has proved
+    that they are capable of temporarily blinding you...
 --- !u!222 &1335160692
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -751,6 +767,7 @@ MonoBehaviour:
   nameText: {fileID: 1764925724}
   fadeOverlay: {fileID: 209179537}
   fadeDelay: 3
+  docImage: {fileID: 1739531975}
 --- !u!1 &1441767391
 GameObject:
   m_ObjectHideFlags: 0
@@ -762,6 +779,7 @@ GameObject:
   - component: {fileID: 1441767392}
   - component: {fileID: 1441767394}
   - component: {fileID: 1441767393}
+  - component: {fileID: 1441767395}
   m_Layer: 5
   m_Name: Signal
   m_TagString: Untagged
@@ -785,8 +803,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 204}
-  m_SizeDelta: {x: 420, y: 408.5}
+  m_AnchoredPosition: {x: -0.000024796, y: 204}
+  m_SizeDelta: {x: 518.8, y: 408.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1441767393
 MonoBehaviour:
@@ -806,7 +824,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 08f4021e56fe27a4a9282c203ccc7752, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -824,6 +842,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1441767391}
   m_CullTransparentMesh: 0
+--- !u!114 &1441767395
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1441767391}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 057389a39837afe4097c9393f3044c76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeBetweenFrames: 0.1
+  randomFrames: 1
+  sprites:
+  - {fileID: 21300000, guid: 08f4021e56fe27a4a9282c203ccc7752, type: 3}
+  - {fileID: 21300000, guid: 07411e448d51353458ac8c3a81e7b1c9, type: 3}
+  - {fileID: 21300000, guid: 277148a792ee51643935691dc35083bf, type: 3}
 --- !u!1 &1531705040
 GameObject:
   m_ObjectHideFlags: 0
@@ -877,7 +913,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.12974499, g: 0.18867922, b: 0, a: 1}
+  m_Color: {r: 0.019904604, g: 0.18867922, b: 0.018689923, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1028,12 +1064,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.69835186, b: 0.25943398, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 073db14b3d856fc4eb25aa7959d133ff, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cd5cf74ec98267a4a812adf51b8e09da, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1312,7 +1348,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.14150941, g: 0.14150941, b: 0.14150941, a: 1}
+  m_Color: {r: 0.05197579, g: 0.1509434, b: 0.073625825, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1512,6 +1548,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5809128601289641036, guid: 0e99b8b5df4b2f04d9f2b64e5a97868d,
+        type: 3}
+      propertyPath: sounds.Array.data[18].volume
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 5809128601289641037, guid: 0e99b8b5df4b2f04d9f2b64e5a97868d,
         type: 3}
       propertyPath: m_Name
@@ -1635,6 +1676,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3757101914039681071, guid: 1601329d46d78494ca7128d69f64f34d,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3757101914039681071, guid: 1601329d46d78494ca7128d69f64f34d,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3757101914039681071, guid: 1601329d46d78494ca7128d69f64f34d,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1601329d46d78494ca7128d69f64f34d, type: 3}

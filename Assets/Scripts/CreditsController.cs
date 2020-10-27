@@ -14,19 +14,17 @@ public class CreditsController : MonoBehaviour
 
         Sequence creditsSequence = DOTween.Sequence();
         creditsSequence.PrependInterval(2f);
-        creditsSequence.Append(doText(text1, "<b>Goethe Institute Bucharest\nPresents... _</b>"));
-        creditsSequence.Append(doFadeOut(text1, 2f, 4f));
-        creditsSequence.Append(doText(text1, ">Collaboration of BUG Lab and \n Retina Film Production _"));
+        creditsSequence.Append(doText(text1, "<b>Goethe-Institut Presents... _</b>"));
         creditsSequence.Append(doFadeOut(text1, 2f, 4f));
         creditsSequence.Append(doText(text1, "Romania\nTurkey\nSerbia\nMontenegro\nBosnia&Herzegovina\nMoldova _"));
         creditsSequence.Append(doFadeOut(text1, 4f, 4f));
         
-        creditsSequence.Append(doText(text1, ">Piciu Alexia\nIlie Miruna-Corina\nLaura Pop\nMosneagu Teodora _"));
-        creditsSequence.Append(doFadeOut(text1, 4f, 4f));
-        creditsSequence.Append(doText(text1, ">Merlă Antoniu - Ștefan\nPrudius Marina\nMerjem Nuhić\nKatarina Kapetina _"));
-        creditsSequence.Append(doFadeOut(text1, 4f, 2f));
-        creditsSequence.Append(doText(text1, ">Umur Yıldırım\nMehmet Yiğit Balçık\nAleksandar Gemaljevic\nAnja Radulović _"));
-        creditsSequence.Append(doFadeOut(text1, 4f, 2f));
+        creditsSequence.Append(doText(text2, ">Piciu Alexia\nIlie Miruna-Corina\nLaura Pop\nMosneagu Teodora _"));
+        creditsSequence.Append(doFadeOut(text2, 4f, 4f));
+        creditsSequence.Append(doText(text2, ">Merla Antoniu-Stefan\nPrudius Marina\nMerjem Nuhic\nKatarina Kapetina _"));
+        creditsSequence.Append(doFadeOut(text2, 4f, 2f));
+        creditsSequence.Append(doText(text2, ">Umur Yıldırım\nMehmet Yigit Balcık\nAleksandar Gemaljevic\nAnja Radulovic _"));
+        creditsSequence.Append(doFadeOut(text2, 4f, 2f));
     }
 
     private Tween doText(TextMeshProUGUI target, string message, float duration = 2f)

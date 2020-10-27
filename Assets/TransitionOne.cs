@@ -53,6 +53,6 @@ public class TransitionOne : MonoBehaviour
         yield return new WaitForSeconds(5f);
         // cumvreau.transform.GetChild(0).gameObject.SetActive(true);
         // cumvreau.transform.GetChild(1).gameObject.SetActive(true);
-        LoadingScreenManager.LoadScene(9);
+        LoadingScreenManager.LoadScene(17);
     }
 }
