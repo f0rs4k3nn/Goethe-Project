@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.ProBuilder.MeshOperations;
+using UnityStandardAssets.CrossPlatformInput;
 
 public class PlayerController : MonoBehaviour
 {
@@ -183,7 +182,7 @@ public class PlayerController : MonoBehaviour
             playedLandSound = false;
         }
 
-        if (Input.GetAxis("Jump") > 0)
+        if (CrossPlatformInputManager.GetAxis("Jump") > 0)
         {
             if (isGrounded && m_jumpKeyReleased) //default jump
             {
@@ -212,7 +211,7 @@ public class PlayerController : MonoBehaviour
             m_jumpKeyReleased = true;
         }
 
-        Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        Vector2 input = new Vector2(CrossPlatformInputManager.GetAxisRaw("Horizontal"), CrossPlatformInputManager.GetAxisRaw("Vertical"));
 
         bool walking = !Input.GetKey(KeyCode.LeftShift);
         float targetSpeed = (walking ? runSpeed : walkSpeed) * input.normalized.magnitude;
