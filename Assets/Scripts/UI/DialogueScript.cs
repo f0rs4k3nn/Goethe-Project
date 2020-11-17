@@ -10,8 +10,8 @@ public class DialogueScript : MonoBehaviour
 {
     private static string dialogueSignal = ">>>>! ";
     private static string dialogueEndSignal = "***!";
-    private static string lineStartSignal = " /: ";
-    private static string lineEndSignal = " :/";
+    private static string lineStartSignal = "/:";
+    private static string lineEndSignal = ":/";
 
     private static List<string> rawDialogue;
     private static string[] dialogueLines;
@@ -94,8 +94,11 @@ public class DialogueScript : MonoBehaviour
             Debug.Log(i + " of " + index);
             if (lineStart < 0)
             {
-                Debug.LogWarning("Dialog Error on " + index +"th dialog, " +  i + "th line");
-                speakingCharacter[i] = "Unknown";
+                Debug.LogWarning(line);
+                lineStart = line.IndexOf(lineStartSignal, System.StringComparison.Ordinal);
+                Debug.Log(lineStart);
+                
+                speakingCharacter[i] = line.Substring(0, lineStart);
                 dialogueLines[i] = line.Substring((lineStart + lineStartSignal.Length), (line.Length - (lineStart + lineStartSignal.Length) - lineEndSignal.Length));
             }
             else
