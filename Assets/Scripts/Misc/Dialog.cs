@@ -49,9 +49,8 @@ public class Dialog : MonoBehaviour
                 }
             } else
             {
-                game.textDisplay.text = sentencesNpc[index];
+                game.textDisplay.text = game.translationController.GetNPCSentence(index);
             }
-            
         }       
     }
 
@@ -94,7 +93,7 @@ public class Dialog : MonoBehaviour
             Destroy(this);            
         }
         game.textDisplay.text = "";
-        foreach (char letter in sentencesNpc[index].ToCharArray())
+        foreach (char letter in game.translationController.GetNPCSentence(index).ToCharArray())
         {
             if(game.textDisplay.text.Length == sentencesNpc[index].Length)
             {

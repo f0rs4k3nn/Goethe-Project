@@ -31,10 +31,34 @@ public class DialogueScript : MonoBehaviour
         string targetFile;
         if (Application.platform == RuntimePlatform.WindowsEditor ||
             Application.platform == RuntimePlatform.WindowsPlayer)
-            targetFile = @"Assets\Scripts\UI\Dialogue.txt";
+        {
+            switch (GameManager.Instance.Language)
+            {
+                case "en_GB":
+                    targetFile = @"Assets\Scripts\UI\Dialogue.txt";
+                    break;
+                case "de_DE":
+                    targetFile = @"Assets\Scripts\UI\DialogueDE.txt";
+                    break;
+                default:
+                    targetFile = @"Assets\Scripts\UI\Dialogue.txt";
+                    break;
+            }
+        }
         else // Platform is not Windows
         {
-            targetFile = @"Assets/Scripts/UI/Dialogue.txt";
+            switch (GameManager.Instance.Language)
+            {
+                case "en_GB":
+                    targetFile = @"Assets/Scripts/UI/Dialogue.txt";
+                    break;
+                case "de_DE":
+                    targetFile = @"Assets/Scripts/UI/DialogueDE.txt";
+                    break;
+                default:
+                    targetFile = @"Assets/Scripts/UI/Dialogue.txt";
+                    break;
+            }
         }
         
         System.IO.StreamReader file = new System.IO.StreamReader(@targetFile);
@@ -63,17 +87,24 @@ public class DialogueScript : MonoBehaviour
         for(int i = 0; i < rawDialogue.Count; i++)
         {
             line = rawDialogue[i];
-
-
+            
             int lineStart = line.IndexOf(lineStartSignal, System.StringComparison.Ordinal);
             int lineEnd = line.IndexOf(lineEndSignal, System.StringComparison.Ordinal);
 
-            speakingCharacter[i] = line.Substring(0, lineStart);
-
-            //(lineStart + lineStartSignal.Length)
-            dialogueLines[i] = line.Substring((lineStart + lineStartSignal.Length), (line.Length - (lineStart + lineStartSignal.Length) - lineEndSignal.Length));
-
-            Debug.Log(speakingCharacter[i] + ": " + dialogueLines[i]);
+            Debug.Log(i + " of " + index);
+            if (lineStart < 0)
+            {
+                Debug.LogWarning("Dialog Error on " + index +"th dialog, " +  i + "th line");
+                speakingCharacter[i] = "Unknown";
+                dialogueLines[i] = line.Substring((lineStart + lineStartSignal.Length), (line.Length - (lineStart + lineStartSignal.Length) - lineEndSignal.Length));
+            }
+            else
+            {
+                speakingCharacter[i] = line.Substring(0, lineStart);
+                //(lineStart + lineStartSignal.Length)
+                dialogueLines[i] = line.Substring((lineStart + lineStartSignal.Length), (line.Length - (lineStart + lineStartSignal.Length) - lineEndSignal.Length));
+//            Debug.Log(speakingCharacter[i] + ": " + dialogueLines[i]);
+            }
         }
     }
 
