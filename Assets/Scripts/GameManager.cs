@@ -131,13 +131,15 @@ public class GameManager : Singleton<GameManager>
         {
             Destroy(gameObject);
         }
-
-    }
-
-    public void Start()
-    {
+        
+        
         Initialize();
     }
+
+//    public void Start()
+//    {
+//        Initialize();
+//    }
 
     public void Initialize()
     {

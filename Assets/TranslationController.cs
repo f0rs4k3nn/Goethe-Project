@@ -6,18 +6,49 @@ using UnityEngine;
 
 public class TranslationController : MonoBehaviour
 {
+    
+    public enum KEY
+    {
+        CONTINUE,
+        START_GAME,
+        SELECT_LEVEL,
+        CUSTOMIZE,
+        CREDITS,
+        QUIT,
+        
+        BACK_TO_MENU,
+        LOAD_LEVEL,
+        STANDARD_ROBOT,
+        COPPER,
+        BRAND_NEW,
+        AMETHYST,
+        SHINY,
+        SCRAPS,
+        COST,
+        ACTIVATE,
+        PURCHASE,
+        NOT_ENOUGH_SCRAP,
+        ACTIVATED,
+        CUSTOMIZE_TITLE,
+        PAUSED_TITLE,
+        RESUME,
+        NEXT_LEVEL
+    }
+    
     public Translatable[] text;
-    private Dictionary<string, string> translationsEN;
-    private Dictionary<string, string> translationsDE;
+    private Dictionary<KEY, string> translationsEN;
+    private Dictionary<KEY, string> translationsDE;
+    
     private string[] _npcSentenceDE, _npcSentenceEN;
+    
     private void Awake()
     {
         GameManager.Instance.translationController = this;
+        prepareLanguage();
     }
 
     public void Start()
     {
-        prepareLanguage();
         RefreshLanguage(GameManager.Instance.Language);
     }
 
@@ -33,7 +64,7 @@ public class TranslationController : MonoBehaviour
                 for (int i = 0; i < text.Length; ++i)
                 {
                     if(translationsDE.ContainsKey(text[i].key))
-                        text[i].Text = translationsDE[text[i].key];
+                        text[i].SetText(translationsDE[text[i].key]);
                     else
                     {
                         Debug.LogWarning("Key: " + text[i].key + " is not found in " + language + text[i].transform.parent.name);
@@ -46,7 +77,7 @@ public class TranslationController : MonoBehaviour
                 for (int i = 0; i < text.Length; ++i)
                 {
                     if(translationsEN.ContainsKey(text[i].key))
-                        text[i].Text = translationsEN[text[i].key];
+                        text[i].SetText(translationsEN[text[i].key]);
                     else
                     {
                         Debug.LogWarning("Key: " + text[i].key + " is not found in " + language + text[i].transform.parent.name);
@@ -57,7 +88,7 @@ public class TranslationController : MonoBehaviour
         }
     }
 
-    public string GetTranslation(string key, string language = "")
+    public string GetTranslation(KEY key, string language = "")
     {
         if (language == "")
             language = GameManager.Instance.Language;
@@ -77,7 +108,7 @@ public class TranslationController : MonoBehaviour
                     Debug.LogWarning("Key: " + key + " is not found in English");
                 break;
         }
-        return key;
+        return key.ToString();
     }
     
     public string GetNPCSentence(int index)
@@ -106,27 +137,34 @@ public class TranslationController : MonoBehaviour
     private void prepareLanguage()
     {
         // de_DE
-        translationsDE = new Dictionary<string, string>();
+        translationsDE = new Dictionary<KEY, string>();
         
-        translationsDE.Add(">Continue", ">Weiter");
-        translationsDE.Add(">Start Game", ">Spiel starten");
-        translationsDE.Add(">Select Level", ">Level wählen");
-        translationsDE.Add(">Customize", ">Anpassen");
-        translationsDE.Add(">Credits", ">Nachspann");
-        translationsDE.Add(">Quit", ">Schließen");
+        translationsDE.Add(KEY.CONTINUE, ">Weiter");
+        translationsDE.Add(KEY.START_GAME, ">Spiel starten");
+        translationsDE.Add(KEY.SELECT_LEVEL, ">Level wählen");
+        translationsDE.Add(KEY.CUSTOMIZE, ">Anpassen");
+        translationsDE.Add(KEY.CREDITS, ">Nachspann");
+        translationsDE.Add(KEY.QUIT, ">Schließen");
         
-        translationsDE.Add(">Back to menu", ">Zurück zum Hauptmenü");
-        translationsDE.Add(">StandardRobot", ">StandardRobot");
-        translationsDE.Add(">Copper", ">Kupfer");
-        translationsDE.Add(">Brand New", ">Brandneu");
-        translationsDE.Add(">Amethyst", ">Amethyst");
-        translationsDE.Add(">Shiny", ">Glänzend");
-        translationsDE.Add(">Scraps", ">Schrott");
-        translationsDE.Add("Cost :", "Kosten :");
-        translationsDE.Add("[Activate]", "[Aktivieren]");
-        translationsDE.Add("[Purchase]", "[Einkauf]");
-        translationsDE.Add("Not enough Scrap _", "Nicht genügend Schrott _");
-        translationsDE.Add("Activated", "Aktiviert");
+        translationsDE.Add(KEY.CUSTOMIZE_TITLE, "Anpassen:_");
+        translationsDE.Add(KEY.BACK_TO_MENU, ">Zurück zum Hauptmenü");        
+        translationsDE.Add(KEY.LOAD_LEVEL, "LevelLaden:_");
+        translationsDE.Add(KEY.STANDARD_ROBOT, ">StandardRobot");
+        translationsDE.Add(KEY.COPPER, ">Kupfer");
+        translationsDE.Add(KEY.BRAND_NEW, ">Brandneu");
+        translationsDE.Add(KEY.AMETHYST, ">Amethyst");
+        translationsDE.Add(KEY.SHINY, ">Glänzend");
+        translationsDE.Add(KEY.SCRAPS, ">Schrott");
+        translationsDE.Add(KEY.COST, "Kosten :");
+        translationsDE.Add(KEY.ACTIVATE, "[Aktivieren]");
+        translationsDE.Add(KEY.PURCHASE, "[Einkauf]");
+        translationsDE.Add(KEY.NOT_ENOUGH_SCRAP, "Nicht genügend Schrott _");
+        translationsDE.Add(KEY.ACTIVATED, "Aktiviert");
+        
+        translationsDE.Add(KEY.RESUME, ">Fortsetzen"); // Check those translations
+        translationsDE.Add(KEY.NEXT_LEVEL, ">Nächste Level");
+        translationsDE.Add(KEY.PAUSED_TITLE, "Pausieren:/");
+           
 
         _npcSentenceDE = new []
         {
@@ -145,26 +183,33 @@ public class TranslationController : MonoBehaviour
         };
         
         // en_GB
-        translationsEN = new Dictionary<string, string>();
+        translationsEN = new Dictionary<KEY, string>();
 
-        translationsEN.Add(">Continue", ">Continue");
-        translationsEN.Add(">Start Game", ">Start Game");
-        translationsEN.Add(">Select Level", ">Select Level");
-        translationsEN.Add(">Customize", ">Customize");
-        translationsEN.Add(">Credits", ">Credits");
-        translationsEN.Add(">Quit", ">Quit");
+        translationsEN.Add(KEY.CONTINUE, ">Continue");
+        translationsEN.Add(KEY.START_GAME, ">Start Game");
+        translationsEN.Add(KEY.SELECT_LEVEL, ">Select Level");
+        translationsEN.Add(KEY.CUSTOMIZE, ">Customize");
+        translationsEN.Add(KEY.CREDITS, ">Credits");
+        translationsEN.Add(KEY.QUIT, ">Quit");
         
-        translationsEN.Add(">Back to menu", ">Back to menu");
-        translationsEN.Add(">StandardRobot", ">StandardRobot");
-        translationsEN.Add(">Copper", ">Copper");
-        translationsEN.Add(">Brand New", ">Brand New");
-        translationsEN.Add(">Amethyst", ">Amethyst");
-        translationsEN.Add(">Shiny", ">Shiny");
-        translationsEN.Add(">Scraps", ">Scraps");
-        translationsEN.Add("Cost :", "Cost :");
-        translationsEN.Add("[Activate]", "[Activate]");
-        translationsEN.Add("[Purchase]", "[Purchase]");
-        translationsEN.Add("Not enough Scrap _", "Not enough Scrap _");
+        translationsEN.Add(KEY.CUSTOMIZE_TITLE, "Customize:_");
+        translationsEN.Add(KEY.BACK_TO_MENU, ">Back to menu");
+        translationsEN.Add(KEY.LOAD_LEVEL, "LoadLevel:_");
+        translationsEN.Add(KEY.STANDARD_ROBOT, ">StandardRobot");
+        translationsEN.Add(KEY.COPPER, ">Copper");
+        translationsEN.Add(KEY.BRAND_NEW, ">Brand New");
+        translationsEN.Add(KEY.AMETHYST, ">Amethyst");
+        translationsEN.Add(KEY.SHINY, ">Shiny");
+        translationsEN.Add(KEY.SCRAPS, ">Scraps");
+        translationsEN.Add(KEY.COST, "Cost :");
+        translationsEN.Add(KEY.ACTIVATE, "[Activate]");
+        translationsEN.Add(KEY.PURCHASE, "[Purchase]");
+        translationsEN.Add(KEY.NOT_ENOUGH_SCRAP, "Not enough Scrap _");
+        translationsEN.Add(KEY.ACTIVATED, "Activated");
+        
+        translationsEN.Add(KEY.RESUME, ">Resume");
+        translationsEN.Add(KEY.NEXT_LEVEL, ">Next Level");
+        translationsEN.Add(KEY.PAUSED_TITLE, "Paused:/");
 
         _npcSentenceEN = new[]
         {

@@ -156,8 +156,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -11, y: 0}
-  m_SizeDelta: {x: -79.2, y: 0}
+  m_AnchoredPosition: {x: 390, y: 0}
+  m_SizeDelta: {x: -780, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2951357
 MonoBehaviour:
@@ -180,12 +180,12 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: a9ae0a03a3f34514095ffc7a4e74663e, type: 3}
-    m_FontSize: 100
+    m_FontSize: 80
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 100
-    m_Alignment: 5
+    m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -212,7 +212,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0327f09b6de954d84a7d3e824e7d9f40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  key: 
+  key: 6
 --- !u!1 &32850403
 GameObject:
   m_ObjectHideFlags: 0
@@ -1012,7 +1012,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0327f09b6de954d84a7d3e824e7d9f40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  key: 
+  key: 2
 --- !u!1 &368436926
 GameObject:
   m_ObjectHideFlags: 0
@@ -1578,7 +1578,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &548808767
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1618,18 +1618,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterInfos:
   - name: Standard
+    key: 8
     cost: 0
     sprite: {fileID: 21300000, guid: 073db14b3d856fc4eb25aa7959d133ff, type: 3}
   - name: Copper
+    key: 9
     cost: 25
     sprite: {fileID: 21300000, guid: 073db14b3d856fc4eb25aa7959d133ff, type: 3}
   - name: Brand New
+    key: 10
     cost: 40
     sprite: {fileID: 21300000, guid: 073db14b3d856fc4eb25aa7959d133ff, type: 3}
   - name: Amethyst
+    key: 11
     cost: 100
     sprite: {fileID: 21300000, guid: 073db14b3d856fc4eb25aa7959d133ff, type: 3}
   - name: Shiny
+    key: 12
     cost: 250
     sprite: {fileID: 21300000, guid: 073db14b3d856fc4eb25aa7959d133ff, type: 3}
   TotalScrapText: {fileID: 532146627}
@@ -2701,7 +2706,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0327f09b6de954d84a7d3e824e7d9f40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  key: 
+  key: 7
 --- !u!1 &793817474
 GameObject:
   m_ObjectHideFlags: 0
@@ -2843,6 +2848,7 @@ GameObject:
   - component: {fileID: 834144826}
   - component: {fileID: 834144828}
   - component: {fileID: 834144827}
+  - component: {fileID: 834144829}
   m_Layer: 0
   m_Name: Title
   m_TagString: Untagged
@@ -2910,6 +2916,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 834144825}
   m_CullTransparentMesh: 0
+--- !u!114 &834144829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 834144825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0327f09b6de954d84a7d3e824e7d9f40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: 19
 --- !u!1 &862282831
 GameObject:
   m_ObjectHideFlags: 0
@@ -4414,7 +4433,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0327f09b6de954d84a7d3e824e7d9f40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  key: 
+  key: 4
 --- !u!1 &1124860499
 GameObject:
   m_ObjectHideFlags: 0
@@ -4737,7 +4756,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0327f09b6de954d84a7d3e824e7d9f40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  key: 
+  key: 0
 --- !u!1 &1178118469
 GameObject:
   m_ObjectHideFlags: 0
@@ -5081,7 +5100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0327f09b6de954d84a7d3e824e7d9f40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  key: 
+  key: 5
 --- !u!1 &1243463432
 GameObject:
   m_ObjectHideFlags: 0
@@ -5118,8 +5137,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 56, y: 111}
-  m_SizeDelta: {x: 945.2, y: 81.5}
+  m_AnchoredPosition: {x: -12, y: 40}
+  m_SizeDelta: {x: 1345, y: 81.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1243463434
 MonoBehaviour:
@@ -5819,6 +5838,8 @@ MonoBehaviour:
   - {fileID: 1242419280}
   - {fileID: 746651232}
   - {fileID: 1670338949}
+  - {fileID: 2951359}
+  - {fileID: 834144829}
 --- !u!4 &1497799536
 Transform:
   m_ObjectHideFlags: 0
@@ -6005,7 +6026,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1553283365
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6335,7 +6356,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0327f09b6de954d84a7d3e824e7d9f40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  key: 
+  key: 3
 --- !u!1 &1644948572
 GameObject:
   m_ObjectHideFlags: 0
@@ -6567,8 +6588,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 290, y: 0}
-  m_SizeDelta: {x: -580, y: 0}
+  m_AnchoredPosition: {x: 390, y: 0}
+  m_SizeDelta: {x: -780, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1670338947
 MonoBehaviour:
@@ -6623,7 +6644,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0327f09b6de954d84a7d3e824e7d9f40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  key: 
+  key: 6
 --- !u!1 &1673366246
 GameObject:
   m_ObjectHideFlags: 0
@@ -7754,7 +7775,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
   m_AnchoredPosition: {x: -12, y: 40}
-  m_SizeDelta: {x: 945, y: 81.5}
+  m_SizeDelta: {x: 1345, y: 81.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1856509837
 MonoBehaviour:
@@ -9182,7 +9203,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0327f09b6de954d84a7d3e824e7d9f40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  key: 
+  key: 1
 --- !u!1 &9104407661362360097
 GameObject:
   m_ObjectHideFlags: 0

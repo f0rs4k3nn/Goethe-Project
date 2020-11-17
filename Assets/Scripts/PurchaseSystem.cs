@@ -11,6 +11,7 @@ public class PurchaseSystem : MonoBehaviour
     public class CharacterInfo
     {
         public string name;
+        public TranslationController.KEY key;
         public int cost;
         public bool isPurchased
         {
@@ -45,6 +46,8 @@ public class PurchaseSystem : MonoBehaviour
 
         currentCharacterIndex = GameManager.Instance.CurrentCharacterModelIndex;
         UpdateInfo(currentCharacterIndex);
+        Debug.Log("setActiveFalse");
+        this.gameObject.SetActive(false);
     }
 
     public void OnActivateCharacterButton()
@@ -77,7 +80,7 @@ public class PurchaseSystem : MonoBehaviour
         }
         else
         {
-            DOTween.To(() => ActivateText.text, x => ActivateText.text = x, _translation.GetTranslation("Not enough Scrap _"), .2f
+            DOTween.To(() => ActivateText.text, x => ActivateText.text = x, _translation.GetTranslation(TranslationController.KEY.NOT_ENOUGH_SCRAP), .2f
             );
         }
         
@@ -86,26 +89,26 @@ public class PurchaseSystem : MonoBehaviour
     public void UpdateInfo(int index)
     {
         // Infos
-        DOTween.To(() => NameText.text, x => NameText.text = x, _translation.GetTranslation(characterInfos[index].name), .15f);
+        DOTween.To(() => NameText.text, x => NameText.text = x, _translation.GetTranslation(characterInfos[index].key), .15f);
         previewImage.sprite = characterInfos[index].sprite;
 
         // Activation Button
         if (index == GameManager.Instance.CurrentCharacterModelIndex)
         {
             CostText.text = ""; // Remove Cost
-            DOTween.To(() => ActivateText.text, x => ActivateText.text = x, _translation.GetTranslation("Activated"), .05f);
+            DOTween.To(() => ActivateText.text, x => ActivateText.text = x, _translation.GetTranslation(TranslationController.KEY.ACTIVATED), .05f);
         }
         else
         {
             if (characterInfos[index].isPurchased)
             {
                 CostText.text = ""; // Remove Cost
-                ActivateText.text = _translation.GetTranslation("[Activate]");
+                ActivateText.text = _translation.GetTranslation(TranslationController.KEY.ACTIVATE);
             }
             else
             {
-                CostText.text = _translation.GetTranslation("Cost: ") + characterInfos[index].cost; // Print Cost
-                ActivateText.text = _translation.GetTranslation("[Purchase]");
+                CostText.text = _translation.GetTranslation(TranslationController.KEY.COST) + characterInfos[index].cost; // Print Cost
+                ActivateText.text = _translation.GetTranslation(TranslationController.KEY.PURCHASE);
             }
         }
 
