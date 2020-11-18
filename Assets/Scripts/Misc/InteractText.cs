@@ -29,8 +29,9 @@ public class InteractText : MonoBehaviour
     {
 
         //Interact with objects in scene
-        if (Input.GetKeyDown(KeyCode.E) && gameObject.name == "ToolBox" && isIn)
+        if (clickScript.clicked == true && gameObject.name == "ToolBox" && isIn)
         {
+            clickScript.clicked = false;
             interactText = "You found some tools!";
             hasTools = true;
             SlideTweenIn();
@@ -38,10 +39,11 @@ public class InteractText : MonoBehaviour
             StartCoroutine(DestroyInteractScript());
         }
 
-        if (Input.GetKeyDown(KeyCode.E) && gameObject.name == "Teleport_Terminal" && isIn)
+        if (clickScript.clicked == true && gameObject.name == "Teleport_Terminal" && isIn)
         {
             if (!hasTools)
             {
+                clickScript.clicked = false;
                 interactText = "Terminal is broken! If only you had some tools to fix it...";
                 game.interactText.text = interactText;
                 SlideTweenIn();
@@ -49,6 +51,7 @@ public class InteractText : MonoBehaviour
 
             if (hasTools)
             {
+                clickScript.clicked = false;
                 interactText = "Terminal is now repaired!";
                 game.interactText.text = interactText;
                 CustomTeleporter.teleportPadOn = true;
@@ -58,10 +61,11 @@ public class InteractText : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.E) && gameObject.name == "Teleport_TerminalDeactivated" && isIn)
+        if (clickScript.clicked == true && gameObject.name == "Teleport_TerminalDeactivated" && isIn)
         {
             if (!hasRustyKey)
             {
+                clickScript.clicked = false;
                 interactText = "Terminal is shut down! If only you a key to turn it on...";
                 game.interactText.text = interactText;
                 SlideTweenIn();
@@ -69,6 +73,7 @@ public class InteractText : MonoBehaviour
 
             if (hasRustyKey)
             {
+                clickScript.clicked = false;
                 interactText = "Terminal is now online!";
                 game.interactText.text = interactText;
                 CustomTeleporter.teleportPadOn = true;
@@ -78,8 +83,9 @@ public class InteractText : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.E) && gameObject.name == "Rusty_Key" && isIn)
+        if (clickScript.clicked == true && gameObject.name == "Rusty_Key" && isIn)
         {
+            clickScript.clicked = false;
             interactText = "You found a rusty key!";
             hasRustyKey = true;
             game.interactText.text = interactText;
@@ -88,8 +94,9 @@ public class InteractText : MonoBehaviour
             Destroy(gameObject);            
         }
 
-        if (Input.GetKeyDown(KeyCode.E) && gameObject.name == "Rusty_KeyTP" && isIn)
+        if (clickScript.clicked == true && gameObject.name == "Rusty_KeyTP" && isIn)
         {
+            clickScript.clicked = false;
             interactText = "You found a teleporter key!";
             hasRustyKey = true;
             game.interactText.text = interactText;
@@ -98,10 +105,11 @@ public class InteractText : MonoBehaviour
             Destroy(gameObject);
         }
 
-        if (Input.GetKeyDown(KeyCode.E) && gameObject.name == "MetalCabinetRusty" && isIn)
+        if (clickScript.clicked == true && gameObject.name == "MetalCabinetRusty" && isIn)
         {
             if (!hasRustyKey)
             {
+                clickScript.clicked = false;
                 interactText = "This rusty locker is locked.";
                 game.interactText.text = interactText;
                 SlideTweenIn();
@@ -109,6 +117,7 @@ public class InteractText : MonoBehaviour
 
             if (hasRustyKey)
             {
+                clickScript.clicked = false;
                 hasScissors = true;
                 interactText = "The key worked! You found a pair of scissors!";
                 game.interactText.text = interactText;
@@ -118,10 +127,11 @@ public class InteractText : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.E) && gameObject.name == "FinalDoorPark" && isIn)
+        if (clickScript.clicked == true && gameObject.name == "FinalDoorPark" && isIn)
         {
             if (!hasScissors)
             {
+                clickScript.clicked = false;
                 interactText = "The door is closed tight by some ropes.";
                 game.interactText.text = interactText;
                 SlideTweenIn();
@@ -129,9 +139,10 @@ public class InteractText : MonoBehaviour
 
             if (hasScissors)
             {
+                clickScript.clicked = false;
                 interactText = "The ropes are cut! The door is open now.";
                 game.interactText.text = interactText;
-                game.interactBttn.SetActive(false);
+                game.interactBttn.SetActive(false);                
                 SlideTweenIn();
                 RotateDoorTween();
                 Destroy(transform.GetChild(0).gameObject);
@@ -140,15 +151,17 @@ public class InteractText : MonoBehaviour
         }
 
         //Nivel MoJo
-        if (Input.GetKeyDown(KeyCode.E) && name == "BossConsole" && isIn)
+        if (clickScript.clicked == true && name == "BossConsole" && isIn)
         {
             if(KillBossTerminal.shieldCount == 0)
             {
-                KillBossTerminal.endgame_initiate = true;
+                clickScript.clicked = false;
+                KillBossTerminal.endgame_initiate = true;                
                 StartCoroutine(DestroyInteractScript());
             }
             else
             {
+                clickScript.clicked = false;
                 interactText = "The terminal is still shielded. " + KillBossTerminal.shieldCount + " security terminals remain to deactivate";
                 game.interactText.text = interactText;
                 game.interactBttn.SetActive(false);
@@ -156,19 +169,22 @@ public class InteractText : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.E) && tag == "SecurityConsole" && isIn)
+        if (clickScript.clicked == true && tag == "SecurityConsole" && isIn)
         {
-            KillBossTerminal.shieldCount --;             
+            clickScript.clicked = false;
+            KillBossTerminal.shieldCount --;          
             interactText = "Security Console Deactivated. ";
             FollowMeConsoles.Waypoints.Remove(transform);
 
             if (KillBossTerminal.shieldCount <= 0)
             {
+                clickScript.clicked = false;
                 KillBossTerminal.shieldCount = 0;
-                interactText += "The Shutdown terminal is now ready to be used";
+                interactText += "The Shutdown terminal is now ready to be used";                
             }
             else
             {
+                clickScript.clicked = false;
                 interactText += " " + KillBossTerminal.shieldCount + " security terminals left to deactivate";
             }
 

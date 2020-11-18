@@ -31,9 +31,10 @@ public class Dialog : MonoBehaviour
                 GameManager.Instance.interactBttn.SetActive(true);
         }
 
-        if (Input.GetKeyDown(KeyCode.E) && isin)
+        if (clickScript.clicked == true && isin)
         {
-            if(done)
+            clickScript.clicked = false;
+            if (done)
             {
                 if (!startConversation)
                 {

@@ -17,8 +17,9 @@ public class SignText : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && isIn)
+        if (clickScript.clicked == true && isIn)
         {
+            clickScript.clicked = false;
             game.textSignUp.text = "";
             game.textSignDown.text = "";
             game.sign.SetActive(true);
