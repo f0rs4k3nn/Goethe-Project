@@ -50,8 +50,8 @@ public class LoadingScreenManager : MonoBehaviour {
 		if (sceneToLoad < 0)
 			return;
 
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        //Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = true;
 
 
         fadeOverlay.gameObject.SetActive(true); // Making sure it's on so that we can crossfade Alpha

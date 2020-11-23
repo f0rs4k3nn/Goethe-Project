@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.ProBuilder.MeshOperations;
+using UnityStandardAssets.CrossPlatformInput;
 
 public class PlayerController : MonoBehaviour
 {
@@ -183,36 +184,7 @@ public class PlayerController : MonoBehaviour
             playedLandSound = false;
         }
 
-        if (Input.GetAxis("Jump") > 0)
-        {
-            if (isGrounded && m_jumpKeyReleased) //default jump
-            {
-                velocity.y = jumpForce;
-                m_jumpKeyReleased = false;
-                accumulatedJumpPower = 0;
-                audioManager.Play("NormalJump");
-            }
-            else if (!m_jumpKeyReleased && accumulatedJumpPower < accumulativeJumpLimit && canDoubleJump) //accumulative jump, also makes sure it isn't a double jump
-            {
-                float jumpStep = progressiveJumpPower * Time.deltaTime;
-                velocity.y += jumpStep;
-                accumulatedJumpPower += jumpStep;
-            }
-            else if (!isGrounded && m_jumpKeyReleased && doubleJumpUnlocked && canDoubleJump) //doublejump
-            {
-                m_jumpKeyReleased = false;
-                canDoubleJump = false;
-                velocity.y = jumpForce;
-                audioManager.Play("DoubleJump");
-            }
-        }
-        else if (Input.GetAxis("Jump") == 0)
-        {
-
-            m_jumpKeyReleased = true;
-        }
-
-        Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        Vector2 input = new Vector2(CrossPlatformInputManager.GetAxisRaw("Horizontal"), CrossPlatformInputManager.GetAxisRaw("Vertical"));
 
         bool walking = !Input.GetKey(KeyCode.LeftShift);
         float targetSpeed = (walking ? runSpeed : walkSpeed) * input.normalized.magnitude;
@@ -263,7 +235,38 @@ public class PlayerController : MonoBehaviour
         this.velocity = velocity;
     }
 
-   private void Update()
+    public void PressJump()
+    {
+        {
+            if (isGrounded && m_jumpKeyReleased) //default jump
+            {
+                velocity.y = jumpForce;
+                m_jumpKeyReleased = false;
+                accumulatedJumpPower = 0;
+                audioManager.Play("NormalJump");
+            }
+            else if (!m_jumpKeyReleased && accumulatedJumpPower < accumulativeJumpLimit && canDoubleJump) //accumulative jump, also makes sure it isn't a double jump
+            {
+                float jumpStep = progressiveJumpPower * Time.deltaTime;
+                velocity.y += jumpStep;
+                accumulatedJumpPower += jumpStep;
+            }
+            else if (!isGrounded && m_jumpKeyReleased && doubleJumpUnlocked && canDoubleJump) //doublejump
+            {
+                m_jumpKeyReleased = false;
+                canDoubleJump = false;
+                velocity.y = jumpForce;
+                audioManager.Play("DoubleJump");
+            }
+        }
+    }
+
+    public void ReleaseJump()
+    {
+        m_jumpKeyReleased = true;
+    }
+
+    private void Update()
     {
         //parentMovement = Vector3.zero;
 
