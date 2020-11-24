@@ -1,21 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.IO;
-
-using UnityEngine;
-using UnityEngine.UI;
-
-public class DialogueScript : MonoBehaviour
-{
-    private static string dialogueSignal = ">>>>! ";
-    private static string dialogueEndSignal = "***!";
-    private static string lineStartSignal = " /: ";
-    private static string lineEndSignal = " :/";
-    private static string cacat = @"
-	
-	
->>>>! a
+>>>>! 1
 Dr. Green /: ... :/
 Dr. Green /: ... :/
 Dr. Green /: Enviro, can you copy? Over. :/
@@ -28,7 +11,7 @@ Dr. Green /: It would appear as if your teleportation module is a bit defective.
 Enviro /: My... What? :/
 Dr. Green /: Oh... Well, you have a time traveling module that lets you go through the past and future. :/
 Dr. Green /: You are even able to see some of the differences between the two worlds. :/
-Dr. Green /: You can switch between the two by pressing the clock button. :/
+Dr. Green /: You can switch between the two by pressing the F key. :/
 Enviro /: Wait, why would I even have that? :/
 Dr. Green /: Enviro... I have built and designed you for the sole purpose of saving the planet. :/
 Dr. Green /: You are our last chance. :/
@@ -43,7 +26,7 @@ Dr. Green /:  ...For the rest of your life... But don't worry about them! Just f
 Enviro /: Uhuh, ok? I guess I will try. :/
 ***!
 
->>>>! b
+>>>>! 2
 Dr. Green /: Haha, it would appear as if you managed to find one of the portals! :/
 Enviro /: Just barely... But... Why is the world flooded? :/
 Dr. Green /: Hmm, already huh? These are the effects of what Corpo-corp is doing. :/
@@ -68,7 +51,7 @@ Dr. Green /: I can understand your skepticism, however, I can only ask you to tr
 Enviro /: ...Hm, I will try to. :/
 ***!
 
->>>>! c
+>>>>! 3
 Dr. Green /: Enviro? Can you copy? :/
 Dr. Green /: Helooooo? *cough* :/
 Enviro /: Yes yes, roger. :/
@@ -93,7 +76,7 @@ Dr. Green /: However, I did install a remote destruction device that is in my po
 Enviro /: Are you sure the enemy is Corpo-corp? :/
 ***!
 
->>>>! d
+>>>>! 4
 Dr. Green /: Heeey, Earth to planet Envirooo. Copy? :/
 Enviro /: Roger that. :/
 Dr. Green /: That was much better than last time, are you finally starting to open up? :/
@@ -112,7 +95,7 @@ Enviro /: ... :/
 Enviro /: Thanks. :/
 ***!
 
->>>>! e
+>>>>! 5
 Dr. Green /: Eloooo heeey, Envi! You good? *cough* *cough* :/
 Enviro /: Don't you have anything better to do than calling me every minute or so? :/
 Enviro /: Go outside or talk to your colleagues. :/
@@ -133,7 +116,7 @@ Dr. Green /: Green out. :/
 Enviro /: ... :/
 ***!
 
->>>>! f
+>>>>! 6
 Enviro /: ... :/
 Enviro /: ... :/
 Enviro /: ... :/
@@ -141,7 +124,7 @@ Enviro /: ...He isn't calling? :/
 Enviro /: I wonder if something happened... :/
 ***!
 
->>>>! g
+>>>>! 7
 Enviro /: Hello? Doctor Green, do you copy? Over. :/
 Dr. Green /: Huh? Enviro?? You Actually called? :/
 Enviro /: It's...  It's been a while since we last spoke, I just wanted to make sure nothing happened to you. :/
@@ -155,7 +138,7 @@ Dr. Green /: I am also delighted to see that your journey is progressing smoothl
 Enviro /: Thank you for that, doc... I mean it. :/
 ***!
 
->>>>! h
+>>>>! 8
 Enviro /: Hello? Doctor Green, do you copy? Over. :/
 Dr. Green /: Huh? Enviro?? You Actually called? :/
 Enviro /: It's...  It's been a while since we last spoke, I just wanted to make sure nothing happened to you. :/
@@ -169,8 +152,8 @@ Dr. Green /: I am also delighted to see that your journey is progressing smoothl
 Enviro /: Thank you for that, doc... I mean it. :/
 ***!
 
->>>>! i
-Enviro /: bbbbbDoc? Are you there? :/
+>>>>! 9
+Enviro /: Doc? Are you there? :/
 Dr. Green /: What?! You actually called me two times in a row?? :/
 Dr. Green /: I didn't expect you to be even needier than me. :/
 Enviro /: Yea... The thing is, I wanted to say something... :/
@@ -187,8 +170,8 @@ Enviro /: That is all that I had to say for now, I have to go save the world. :/
 Dr. Green /: Haha! *cough* *cough* That's the spirit! Go get them! :/
 ***!
 
->>>>! j
-Enviro /: aaaaaaaaaaDoc? Are you there? :/
+>>>>! 10
+Enviro /: Doc? Are you there? :/
 Dr. Green /: What?! You actually called me two times in a row?? :/
 Dr. Green /: I didn't expect you to be even needier than me. :/
 Enviro /: Yea... The thing is, I wanted to say something... :/
@@ -205,7 +188,7 @@ Enviro /: That is all that I had to say for now, I have to go save the world. :/
 Dr. Green /: Haha! *cough* *cough* That's the spirit! Go get them! :/
 ***!
 
->>>>! k
+>>>>! 11
 Dr. Green /: I cannot believe this... You really got there! :/
 Enviro /: Yea... It definitely wasn't a small journey, but finally, I will save everyone... :/
 Enviro /: ... :/
@@ -225,98 +208,7 @@ Enviro /: If you genuinely believe that, doc, then I, also, have hope this is fo
 Dr. Green /: ... :/
 Dr. Green /: Thank you, Enviro... :/
 Enviro /: Let's do this! :/
-***!";
+***!
 
 
 
-
-//MemoryStream cacat = new MemoryStream(data, 0, data.Length);
-
-
-    private static List<string> rawDialogue;
-    private static string[] dialogueLines;
-    private static string[] speakingCharacter; //which character is speaking at a given line
-
-    //public static System.IO.StreamReader file;
-    //
-    // Summary:
-    //     Initializez the script and fetches the dialogue
-    //     in respect to the given index
-    //
-    // Parameters:
-    //   index: current dialogue to play
-    //
-    public static void FetchDialogue(int indez)
-    {
-		char index = (char)(indez+(char)96);
-		Debug.Log("FMM index = "+index);
-
-        string targetFile;
-
-        if (Application.platform == RuntimePlatform.WindowsEditor ||
-            Application.platform == RuntimePlatform.WindowsPlayer)
-            targetFile = @"Assets\Resources\Dialogue.txt";
-        else // Platform is not Windows
-        {
-            targetFile = @"Assets/Resources/Dialogue.txt";
-        }
-        
-        System.IO.StringReader file = new StringReader( cacat );
-        
-        string line;
-        rawDialogue = new List<string>();
-
-        while ((line = file.ReadLine()) != null)
-        {
-            if (line.Contains(dialogueSignal))
-            {
-                if (line.Contains( index.ToString() /*index.ToString()*/)) //if desired dialogue
-                {
-					Debug.Log("Bula numara"+index.ToString());
-                    while (!(line = file.ReadLine()).Contains(dialogueEndSignal))
-                    {
-                        rawDialogue.Add(line);
-                        //Debug.Log(line);
-                    }
-                }
-            }
-        }
-
-        dialogueLines = new string[rawDialogue.Count];
-        speakingCharacter = new string[rawDialogue.Count];
-
-        for(int i = 0; i < rawDialogue.Count; i++)
-        {
-            line = rawDialogue[i];
-
-
-            int lineStart = line.IndexOf(lineStartSignal, System.StringComparison.Ordinal);
-            int lineEnd = line.IndexOf(lineEndSignal, System.StringComparison.Ordinal);
-
-            speakingCharacter[i] = line.Substring(0, lineStart);
-
-            //(lineStart + lineStartSignal.Length)
-            dialogueLines[i] = line.Substring((lineStart + lineStartSignal.Length), (line.Length - (lineStart + lineStartSignal.Length) - lineEndSignal.Length));
-
-            Debug.Log("Prostu spune:"  +speakingCharacter[i] + ": " + dialogueLines[i]);
-        }
-    }
-
-    //public static System.IO.StreamReader file;
-    //
-    // Summary:
-    //     Returns the dialogue array in respect to the 
-    //     given index in the initialize function.
-    //     Will return null if Initialize() wasn't called.
-    //
-    public static string[] GetDialogueArray() { return dialogueLines; }
-
-    //public static System.IO.StreamReader file;
-    //
-    // Summary:
-    //     Returns the array with the currently speaking character in respect to the 
-    //     given index in the initialize function.
-    //     Will return null if Initialize() wasn't called.
-    //
-    public static string[] GetSpeakingCharArray() { return speakingCharacter; }
-}

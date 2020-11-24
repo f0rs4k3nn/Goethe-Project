@@ -20,7 +20,7 @@ public class TextBoxBehaviour : MonoBehaviour
     private string[] _currentSpeakingCharacter;
     private int _currentIndex;
 
-    public  static int currentDialogue = 6;
+    public static int currentDialogue = 1;
 
     // Start is called before the first frame update
     void Start()
@@ -91,7 +91,7 @@ public class TextBoxBehaviour : MonoBehaviour
                 StartCoroutine(FinishDialogue());
             }
         } else //skip current line
-        {
+        {   
             _textBox.text = _currentDialogue[_currentIndex];
             LineFinished();      
         }    
