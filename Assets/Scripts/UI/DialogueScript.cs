@@ -12,7 +12,7 @@ public class DialogueScript : MonoBehaviour
     private static string dialogueEndSignal = "***!";
     private static string lineStartSignal = " /: ";
     private static string lineEndSignal = " :/";
-    private static string cacat = @"
+    private static string dialogueText = @"
 	
 	
 >>>>! a
@@ -249,7 +249,7 @@ Enviro /: Let's do this! :/
     public static void FetchDialogue(int indez)
     {
 		char index = (char)(indez+(char)96);
-		Debug.Log("FMM index = "+index);
+		Debug.Log("FMM index = " + index);
 
         string targetFile;
 
@@ -261,7 +261,7 @@ Enviro /: Let's do this! :/
             targetFile = @"Assets/Resources/Dialogue.txt";
         }
         
-        System.IO.StringReader file = new StringReader( cacat );
+        System.IO.StringReader file = new StringReader( dialogueText );
         
         string line;
         rawDialogue = new List<string>();
