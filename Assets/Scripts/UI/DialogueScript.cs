@@ -188,21 +188,13 @@ Dr. Green /: Haha! *cough* *cough* That's the spirit! Go get them! :/
 ***!
 
 >>>>! j
-Enviro /: aaaaaaaaaaDoc? Are you there? :/
-Dr. Green /: What?! You actually called me two times in a row?? :/
-Dr. Green /: I didn't expect you to be even needier than me. :/
-Enviro /: Yea... The thing is, I wanted to say something... :/
-Dr. Green /: That apology, is it? :/
-Enviro /: Why do you feel the need to make it even harder... :/
-Dr. Green /: Hahaha *cough* *cough*, I already told you, you don't have to worry about it. :/
-Enviro /: Yes, you said that, but I cannot accept the fact that I've done something like this. :/
-Enviro /: I genuinely feel sorry for what I have said to you. :/
-Enviro /: I doubted you up until now, but... Constantly seeing the future like it is and everything... :/
-Enviro /: I realised you might tell me the truth... There really are no more humans alive beside you... :/
-Enviro /: And that is the reason I want to apologise... :/
-Dr. Green /: I... Didn't expect that, Enviro, but I am incredibly glad to hear this from you. :/
-Enviro /: That is all that I had to say for now, I have to go save the world. :/
-Dr. Green /: Haha! *cough* *cough* That's the spirit! Go get them! :/
+Enviro /: aaaaaaaaaaDoctor Green, can you hear me? Over. :/
+Enviro /: ... :/
+Enviro /: ... :/
+Enviro /: Doctor Green? :/
+Enviro /: ... :/
+Enviro /: ... :/
+Enviro /: Maybe it's the tunnels... :/
 ***!
 
 >>>>! k
@@ -249,9 +241,9 @@ Enviro /: Let's do this! :/
     public static void FetchDialogue(int indez)
     {
 		char index = (char)(indez+(char)96);
-		Debug.Log("FMM index = " + index);
 
-        string targetFile;
+
+/*        string targetFile;
 
         if (Application.platform == RuntimePlatform.WindowsEditor ||
             Application.platform == RuntimePlatform.WindowsPlayer)
@@ -259,7 +251,7 @@ Enviro /: Let's do this! :/
         else // Platform is not Windows
         {
             targetFile = @"Assets/Resources/Dialogue.txt";
-        }
+        }*/
         
         System.IO.StringReader file = new StringReader( dialogueText );
         
