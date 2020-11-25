@@ -170,7 +170,7 @@ Enviro /: Thank you for that, doc... I mean it. :/
 ***!
 
 >>>>! i
-Enviro /: bbbbbDoc? Are you there? :/
+Enviro /: Doc? Are you there? :/
 Dr. Green /: What?! You actually called me two times in a row?? :/
 Dr. Green /: I didn't expect you to be even needier than me. :/
 Enviro /: Yea... The thing is, I wanted to say something... :/
@@ -188,7 +188,7 @@ Dr. Green /: Haha! *cough* *cough* That's the spirit! Go get them! :/
 ***!
 
 >>>>! j
-Enviro /: aaaaaaaaaaDoctor Green, can you hear me? Over. :/
+Enviro /: Doctor Green, can you hear me? Over. :/
 Enviro /: ... :/
 Enviro /: ... :/
 Enviro /: Doctor Green? :/
