@@ -12,7 +12,7 @@ public class DialogueScript : MonoBehaviour
     private static string dialogueEndSignal = "***!";
     private static string lineStartSignal = " /: ";
     private static string lineEndSignal = " :/";
-    private static string dialogueText = @"
+/*    private static string dialogueText = @"
 	
 	
 >>>>! a
@@ -217,12 +217,7 @@ Enviro /: If you genuinely believe that, doc, then I, also, have hope this is fo
 Dr. Green /: ... :/
 Dr. Green /: Thank you, Enviro... :/
 Enviro /: Let's do this! :/
-***!";
-
-
-
-
-
+***!";*/
 
 
     private static List<string> rawDialogue;
@@ -242,18 +237,20 @@ Enviro /: Let's do this! :/
     {
 		char index = (char)(indez+(char)96);
 
+        TextAsset mytxtData = Resources.Load<TextAsset>("DialogueFolder/Dialogue");
+        string textDialogue = mytxtData.text;
 
-/*        string targetFile;
+        /*      string targetFile;
 
-        if (Application.platform == RuntimePlatform.WindowsEditor ||
-            Application.platform == RuntimePlatform.WindowsPlayer)
-            targetFile = @"Assets\Resources\Dialogue.txt";
-        else // Platform is not Windows
-        {
-            targetFile = @"Assets/Resources/Dialogue.txt";
-        }*/
-        
-        System.IO.StringReader file = new StringReader( dialogueText );
+                if (Application.platform == RuntimePlatform.WindowsEditor ||
+                    Application.platform == RuntimePlatform.WindowsPlayer)
+                    targetFile = @"Assets\Resources\Dialogue.txt";
+                else // Platform is not Windows
+                {
+                    targetFile = @"Assets/Resources/Dialogue.txt";
+                }*/
+
+        StringReader file = new StringReader(@textDialogue);
         
         string line;
         rawDialogue = new List<string>();
@@ -264,7 +261,7 @@ Enviro /: Let's do this! :/
             {
                 if (line.Contains( index.ToString() /*index.ToString()*/)) //if desired dialogue
                 {
-					Debug.Log("Bula numara"+index.ToString());
+					
                     while (!(line = file.ReadLine()).Contains(dialogueEndSignal))
                     {
                         rawDialogue.Add(line);
