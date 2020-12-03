@@ -8,10 +8,17 @@ public class LevelFinisher : MonoBehaviour
 {
     public GameObject finishParticle;
     private AudioSource song;
+    private GameObject jump;
+    private GameObject time;
+    private GameObject walk;
 
     private void Start()
     {
         song = GetComponent<AudioSource>();
+        jump = GameObject.Find("JumpButton");
+        time = GameObject.Find("TimeTravelButton");
+        walk = GameObject.Find("MobileJoystick");
+
     }
 
 
@@ -22,6 +29,9 @@ public class LevelFinisher : MonoBehaviour
         
         Instantiate(finishParticle, transform);
 
+        jump.SetActive(false);
+        time.SetActive(false);
+        walk.SetActive(false);
 
         GameManager.Instance.FinishedLevel();
     }
