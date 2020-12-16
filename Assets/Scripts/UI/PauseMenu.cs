@@ -11,6 +11,9 @@ public class PauseMenu : MonoBehaviour
     public float fadeDelay = 1.0f;
     public GameObject pauseMenu;
     public GameObject pauseButton;
+    public GameObject move;
+    public GameObject jump;
+    public GameObject timetravel;
     private Toggle m_MenuToggle;
     private float m_TimeScaleRef = 1f;
     private float m_VolumeRef = 1f;
@@ -71,6 +74,9 @@ public class PauseMenu : MonoBehaviour
 
         m_Paused = true;
         pauseButton.SetActive(false);
+        jump.SetActive(false);
+        move.SetActive(false);
+        timetravel.SetActive(false);
         pauseMenu.SetActive(true);
     }
 
@@ -85,6 +91,9 @@ public class PauseMenu : MonoBehaviour
         AudioListener.volume = m_VolumeRef;
         m_Paused = false;
         pauseButton.SetActive(true);
+        jump.SetActive(true);
+        move.SetActive(true);
+        timetravel.SetActive(true);
         AudioManager.instance.Play("Selection");
     }
 
