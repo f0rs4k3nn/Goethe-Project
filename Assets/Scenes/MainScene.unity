@@ -8,8 +8,9 @@ OcclusionCullingSettings:
     smallestOccluder: 5
     smallestHole: 0.25
     backfaceThreshold: 100
-  m_SceneGUID: 00000000000000000000000000000000
-  m_OcclusionCullingData: {fileID: 0}
+  m_SceneGUID: d21b6387f1da4184fb723ec504afd252
+  m_OcclusionCullingData: {fileID: 36300000, guid: 797bec1f2090464448b9ce843c432ec4,
+    type: 2}
 --- !u!104 &2
 RenderSettings:
   m_ObjectHideFlags: 0
@@ -22243,6 +22244,7 @@ PrefabInstance:
     - {fileID: 1219584887576462233, guid: c6dfe59051bfac04baef8fbe3770cc34, type: 3}
     - {fileID: 1219584887576462234, guid: c6dfe59051bfac04baef8fbe3770cc34, type: 3}
     - {fileID: 6866714925609150316, guid: c6dfe59051bfac04baef8fbe3770cc34, type: 3}
+    - {fileID: 1219584887630497453, guid: c6dfe59051bfac04baef8fbe3770cc34, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c6dfe59051bfac04baef8fbe3770cc34, type: 3}
 --- !u!1 &1409323046 stripped
 GameObject:
@@ -22264,10 +22266,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shouldRotate: 1
   target: {fileID: 5939357689905526195}
-  distance: 15
-  height: 1
-  heightDamping: 2
+  distance: 10
+  height: 0.5
+  heightDamping: 3
   rotationDamping: 3
+  clipMoveTime: 0.05
+  returnTime: 1.5
+  sphereCastRadius: 0.1
+  visualiseInEditor: 1
+  closestDistance: 0.1
+  dontClipTag: Player
+  maxDistance: 10
 --- !u!224 &1414531937 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4511447380235052839, guid: 189760d13d3073c41887258bb5e88b8c,
@@ -36271,6 +36280,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5939357689838682467, guid: 330d482c6461f2c459d14bda071c2522,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 7341067383311871511, guid: 330d482c6461f2c459d14bda071c2522,
         type: 3}
