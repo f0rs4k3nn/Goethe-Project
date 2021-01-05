@@ -11,15 +11,18 @@ public class ThirdPersonCamera : MonoBehaviour
     // The target we are following
     public Transform target;
     // The distance in the x-z plane to the target
-    public float distance = 10.0f;
+    public float distance = 15.0f;
     // the height we want the camera to be above the target
-    public float height = 5.0f;
+    public float height = 6.0f;
+    public float rotation = 30.0f;
     // How much we
     public float heightDamping = 2.0f;
-    public float rotationDamping = 3.0f;
-    float wantedRotationAngle;
+    public float rotationDamping = 7.0f;
+    float wantedRotationAngleY;
+    float wantedRotationAngleX;
     float wantedHeight;
-    float currentRotationAngle;
+    float currentRotationAngleY;
+    float currentRotationAngleX;
     float currentHeight;
     Quaternion currentRotation;
 
@@ -28,16 +31,19 @@ public class ThirdPersonCamera : MonoBehaviour
         if (target)
         {
             // Calculate the current rotation angles
-            wantedRotationAngle = target.eulerAngles.y;
+            wantedRotationAngleY = target.eulerAngles.y;
+            wantedRotationAngleX = target.eulerAngles.x + rotation;
             wantedHeight = target.position.y + height;
-            currentRotationAngle = transform.eulerAngles.y;
+            currentRotationAngleY = transform.eulerAngles.y;
+            currentRotationAngleX = transform.eulerAngles.x;
             currentHeight = transform.position.y;
             // Damp the rotation around the y-axis
-            currentRotationAngle = Mathf.LerpAngle(currentRotationAngle, wantedRotationAngle, rotationDamping * Time.deltaTime);
+            currentRotationAngleY = Mathf.LerpAngle(currentRotationAngleY, wantedRotationAngleY, rotationDamping * Time.deltaTime);
+            currentRotationAngleX = Mathf.LerpAngle(currentRotationAngleX, wantedRotationAngleX, rotationDamping * Time.deltaTime);
             // Damp the height
             currentHeight = Mathf.Lerp(currentHeight, wantedHeight, heightDamping * Time.deltaTime);
             // Convert the angle into a rotation
-            currentRotation = Quaternion.Euler(0, currentRotationAngle, 0);
+            currentRotation = Quaternion.Euler(currentRotationAngleX, currentRotationAngleY, 0f);
             // Set the position of the camera on the x-z plane to:
             // distance meters behind the target
             transform.position = target.position;
@@ -48,7 +54,6 @@ public class ThirdPersonCamera : MonoBehaviour
             if (shouldRotate)
                 transform.LookAt(target);
         }
-
     }
 
     public static float shakeMagnitude = 0f;

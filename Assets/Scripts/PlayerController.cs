@@ -7,6 +7,7 @@ using UnityStandardAssets.CrossPlatformInput;
 
 public class PlayerController : MonoBehaviour
 {
+    private FloatingJoystick joystick;
     public Animator[] PlayerModels; // Predefined different models animations
     
     public float walkSpeed = 12;
@@ -88,6 +89,8 @@ public class PlayerController : MonoBehaviour
         GameManager.Instance.IsMovementEnabled = false;
 
         GameManager.Instance.player = this; // Assign itself to the GameManager
+
+        joystick = GameObject.FindWithTag("Joystick").GetComponent<FloatingJoystick>();
     }
 
     // Start is called before the first frame update
@@ -184,7 +187,8 @@ public class PlayerController : MonoBehaviour
             playedLandSound = false;
         }
 
-        Vector2 input = new Vector2(CrossPlatformInputManager.GetAxisRaw("Horizontal"), CrossPlatformInputManager.GetAxisRaw("Vertical"));
+        //Vector2 input = new Vector2(CrossPlatformInputManager.GetAxisRaw("Horizontal"), CrossPlatformInputManager.GetAxisRaw("Vertical"));
+        Vector2 input = new Vector2(joystick.Horizontal, joystick.Vertical);
 
         bool walking = !Input.GetKey(KeyCode.LeftShift);
         float targetSpeed = (walking ? runSpeed : walkSpeed) * input.normalized.magnitude;
