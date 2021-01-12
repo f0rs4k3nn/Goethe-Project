@@ -839,6 +839,14 @@
       <Project>{65953BC1-35C0-441E-D231-2606CCFF57AC}</Project>
       <Name>Assembly-CSharp</Name>
     </ProjectReference>
+    <ProjectReference Include="MeshBakerCore.csproj">
+      <Project>{2AFB3922-73B8-4D7A-CDB2-6B36B81EEF48}</Project>
+      <Name>MeshBakerCore</Name>
+    </ProjectReference>
+    <ProjectReference Include="MeshBakerEditor.csproj">
+      <Project>{8E308E5C-D974-FFD9-4B21-2BCA22AE17A7}</Project>
+      <Name>MeshBakerEditor</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

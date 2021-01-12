@@ -71,6 +71,8 @@
     <Compile Include="Assets\Assets Download\48 Particle Effect Pack\Script\csShowAllEffect.cs" />
     <Compile Include="Assets\Assets Download\48 Particle Effect Pack\ShurikenEffectEditor\csShurikenEffectChanger.cs" />
     <Compile Include="Assets\Assets Download\48 Particle Effect Pack\ShurikenEffectEditor\csShurikenEffectEditor.cs" />
+    <Compile Include="Assets\Assets Download\BakeTexturesAtRuntime\BakeTexturesAtRuntime.cs" />
+    <Compile Include="Assets\Assets Download\BatchPrepareObjectsForDynamicBatching\MB_BatchPrepareObjectsForDynamicBatchingDescription.cs" />
     <Compile Include="Assets\Assets Download\CameraShakeFX\Scripts\StressReceiver.cs" />
     <Compile Include="Assets\Assets Download\CameraShakeFX\Scripts\TraumaInducer.cs" />
     <Compile Include="Assets\Assets Download\Joystick Pack\Examples\JoystickPlayerExample.cs" />
@@ -116,6 +118,7 @@
     <Compile Include="Assets\Assets Download\MaxP\Shaders\Scripts\DirtyLensFlare.cs" />
     <Compile Include="Assets\Assets Download\NatureManufacture Assets - Trials Not Full Resolution\NatureManufacture Wind\NM_Wind.cs" />
     <Compile Include="Assets\Assets Download\Petal Particles - Cherry Petals\Demo Scene\Script\DemoScene.cs" />
+    <Compile Include="Assets\Assets Download\PrepareObjectsForDynamicBatching\MB_PrepareObjectsForDynamicBatchingDescription.cs" />
     <Compile Include="Assets\Assets Download\PyroParticles\Prefab\Script\FireBaseScript.cs" />
     <Compile Include="Assets\Assets Download\PyroParticles\Prefab\Script\FireCollisionForwardScript.cs" />
     <Compile Include="Assets\Assets Download\PyroParticles\Prefab\Script\FireConstantBaseScript.cs" />
@@ -130,6 +133,11 @@
     <Compile Include="Assets\Assets Download\SampleScenes\Scripts\ParticleSceneControls.cs" />
     <Compile Include="Assets\Assets Download\SampleScenes\Scripts\PlaceTargetWithMouse.cs" />
     <Compile Include="Assets\Assets Download\SampleScenes\Scripts\SlowMoButton.cs" />
+    <Compile Include="Assets\Assets Download\SceneDynamicAddDelete\MB_DynamicAddDeleteExample.cs" />
+    <Compile Include="Assets\Assets Download\SceneRuntimeExample\MB_Example.cs" />
+    <Compile Include="Assets\Assets Download\SceneRuntimeExample\MB_ExampleMover.cs" />
+    <Compile Include="Assets\Assets Download\SceneRuntimeExample\MB_ExampleSkinnedMeshDescription.cs" />
+    <Compile Include="Assets\Assets Download\SkinnedMeshRenderer\MB_SkinnedMeshSceneController.cs" />
     <Compile Include="Assets\Assets Download\Standard Assets\2D\Scripts\Camera2DFollow.cs" />
     <Compile Include="Assets\Assets Download\Standard Assets\2D\Scripts\CameraFollow.cs" />
     <Compile Include="Assets\Assets Download\Standard Assets\2D\Scripts\Platformer2DUserControl.cs" />
@@ -225,6 +233,7 @@
     <Compile Include="Assets\Assets Download\Standard Assets\Vehicles\Car\Scripts\SkidTrail.cs" />
     <Compile Include="Assets\Assets Download\Standard Assets\Vehicles\Car\Scripts\Suspension.cs" />
     <Compile Include="Assets\Assets Download\Standard Assets\Vehicles\Car\Scripts\WheelEffects.cs" />
+    <Compile Include="Assets\Assets Download\SwitchBakedObjectsTexture\MB_SwitchBakedObjectsTexture.cs" />
     <Compile Include="Assets\Assets Download\Teleportation Pad\CustomTeleporter.cs" />
     <Compile Include="Assets\Assets Download\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\Assets Download\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
@@ -328,6 +337,7 @@
     <Compile Include="Assets\FollowMeConsoles.cs" />
     <Compile Include="Assets\KillBossTerminal.cs" />
     <Compile Include="Assets\LightScript.cs" />
+    <Compile Include="Assets\MeshBaker\Examples\CharacterCustomization\MB_SwapShirts.cs" />
     <Compile Include="Assets\OpenAdditiveScene.cs" />
     <Compile Include="Assets\PickUpObject.cs" />
     <Compile Include="Assets\PlatformActivation.cs" />
@@ -421,11 +431,13 @@
     <None Include="Assets\Assets Download\TextMesh Pro\Examples &amp; Extras\Fonts\Oswald-Bold - OFL.txt" />
     <None Include="Assets\Assets Download\VolumetricLights\Resources\Shaders\Primitives.hlsl" />
     <None Include="Assets\Assets Download\TextMesh Pro\Examples &amp; Extras\Fonts\Anton OFL.txt" />
+    <None Include="Assets\MeshBaker\Resources\Shaders\AlbedoShader.shader" />
     <None Include="Assets\Assets Download\subway_entrance_pack\PostProcessing\Editor Resources\Monitors\ParadeRender.shader" />
     <None Include="Assets\Assets Download\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
     <None Include="Assets\Assets Download\VolumetricLights\Resources\Shaders\Empty.shader" />
     <None Include="Assets\Assets Download\LeanTween\License.txt" />
     <None Include="Assets\Assets Download\VolumetricLights\Resources\Shaders\VolumetricLightURP.shader" />
+    <None Include="Assets\MeshBaker\Release Notes.txt" />
     <None Include="Assets\Assets Download\PyroParticles\Prefab\Materials\AdditiveTintable.shader" />
     <None Include="Assets\Assets Download\Standard Assets\Environment\Water\Water4\Shaders\WaterInclude.cginc" />
     <None Include="Assets\Assets Download\VolumetricLights\Resources\Shaders\Particles\DustParticlesInput.hlsl" />
@@ -439,6 +451,7 @@
     <None Include="Assets\Assets Download\SampleScenes\Shaders\Skybox-Procedural.shader" />
     <None Include="Assets\Assets Download\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets\Assets Download\Standard Assets\Vehicles\Car\CarGuidelines.txt" />
+    <None Include="Assets\MeshBaker\Resources\Shaders\UnlitWithAlpha.shader" />
     <None Include="Assets\Assets Download\subway_entrance_pack\PostProcessing\Editor Resources\Monitors\VectorscopeRender.shader" />
     <None Include="Assets\Assets Download\subway_entrance_pack\PostProcessing\Resources\Shaders\UberSecondPass.cginc" />
     <None Include="Assets\Assets Download\Standard Assets\Vehicles\Aircraft\AircraftGuidelines.txt" />
@@ -453,6 +466,7 @@
     <None Include="Assets\Assets Download\SampleScenes\Packs\BirchPackVol1\Works For Fun.txt" />
     <None Include="Assets\Assets Download\Standard Assets\Environment\Water\Water4\Shaders\FXWater4Advanced.shader" />
     <None Include="Assets\Assets Download\subway_entrance_pack\PostProcessing\Resources\Shaders\EyeHistogram.compute" />
+    <None Include="Assets\Assets Download\Shaders\UnlitTextureArrays.shader" />
     <None Include="Assets\Assets Download\subway_entrance_pack\PostProcessing\Resources\Shaders\AmbientOcclusion.shader" />
     <None Include="Assets\Assets Download\MaxP\Shaders\_Source\Shaders\Resources\DirtyLensFlare.shader" />
     <None Include="Assets\Assets Download\subway_entrance_pack\PostProcessing\Resources\Shaders\Fog.shader" />
@@ -483,6 +497,7 @@
     <None Include="Assets\Assets Download\subway_entrance_pack\PostProcessing\Editor Resources\Monitors\VectorscopeCompute.compute" />
     <None Include="Assets\Assets Download\TextMesh Pro\Resources\Shaders\TMPro_Surface.cginc" />
     <None Include="Assets\Assets Download\VolumetricLights\Resources\Shaders\CommonsURP.hlsl" />
+    <None Include="Assets\MeshBaker\Resources\Shaders\NormalMapShader.shader" />
     <None Include="Assets\Assets Download\subway_entrance_pack\PostProcessing\Editor Resources\Monitors\HistogramRender.shader" />
     <None Include="Assets\Assets Download\Standard Assets\Effects\TessellationShaders\Shaders\BumpedSpecularDisplacement.shader" />
     <None Include="Assets\Assets Download\subway_entrance_pack\PostProcessing\Editor Resources\Monitors\WaveformCompute.compute" />
@@ -493,11 +508,13 @@
     <None Include="Assets\Assets Download\subway_entrance_pack\PostProcessing\Editor Resources\UI\CurveBackground.shader" />
     <None Include="Assets\Assets Download\Industrial Props\ReadMe.txt" />
     <None Include="Assets\Assets Download\subway_entrance_pack\PostProcessing\Resources\Shaders\Bloom.shader" />
+    <None Include="Assets\MeshBaker\MeshBakerWorkingFolder\DONT_DELETE.txt" />
     <None Include="Assets\Assets Download\subway_entrance_pack\PostProcessing\Resources\Shaders\ScreenSpaceReflection.shader" />
     <None Include="Assets\Assets Download\Windridge City Assets\READ ME - About project and assets.txt" />
     <None Include="Assets\Assets Download\LeanTween\Examples\Archived\2dUnlitWithFade.shader" />
     <None Include="Assets\Assets Download\subway_entrance_pack\PostProcessing\Resources\Shaders\FXAA3.cginc" />
     <None Include="Assets\Assets Download\Standard Assets\Effects\ImageEffects\Readme.txt" />
+    <None Include="Assets\MeshBaker\README.txt" />
     <None Include="Assets\Assets Download\Standard Assets\Characters\RollerBall\RollerBallGuidelines.txt" />
     <None Include="Assets\Assets Download\Standard Assets\Environment\Water\Water\Shaders\FXWaterPro.shader" />
     <None Include="Assets\Assets Download\subway_entrance_pack\PostProcessing\Resources\Shaders\GrainGen.shader" />
@@ -518,6 +535,7 @@
     <None Include="Assets\Assets Download\Teleportation Pad\README.txt" />
     <None Include="Assets\Assets Download\Standard Assets\Environment\Water (Basic)\Shaders\FXWaterBasic.shader" />
     <None Include="Assets\Assets Download\Mega Fantasy Props Pack\README.txt" />
+    <None Include="Assets\MeshBaker\Examples\CharacterCustomization\CreditForModel.txt" />
     <None Include="Assets\Assets Download\subway_entrance_pack\PostProcessing\Resources\Shaders\TAA.shader" />
     <None Include="Assets\Assets Download\TextMesh Pro\Resources\Shaders\TMP_SDF Overlay.shader" />
     <None Include="Assets\Assets Download\TextMesh Pro\Resources\Shaders\TMP_Bitmap-Mobile.shader" />
@@ -1223,6 +1241,14 @@
     <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
       <Project>{ACDCB078-FD2D-77C1-CF18-76B9999ADAD8}</Project>
       <Name>Assembly-CSharp-firstpass</Name>
+    </ProjectReference>
+    <ProjectReference Include="MeshBakerCore.csproj">
+      <Project>{2AFB3922-73B8-4D7A-CDB2-6B36B81EEF48}</Project>
+      <Name>MeshBakerCore</Name>
+    </ProjectReference>
+    <ProjectReference Include="MeshBakerEditor.csproj">
+      <Project>{8E308E5C-D974-FFD9-4B21-2BCA22AE17A7}</Project>
+      <Name>MeshBakerEditor</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

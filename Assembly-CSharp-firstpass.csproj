@@ -753,7 +753,16 @@
       <HintPath>D:/GituMatii/Android Goethe/Goethe-Project/Library/ScriptAssemblies/com.unity.multiplayer-hlapi.Runtime.dll</HintPath>
     </Reference>
   </ItemGroup>
-  <ItemGroup></ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="MeshBakerCore.csproj">
+      <Project>{2AFB3922-73B8-4D7A-CDB2-6B36B81EEF48}</Project>
+      <Name>MeshBakerCore</Name>
+    </ProjectReference>
+    <ProjectReference Include="MeshBakerEditor.csproj">
+      <Project>{8E308E5C-D974-FFD9-4B21-2BCA22AE17A7}</Project>
+      <Name>MeshBakerEditor</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
