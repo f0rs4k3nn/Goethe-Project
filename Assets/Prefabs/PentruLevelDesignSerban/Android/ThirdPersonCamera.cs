@@ -38,6 +38,7 @@ public class ThirdPersonCamera : MonoBehaviour
              currentRotationAngleY = transform.eulerAngles.y;
              currentRotationAngleX = transform.eulerAngles.x;
              currentHeight = transform.position.y;
+
              // Damp the rotation around the y-axis
              currentRotationAngleY = Mathf.LerpAngle(currentRotationAngleY, wantedRotationAngleY, rotationDamping * Time.deltaTime);
              currentRotationAngleX = Mathf.LerpAngle(currentRotationAngleX, wantedRotationAngleX, rotationDamping * Time.deltaTime);
