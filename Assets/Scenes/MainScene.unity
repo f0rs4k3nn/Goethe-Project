@@ -41213,6 +41213,7 @@ GameObject:
   - component: {fileID: 6866714924870989646}
   - component: {fileID: 1219584886892271240}
   - component: {fileID: 6866714924870989648}
+  - component: {fileID: 6866714924870989649}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -41241,6 +41242,25 @@ MonoBehaviour:
   distance: 15
   touchField: {fileID: 8170153792292012688}
   target: {fileID: 519073809}
+--- !u!114 &6866714924870989649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6866714924870989647}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86ef6b4757f180b4cb24762638570351, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shouldRotate: 1
+  target: {fileID: 0}
+  distance: 15
+  height: 6
+  rotation: 30
+  heightDamping: 2
+  rotationDamping: 7
 --- !u!4 &6866714924870989685
 Transform:
   m_ObjectHideFlags: 0
