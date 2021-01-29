@@ -100,6 +100,16 @@ public class MainMenuBehaviour : MonoBehaviour
         customizationScreen.SetActive(false);
     }
 
+    public void OnCredits()
+    {
+        SceneManager.LoadScene(16);
+    }
+
+    public void OnLanguageChangeButton(string language)
+    {
+        GameManager.Instance.Language = language;
+    }
+
     private IEnumerator ChoiceMade(int levelIndex, bool loadStory)
     {
         AudioManager.instance.Play("Selection");

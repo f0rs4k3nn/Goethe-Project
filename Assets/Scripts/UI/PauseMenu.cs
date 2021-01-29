@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -30,6 +31,11 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = m_TimeScaleRef;
         AudioListener.volume = m_VolumeRef;
         StartCoroutine(GoToMenuRoutine());
+    }
+
+    private void Start()
+    {
+        pauseMenu.SetActive(false);
     }
 
 

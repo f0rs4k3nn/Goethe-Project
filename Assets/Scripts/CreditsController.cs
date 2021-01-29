@@ -23,7 +23,7 @@ public class CreditsController : MonoBehaviour
         creditsSequence.Append(doFadeOut(text2, 4f, 4f));
         creditsSequence.Append(doText(text2, ">Merla Antoniu-Stefan\nPrudius Marina\nMerjem Nuhic\nKatarina Kapetina _"));
         creditsSequence.Append(doFadeOut(text2, 4f, 2f));
-        creditsSequence.Append(doText(text2, ">Umur Yıldırım\nMehmet Yigit Balcık\nAleksandar Gemaljevic\nAnja Radulovic _"));
+        creditsSequence.Append(doText(text2, ">Umur Yildirim\nMehmet Yigit Balcik\nAleksandar Gemaljevic\nAnja Radulovic _"));
         creditsSequence.Append(doFadeOut(text2, 4f, 2f));
     }
 
