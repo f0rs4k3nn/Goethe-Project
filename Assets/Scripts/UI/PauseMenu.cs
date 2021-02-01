@@ -17,11 +17,17 @@ public class PauseMenu : MonoBehaviour
     private bool m_Paused;
 
     private GameObject levelFinish;
+    private GameObject joystick;
+    private GameObject timeTravelButton;
+    private GameObject jumpButton;
 
 
     private void Awake()
     {
         levelFinish = FindObjectOfType<LevelFinishedMenu>().gameObject;
+        joystick = GameObject.Find("Floating Joystick");
+        timeTravelButton = GameObject.Find("TimeTravelButton");
+        jumpButton = GameObject.Find("JumpButton");
     }
 
     // Start is called before the first frame update
@@ -70,6 +76,9 @@ public class PauseMenu : MonoBehaviour
         AudioListener.volume = 0f;
 
         m_Paused = true;
+        joystick.SetActive(false);
+        timeTravelButton.SetActive(false);
+        jumpButton.SetActive(false);
         pauseButton.SetActive(false);
         pauseMenu.SetActive(true);
     }
@@ -85,6 +94,9 @@ public class PauseMenu : MonoBehaviour
         AudioListener.volume = m_VolumeRef;
         m_Paused = false;
         pauseButton.SetActive(true);
+        joystick.SetActive(true);
+        timeTravelButton.SetActive(true);
+        jumpButton.SetActive(true);
         AudioManager.instance.Play("Selection");
     }
 
