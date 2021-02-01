@@ -65,13 +65,13 @@ public class ThirdPersonCamera : MonoBehaviour
 
     private void Awake()
     {
-        GameManager.Instance.camera = this;
+        //GameManager.Instance.camera = this;
         shakeMagnitude = 0;
 
          if (shouldRotate)
          {
                 transform.LookAt(target);
-            }
+         }
     }
 
     void Start()

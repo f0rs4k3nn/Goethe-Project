@@ -16,6 +16,7 @@ public class TouchscreenCameraRotation : MonoBehaviour
     public float smooothTime = 0.12f;
 
     public float distance = 15.0f;
+    private float dstFromtarget = 15.0f;
 
     public FixedTouchField touchField;
     public Transform target;
@@ -23,11 +24,22 @@ public class TouchscreenCameraRotation : MonoBehaviour
     Vector3 targetRotation;
     Vector3 currentVelocity;
 
+    private bool canMove = false;
+    private UnityStandardAssets.Cameras.ProtectCameraFromWallClip clipControl;
+    public static float shakeMagnitude = 0f;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        
+        GameManager.Instance.camera = this;
+        shakeMagnitude = 0;
+    }
+
+    private void Start()
+    {
+        target = GameObject.Find("CameraRotationTarget").transform;
+        canMove = true;
+        clipControl = GetComponent<UnityStandardAssets.Cameras.ProtectCameraFromWallClip>();
     }
 
     // Update is called once per frame
@@ -47,6 +59,14 @@ public class TouchscreenCameraRotation : MonoBehaviour
         targetRotation = Vector3.SmoothDamp(targetRotation, new Vector3(Xaxis, Yaxis), ref currentVelocity, smooothTime);
         transform.eulerAngles = targetRotation;
 
-        transform.position = target.position - transform.forward * distance;
+        dstFromtarget = clipControl.GetCurrentDistance();
+        Vector3 offset = UnityEngine.Random.insideUnitSphere * shakeMagnitude;
+
+        transform.position = (target.position - transform.forward * dstFromtarget) + offset;
+    }
+
+    public void SetActive(bool isActive)
+    {
+        canMove = isActive;
     }
 }
