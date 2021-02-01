@@ -14,7 +14,7 @@ public class GameManager : Singleton<GameManager>
 
     public TimeTravelMechanic TimeTravelMechanic;
 
-    public ThirdPersonCamera camera;
+    public TouchscreenCameraRotation camera;
 
     public ScoringSystem ScoringSystem;
 
@@ -69,7 +69,7 @@ public class GameManager : Singleton<GameManager>
             _isMovementEnabled = value;
             if(camera == null)
             {
-                camera = FindObjectOfType<ThirdPersonCamera>();
+                camera = FindObjectOfType<TouchscreenCameraRotation>();
             }
 
             if (player == null)
@@ -166,7 +166,7 @@ public class GameManager : Singleton<GameManager>
             textSignDown.text = "";
             textDisplay.text = "";
 
-            camera = Camera.main.GetComponent<ThirdPersonCamera>();
+            camera = Camera.main.GetComponent<TouchscreenCameraRotation>();
 
             levelFinishedMenu = FindObjectOfType<LevelFinishedMenu>().gameObject;
 
