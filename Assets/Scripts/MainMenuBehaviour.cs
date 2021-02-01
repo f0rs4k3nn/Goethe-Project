@@ -66,7 +66,8 @@ public class MainMenuBehaviour : MonoBehaviour
     public void Continue()
     {
         if(_save.lastUnlockedLevel == 0)
-        {
+        {   
+            
             StartCoroutine(ChoiceMade(1, true));
         }
         else
@@ -82,7 +83,8 @@ public class MainMenuBehaviour : MonoBehaviour
     }
 
     public void StartGame()
-    {
+    {   
+        //MODIFY HERE TO START ON ANOTHER LVL
         StartCoroutine(ChoiceMade(1, true));
     }
 
