@@ -36,7 +36,7 @@ public class TextBoxBehaviour : MonoBehaviour
         nextSignal.SetActive(false);
         Debug.Log("The current dialogue is " + currentDialogue);
 
-        if(currentDialogue == 5 || currentDialogue == 9)
+        if(currentDialogue == 9)
         {
             docImage.enabled = false;
         }

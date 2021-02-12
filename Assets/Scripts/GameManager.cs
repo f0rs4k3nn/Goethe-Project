@@ -35,6 +35,10 @@ public class GameManager : Singleton<GameManager>
     public GameObject interactBttn;
     public GameObject[] interactiveObj;
     public GameObject finalDoorPark;
+    public GameObject joystick;
+    public GameObject timeTravelButton;
+    public GameObject jumpButton;
+
     public static int currentLevel;
 
     public static bool hasToInitialize = true;
@@ -52,7 +56,7 @@ public class GameManager : Singleton<GameManager>
 
     private GameObject levelFinishedMenu;
     private SaveData _save;
-    public const int lastLevel = 14; //the index of the final level
+    public const int lastLevel = 13; //the index of the final level
    // private Scene
 
    public int TotalScrap
@@ -161,6 +165,10 @@ public class GameManager : Singleton<GameManager>
             interactiveObj = GameObject.FindGameObjectsWithTag("Interactive");
 
             playerTransform = GameObject.Find("Player").transform;
+
+            joystick = GameObject.Find("Floating Joystick");
+            timeTravelButton = GameObject.Find("TimeTravelButton");
+            jumpButton = GameObject.Find("JumpButton");
 
             textSignUp.text = "";
             textSignDown.text = "";
