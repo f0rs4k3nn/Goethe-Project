@@ -38,6 +38,10 @@ public class PauseMenu : MonoBehaviour
         StartCoroutine(GoToMenuRoutine());
     }
 
+    private void Start()
+    {
+        pauseMenu.SetActive(false);
+    }
 
     private IEnumerator GoToMenuRoutine()
     {

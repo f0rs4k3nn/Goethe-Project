@@ -8,6 +8,20 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : Singleton<GameManager>
 {
+    public TranslationController translationController;
+    public string Language
+    {
+        get
+        {
+            return PlayerPrefs.GetString("Language", "en_GB");
+        }
+        set
+        {
+            PlayerPrefs.SetString("Language", value);
+            translationController.RefreshLanguage(value);
+        }
+    }
+
     public PlayerController player;
     public GameObject playerModel;
     public Transform playerTransform;
@@ -117,13 +131,13 @@ public class GameManager : Singleton<GameManager>
         {
             Destroy(gameObject);
         }
-
-    }
-
-    public void Start()
-    {
         Initialize();
     }
+
+   // public void Start()
+   // {
+   //     Initialize();
+   // }
 
     public void Initialize()
     {
