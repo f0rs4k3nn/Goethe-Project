@@ -18,7 +18,7 @@ public class Dialog : MonoBehaviour
 
     void Start()
     {
-        game = GameManager.Instance;       
+        game = GameManager.Instance;
     }
 
     private void Update()
@@ -31,9 +31,8 @@ public class Dialog : MonoBehaviour
                 GameManager.Instance.interactBttn.SetActive(true);
         }
 
-        if (clickScript.clicked == true && isin)
+        if (Input.GetKeyDown(KeyCode.E) && isin)
         {
-            clickScript.clicked = false;
             if (done)
             {
                 if (!startConversation)
@@ -48,15 +47,15 @@ public class Dialog : MonoBehaviour
                     //Debug.Log("next convo")
                     NextSentence();
                 }
-            } else
-            {
-                game.textDisplay.text = sentencesNpc[index];
             }
-            
-        }       
+            else
+            {
+                game.textDisplay.text = game.translationController.GetNPCSentence(index);
+            }
+        }
     }
 
-    
+
     private void OnTriggerStay(Collider player)
     {
         if (player.tag == "Player")
@@ -80,44 +79,61 @@ public class Dialog : MonoBehaviour
     IEnumerator Type()
     {
         done = false;
-      //  game.playerGameObj.GetComponent<PlayerController>().enabled = false;
+        //  game.playerGameObj.GetComponent<PlayerController>().enabled = false;
 
         if (tag == "RandomTalk" && !endTalk)
             index = Random.Range(0, sentencesNpc.Length - 1);
-        else if(endTalk)
+        else if (endTalk)
         {
             GameManager.Instance.interactBttn.SetActive(false);
             isin = false;
             startConversation = false;
             game.dialogBox.SetActive(false);
             game.interactBttn.SetActive(false);
-            isin = false;            
-            Destroy(this);            
+            isin = false;
+            Destroy(this);
         }
         game.textDisplay.text = "";
-        foreach (char letter in sentencesNpc[index].ToCharArray())
+        if (tag == "RandomTalk")
         {
-            if(game.textDisplay.text.Length == sentencesNpc[index].Length)
+            foreach (char letter in game.translationController.GetNPCSentence(index).ToCharArray())
             {
-                break;
-            }
+                if (game.textDisplay.text.Length == game.translationController.GetNPCSentence(index).Length)
+                {
+                    break;
+                }
 
-            AudioManager.instance.Play("LetterSound");
-            game.textDisplay.text += letter;
-            yield return new WaitForSeconds(typingSpeed);
+                AudioManager.instance.Play("LetterSound");
+                game.textDisplay.text += letter;
+                yield return new WaitForSeconds(typingSpeed);
+            }
+        }
+        else
+        {
+            foreach (char letter in sentencesNpc[index].ToCharArray())
+            {
+                if (game.textDisplay.text.Length == sentencesNpc[index].Length)
+                {
+                    break;
+                }
+
+                AudioManager.instance.Play("LetterSound");
+                game.textDisplay.text += letter;
+                yield return new WaitForSeconds(typingSpeed);
+            }
         }
 
         //game.playerGameObj.GetComponent<PlayerController>().enabled = true;
         done = true;
         if (tag == "RandomTalk")
         {
-            endTalk = true;           
+            endTalk = true;
         }
     }
 
     public void NextSentence()
     {
-        if(index < sentencesNpc.Length - 1)
+        if (index < sentencesNpc.Length - 1)
         {
             index++;
             game.textDisplay.text = "";
@@ -140,8 +156,8 @@ public class Dialog : MonoBehaviour
     }
     public void StartConversationAtSpawn()
     {
-        
-        if(!startConversation)
+
+        if (!startConversation)
         {
             //Debug.Log("started dialog");
             startConversation = true;

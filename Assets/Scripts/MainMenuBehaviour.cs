@@ -29,18 +29,20 @@ public class MainMenuBehaviour : MonoBehaviour
         fadeOverlay.color = fixedColor;
         fadeOverlay.CrossFadeAlpha(1f, 0f, true);
 
-        for(int i = 1; i < levelsParent.childCount; i++)
+        for (int i = 1; i < levelsParent.childCount; i++)
         {
-            if((GameData.gameData.saveData.lastUnlockedLevel - firstLevelIndex) >= i)
+            if ((GameData.gameData.saveData.lastUnlockedLevel - firstLevelIndex) >= i)
             {
                 levelsParent.GetChild(i).gameObject.SetActive(true);
-            } else
+            }
+            else
             {
                 levelsParent.GetChild(i).gameObject.SetActive(false);
             }
         }
 
         selectionScreen.SetActive(false);
+        customizationScreen.SetActive(false);
 
         StartCoroutine(StartMenu());
     }
@@ -65,15 +67,14 @@ public class MainMenuBehaviour : MonoBehaviour
 
     public void Continue()
     {
-        if(_save.lastUnlockedLevel == 0)
-        {   
-            
+        if (_save.lastUnlockedLevel == 0)
+        {
             StartCoroutine(ChoiceMade(1, true));
         }
         else
         {
             StartCoroutine(ChoiceMade(_save.lastUnlockedLevel - firstLevelIndex + 1, true));
-        }        
+        }
     }
 
     public void LoadLevel(int level)
@@ -83,8 +84,7 @@ public class MainMenuBehaviour : MonoBehaviour
     }
 
     public void StartGame()
-    {   
-        //MODIFY HERE TO START ON ANOTHER LVL
+    {
         StartCoroutine(ChoiceMade(1, true));
     }
 
@@ -102,6 +102,16 @@ public class MainMenuBehaviour : MonoBehaviour
         customizationScreen.SetActive(false);
     }
 
+    public void OnCredits()
+    {
+        SceneManager.LoadScene(15);
+    }
+
+    public void OnLanguageChangeButton(string language)
+    {
+        GameManager.Instance.Language = language;
+    }
+
     private IEnumerator ChoiceMade(int levelIndex, bool loadStory)
     {
         AudioManager.instance.Play("Selection");
@@ -117,15 +127,15 @@ public class MainMenuBehaviour : MonoBehaviour
 
         yield return new WaitForSeconds(fadeDelay);
 
-        if(loadStory)
+        if (loadStory)
         {
-             TextBoxBehaviour.currentDialogue = levelIndex;
-             SceneManager.LoadScene(3);
+            TextBoxBehaviour.currentDialogue = levelIndex;
+            SceneManager.LoadScene(3);
         }
         else
         {
             LoadingScreenManager.LoadScene(levelIndex + firstLevelIndex - 1);
-        }       
+        }
     }
 
     public void QuitButton()
