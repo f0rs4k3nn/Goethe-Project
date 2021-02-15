@@ -26,6 +26,7 @@ public class LevelFinisher : MonoBehaviour
         gameManager.joystick.SetActive(false);
         gameManager.timeTravelButton.SetActive(false);
         gameManager.jumpButton.SetActive(false);
+        gameManager.pauseButton.SetActive(false);
 
         Instantiate(finishParticle, transform);
 

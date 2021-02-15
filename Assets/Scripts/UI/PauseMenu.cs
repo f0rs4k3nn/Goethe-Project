@@ -10,24 +10,19 @@ public class PauseMenu : MonoBehaviour
     public Image fadeOverlay;
     public float fadeDelay = 1.0f;
     public GameObject pauseMenu;
-    public GameObject pauseButton;
     private Toggle m_MenuToggle;
     private float m_TimeScaleRef = 1f;
     private float m_VolumeRef = 1f;
     private bool m_Paused;
 
+    public GameManager gameManager;
     private GameObject levelFinish;
-    private GameObject joystick;
-    private GameObject timeTravelButton;
-    private GameObject jumpButton;
 
 
     private void Awake()
     {
+        gameManager = GameManager.Instance;
         levelFinish = FindObjectOfType<LevelFinishedMenu>().gameObject;
-        joystick = GameObject.Find("Floating Joystick");
-        timeTravelButton = GameObject.Find("TimeTravelButton");
-        jumpButton = GameObject.Find("JumpButton");
     }
 
     // Start is called before the first frame update
@@ -80,10 +75,10 @@ public class PauseMenu : MonoBehaviour
         AudioListener.volume = 0f;
 
         m_Paused = true;
-        joystick.SetActive(false);
-        timeTravelButton.SetActive(false);
-        jumpButton.SetActive(false);
-        pauseButton.SetActive(false);
+        gameManager.joystick.SetActive(false);
+        gameManager.timeTravelButton.SetActive(false);
+        gameManager.jumpButton.SetActive(false);
+        gameManager.pauseButton.SetActive(false);
         pauseMenu.SetActive(true);
     }
 
@@ -97,10 +92,10 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = m_TimeScaleRef;
         AudioListener.volume = m_VolumeRef;
         m_Paused = false;
-        pauseButton.SetActive(true);
-        joystick.SetActive(true);
-        timeTravelButton.SetActive(true);
-        jumpButton.SetActive(true);
+        gameManager.pauseButton.SetActive(true);
+        gameManager.joystick.SetActive(true);
+        gameManager.timeTravelButton.SetActive(true);
+        gameManager.jumpButton.SetActive(true);
         AudioManager.instance.Play("Selection");
     }
 

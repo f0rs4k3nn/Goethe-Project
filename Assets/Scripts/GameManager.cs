@@ -52,6 +52,7 @@ public class GameManager : Singleton<GameManager>
     public GameObject joystick;
     public GameObject timeTravelButton;
     public GameObject jumpButton;
+    public GameObject pauseButton;
 
     public static int currentLevel;
 
@@ -183,6 +184,7 @@ public class GameManager : Singleton<GameManager>
             joystick = GameObject.Find("Floating Joystick");
             timeTravelButton = GameObject.Find("TimeTravelButton");
             jumpButton = GameObject.Find("JumpButton");
+            pauseButton = GameObject.Find("PauseButton");
 
             textSignUp.text = "";
             textSignDown.text = "";
