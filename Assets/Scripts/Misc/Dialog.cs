@@ -95,7 +95,7 @@ public class Dialog : MonoBehaviour
         game.textDisplay.text = "";
         foreach (char letter in game.translationController.GetNPCSentence(index).ToCharArray())
         {
-            if(game.textDisplay.text.Length == sentencesNpc[index].Length)
+            if(game.textDisplay.text.Length == game.translationController.GetNPCSentence(index).Length)
             {
                 break;
             }
