@@ -72,7 +72,7 @@ public class EndingScript : MonoBehaviour
         blackFade.CrossFadeAlpha(1f, fadeDelay, true);
         yield return new WaitForSeconds(fadeDelay);
 
-        SceneManager.LoadScene(16);
+        SceneManager.LoadScene(15);
 
         _audio.StopAudio();
 
