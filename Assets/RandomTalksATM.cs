@@ -8,6 +8,5 @@ public class RandomTalksATM : MonoBehaviour
     void Start()
     {
         GetComponent<Dialog>().sentencesNpc = Sentences;
-    }   
-    
+    }     
 }

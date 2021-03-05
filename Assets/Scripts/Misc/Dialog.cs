@@ -31,7 +31,7 @@ public class Dialog : MonoBehaviour
                 GameManager.Instance.interactBttn.SetActive(true);
         }
 
-        if (Input.GetKeyDown(KeyCode.E) && isin)
+        if ((Input.GetKeyDown(KeyCode.E) && isin) || (clickScript.clicked && isin))
         {
             if (done)
             {
@@ -50,6 +50,7 @@ public class Dialog : MonoBehaviour
             }
             else
             {
+                clickScript.clicked = false;
                 game.textDisplay.text = game.translationController.GetNPCSentence(index);
             }
         }
