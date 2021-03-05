@@ -13,6 +13,7 @@ public class MainMenuBehaviour : MonoBehaviour
     public GameObject mainScreen;
     public GameObject selectionScreen;
     public GameObject customizationScreen;
+    public GameObject controlsScreen;
     public Transform levelsParent;
 
 
@@ -43,6 +44,7 @@ public class MainMenuBehaviour : MonoBehaviour
 
         selectionScreen.SetActive(false);
         customizationScreen.SetActive(false);
+        controlsScreen.SetActive(false);
 
         StartCoroutine(StartMenu());
     }
@@ -100,6 +102,20 @@ public class MainMenuBehaviour : MonoBehaviour
         AudioManager.instance.Play("Selection");
         mainScreen.SetActive(true);
         customizationScreen.SetActive(false);
+    }
+
+    public void OpenControls()
+    {
+        AudioManager.instance.Play("Selection");
+        mainScreen.SetActive(false);
+        controlsScreen.SetActive(true);
+    }
+
+    public void CloseControls()
+    {
+        AudioManager.instance.Play("Selection");
+        mainScreen.SetActive(true);
+        controlsScreen.SetActive(false);
     }
 
     public void OnCredits()
