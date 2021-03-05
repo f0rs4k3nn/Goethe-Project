@@ -13,6 +13,7 @@ public class SetResolution : MonoBehaviour
     void Start()
     {
         dropdown.value = QualitySettings.GetQualityLevel();
+        Application.targetFrameRate = 144;
     }
 
     // Update is called once per frame
