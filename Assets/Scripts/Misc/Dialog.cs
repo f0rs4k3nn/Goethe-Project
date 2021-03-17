@@ -33,6 +33,7 @@ public class Dialog : MonoBehaviour
 
         if ((Input.GetKeyDown(KeyCode.E) && isin) || (clickScript.clicked && isin))
         {
+            clickScript.clicked = false;
             if (done)
             {
                 if (!startConversation)
@@ -50,8 +51,11 @@ public class Dialog : MonoBehaviour
             }
             else
             {
-                clickScript.clicked = false;
-                game.textDisplay.text = game.translationController.GetNPCSentence(index);
+                //clickScript.clicked = false;
+                if (tag == "RandomTalk")
+                    game.textDisplay.text = game.translationController.GetNPCSentence(index);
+                else
+                    game.textDisplay.text = sentencesNpc[index];
             }
         }
     }
